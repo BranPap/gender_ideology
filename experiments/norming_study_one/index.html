@@ -166,8 +166,8 @@
       <table class="likertscale">
         <tr>
           <td>
-            <p>
-            very likely a man
+            <p id="scale_end_one">
+            {{scale_end_one}}
             </p>
           </td>
           <td>
@@ -192,7 +192,9 @@
             <input type="radio" name="number" value="7">
           </td>
           <td>
-            very likely a woman
+            <p id="scale_end_two">
+            {{scale_end_two}}
+            </p>
           </td>
         </tr>
         <tr>
