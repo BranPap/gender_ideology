@@ -1,359 +1,218 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Language Experiment
-    </title><!--JS-->
-    <!-- external general utilities -->
-    <script src="shared/js/jquery-1.11.1.min.js"></script>
-    <script src="shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
-    <script src="shared/js/underscore-min.js"></script>
+// set up experiment logic for each slide
+function make_slides(f) {
+  var slides = {};
 
-    <!-- experiment logic -->
-    <script src="shared/js/exp-V2.js"></script>
-    <script src="shared/js/stream-V2.js"></script>
+  // set up initial slide
+  slides.i0 = slide({
+    name: "i0",
+    start: function() {
+      exp.startT = Date.now();
+    }
+  });
 
-    <!-- utilities to submit data to proliferate -->
-    <script src="https://proliferate.alps.science/static/js/proliferate.js"></script>
+  // set up the first example slide
+  slides.example1 = slide({
+    name: "example1",
 
-    <!-- general utilities -->
-    <script src="shared/js/browserCheck.js"></script>
-    <script src="shared/js/utils.js"></script>
-    <link href="shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
-    <link href="shared/css/cocolab-style.css" rel="stylesheet" type="text/css">
-    <link href="css/local-style.css" rel="stylesheet" type="text/css">
+    // this is executed when the slide is shown
+    start: function() {
+      // hide error message
+      $('.err').hide();
+    },
 
-    <!-- experiment file -->
-    <script src="js/experiment.js"></script>
+    // this is executed when the participant clicks the "Continue button"
+    button: function() {
+      // read in the value of the selected radio button
+      this.radio = $("input[name='number']:checked").val();
+      // check whether the participant selected a reasonable value (i.e, 5, 6, or 7)
+      if (this.radio) {
+        // log response
+        this.log_responses();
+        // continue to next slide
+        exp.go();
+      } else {
+        // participant gave non-reasonable response --> show error message
+        $('.err').show();
+        this.log_responses();
+      }
+    },
 
-    <!-- stimulus file -->
-    <script src="js/stimuli.js"></script>
-  </head>
+    log_responses: function() {
+      // add response to exp.data_trials
+      // this data will be submitted at the end of the experiment
+      exp.data_trials.push({
+        "slide_number_in_experiment": exp.phase,
+        "id": "example1",
+        "response": this.radio,
+        // "strangeSentence": "",
+        "sentence": "",
+      });
+    },
+  });
 
-  <body onload="init()">
-    <noscript>This task requires JavaScript.</noscript>
+  // set up slide with instructions for main experiment
+  slides.startExp = slide({
+    name: "startExp",
+    start: function() {
+    },
+    button: function() {
+      exp.go(); //use exp.go() if and only if there is no "present" data.
+    },
+  });
 
-    <!-- initial slide -->
-    <div class="slide" id="i0">
-      <p class="left">
-        You will read some sentences. <strong>Your task is to answer a question about the sentence to the best of your ability.</strong><br>
-        <br>
-        The experiment will take approximately 10 minutes. Let's start with an example!
-      </p><button id="start_button" type="button">Start experiment</button>
-      <p class="left legal">
-        <strong><br>
-        <br>
-        <br>
-        LEGAL INFORMATION</strong>:<br>
-        <br>
-        IF APPLICABLE, MAKE SURE TO INCLUDE YOUR IRB CONSENT FORM HERE.
-      </p>
-    </div>
+  slides.trial = slide({
+    name: "trial",
 
-    <!-- first example slide -->
-    <div class="slide" id="example1">
-      <h3>
-        Example 1
-      </h3>
-      <p class="title_frame">
-        Someone is a teacher.
-      </p>
-      <div class="gender_question">
-        <i>How likely is it that the person in question is a man or woman?</i>
-      </div>
-      <table class="likertscale">
-        <tr>
-          <td>
-            very likely a man
-          </td>
-          <td>
-            <input type="radio" name="number" value="1">
-          </td>
-          <td>
-            <input type="radio" name="number" value="2">
-          </td>
-          <td>
-            <input type="radio" name="number" value="3">
-          </td>
-          <td>
-            <input type="radio" name="number" value="4">
-          </td>
-          <td>
-            <input type="radio" name="number" value="5">
-          </td>
-          <td>
-            <input type="radio" name="number" value="6">
-          </td>
-          <td>
-            <input type="radio" name="number" value="7">
-          </td>
-          <td>
-            very likely a woman
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            1
-          </td>
-          <td>
-            2
-          </td>
-          <td>
-            3
-          </td>
-          <td>
-            4
-          </td>
-          <td>
-            5
-          </td>
-          <td>
-            6
-          </td>
-          <td>
-            7
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td class='unsure'>
-            unsure
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table><br>
-      <br>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continue</button>
-      </div>
-      <div class="err">
-        <p>
-          Please make sure to select a value before continuing!
-        </p>
-      </div>
-    </div>
+    // To rotate through stimulus list:
+    present: exp.stimuli,
+    present_handle : function(stim) {
 
-    <!-- main instructions slide -->
-    <div class="slide" id="startExp">
-      <br>
-      <br>
-      <p id="instruct-text" class="left">
-        Great! Now we can start the real experiment. You will now read 38 sentences. Your task is to rate how likely the individual in question is to be a woman or man. If you think they are equally likely to be of either gender, or some other non-binary gender, you can select the middle option.
-      </p>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continue</button>
-      </div>
-    </div>
+      // unselect all radio buttons at the beginning of each trial
+      // (by default, the selection of the radio persists across trials)
+      $("input[name='number']:checked").prop("checked", false);
+      $("#check-strange").prop("checked", false);
 
-    <!-- trial slide -->
-    <div class="slide" id="trial">
+      // store stimulus data
+      this.stim = stim;
 
-      <!-- placeholders for stimuli -->
-      <p class="title_frame" id="trial-title_frame">
-        {{title_frame}}
-      </p>
-      <div class="gender_question">
-        <i>How likely is it that the person in question is a man or woman?</i>
-      </div>
-      <table class="likertscale">
-        <tr>
-          <td>
-            <p id="scale_end_one">
-            {{scale_end_one}}
-            </p>
-          </td>
-          <td>
-            <input type="radio" name="number" value="1">
-          </td>
-          <td>
-            <input type="radio" name="number" value="2">
-          </td>
-          <td>
-            <input type="radio" name="number" value="3">
-          </td>
-          <td>
-            <input type="radio" name="number" value="4">
-          </td>
-          <td>
-            <input type="radio" name="number" value="5">
-          </td>
-          <td>
-            <input type="radio" name="number" value="6">
-          </td>
-          <td>
-            <input type="radio" name="number" value="7">
-          </td>
-          <td>
-            <p id="scale_end_two">
-            {{scale_end_two}}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            1
-          </td>
-          <td>
-            2
-          </td>
-          <td>
-            3
-          </td>
-          <td>
-            4
-          </td>
-          <td>
-            5
-          </td>
-          <td>
-            6
-          </td>
-          <td>
-            7
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td class='unsure'>
-            unsure
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table><br>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continue</button>
-      </div>
-      <div class="err">
-        <br>
-        <p>
-          Make sure you select an answer before clicking 'Continue'.
-        </p>
-      </div>
-    </div>
+      var gender = _.shuffle(["Male","Female","Neutral"])
+      exp.item = gender.pop()
+      if (exp.item == "Male") {
+        var title_frame = stim.male;
+      } else if (exp.item == "Female") {
+        var title_frame = stim.female;
+      } else {
+        var title_frame = stim.neutral;
+      }
+      console.log('item',exp.item)
 
-    <!-- subject information slide -->
-    <div class="slide" id="subj_info">
-      <div class="long_form">
-        <div class="subj_info_title">
-          Additional information
-        </div>
-        <p class="info">
-          Answering these questions is optional, but will help us understand your answers.
-        </p>
-        <p>
-          Did you read the instructions and do you think you did the HIT correctly?
-        </p><label><input type="radio" name="assess" value="No">No</label> <label><input type="radio" name="assess" value="Yes">Yes</label> <label><input type="radio" name="assess" value="Confused">I was confused</label>
-        <p>
-          Gender: <select id="gender">
-            <option value="">
-            </option>
-            <option value="Male">
-              male
-            </option>
-            <option value="Female">
-              female
-            </option>
-            <option value="Other">
-              other
-            </option>
-          </select>
-        </p>
-        <p>
-          Age: <input type="text" id="age">
-        </p>
-        <p>
-          Level of education: <select id="education">
-            <option value="-1">
-            </option>
-            <option value="0">
-              Some high school
-            </option>
-            <option value="1">
-              Graduated high school
-            </option>
-            <option value="2">
-              Some college
-            </option>
-            <option value="3">
-              Graduated college
-            </option>
-            <option value="4">
-              Hold a higher degree
-            </option>
-          </select>
-        </p>
-        <p>
-          Native language: <input type="text" id="language">
-        </p><label>(the language(s) spoken at home when you were a child)</label>
-        <p>
-          Do you think the payment was fair?
-        </p><select id="fairprice">
-          <option value="-1">
-          </option>
-          <option value="0">
-            The payment was too low
-          </option>
-          <option value="1">
-            The payment was fair
-          </option>
-        </select>
-        <p>
-          Did you enjoy the experiment?
-        </p><select id="enjoyment">
-          <option value="-1">
-          </option>
-          <option value="0">
-            Worse than the average experiment
-          </option>
-          <option value="1">
-            An average experiment
-          </option>
-          <option value="2">
-            Better than average experiment
-          </option>
-        </select>
-        <p>
-          We would be interested in any comments you have about this experiment. Please type them here:
-        </p>
-        <textarea id="comments" rows="3" cols="50"></textarea><br>
-        <button onclick="_s.submit()">Submit</button>
-      </div>
-    </div>
+      var trial_scale = _.shuffle(["MF", "FM"])
+      exp.scale = trial_scale.pop()
+      if (exp.scale == "MF") {
+        var scale_end_one = "Very likely a man";
+        var scale_end_two = "Very likely a woman";
+      } else {
+        var scale_end_one = "Very likely a woman";
+        var scale_end_two = "Very likely a man";
+      }
 
-    <!-- final slide -->
-    <div id="thanks" class="slide js">
-      <p class="subj_info_title">
-        Thank you!
-      </p>
-      <p class="info">
-        Your participation helps scholars of linguistics investigate the peculiarities of language.
-      </p>
-      <p class="info">
-        We would also like to take a minute to acknowledge takes a simplified view of gender, which does not reflect the researchers' own conceptualizations of gender. It is our hope that this work will help to inform discussion around the use of non-binary and gender-neutral language in the long run.
-    </div>
+      // replace the placeholder in the HTML document with the relevant sentences for this trial
+      $("#trial-title_frame").html(title_frame);
+      $("#scale_end_one").html(scale_end_one);
+      $("#scale_end_two").html(scale_end_two);
+      $(".err").hide();
 
-    <!-- progress bar -->
-    <div class="progress">
-      <span>Progress:</span>
-      <div class="bar-wrapper">
-        <div class="bar" style="width: 0%"></div>
-      </div>
-    </div>
-  </body>
-</html>
+
+
+
+
+    },
+
+    // handle click on "Continue" button
+    button: function() {
+      this.radio = $("input[name='number']:checked").val();
+      // this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
+      if (this.radio) {
+        this.log_responses();
+        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+        _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+      } else {
+        $('.err').show();
+      }
+    },
+
+    // save response
+    log_responses: function() {
+      exp.data_trials.push({
+        "id": this.stim.ID,
+        "gender": exp.item,
+        "scale": exp.scale,
+        "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+        "response": this.radio,
+      });
+    },
+  });
+
+  // slide to collect subject information
+  slides.subj_info = slide({
+    name: "subj_info",
+    submit: function(e) {
+      exp.subj_data = {
+        language: $("#language").val(),
+        enjoyment: $("#enjoyment").val(),
+        asses: $('input[name="assess"]:checked').val(),
+        age: $("#age").val(),
+        gender: $("#gender").val(),
+        education: $("#education").val(),
+        fairprice: $("#fairprice").val(),
+        comments: $("#comments").val()
+      };
+      exp.go(); //use exp.go() if and only if there is no "present" data.
+    }
+  });
+
+  //
+  slides.thanks = slide({
+    name: "thanks",
+    start: function() {
+      exp.data = {
+        "trials": exp.data_trials,
+        "catch_trials": exp.catch_trials,
+        "system": exp.system,
+        "subject_information": exp.subj_data,
+        "time_in_minutes": (Date.now() - exp.startT) / 60000
+      };
+      proliferate.submit(exp.data);
+    }
+  });
+
+  return slides;
+}
+
+/// initialize experiment
+function init() {
+
+  exp.trials = [];
+  exp.catch_trials = [];
+  var stimuli = all_stims;
+
+  exp.stimuli = stimuli;
+  exp.stimuli = _.shuffle(stimuli); //call _.shuffle(stimuli) to randomize the order;
+  exp.n_trials = exp.stimuli.length;
+
+  exp.system = {
+    Browser: BrowserDetect.browser,
+    OS: BrowserDetect.OS,
+    screenH: screen.height,
+    screenUH: exp.height,
+    screenW: screen.width,
+    screenUW: exp.width
+  };
+
+  //blocks of the experiment:
+  exp.structure = [
+    "i0",
+    "example1",
+    "startExp",
+    "trial",
+    "subj_info",
+    "thanks"
+  ];
+
+  exp.data_trials = [];
+
+  //make corresponding slides:
+  exp.slides = make_slides(exp);
+
+  exp.nQs = utils.get_exp_length();
+  //this does not work if there are stacks of stims (but does work for an experiment with this structure)
+  //relies on structure and slides being defined
+
+  $('.slide').hide(); //hide everything
+
+  $("#start_button").click(function() {
+    exp.go();
+  });
+
+  exp.go(); //show first slide
+}
