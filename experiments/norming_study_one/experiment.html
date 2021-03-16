@@ -132,6 +132,11 @@
       </table><br>
       <br>
       <div class="center">
+        <input type="checkbox" id="familiarity" name="familiarity" value="False">
+        <label for="familiarity"> I am not familiar with this term.</label>
+      </div>
+      <br>
+      <div class="center">
         <button class="continueButton" onclick="_s.button()">Continue</button>
       </div>
       <div class="err">
@@ -146,7 +151,7 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        Great! Now we can start the real experiment. You will now read 38 sentences. Your task is to rate how likely the individual in question is to be a woman or man. If you think they are equally likely to be of either gender, or some other non-binary gender, you can select the middle option.
+        Great! Now we can start the real experiment. You will now read 39 sentences. Your task is to rate how likely the individual in question is to be a woman or man. If you think they are equally likely to be of either gender, or some other non-binary gender, you can select the middle option. If you are unsure of the word's meaning, please select 'unsure' and then indicate that you do not know the term by selecting the checkbox.
       </p>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Continue</button>
@@ -237,12 +242,16 @@
         </tr>
       </table><br>
       <div class="center">
+        <input type="checkbox" id="familiarity" name="familiarity" value="unfamiliar">
+        <label for="familiarity"> I am not familiar with this term.</label>
+      </div><br>
+      <div class="center">
         <button class="continueButton" onclick="_s.button()">Continue</button>
       </div>
       <div class="err">
         <br>
         <p>
-          Make sure you select an answer before clicking 'Continue'.
+          Please make sure you select an answer before clicking 'Continue'.
         </p>
       </div>
     </div>

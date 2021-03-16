@@ -70,51 +70,38 @@ function make_slides(f) {
       // unselect all radio buttons at the beginning of each trial
       // (by default, the selection of the radio persists across trials)
       $("input[name='number']:checked").prop("checked", false);
+      $("input[name='familiarity']:checked").prop("checked", false);
       $("#check-strange").prop("checked", false);
 
       // store stimulus data
       this.stim = stim;
 
-      var gender = _.shuffle(["Male","Female","Neutral"])
-      exp.item = gender.pop()
-      if (exp.item == "Male") {
+      exp.item = exp.gender.pop()
+      if (exp.item == "male") {
         var title_frame = stim.male;
-      } else if (exp.item == "Female") {
+        this.orth = stim.male_orthog;
+      } else if (exp.item == "female") {
         var title_frame = stim.female;
+        this.orth = stim.female_orthog;
       } else {
         var title_frame = stim.neutral;
+        this.orth = stim.neutral_orthog;
       }
-      console.log('item',exp.item)
 
-      var trial_scale = _.shuffle(["MF", "FM"])
-      exp.scale = trial_scale.pop()
-      if (exp.scale == "MF") {
-        var scale_end_one = "Very likely a man";
-        var scale_end_two = "Very likely a woman";
-      } else {
-        var scale_end_one = "Very likely a woman";
-        var scale_end_two = "Very likely a man";
-      }
+
+      console.log('item',exp.item)
 
       // replace the placeholder in the HTML document with the relevant sentences for this trial
       $("#trial-title_frame").html(title_frame);
-      $("#scale_end_one").html(scale_end_one);
-      $("#scale_end_two").html(scale_end_two);
       $(".err").hide();
-
-
-
-
-
     },
 
     // handle click on "Continue" button
     button: function() {
       this.radio = $("input[name='number']:checked").val();
-      // this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
+      this.checkbox = $("input[name='familiarity']:checked").val();
       if (this.radio) {
         this.log_responses();
-        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
         $('.err').show();
@@ -129,6 +116,10 @@ function make_slides(f) {
         "scale": exp.scale,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "response": this.radio,
+        "familiarity": this.checkbox,
+        "gendered_morph": this.stim.relationship,
+        "neutral_morh": this.stim.neutral_form,
+        "orthog": this.orth,
       });
     },
   });
@@ -179,6 +170,23 @@ function init() {
   exp.stimuli = stimuli;
   exp.stimuli = _.shuffle(stimuli); //call _.shuffle(stimuli) to randomize the order;
   exp.n_trials = exp.stimuli.length;
+
+
+  exp.gender = _.shuffle(['male','male','male','male','male','male','male','male','male','male','male','male','male','female','female','female','female','female','female','female','female','female','female','female','female','female','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral','neutral']);
+
+  /// Randomising the scale for each participant
+  var exp_scale = _.shuffle(["MF", "FM"])
+  exp.scale = exp_scale.pop()
+  if (exp.scale == "MF") {
+    var scale_end_one = "very likely a man";
+    var scale_end_two = "very likely a woman";
+  } else {
+    var scale_end_one = "very likely a woman";
+    var scale_end_two = "very likely a man";
+  }
+  $("#scale_end_one").html(scale_end_one);
+  $("#scale_end_two").html(scale_end_two);
+
 
   exp.system = {
     Browser: BrowserDetect.browser,
