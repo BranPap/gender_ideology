@@ -123,11 +123,11 @@ tr,td {
 }
 
 td:nth-child(1) {
- width: 300px
+ width: 200px
 }
 
 td:nth-child(9) {
- width: 300px
+ width: 200px
 }
 
 .left {
@@ -144,7 +144,7 @@ td:nth-child(9) {
 
 
 .legal {
-	font-size: 80%;
+	font-size: 75%;
 	font-style: italic;
 }
 
