@@ -22,6 +22,7 @@ table.table1 {
 	padding-top: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
+	padding-bottom: 10px;
 
     /*center slide within the window*/
 	margin: auto auto;
