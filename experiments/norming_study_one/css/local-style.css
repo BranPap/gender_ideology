@@ -155,3 +155,8 @@ td:nth-child(9) {
 .unsure {
 	width: 15px;
 }
+
+.progress+div {
+    display: none;
+    cursor: not-allowed;
+}
