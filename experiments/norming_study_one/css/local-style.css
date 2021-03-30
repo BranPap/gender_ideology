@@ -123,11 +123,11 @@ tr,td {
 }
 
 td:nth-child(1) {
- width: 200px
+ width: 300px
 }
 
 td:nth-child(9) {
- width: 200px
+ width: 300px
 }
 
 .left {
