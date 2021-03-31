@@ -1,4 +1,4 @@
-# gender_processing
+# Social Ideologies and On-Line Gender Processing
 
 Brandon T. Papineau's 1st Qualifying Paper at Stanford, towards the PhD in Linguistics.
 
