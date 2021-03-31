@@ -8,4 +8,5 @@ An investigation into the way that individual conceptions of gender and gender i
 Qualifying Paper Committee:
 
 Chair: Rob Podesva
+
 Committee Members: Judith Degen, Meghan Sumner
