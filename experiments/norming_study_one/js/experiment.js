@@ -45,7 +45,6 @@ function make_slides(f) {
         "id": "example1",
         "response": this.radio,
         // "strangeSentence": "",
-        "sentence": "",
       });
     },
   });

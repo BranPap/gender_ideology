@@ -1,0 +1,107 @@
+---
+title: "Analysis of Norming Study Results"
+author: "Bran Papineau"
+output: html_notebook
+---
+
+Loading dependencies
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+
+
+Reading in the .csv file:
+
+```{r}
+trials <- read.csv("gender_titles_pilot-trials.csv")
+```
+
+
+Defining groups for visualisation:
+
+```{r}
+real_trials <- trials %>%
+  filter(id!="example1") %>%
+  filter(familiarity!="unfamiliar")
+```
+
+```{r}
+male_trials <- real_trials %>%
+  filter(gender=="male")
+```
+
+```{r}
+male_groupings <- male_trials %>%
+  group_by(orthog) %>%
+  summarise(ortho_mean = mean(response))
+```
+
+```{r}
+female_trials <- real_trials %>%
+  filter(gender=="female")
+```
+
+```{r}
+female_groupings <- female_trials %>%
+  group_by(orthog) %>%
+  summarise(ortho_mean = mean(response))
+```
+
+
+```{r}
+neutral_trials <- real_trials %>%
+  filter(gender=="neutral")
+```
+
+
+```{r}
+neutral_groupings <- neutral_trials %>%
+  group_by(orthog) %>%
+  summarise(ortho_mean=mean(response))
+```
+
+
+
+```{r}
+ggplot(male_groupings, aes(x=orthog,y=ortho_mean)) + 
+  geom_point() + 
+  ylim(1,7) + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 90))
+```
+```{r}
+ggplot(female_groupings, aes(x=orthog,y=ortho_mean)) + 
+  geom_point() + 
+  ylim(1,7) + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 90)) 
+```
+
+```{r}
+ggplot(neutral_groupings, aes(x=orthog,y=ortho_mean)) + 
+  geom_point() + 
+  ylim(1,7) + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+### Testing Grounds
+
+```{r}
+underlying <- real_trials %>%
+  group_by(id,gender) %>%
+  summarise(indi_mean = mean(response))
+```
+
+```{r}
+ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) + 
+  geom_point() + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle=45, hjust=1)) + 
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender Seen", title="Mean Gender Rating by Ungendered Form and Genders Seen")
+```
+
