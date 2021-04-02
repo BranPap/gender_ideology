@@ -4,104 +4,93 @@ author: "Bran Papineau"
 output: html_notebook
 ---
 
-Loading dependencies
-
-```{r}
+```{r include=FALSE}
 library(ggplot2)
 library(dplyr)
 ```
 
+# Data Read-ins
+
+## Reading in the .csv file & prepping data for grouping:
 
 
-Reading in the .csv file:
+This reads in the .csv file with the data from all 4,000 trials:
 
 ```{r}
-trials <- read.csv("gender_titles_pilot-trials.csv")
+trials <- read.csv("gender_titles-trials.csv")
 ```
 
-
-Defining groups for visualisation:
+This will filter out example trials: 
 
 ```{r}
 real_trials <- trials %>%
-  filter(id!="example1") %>%
-  filter(familiarity!="unfamiliar")
+  filter(id!="example1") 
 ```
 
+This will unify all data, regardless of the scale they were conducted on:
+
+Brute force:
 ```{r}
-male_trials <- real_trials %>%
-  filter(gender=="male")
+final_trials_ugly <- real_trials %>%
+  mutate(new_response = ifelse(scale=="FM"&response==1,7,ifelse(scale=="FM"&response==2,6,ifelse(scale=="FM"&response==3,5, ifelse(scale=="FM"&response==5,3, ifelse(scale=="FM"&response==6,2, ifelse(scale=="FM"&response==7,1,ifelse(scale=="FM"&response==4,4,response))))))))
 ```
 
+Much cleaner:
 ```{r}
-male_groupings <- male_trials %>%
-  group_by(orthog) %>%
-  summarise(ortho_mean = mean(response))
-```
-
-```{r}
-female_trials <- real_trials %>%
-  filter(gender=="female")
-```
-
-```{r}
-female_groupings <- female_trials %>%
-  group_by(orthog) %>%
-  summarise(ortho_mean = mean(response))
+trials_final <- real_trials %>% 
+  mutate(equalized_response = ifelse(scale=="FM",8-response,response))
 ```
 
 
-```{r}
-neutral_trials <- real_trials %>%
-  filter(gender=="neutral")
-```
+# Analysis
 
+### Means by Item
 
 ```{r}
-neutral_groupings <- neutral_trials %>%
-  group_by(orthog) %>%
-  summarise(ortho_mean=mean(response))
-```
-
-
-
-```{r}
-ggplot(male_groupings, aes(x=orthog,y=ortho_mean)) + 
-  geom_point() + 
-  ylim(1,7) + 
-  theme_minimal() + 
-  theme(axis.text.x = element_text(angle = 90))
-```
-```{r}
-ggplot(female_groupings, aes(x=orthog,y=ortho_mean)) + 
-  geom_point() + 
-  ylim(1,7) + 
-  theme_minimal() + 
-  theme(axis.text.x = element_text(angle = 90)) 
-```
-
-```{r}
-ggplot(neutral_groupings, aes(x=orthog,y=ortho_mean)) + 
-  geom_point() + 
-  ylim(1,7) + 
-  theme_minimal() + 
-  theme(axis.text.x = element_text(angle = 90))
-```
-
-
-### Testing Grounds
-
-```{r}
-underlying <- real_trials %>%
-  group_by(id,gender) %>%
-  summarise(indi_mean = mean(response))
+underlying <- trials_final %>%
+  group_by(id,gender,orthog) %>%
+  summarise(indi_mean = mean(equalized_response))
 ```
 
 ```{r}
 ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) + 
   geom_point() + 
   theme_minimal() + 
-  theme(axis.text.x = element_text(angle=45, hjust=1)) + 
-  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender Seen", title="Mean Gender Rating by Ungendered Form and Genders Seen")
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=8)) + 
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender Seen", title="Mean Gender Rating by Ungendered Form and Gender Seen")
 ```
+
+## Means by Morphological Processes
+
+### Means by Gendered Morphology
+
+```{r}
+morphological_means <- trials_final %>%
+  group_by(gendered_morph,gender) %>% 
+  summarize(morph_mean = mean(equalized_response))
+```
+
+```{r}
+ggplot(morphological_means, aes(x=gendered_morph, y=morph_mean, color=gender)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x="Gender Marking Processes", y="Mean Rating")
+```
+
+```{r}
+neutral_means <- trials_final %>%
+  group_by(neutral_morh,gender) %>% 
+  summarize(neutral_mean = mean(equalized_response))
+```
+```{r}
+ggplot(neutral_means, aes(x=neutral_morh, y=neutral_mean, color=gender)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x="Neutral Formation Process", y="Mean Rating")
+```
+
+
+
+
+
 
