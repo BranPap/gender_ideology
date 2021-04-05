@@ -117,5 +117,10 @@ mean(underlying$trial_count)
 
 
 
+```{r}
+usable_trials %>%
+  group_by(orthog) %>%
+  summarize(mean(equalized_response))
+```
 
 
