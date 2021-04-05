@@ -20,12 +20,14 @@ This reads in the .csv file with the data from all 4,000 trials:
 trials <- read.csv("gender_titles-trials.csv")
 ```
 
-This will filter out example trials: 
+This will filter out example trials + the respondent who reported not understanding: 
 
 ```{r}
 real_trials <- trials %>%
-  filter(id!="example1") 
+  filter(id!="example1") %>% 
+  filter(workerid!=76)
 ```
+
 
 This will unify all data, regardless of the scale they were conducted on:
 
@@ -41,15 +43,35 @@ trials_final <- real_trials %>%
   mutate(equalized_response = ifelse(scale=="FM",8-response,response))
 ```
 
+Now we can run the exclusion criteria:
+
+```{r}
+trials_final %>% 
+  filter(gender=="female") %>% 
+  group_by(workerid) %>%
+  summarize(female_mean = mean(equalized_response)) %>%
+  unique() %>% 
+  mutate(exclusion = female_mean < mean(female_mean) - 2*sd(female_mean)) %>%
+  filter(exclusion==TRUE)
+```
+
+And exclude those participants whose ratings fall outwith the exclusion criterion: 
+
+```{r}
+usable_trials <- trials_final %>%
+  filter(workerid!=17 & workerid!=35 & workerid!=54 & workerid!=57 & workerid!=68 & workerid!=69 & workerid!=72 & workerid!=86 & workerid!=89 & workerid != 107 & workerid != 111)
+  
+```
+
 
 # Analysis
 
 ### Means by Item
 
 ```{r}
-underlying <- trials_final %>%
+underlying <- usable_trials %>%
   group_by(id,gender,orthog) %>%
-  summarise(indi_mean = mean(equalized_response))
+  summarise(indi_mean = mean(equalized_response), trial_count=n())
 ```
 
 ```{r}
@@ -57,7 +79,7 @@ ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) +
   geom_point() + 
   theme_minimal() + 
   theme(axis.text.x = element_text(angle=45, hjust=1, size=8)) + 
-  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender Seen", title="Mean Gender Rating by Ungendered Form and Gender Seen")
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form", title="Mean Gender Rating by Ungendered Form and Gender Seen")
 ```
 
 ## Means by Morphological Processes
@@ -65,30 +87,33 @@ ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) +
 ### Means by Gendered Morphology
 
 ```{r}
-morphological_means <- trials_final %>%
+morphological_means <- usable_trials %>%
   group_by(gendered_morph,gender) %>% 
-  summarize(morph_mean = mean(equalized_response))
+  summarize(morph_mean = mean(equalized_response), trial_sum = n())
 ```
 
 ```{r}
-ggplot(morphological_means, aes(x=gendered_morph, y=morph_mean, color=gender)) + 
+ggplot(morphological_means, aes(x=gendered_morph, y=morph_mean, color=gender, size=trial_sum)) + 
   geom_point() + 
   theme_minimal() + 
   labs(x="Gender Marking Processes", y="Mean Rating")
 ```
 
 ```{r}
-neutral_means <- trials_final %>%
+neutral_means <- usable_trials %>%
   group_by(neutral_morh,gender) %>% 
-  summarize(neutral_mean = mean(equalized_response))
+  summarize(neutral_mean = mean(equalized_response), trial_sum = n())
 ```
 ```{r}
-ggplot(neutral_means, aes(x=neutral_morh, y=neutral_mean, color=gender)) + 
+ggplot(neutral_means, aes(x=neutral_morh, y=neutral_mean, color=gender, size=trial_sum)) + 
   geom_point() + 
   theme_minimal() + 
   labs(x="Neutral Formation Process", y="Mean Rating")
 ```
 
+```{r}
+mean(underlying$trial_count)
+```
 
 
 
