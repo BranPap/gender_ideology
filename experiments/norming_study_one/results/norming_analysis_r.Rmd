@@ -61,7 +61,8 @@ And exclude those participants whose ratings fall outwith the exclusion criterio
 
 ```{r}
 usable_trials <- trials_final %>%
-  filter(workerid!=17 & workerid!=35 & workerid!=54 & workerid!=57 & workerid!=68 & workerid!=69 & workerid!=72 & workerid!=86 & workerid!=89 & workerid != 107 & workerid != 111)
+  filter(workerid!=17 & workerid!=35 & workerid!=54 & workerid!=57 & workerid!=68 & workerid!=69 & workerid!=72 & workerid!=86 & workerid!=89 & workerid != 107 & workerid != 111) %>%
+  mutate(orthog = ifelse(orthog=="sroceress","sorceress",orthog)) 
   
 ```
 
