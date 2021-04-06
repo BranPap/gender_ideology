@@ -7,6 +7,8 @@ output: html_notebook
 ```{r include=FALSE}
 library(ggplot2)
 library(dplyr)
+library(data.table)
+library(formattable)
 ```
 
 # Data Read-ins
@@ -82,6 +84,33 @@ ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) +
   labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form", title="Mean Gender Rating by Ungendered Form and Gender Seen")
 ```
 
+
+```{r}
+collapsed_means <- usable_trials %>%
+  group_by(orthog) %>%
+  summarize(mean(equalized_response)) %>%
+  rename(
+    'Orthographic Form' = "orthog",
+    'Mean Gender Value' = "mean(equalized_response)"
+  )
+```
+
+
+### Setting custom colours for the formattable table
+
+```{r}
+custom_pink = "#FFB6C1"
+custom_blue = "#ADD8E6"
+```
+
+
+```{r}
+collapsed_means %>%
+  formattable(align= c('l','r'),
+            list('orthog' = formatter("span", style = ~style(color = "grey", font.weight="bold")),
+            "Mean Gender Value" = color_tile(custom_blue, custom_pink)))
+```
+
 ## Means by Morphological Processes
 
 ### Means by Gendered Morphology
@@ -99,6 +128,8 @@ ggplot(morphological_means, aes(x=gendered_morph, y=morph_mean, color=gender, si
   labs(x="Gender Marking Processes", y="Mean Rating")
 ```
 
+### Means by Gender Neutral Morphology
+
 ```{r}
 neutral_means <- usable_trials %>%
   group_by(neutral_morh,gender) %>% 
@@ -111,16 +142,11 @@ ggplot(neutral_means, aes(x=neutral_morh, y=neutral_mean, color=gender, size=tri
   labs(x="Neutral Formation Process", y="Mean Rating")
 ```
 
+## Calculating the Mean Number of Times an Item Was Seen
+
 ```{r}
 mean(underlying$trial_count)
 ```
 
-
-
-```{r}
-usable_trials %>%
-  group_by(orthog) %>%
-  summarize(mean(equalized_response))
-```
 
 
