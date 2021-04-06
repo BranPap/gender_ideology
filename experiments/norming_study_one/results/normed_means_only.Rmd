@@ -1,8 +1,13 @@
 ---
-title: "Normed Means of 107 Gendered and Un-gendered Titles"
+title: "Normed Means of 106 Gendered and Un-gendered Titles & Occupations"
 author: "Bran Papineau"
 output: html_notebook
 ---
+
+This displays the mean results of 106 normed titles and occupational words for Brandon Papineau's 1st Qualifying Paper for the PhD in Linguistics at Stanford University. 100 Participants were recruited for this norming process, and  after exclusion criteria were run, 89 participants' responses were used in the final analysis. Participants were recruited through Prolific, and paid $2.00 each to norm 39 items, 13 from male, female, and neutral forms, from a total pool of 117 terms. Where the neutral and male forms of the term are the same, these have been collapsed here, for a final total of 106 normed items.
+
+Note that a score of 7 indicates "very likely a woman", while a score of 1 indicates "very likely a man". I've added gender colors just for fun, and because I could.
+
 
 ```{r include=FALSE}
 library(ggplot2)
