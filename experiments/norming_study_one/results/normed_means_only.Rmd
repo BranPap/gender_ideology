@@ -27,11 +27,12 @@ real_trials <- trials %>%
   mutate(equalized_response = ifelse(scale=="FM",8-response,response)) %>%
   filter(workerid!=17 & workerid!=35 & workerid!=54 & workerid!=57 & workerid!=68 & workerid!=69 & workerid!=72 & workerid!=86 & workerid!=89 & workerid != 107 & workerid != 111) %>% 
   group_by(orthog) %>%
+  mutate(orthog = ifelse(orthog=="sroceress","sorceress",orthog)) %>%
   summarize(mean(equalized_response)) %>%
   rename(
     'Orthographic Form' = "orthog",
     'Mean Gender Value' = "mean(equalized_response)"
-  )
+  ) 
 ```
 
 ```{r include=FALSE}
