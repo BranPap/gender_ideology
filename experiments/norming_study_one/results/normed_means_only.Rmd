@@ -1,0 +1,43 @@
+---
+title: "Normed Means of 107 Gendered and Un-gendered Titles"
+author: "Bran Papineau"
+output: html_notebook
+---
+
+```{r include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(data.table)
+library(formattable)
+```
+
+```{r include=FALSE}
+trials <- read.csv("gender_titles-trials.csv")
+```
+
+```{r include=FALSE}
+real_trials <- trials %>%
+  filter(id!="example1") %>% 
+  filter(workerid!=76) %>%
+  mutate(equalized_response = ifelse(scale=="FM",8-response,response)) %>%
+  filter(workerid!=17 & workerid!=35 & workerid!=54 & workerid!=57 & workerid!=68 & workerid!=69 & workerid!=72 & workerid!=86 & workerid!=89 & workerid != 107 & workerid != 111) %>% 
+  group_by(orthog) %>%
+  summarize(mean(equalized_response)) %>%
+  rename(
+    'Orthographic Form' = "orthog",
+    'Mean Gender Value' = "mean(equalized_response)"
+  )
+```
+
+```{r include=FALSE}
+custom_pink = "#FFB6C1"
+custom_blue = "#ADD8E6"
+```
+
+```{r echo=FALSE}
+real_trials %>%
+  formattable(align= c('l','r'),
+            list('orthog' = formatter("span", style = ~style(color = "grey", font.weight="bold")),
+            "Mean Gender Value" = color_tile(custom_blue, custom_pink)))
+```
+
