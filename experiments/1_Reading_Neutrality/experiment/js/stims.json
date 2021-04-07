@@ -1,0 +1,154 @@
+[
+    {
+        "words": [
+            {
+                "form": "Emily"
+            },
+            {
+                "form": "is"
+            },
+            {
+                "form": "a"
+            },
+            {
+                "form": "congressperson"
+            },
+            {
+                "form": "from"
+            },
+            {
+                "form": "Alabama."
+            },
+            {
+                "form": "She"
+            },
+            {
+                "form": "likes"
+            },
+            {
+                "form": "swimming."
+            }
+        ],
+        "question1": "Does Sally like to swim?",
+        "answer1": "yes",
+        "question2": "Is Emily from California?",
+        "answer2": "no",
+        "gender": "female",
+        "lexeme": "congressperson",
+        "orthog": "congressperson"
+    },
+    {
+        "words": [
+            {
+                "form": "Emily"
+            },
+            {
+                "form": "is"
+            },
+            {
+                "form": "a"
+            },
+            {
+                "form": "congresswoman"
+            },
+            {
+                "form": "from"
+            },
+            {
+                "form": "Alabama."
+            },
+            {
+                "form": "She"
+            },
+            {
+                "form": "likes"
+            },
+            {
+                "form": "swimming."
+            }
+        ],
+        "question1": "Does Sally like to swim?",
+        "answer1": "yes",
+        "question2": "Is Emily from California?",
+        "answer2": "no",
+        "gender": "female",
+        "lexeme": "congressperson",
+        "orthog": "congresswoman"
+    },
+    {
+        "words": [
+            {
+                "form": "Michael"
+            },
+            {
+                "form": "is"
+            },
+            {
+                "form": "a"
+            },
+            {
+                "form": "congressman"
+            },
+            {
+                "form": "from"
+            },
+            {
+                "form": "Alabama."
+            },
+            {
+                "form": "He"
+            },
+            {
+                "form": "likes"
+            },
+            {
+                "form": "swimming."
+            }
+        ],
+        "question1": "Does Michael like to swim?",
+        "answer1": "yes",
+        "question2": "Is Michael from California?",
+        "answer2": "no",
+        "gender": "male",
+        "lexeme": "congressperson",
+        "orthog": "congressman"
+    },
+    {
+        "words": [
+            {
+                "form": "Michael"
+            },
+            {
+                "form": "is"
+            },
+            {
+                "form": "a"
+            },
+            {
+                "form": "congressperson"
+            },
+            {
+                "form": "from"
+            },
+            {
+                "form": "Alabama."
+            },
+            {
+                "form": "He"
+            },
+            {
+                "form": "likes"
+            },
+            {
+                "form": "swimming."
+            }
+        ],
+        "question1": "Does Michael like to swim?",
+        "answer1": "yes",
+        "question2": "Is Michael from California?",
+        "answer2": "no",
+        "gender": "male",
+        "lexeme": "congressperson",
+        "orthog": "congressman"
+    }
+]

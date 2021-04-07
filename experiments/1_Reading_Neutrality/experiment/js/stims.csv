@@ -1,0 +1,5 @@
+name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog
+Emily,is,a,congressperson,from,Alabama.,She,likes,swimming.,Does Sally like to swim?,yes,Is Emily from California?,no,female,congressperson,congressperson
+Emily,is,a,congresswoman,from,Alabama.,She,likes,swimming.,Does Sally like to swim?,yes,Is Emily from California?,no,female,congressperson,congresswoman
+Michael,is,a,congressman,from,Alabama.,He,likes,swimming.,Does Michael like to swim?,yes,Is Michael from California?,no,male,congressperson,congressman
+Michael,is,a,congressperson,from,Alabama.,He,likes,swimming.,Does Michael like to swim?,yes,Is Michael from California?,no,male,congressperson,congressman
