@@ -1,5 +1,9 @@
-name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog
-Emily,is,a,congressperson,from,Alabama.,She,likes,swimming.,Does Sally like to swim?,yes,Is Emily from California?,no,female,congressperson,congressperson
-Emily,is,a,congresswoman,from,Alabama.,She,likes,swimming.,Does Sally like to swim?,yes,Is Emily from California?,no,female,congressperson,congresswoman
-Michael,is,a,congressman,from,Alabama.,He,likes,swimming.,Does Michael like to swim?,yes,Is Michael from California?,no,male,congressperson,congressman
-Michael,is,a,congressperson,from,Alabama.,He,likes,swimming.,Does Michael like to swim?,yes,Is Michael from California?,no,male,congressperson,congressman
+name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id
+NAME,is,a,congressperson,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,female,congressperson,congressperson,neutral_female,congressperson_neutral_female
+Name,is,a,congresswoman,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is NAME from California?,No,female,congressperson,congresswoman,congruent_female,congressperson_congruent_female
+NAME,is,a,congressman,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is NAME from California?,No,male,congressperson,congressman,congruent_male,congressperson_congruent_male
+NAME,is,a,congressperson,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is NAME from California?,No,male,congressperson,congressperson,neutral_male,congressperson_neutral_male
+NAME,is,an,actor,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,female,actor,actor,neutral_female,actor_neutral_female
+NAME,is,an,actress,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,female,actor,actress,neutral_female,actor_congruent_female
+NAME,is,an,actor,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,male,actor,actor,neutral_male,actor_neutral_male
+NAME,is,an,actor,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,male,actor,actor,congruent_male,actor_congruent_male

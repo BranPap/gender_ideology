@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-df = pd.read_csv('stims.csv')
+df = pd.read_csv('js/stims.csv')
 
 sentence_units = ["name","be","det","target","prep","state","pro","like","activity"]
 
@@ -22,9 +22,11 @@ for index,row in df.iterrows():
     sentence["gender"] = row["gender"]
     sentence["lexeme"] = row["lexeme"]
     sentence["orthog"] = row["orthog"]
+    sentence["condition"] = row["condition"]
+    sentence["id"] = row["id"]
     entries.append(sentence)
 
-with open('stims.json', 'w') as stimlist:
+with open('js/stims.js', 'w') as stimlist:
     s = json.dumps(entries, indent=4)
     stimlist.write(s)
 

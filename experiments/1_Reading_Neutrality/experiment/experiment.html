@@ -32,7 +32,7 @@
     <link href="css/local-style.css" rel="stylesheet" type="text/css"/>
 
     <!-- experiment file -->
-    <script src="js/stims.js"></script>
+    <script src="js/final_stim_test.js"></script>
     <script type="text/javascript">
       var CONDITION = 1;
     </script>
@@ -55,35 +55,35 @@
   <div class="slide" id="instructions">
 
 		<h3>Instructions</h3>
-    <p>On the following pages, you will always see a phrase masked with dashes (-). To read the sentence, please press the space bar which will reveal the next word. 
+    <p>On the following pages, you will always see a phrase masked with dashes (-). To read the sentence, please press the space bar which will reveal the next word.
 			Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
-		
-		
+
+
 		<p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 30mins.</p>
-		
+
     <input type="button" class="button" value="Continue" onclick="exp.go();">
-		
+
   </div>
 
   <div class="slide" id="trial">
-    
+
 		<p>Please read the following sentence by pressing the space bar to reveal each word.</p>
 		<p style="font-family:monospace; margin-top:145px;font-size:18px;" id="stimulus-sentence"></p>
-		
+
     <div id="comprehension-question">
-			
+
 			<p id="comprehension-question-q" class="question"></p>
       <input type="button" value="Yes" id="test-response-1" class="response-buttons button">
       <input type="button" value="No" id="test-response-2" class="response-buttons button">
 		</div>
-		
-		
+
+
   </div>
 
   <div class="slide" id="subj_info">
     <div class="long_form">
       <div class="subj_info_title">Additional information</div>
-    
+
 
       <p>What's your name?</p>
       <input type="text" id="name" />
