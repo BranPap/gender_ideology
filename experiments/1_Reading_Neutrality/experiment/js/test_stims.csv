@@ -1,5 +1,0 @@
-﻿lexeme,condition,name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,orthog,id
-congressperson,neutral_female,NAME,is,a,congressperson,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,female,congressperson,congressperson_neutral_female
-congressperson,congruent_female,NAME,is,a,congresswoman,from,Alabama.,She,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,female,congresswoman,congressperson_congruent_female
-congressperson,neutral_male,NAME,is,a,congressperson,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,male,congressperson,congressperson_neutral_male
-congressperson,congruent_male,NAME,is,a,congressman,from,Alabama.,He,likes,swimming.,Does NAME like to swim?,Yes,Is Name from California?,No,male,congressman,congressperson_congruent_male

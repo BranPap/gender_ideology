@@ -1,21 +1,25 @@
 import json
 import pandas as pd
 
-df = pd.read_csv('js/test_stims.csv')
+df = pd.read_csv('js/lexeme_stims.csv')
 
 sentence_units = ["name","be","det","target","prep","state","pro","like","activity"]
 
 entries = []
-final_dict = dict()
+
+entry_keys = []
 
 for index,row in df.iterrows():
     words = []
-    if row["lexeme"] not in final_dict.values():
+    lexeme_name = row["lexeme"]
+    if row["lexeme"] not in entry_keys:
+        final_dict = dict()
         final_dict["lexeme"] = row["lexeme"]
         con_list = []
         mini_dict = dict()
         final_dict["condition"] = con_list
         con_list.append(mini_dict)
+        entry_keys.append(row["lexeme"])
     if row["condition"] not in final_dict["condition"][0].values():
         feature_condition = row["condition"]
         feature_list = []
@@ -36,11 +40,12 @@ for index,row in df.iterrows():
         tiny_dict["words"] = words
         feature_list.append(tiny_dict)
         mini_dict[feature_condition] = feature_list
-
-entries.append(final_dict)
+    if len(final_dict["condition"][0]) == 4:
+        entries.append(final_dict)
 
 print(entries)
 
-with open('js/final_stim_test.json', 'w') as stimlist:
+with open('js/reading_stims.js', 'w') as stimlist:
     s = json.dumps(entries, indent=4)
+    stimlist.write("var all_stims = ")
     stimlist.write(s)
