@@ -32,28 +32,29 @@ function make_slides(f) {
 
       if (exp.selection == "neutral_male") {
         this.stim =stim.condition[0].neutral_male[0];
+        this.name = exp.male_names.pop();
       } else if (exp.selection == "congruent_female") {
         this.stim = stim.condition[0].congruent_female[0];
-      } else if (exp.selection == "neutral_female") {
+        this.name = exp.female_names.pop();
+      } else if (exp.selection == "congruent_male") {
         this.stim = stim.condition[0].congruent_male[0];
+        this.name = exp.male_names.pop();
       } else {
         this.stim = stim.condition[0].neutral_female[0];
+        this.name = exp.female_names.pop();
       }
 
-      // console.log('test',stim)
       console.log('this.stim.condition',this.stim)
-      // console.log('stim_female',stim["congressperson"][0])
-      // console.log('stim_selection',exp.selection)
-      // console.log('this.stim',this.stim)
-      // console.log('stim',stim)
 
       $("#comprehension-question").hide();
-
 
       var html = "";
 
       for (var i = 0; i < this.stim.words.length; i++) {
-        var word = this.stim.words[i];
+        var word = this.stim.words[i]
+        if (word.form == "NAME") {
+          word.form = this.name;
+        }
         var masked_word = word.form.replace(/./g, "-") + " ";
         html += "<span data-form=\"" + word.form + " \" data-masked-form=\"" + masked_word + "\"  id=\"stimulus-word-" + i + "\">" +  masked_word + "</span>"
         if (word.lbr_after) {
@@ -98,7 +99,13 @@ function make_slides(f) {
         this.stim.question_answer = this.stim.answer2;
       }
 
-      $("#comprehension-question-q").text(question_check);
+      var name = this.name;
+
+      var individual_question = question_check.replace("NAME",name);
+
+      $("#comprehension-question-q").text(individual_question);
+
+      console.log('question',individual_question)
     },
 
     button : function(response) {
@@ -121,7 +128,8 @@ function make_slides(f) {
           "condition": this.stim.condition,
           "lexeme": this.stim.lexeme,
           "response_correct": this.response_correct ? 1 : 0,
-          "trial_no": trial_counter
+          "trial_no": trial_counter,
+          "name": this.name
         });
       }
       trial_counter++;
@@ -191,6 +199,10 @@ function init() {
   exp.gender = _.shuffle(['congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female']);
 
   exp.lexemes = _.shuffle(['congressperson'])
+
+  exp.male_names = _.shuffle(["Michael","Jacob","Matthew","Joshua","Christopher","Nicholas"])
+
+  exp.female_names = _.shuffle(["Emily", "Hannah", "Samantha", "Sarah", "Ashley", "Jessica"])
 
   $('.slide').hide(); //hide everything
 

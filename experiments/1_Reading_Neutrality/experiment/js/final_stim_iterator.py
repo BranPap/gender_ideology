@@ -23,7 +23,12 @@ for index,row in df.iterrows():
         tiny_dict["id"] = row["id"]
         tiny_dict["gender"] = row["gender"]
         tiny_dict["orthog"] = row["orthog"]
-        tiny_dict["id"] = row["id"]
+        tiny_dict["question1"] = row["question1"]
+        tiny_dict["answer1"] = row["answer1"]
+        tiny_dict["question2"] = row["question2"]
+        tiny_dict["answer2"] = row["answer2"]
+        tiny_dict["condition"] = row["condition"]
+        tiny_dict["lexeme"] = row["lexeme"]
         for term in sentence_units:
             d = dict()
             d["form"] = row[term]

@@ -1,4 +1,4 @@
-[
+var all_stims = [
     {
         "lexeme": "congressperson",
         "condition": [
@@ -10,7 +10,7 @@
                         "orthog": "congressperson",
                         "question1": "Does NAME like to swim?",
                         "answer1": "Yes",
-                        "question2": "Is Name from California?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "congressperson",
@@ -52,7 +52,7 @@
                         "orthog": "congresswoman",
                         "question1": "Does NAME like to swim?",
                         "answer1": "Yes",
-                        "question2": "Is Name from California?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "congressperson",
@@ -94,7 +94,7 @@
                         "orthog": "congressperson",
                         "question1": "Does NAME like to swim?",
                         "answer1": "Yes",
-                        "question2": "Is Name from California?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "congressperson",
@@ -136,7 +136,7 @@
                         "orthog": "congressman",
                         "question1": "Does NAME like to swim?",
                         "answer1": "Yes",
-                        "question2": "Is Name from California?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "congressperson",
