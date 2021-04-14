@@ -3,6 +3,8 @@ import pandas as pd
 
 df = pd.read_csv('js/lexeme_stims.csv')
 
+stim_list = ['congressperson', 'congressperson', 'congressman', 'congresswoman', 'actor', 'actor', 'actor', 'actress', 'firefighter', 'firefighter', 'fireman', 'firewoman', 'hunter', 'hunter', 'hunter', 'huntress', 'meteorologist', 'meteorologist', 'weatherman', 'weatherwoman', 'businessperson', 'businessperson', 'businessman', 'businesswoman', 'salesperson', 'salesperson', 'salesman', 'saleswoman', 'gentleperson', 'gentleperson', 'gentleman', 'gentlewoman', 'host', 'host', 'host', 'hostess', 'mail carrier', 'mail carrier', 'mailman', 'mailwoman', 'villain', 'villain', 'villain', 'villainess', 'police officer', 'police officer', 'policeman', 'policewoman', 'heir', 'heir', 'heir', 'heiress', 'restaurant server', 'restaurant server', 'waiter', 'waitress', 'usher', 'usher', 'usher', 'usherette', 'anchor', 'anchor', 'anchorman', 'anchorwoman', 'assemblyperson', 'assemblyperson', 'assemblyman', 'assemblywoman', 'layperson', 'layperson', 'layman', 'laywoman', 'stunt double', 'stunt double', 'stuntman', 'stuntwoman', 'craftsperson', 'craftsperson', 'craftsman', 'craftswoman', 'camera operator', 'camera operator', 'cameraman', 'camerawoman', 'fisher', 'fisher', 'fisherman', 'fisherwoman', 'hero', 'hero', 'hero', 'heroine']
+
 sentence_units = ["name","be","det","target","prep","state","pro","like","activity"]
 
 entries = []
@@ -36,6 +38,10 @@ for index,row in df.iterrows():
         for term in sentence_units:
             d = dict()
             d["form"] = row[term]
+            if row[term] in stim_list:
+                d["region"] = "critical"
+            else:
+                d["region"] = "none"
             words.append(d)
         tiny_dict["words"] = words
         feature_list.append(tiny_dict)

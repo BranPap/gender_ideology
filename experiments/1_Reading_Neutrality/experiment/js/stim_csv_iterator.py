@@ -12,6 +12,8 @@ activities = ["swimming","writing","singing","dancing","hiking","running","readi
 
 random.shuffle(activities)
 
+stim_list = []
+
 with open("js/lexeme_stims.csv", 'w') as stim_input:
     stim_input.write("name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id")
     stim_input.write("\n")
@@ -86,3 +88,10 @@ with open("js/lexeme_stims.csv", 'w') as stim_input:
         stim_input.write(row['lexeme'])
         stim_input.write("_congruent_male")
         stim_input.write('\n')
+        stim_list.append(row['lexeme'])
+        stim_list.append(row['neutral'])
+        stim_list.append(row['male'])
+        stim_list.append(row['female'])
+
+with open('list_file.txt', 'w') as stim_checker:
+    stim_checker.write(str(stim_list))

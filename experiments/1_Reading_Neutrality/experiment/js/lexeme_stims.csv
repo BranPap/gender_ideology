@@ -1,41 +1,93 @@
 name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id
-NAME,is,a,congressperson,from,North Dakota.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Wisconsin?,No,female,congressperson,congresswoman,neutral_female,congressperson_neutral_female
-NAME,is,a,congresswoman,from,North Dakota.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Wisconsin?,No,female,congressperson,congresswoman,congruent_female,congressperson_congruent_female
-NAME,is,a,congressperson,from,North Dakota.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Wisconsin?,No,male,congressperson,congressman,neutral_male,_neutral_male
-NAME,is,a,congressman,from,North Dakota.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Wisconsin?,No,male,congressperson,congressman,congruent_male,congressperson_congruent_male
-NAME,is,an,actor,from,Virginia.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Illinois?,No,female,actor,actress,neutral_female,actor_neutral_female
-NAME,is,an,actress,from,Virginia.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Illinois?,No,female,actor,actress,congruent_female,actor_congruent_female
-NAME,is,an,actor,from,Virginia.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Illinois?,No,male,actor,actor,neutral_male,_neutral_male
-NAME,is,an,actor,from,Virginia.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Illinois?,No,male,actor,actor,congruent_male,actor_congruent_male
-NAME,is,a,firefighter,from,Oregon.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Connecticut?,No,female,firefighter,firewoman,neutral_female,firefighter_neutral_female
-NAME,is,a,firewoman,from,Oregon.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Connecticut?,No,female,firefighter,firewoman,congruent_female,firefighter_congruent_female
-NAME,is,a,firefighter,from,Oregon.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Connecticut?,No,male,firefighter,fireman,neutral_male,_neutral_male
-NAME,is,a,fireman,from,Oregon.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Connecticut?,No,male,firefighter,fireman,congruent_male,firefighter_congruent_male
-NAME,is,a,hunter,from,New York.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Florida?,No,female,hunter,huntress,neutral_female,hunter_neutral_female
-NAME,is,a,huntress,from,New York.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Florida?,No,female,hunter,huntress,congruent_female,hunter_congruent_female
-NAME,is,a,hunter,from,New York.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Florida?,No,male,hunter,hunter,neutral_male,_neutral_male
-NAME,is,a,hunter,from,New York.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Florida?,No,male,hunter,hunter,congruent_male,hunter_congruent_male
-NAME,is,a,meteorologist,from,South Dakota.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Georgia?,No,female,meteorologist,weatherwoman,neutral_female,meteorologist_neutral_female
-NAME,is,a,weatherwoman,from,South Dakota.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Georgia?,No,female,meteorologist,weatherwoman,congruent_female,meteorologist_congruent_female
-NAME,is,a,meteorologist,from,South Dakota.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Georgia?,No,male,meteorologist,weatherman,neutral_male,_neutral_male
-NAME,is,a,weatherman,from,South Dakota.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Georgia?,No,male,meteorologist,weatherman,congruent_male,meteorologist_congruent_male
-NAME,is,a,businessperson,from,Florida.,She,likes,reading.,Does NAME like reading?,Yes,Is NAME from Pennsylvania?,No,female,businessperson,businesswoman,neutral_female,businessperson_neutral_female
-NAME,is,a,businesswoman,from,Florida.,She,likes,reading.,Does NAME like reading?,Yes,Is NAME from Pennsylvania?,No,female,businessperson,businesswoman,congruent_female,businessperson_congruent_female
-NAME,is,a,businessperson,from,Florida.,He,likes,reading.,Does NAME like reading?,Yes,Is NAME from Pennsylvania?,No,male,businessperson,businessman,neutral_male,_neutral_male
-NAME,is,a,businessman,from,Florida.,He,likes,reading.,Does NAME like reading?,Yes,Is NAME from Pennsylvania?,No,male,businessperson,businessman,congruent_male,businessperson_congruent_male
-NAME,is,a,salesperson,from,Idaho.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Nevada?,No,female,salesperson,saleswoman,neutral_female,salesperson_neutral_female
-NAME,is,a,saleswoman,from,Idaho.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Nevada?,No,female,salesperson,saleswoman,congruent_female,salesperson_congruent_female
-NAME,is,a,salesperson,from,Idaho.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Nevada?,No,male,salesperson,salesman,neutral_male,_neutral_male
-NAME,is,a,salesman,from,Idaho.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Nevada?,No,male,salesperson,salesman,congruent_male,salesperson_congruent_male
-NAME,is,a,gentleperson,from,Nevada.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from California?,No,female,gentleperson,gentlewoman,neutral_female,gentleperson_neutral_female
-NAME,is,a,gentlewoman,from,Nevada.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from California?,No,female,gentleperson,gentlewoman,congruent_female,gentleperson_congruent_female
-NAME,is,a,gentleperson,from,Nevada.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from California?,No,male,gentleperson,gentleman,neutral_male,_neutral_male
-NAME,is,a,gentleman,from,Nevada.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from California?,No,male,gentleperson,gentleman,congruent_male,gentleperson_congruent_male
-NAME,is,a,host,from,Kentucky.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Arkansas?,No,female,host,hostess,neutral_female,host_neutral_female
-NAME,is,a,hostess,from,Kentucky.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Arkansas?,No,female,host,hostess,congruent_female,host_congruent_female
-NAME,is,a,host,from,Kentucky.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Arkansas?,No,male,host,host,neutral_male,_neutral_male
-NAME,is,a,host,from,Kentucky.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Arkansas?,No,male,host,host,congruent_male,host_congruent_male
-NAME,is,a,mail carrier,from,Arkansas.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Maine?,No,female,mail carrier,mailwoman,neutral_female,mail carrier_neutral_female
-NAME,is,a,mailwoman,from,Arkansas.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Maine?,No,female,mail carrier,mailwoman,congruent_female,mail carrier_congruent_female
-NAME,is,a,mail carrier,from,Arkansas.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Maine?,No,male,mail carrier,mailman,neutral_male,_neutral_male
-NAME,is,a,mailman,from,Arkansas.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Maine?,No,male,mail carrier,mailman,congruent_male,mail carrier_congruent_male
+NAME,is,a,congressperson,from,Arkansas.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from New Jersey?,No,female,congressperson,congresswoman,neutral_female,congressperson_neutral_female
+NAME,is,a,congresswoman,from,Arkansas.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from New Jersey?,No,female,congressperson,congresswoman,congruent_female,congressperson_congruent_female
+NAME,is,a,congressperson,from,Arkansas.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from New Jersey?,No,male,congressperson,congressman,neutral_male,_neutral_male
+NAME,is,a,congressman,from,Arkansas.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from New Jersey?,No,male,congressperson,congressman,congruent_male,congressperson_congruent_male
+NAME,is,an,actor,from,Connecticut.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from West Virginia?,No,female,actor,actress,neutral_female,actor_neutral_female
+NAME,is,an,actress,from,Connecticut.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from West Virginia?,No,female,actor,actress,congruent_female,actor_congruent_female
+NAME,is,an,actor,from,Connecticut.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from West Virginia?,No,male,actor,actor,neutral_male,_neutral_male
+NAME,is,an,actor,from,Connecticut.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from West Virginia?,No,male,actor,actor,congruent_male,actor_congruent_male
+NAME,is,a,firefighter,from,West Virginia.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Utah?,No,female,firefighter,firewoman,neutral_female,firefighter_neutral_female
+NAME,is,a,firewoman,from,West Virginia.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Utah?,No,female,firefighter,firewoman,congruent_female,firefighter_congruent_female
+NAME,is,a,firefighter,from,West Virginia.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Utah?,No,male,firefighter,fireman,neutral_male,_neutral_male
+NAME,is,a,fireman,from,West Virginia.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Utah?,No,male,firefighter,fireman,congruent_male,firefighter_congruent_male
+NAME,is,a,hunter,from,Colorado.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Missouri?,No,female,hunter,huntress,neutral_female,hunter_neutral_female
+NAME,is,a,huntress,from,Colorado.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Missouri?,No,female,hunter,huntress,congruent_female,hunter_congruent_female
+NAME,is,a,hunter,from,Colorado.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Missouri?,No,male,hunter,hunter,neutral_male,_neutral_male
+NAME,is,a,hunter,from,Colorado.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Missouri?,No,male,hunter,hunter,congruent_male,hunter_congruent_male
+NAME,is,a,meteorologist,from,Ohio.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,female,meteorologist,weatherwoman,neutral_female,meteorologist_neutral_female
+NAME,is,a,weatherwoman,from,Ohio.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,female,meteorologist,weatherwoman,congruent_female,meteorologist_congruent_female
+NAME,is,a,meteorologist,from,Ohio.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,male,meteorologist,weatherman,neutral_male,_neutral_male
+NAME,is,a,weatherman,from,Ohio.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,male,meteorologist,weatherman,congruent_male,meteorologist_congruent_male
+NAME,is,a,businessperson,from,Oregon.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Michigan?,No,female,businessperson,businesswoman,neutral_female,businessperson_neutral_female
+NAME,is,a,businesswoman,from,Oregon.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Michigan?,No,female,businessperson,businesswoman,congruent_female,businessperson_congruent_female
+NAME,is,a,businessperson,from,Oregon.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Michigan?,No,male,businessperson,businessman,neutral_male,_neutral_male
+NAME,is,a,businessman,from,Oregon.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Michigan?,No,male,businessperson,businessman,congruent_male,businessperson_congruent_male
+NAME,is,a,salesperson,from,New Jersey.,She,likes,singing.,Does NAME like singing?,Yes,Is NAME from Virginia?,No,female,salesperson,saleswoman,neutral_female,salesperson_neutral_female
+NAME,is,a,saleswoman,from,New Jersey.,She,likes,singing.,Does NAME like singing?,Yes,Is NAME from Virginia?,No,female,salesperson,saleswoman,congruent_female,salesperson_congruent_female
+NAME,is,a,salesperson,from,New Jersey.,He,likes,singing.,Does NAME like singing?,Yes,Is NAME from Virginia?,No,male,salesperson,salesman,neutral_male,_neutral_male
+NAME,is,a,salesman,from,New Jersey.,He,likes,singing.,Does NAME like singing?,Yes,Is NAME from Virginia?,No,male,salesperson,salesman,congruent_male,salesperson_congruent_male
+NAME,is,a,gentleperson,from,Indiana.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from South Dakota?,No,female,gentleperson,gentlewoman,neutral_female,gentleperson_neutral_female
+NAME,is,a,gentlewoman,from,Indiana.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from South Dakota?,No,female,gentleperson,gentlewoman,congruent_female,gentleperson_congruent_female
+NAME,is,a,gentleperson,from,Indiana.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from South Dakota?,No,male,gentleperson,gentleman,neutral_male,_neutral_male
+NAME,is,a,gentleman,from,Indiana.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from South Dakota?,No,male,gentleperson,gentleman,congruent_male,gentleperson_congruent_male
+NAME,is,a,host,from,Maine.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from North Carolina?,No,female,host,hostess,neutral_female,host_neutral_female
+NAME,is,a,hostess,from,Maine.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from North Carolina?,No,female,host,hostess,congruent_female,host_congruent_female
+NAME,is,a,host,from,Maine.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from North Carolina?,No,male,host,host,neutral_male,_neutral_male
+NAME,is,a,host,from,Maine.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from North Carolina?,No,male,host,host,congruent_male,host_congruent_male
+NAME,is,a,mail carrier,from,Rhode Island.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Minnesota?,No,female,mail carrier,mailwoman,neutral_female,mail carrier_neutral_female
+NAME,is,a,mailwoman,from,Rhode Island.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Minnesota?,No,female,mail carrier,mailwoman,congruent_female,mail carrier_congruent_female
+NAME,is,a,mail carrier,from,Rhode Island.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Minnesota?,No,male,mail carrier,mailman,neutral_male,_neutral_male
+NAME,is,a,mailman,from,Rhode Island.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Minnesota?,No,male,mail carrier,mailman,congruent_male,mail carrier_congruent_male
+NAME,is,a,villain,from,Illinois.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Arizona?,No,female,villain,villainess,neutral_female,villain_neutral_female
+NAME,is,a,villainess,from,Illinois.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Arizona?,No,female,villain,villainess,congruent_female,villain_congruent_female
+NAME,is,a,villain,from,Illinois.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Arizona?,No,male,villain,villain,neutral_male,_neutral_male
+NAME,is,a,villain,from,Illinois.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Arizona?,No,male,villain,villain,congruent_male,villain_congruent_male
+NAME,is,a,police officer,from,Texas.,She,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Wisconsin?,No,female,police officer,policewoman,neutral_female,police officer_neutral_female
+NAME,is,a,policewoman,from,Texas.,She,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Wisconsin?,No,female,police officer,policewoman,congruent_female,police officer_congruent_female
+NAME,is,a,police officer,from,Texas.,He,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Wisconsin?,No,male,police officer,policeman,neutral_male,_neutral_male
+NAME,is,a,policeman,from,Texas.,He,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Wisconsin?,No,male,police officer,policeman,congruent_male,police officer_congruent_male
+NAME,is,an,heir,from,Missouri.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Washington?,No,female,heir,heiress,neutral_female,heir_neutral_female
+NAME,is,an,heiress,from,Missouri.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Washington?,No,female,heir,heiress,congruent_female,heir_congruent_female
+NAME,is,an,heir,from,Missouri.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Washington?,No,male,heir,heir,neutral_male,_neutral_male
+NAME,is,an,heir,from,Missouri.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Washington?,No,male,heir,heir,congruent_male,heir_congruent_male
+NAME,is,a,restaurant server,from,Kansas.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Tennessee?,No,female,restaurant server,waitress,neutral_female,restaurant server_neutral_female
+NAME,is,a,waitress,from,Kansas.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Tennessee?,No,female,restaurant server,waitress,congruent_female,restaurant server_congruent_female
+NAME,is,a,restaurant server,from,Kansas.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Tennessee?,No,male,restaurant server,waiter,neutral_male,_neutral_male
+NAME,is,a,waiter,from,Kansas.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Tennessee?,No,male,restaurant server,waiter,congruent_male,restaurant server_congruent_male
+NAME,is,an,usher,from,Alaska.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Iowa?,No,female,usher,usherette,neutral_female,usher_neutral_female
+NAME,is,an,usherette,from,Alaska.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Iowa?,No,female,usher,usherette,congruent_female,usher_congruent_female
+NAME,is,an,usher,from,Alaska.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Iowa?,No,male,usher,usher,neutral_male,_neutral_male
+NAME,is,an,usher,from,Alaska.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Iowa?,No,male,usher,usher,congruent_male,usher_congruent_male
+NAME,is,an,anchor,from,Iowa.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Arizona?,No,female,anchor,anchorwoman,neutral_female,anchor_neutral_female
+NAME,is,an,anchorwoman,from,Iowa.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Arizona?,No,female,anchor,anchorwoman,congruent_female,anchor_congruent_female
+NAME,is,an,anchor,from,Iowa.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Arizona?,No,male,anchor,anchorman,neutral_male,_neutral_male
+NAME,is,an,anchorman,from,Iowa.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Arizona?,No,male,anchor,anchorman,congruent_male,anchor_congruent_male
+NAME,is,an,assemblyperson,from,Vermont.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Delaware?,No,female,assemblyperson,assemblywoman,neutral_female,assemblyperson_neutral_female
+NAME,is,an,assemblywoman,from,Vermont.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Delaware?,No,female,assemblyperson,assemblywoman,congruent_female,assemblyperson_congruent_female
+NAME,is,an,assemblyperson,from,Vermont.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Delaware?,No,male,assemblyperson,assemblyman,neutral_male,_neutral_male
+NAME,is,an,assemblyman,from,Vermont.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Delaware?,No,male,assemblyperson,assemblyman,congruent_male,assemblyperson_congruent_male
+NAME,is,a,layperson,from,Pennsylvania.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from North Dakota?,No,female,layperson,laywoman,neutral_female,layperson_neutral_female
+NAME,is,a,laywoman,from,Pennsylvania.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from North Dakota?,No,female,layperson,laywoman,congruent_female,layperson_congruent_female
+NAME,is,a,layperson,from,Pennsylvania.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from North Dakota?,No,male,layperson,layman,neutral_male,_neutral_male
+NAME,is,a,layman,from,Pennsylvania.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from North Dakota?,No,male,layperson,layman,congruent_male,layperson_congruent_male
+NAME,is,a,stunt double,from,South Dakota.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,female,stunt double,stuntwoman,neutral_female,stunt double_neutral_female
+NAME,is,a,stuntwoman,from,South Dakota.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,female,stunt double,stuntwoman,congruent_female,stunt double_congruent_female
+NAME,is,a,stunt double,from,South Dakota.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,male,stunt double,stuntman,neutral_male,_neutral_male
+NAME,is,a,stuntman,from,South Dakota.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Nevada?,No,male,stunt double,stuntman,congruent_male,stunt double_congruent_male
+NAME,is,a,craftsperson,from,Arizona.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Oklahoma?,No,female,craftsperson,craftswoman,neutral_female,craftsperson_neutral_female
+NAME,is,a,craftswoman,from,Arizona.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Oklahoma?,No,female,craftsperson,craftswoman,congruent_female,craftsperson_congruent_female
+NAME,is,a,craftsperson,from,Arizona.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Oklahoma?,No,male,craftsperson,craftsman,neutral_male,_neutral_male
+NAME,is,a,craftsman,from,Arizona.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from Oklahoma?,No,male,craftsperson,craftsman,congruent_male,craftsperson_congruent_male
+NAME,is,a,camera operator,from,Mississippi.,She,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Delaware?,No,female,camera operator,camerawoman,neutral_female,camera operator_neutral_female
+NAME,is,a,camerawoman,from,Mississippi.,She,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Delaware?,No,female,camera operator,camerawoman,congruent_female,camera operator_congruent_female
+NAME,is,a,camera operator,from,Mississippi.,He,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Delaware?,No,male,camera operator,cameraman,neutral_male,_neutral_male
+NAME,is,a,cameraman,from,Mississippi.,He,likes,swimming.,Does NAME like swimming?,Yes,Is NAME from Delaware?,No,male,camera operator,cameraman,congruent_male,camera operator_congruent_male
+NAME,is,a,fisher,from,California.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from New York?,No,female,fisher,fisherwoman,neutral_female,fisher_neutral_female
+NAME,is,a,fisherwoman,from,California.,She,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from New York?,No,female,fisher,fisherwoman,congruent_female,fisher_congruent_female
+NAME,is,a,fisher,from,California.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from New York?,No,male,fisher,fisherman,neutral_male,_neutral_male
+NAME,is,a,fisherman,from,California.,He,likes,cooking.,Does NAME like cooking?,Yes,Is NAME from New York?,No,male,fisher,fisherman,congruent_male,fisher_congruent_male
+NAME,is,a,hero,from,Kentucky.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Alabama?,No,female,hero,heroine,neutral_female,hero_neutral_female
+NAME,is,a,heroine,from,Kentucky.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Alabama?,No,female,hero,heroine,congruent_female,hero_congruent_female
+NAME,is,a,hero,from,Kentucky.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Alabama?,No,male,hero,hero,neutral_male,_neutral_male
+NAME,is,a,hero,from,Kentucky.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Alabama?,No,male,hero,hero,congruent_male,hero_congruent_male
