@@ -43,3 +43,15 @@ p.train-instructions {
   margin-top: 65px;
 }
 
+table.likertscale  {
+  /*border: 1px solid black;*/
+  text-align: center;
+  width: 90%;
+  align-self: left;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.likertlabel {
+	width: 15px;
+}

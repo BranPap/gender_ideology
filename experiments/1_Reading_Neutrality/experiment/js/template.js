@@ -1,6 +1,7 @@
 var trial_counter = 0;
 
 
+
 function make_slides(f) {
   var   slides = {};
 
@@ -136,8 +137,36 @@ function make_slides(f) {
     }
   });
 
+  slides.gender_quiz = slide({
+    name : "gender_quiz",
+    collect_gender : function() {
+      exp.gender_transendence = [{
+        gender_q1 : $("#gender_q1").val(),
+        gender_q2 : $("#gender_q2").val(),
+        gender_q3 : $("#gender_q3").val(),
+        gender_q4 : $("#gender_q4").val(),
+        gender_q5 : $("#gender_q5").val(),
+      }];
+    exp.go();
+    }
+  });
 
-
+  slides.gender_quiz_two = slide({
+    name : "gender_quiz_two",
+    collect_gender_two : function() {
+      exp.gender_linked = [{
+        gender_q6 : $("#gender_q6").val(),
+        gender_q7 : $("#gender_q7").val(),
+        gender_q8 : $("#gender_q8").val(),
+        gender_q9 : $("#gender_q9").val(),
+        gender_q10 : $("#gender_q10").val(),
+        gender_q11 : $("#gender_q11").val(),
+        gender_q12 : $("#gender_q12").val(),
+        gender_q13 : $("#gender_q13").val(),
+      }];
+    exp.go();
+    }
+  });
 
   slides.subj_info =  slide({
     name : "subj_info",
@@ -145,10 +174,15 @@ function make_slides(f) {
       //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
       exp.subj_data = {
         language : $("#language").val(),
-        name : $("#name").val(),
         gender : $('#gender').val(),
-        tirednesslvl : $('#tirednesslvl').val(),
-        age : $("#age").val()
+        // tirednesslvl : $('#tirednesslvl').val(),
+        age : $("#age").val(),
+        enjoyment : $("#enjoyment").val(),
+        education : $("#education").val(),
+        party_alignment : $("input[name='number']:checked").val(),
+        price : $("#fairprice").val(),
+        asses: $('input[name="assess"]:checked').val(),
+        comments: $("#comments").val(),
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
@@ -159,13 +193,13 @@ function make_slides(f) {
     start : function() {
       exp.data= {
           "trials" : exp.data_trials,
-          "catch_trials" : exp.catch_trials,
+          "gender_transendence" : exp.gender_transendence,
+          "gender_linked" : exp.gender_linked,
           "system" : exp.system,
-          "condition" : exp.condition,
           "subject_information" : exp.subj_data,
           "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
-      setTimeout(function() {turk.submit(exp.data);}, 1000);
+      setTimeout(function() {proliferate.submit(exp.data);}, 1000);
     }
   });
 
@@ -187,7 +221,7 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-  exp.structure=["i0",  "instructions", "trial", 'subj_info', 'thanks'];
+  exp.structure=["i0",  "instructions", "trial", 'gender_quiz', 'gender_quiz_two', 'subj_info', 'thanks'];
 
   exp.data_trials = [];
   //make corresponding slides:
@@ -198,11 +232,9 @@ function init() {
 
   exp.gender = _.shuffle(['congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female']);
 
-  exp.lexemes = _.shuffle(['congressperson'])
+  exp.male_names = _.shuffle(["Michael","Jacob","Matthew","Joshua","Christopher","Nicholas", "Andrew", "Austin","Joseph","David","William","John"])
 
-  exp.male_names = _.shuffle(["Michael","Jacob","Matthew","Joshua","Christopher","Nicholas"])
-
-  exp.female_names = _.shuffle(["Emily", "Hannah", "Samantha", "Sarah", "Ashley", "Jessica"])
+  exp.female_names = _.shuffle(["Emily", "Hannah", "Samantha", "Sarah", "Jessica", "Madison", "Elizabeth", "Alyssa", "Kalya","Megan","Lauren","Rachel"])
 
   $('.slide').hide(); //hide everything
 

@@ -7,7 +7,7 @@
   <script src="shared/js/jquery-1.11.1.min.js"></script>
   <script src="shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
   <script src="shared/js/underscore-min.js"></script>
-
+f
   <!-- experiment logic -->
   <script src="shared/js/exp-V2.js"></script>
   <script src="shared/js/stream-V2.js"></script>
@@ -71,13 +71,436 @@
 
   </div>
 
+  <div class="slide" id="gender_quiz">
+    <div class="long_form">
+      <div class="subj_info_title">
+        Questionnaire
+      </div>
+
+      <br>
+      <p class="info">
+        These questions are required for successful completion of the experiment. For each of the following statements, please indicate on a scale from 0 to 100 how much you agree with the presented statement.
+      </p>
+
+      <p>People can be both aggressive and nurturing, regardless of sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q1"> <i>Strongly Agree</i></p>
+        <p><span id="q1_val"></span></p>
+      </div>
+
+      <script>
+      var slider_one = document.getElementById("gender_q1");
+      var output_one = document.getElementById("q1_val");
+      output_one.innerHTML = slider_one.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_one.oninput = function() {
+        output_one.innerHTML = this.value;
+      }
+      </script>
+
+      <p>People should be treated the same, regardless of their sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q2"> <i>Strongly Agree</i></p>
+        <p><span id="q2_val"></span></p>
+      </div>
+
+      <script>
+      var slider_two = document.getElementById("gender_q2");
+      var output_two = document.getElementById("q2_val");
+      output_two.innerHTML = slider_two.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_two.oninput = function() {
+        output_two.innerHTML = this.value;
+      }
+      </script>
+
+      <p>The freedom that children are given should be determined by their age and maturity level and not by their sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q3"> <i>Strongly Agree</i></p>
+        <p><span id="q3_val"></span></p>
+      </div>
+
+      <script>
+      var slider_three = document.getElementById("gender_q3");
+      var output_three = document.getElementById("q3_val");
+      output_three.innerHTML = slider_three.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_three.oninput = function() {
+        output_three.innerHTML = this.value;
+      }
+      </script>
+
+      <p>Tasks around the house should not be assigned by sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q4"> <i>Strongly Agree</i></p>
+        <p><span id="q4_val"></span></p>
+      </div>
+
+      <script>
+      var slider_four = document.getElementById("gender_q4");
+      var output_four = document.getElementById("q4_val");
+      output_four.innerHTML = slider_four.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_four.oninput = function() {
+        output_four.innerHTML = this.value;
+      }
+      </script>
+
+      <p>We should stop thinking about whether people are male or female and focus on other characteristics.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q5"> <i>Strongly Agree</i></p>
+        <p><span id="q5_val"></span></p>
+      </div>
+
+      <script>
+      var slider_five = document.getElementById("gender_q5");
+      var output_five = document.getElementById("q5_val");
+      output_five.innerHTML = slider_five.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_five.oninput = function() {
+        output_five.innerHTML = this.value;
+      }
+      </script><br>
+
+     <button onclick="_s.collect_gender()">Continue</button>
+  </div><br>
+</div>
+
+<div class="slide" id="gender_quiz_two">
+  <div class="long_form">
+    <div class="subj_info_title">
+      Questionnaire
+    </div>
+
+    <br>
+    <p class="info">
+      These questions are required for successful completion of the experiment. For each of the following statements, please indicate on a scale from 0 to 100 how much you agree with the presented statement.
+    </p>
+
+    <p>A father’s major responsibility is to provide financially for his children.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q6"> <i>Strongly Agree</i></p>
+      <p><span id="q6_val"></span></p>
+    </div>
+
+    <script>
+    var slider_six = document.getElementById("gender_q6");
+    var output_six = document.getElementById("q6_val");
+    output_six.innerHTML = slider_six.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_six.oninput = function() {
+      output_six.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Men are more sexual than women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q7"> <i>Strongly Agree</i></p>
+      <p><span id="q7_val"></span></p>
+    </div>
+
+    <script>
+    var slider_seven = document.getElementById("gender_q7");
+    var output_seven = document.getElementById("q7_val");
+    output_seven.innerHTML = slider_seven.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_seven.oninput = function() {
+      output_seven.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Some types of work are just not appropriate for women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q8"> <i>Strongly Agree</i></p>
+      <p><span id="q8_val"></span></p>
+    </div>
+
+    <script>
+    var slider_eight = document.getElementById("gender_q8");
+    var output_eight = document.getElementById("q8_val");
+    output_eight.innerHTML = slider_eight.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_eight.oninput = function() {
+      output_eight.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Mothers should make most decisions about how children are brought up.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q9"> <i>Strongly Agree</i></p>
+      <p><span id="q9_val"></span></p>
+    </div>
+
+    <script>
+    var slider_nine = document.getElementById("gender_q9");
+    var output_nine = document.getElementById("q9_val");
+    output_nine.innerHTML = slider_nine.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_nine.oninput = function() {
+      output_nine.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Mothers should work only if necessary.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q10"> <i>Strongly Agree</i></p>
+      <p><span id="q10_val"></span></p>
+    </div>
+
+    <script>
+    var slider_ten = document.getElementById("gender_q10");
+    var output_ten = document.getElementById("q10_val");
+    output_ten.innerHTML = slider_ten.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_ten.oninput = function() {
+      output_ten.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Girls should be protected and watched over more than boys.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q11"> <i>Strongly Agree</i></p>
+      <p><span id="q11_val"></span></p>
+    </div>
+
+    <script>
+    var slider_eleven = document.getElementById("gender_q11");
+    var output_eleven = document.getElementById("q11_val");
+    output_eleven.innerHTML = slider_eleven.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_eleven.oninput = function() {
+      output_eleven.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Only some types of work are appropriate for both men and women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q12"> <i>Strongly Agree</i></p>
+      <p><span id="q12_val"></span></p>
+    </div>
+
+    <script>
+    var slider_twelve = document.getElementById("gender_q12");
+    var output_twelve = document.getElementById("q12_val");
+    output_twelve.innerHTML = slider_twelve.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_twelve.oninput = function() {
+      output_twelve.innerHTML = this.value;
+    }
+    </script><br>
+
+    <p>Only some types of work are appropriate for both men and women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q13"> <i>Strongly Agree</i></p>
+      <p><span id="q13_val"></span></p>
+    </div>
+
+    <script>
+    var slider_thirteen = document.getElementById("gender_q13");
+    var output_thirteen = document.getElementById("q13_val");
+    output_thirteen.innerHTML = slider_thirteen.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider_thirteen.oninput = function() {
+      output_thirteen.innerHTML = this.value;
+    }
+    </script><br>
+
+   <button onclick="_s.collect_gender_two()">Continue</button>
+  </div><br>
+  </div>
+
+  <!-- subject information slide -->
   <div class="slide" id="subj_info">
     <div class="long_form">
+      <div class="subj_info_title">
+        Additional information
+      </div>
+
+      <p class="info">
+        Answering these questions is optional, but will help us understand your answers.
+      </p>
+
+      <p>
+        Did you read the instructions and do you think you did the study correctly?
+      </p>
+
+      <label><input type="radio" name="assess" value="No">No</label>
+      <label><input type="radio" name="assess" value="Yes">Yes</label>
+      <label><input type="radio" name="assess" value="Confused">I was confused</label>
+
+      <p>
+        Gender: <select id="gender">
+          <option value="">
+          </option>
+          <option value="Male">
+            male
+          </option>
+          <option value="Female">
+            female
+          </option>
+          <option value="Other">
+            other
+          </option>
+        </select>
+      </p>
+
+      <p>
+        Age: <input type="text" id="age">
+      </p>
+
+      <p>
+        Level of education: <select id="education">
+          <option value="-1">
+          </option>
+          <option value="0">
+            Some high school
+          </option>
+          <option value="1">
+            Graduated high school
+          </option>
+          <option value="2">
+            Some college
+          </option>
+          <option value="3">
+            Graduated college
+          </option>
+          <option value="4">
+            Hold a higher degree
+          </option>
+        </select>
+      </p>
+
+      <p>
+        Native language: <input type="text" id="language">
+      </p><label>(the language(s) spoken at home when you were a child)</label><br>
+
+      <p>How would you describe your political ideology?</p>
+
+      <table class="likertscale">
+      <tr>
+        <td>
+          <p>
+          Strong Republican
+          </p>
+        </td>
+        <td>
+          <input type="radio" name="number" value="1">
+        </td>
+        <td>
+          <input type="radio" name="number" value="2">
+        </td>
+        <td>
+          <input type="radio" name="number" value="3">
+        </td>
+        <td>
+          <input type="radio" name="number" value="4">
+        </td>
+        <td>
+          <input type="radio" name="number" value="5">
+        </td>
+        <td>
+          <p>
+          Strong Democrat
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          1
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          4
+        </td>
+        <td>
+          5
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class='likertlabel'>
+          Moderate
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table><br>
+
+      <p>
+        Do you think the payment was fair?
+      </p><select id="fairprice">
+        <option value="-1">
+        </option>
+        <option value="0">
+          The payment was too low
+        </option>
+        <option value="1">
+          The payment was fair
+        </option>
+      </select>
+
+      <p>
+        Did you enjoy the experiment?
+      </p><select id="enjoyment">
+        <option value="-1">
+        </option>
+        <option value="0">
+          Worse than the average experiment
+        </option>
+        <option value="1">
+          An average experiment
+        </option>
+        <option value="2">
+          Better than average experiment
+        </option>
+      </select>
+
+      <p>
+        We would be interested in any comments you have about this experiment. Please type them here:
+      </p>
+      <textarea id="comments" rows="3" cols="50"></textarea><br>
+      <button onclick="_s.submit()">Submit</button>
+    </div>
+  </div>
+
+  <!-- <div class="slide" id="subj_info">
+    <div class="long_form">
       <div class="subj_info_title">Additional information</div>
-
-
-      <p>What's your name?</p>
-      <input type="text" id="name" />
 
       <p>How old are you?</p>
       <input type="text" id="age" />
@@ -92,6 +515,89 @@
       <p>Native Language: <input type="text" id="language"/></p>
       <label>(the language(s) spoken at home when you were a child)</label>
 
+      <p>Which US political party, if any, do you identify with?</p>
+      <select id="poliparty" name ="poliparty">
+        <label><option value = "Republican">Republican Party</option></label>
+        <label><option value = "Democrat">Democratic Party</option></label>
+        <label><option value = "Other">Other</option></label>
+        <label><option value = "None">I do not identify with any major political party</option></label>
+      </select><br /><br>
+
+        <p>How would you describe your political ideology?</p>
+      <table class="likertscale">
+        <tr>
+          <td>
+            <p id="scale_end_one">
+            Very Progressive
+            </p>
+          </td>
+          <td>
+            <input type="radio" name="number" value="1">
+          </td>
+          <td>
+            <input type="radio" name="number" value="2">
+          </td>
+          <td>
+            <input type="radio" name="number" value="3">
+          </td>
+          <td>
+            <input type="radio" name="number" value="4">
+          </td>
+          <td>
+            <input type="radio" name="number" value="5">
+          </td>
+          <td>
+            <input type="radio" name="number" value="6">
+          </td>
+          <td>
+            <input type="radio" name="number" value="7">
+          </td>
+          <td>
+            <p id="scale_end_two">
+            Very Conservative
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            1
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            3
+          </td>
+          <td>
+            4
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            7
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class='likertlabel'>
+            Moderate
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table><br>
+
       <p>How tired are you right now?</p>
       <select id="tirednesslvl" name="tirednesslvl">
         <label><option value="1">well rested</option></label>
@@ -103,7 +609,7 @@
 
       <button onclick="_s.submit()">Submit</button>
     </div>
-  </div>
+  </div> -->
 
   <div id="thanks" class="slide js" >
     <p  class="big" id="thanks-text">Thanks for your time!</p>
