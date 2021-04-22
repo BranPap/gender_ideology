@@ -8,7 +8,7 @@ states = ["California","Alabama","Alaska","Arizona","Arkansas","Connecticut","Co
 
 random.shuffle(states)
 
-activities = ["swimming","writing","singing","dancing","hiking","running","reading","drawing","painting","cooking"]
+activities = ["swimming","writing","singing","dancing","hiking","running","reading","drawing","painting","cooking","cycling","walking","studying","surfing","camping"]
 
 random.shuffle(activities)
 

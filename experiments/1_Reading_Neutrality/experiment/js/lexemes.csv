@@ -1,24 +1,19 @@
 lexeme,neutral,female,male,det
-congressperson,congressperson,congresswoman,congressman,a
 actor,actor,actress,actor,an
-firefighter,firefighter,firewoman,fireman,a
-hunter,hunter,huntress,hunter,a
-meteorologist,meteorologist,weatherwoman,weatherman,a
-businessperson,businessperson,businesswoman,businessman,a
-salesperson,salesperson,saleswoman,salesman,a
-gentleperson,gentleperson,gentlewoman,gentleman,a
-host,host,hostess,host,a
-mail carrier,mail carrier,mailwoman,mailman,a
-villain,villain,villainess,villain,a
-police officer,police officer,policewoman,policeman,a
-heir,heir,heiress,heir,an
-restaurant server,restaurant server,waitress,waiter,a
-usher,usher,usherette,usher,an
 anchor,anchor,anchorwoman,anchorman,an
-assemblyperson,assemblyperson,assemblywoman,assemblyman,an
-layperson,layperson,laywoman,layman,a
-stunt double,stunt double,stuntwoman,stuntman,a
+flight attendant,flight attendant,stewardess,steward,a
+businessperson,businessperson,businesswoman,businessman,a
+congressperson,congressperson,congresswoman,congressman,a
 craftsperson,craftsperson,craftswoman,craftsman,a
-camera operator,camera operator,camerawoman,cameraman,a
-fisher,fisher,fisherwoman,fisherman,a
+crewmember,crewmember,crewman,crewwoman,a
+firefighter,firefighter,firewoman,fireman,a
+foreperson,foreperson,forewoman,foreman,a
+heir,heir,heiress,heir,an
 hero,hero,heroine,hero,a
+host,host,hostess,host,a
+hunter,hunter,huntress,hunter,a
+layperson,layperson,laywoman,layman,a
+police officer,police officer,policewoman,policeman,a
+salesperson,salesperson,saleswoman,salesman,a
+stunt double,stunt double,stuntwoman,stuntman,a
+villain,villain,villainess,villain,a
