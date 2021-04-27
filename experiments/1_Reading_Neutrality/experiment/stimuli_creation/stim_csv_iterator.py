@@ -2,7 +2,7 @@ import json
 import pandas as pd
 import random
 
-df = pd.read_csv("js/lexemes.csv")
+df = pd.read_csv("stimuli_creation/lexemes.csv")
 
 states = ["California","Alabama","Alaska","Arizona","Arkansas","Connecticut","Colorado","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
 
@@ -14,13 +14,16 @@ random.shuffle(activities)
 
 stim_list = []
 
-with open("js/lexeme_stims.csv", 'w') as stim_input:
+coin = [0,1]
+
+with open("stimuli_creation/lexeme_stims.csv", 'w') as stim_input:
     stim_input.write("name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id")
     stim_input.write("\n")
     for index,row in df.iterrows():
         state = states.pop()
         activity = random.choice(activities)
         antistate = random.choice(states)
+        activity_2 = random.choice(activities)
         stim_input.write("NAME,is,")
         stim_input.write(row["det"])
         stim_input.write("," + row["neutral"])
@@ -29,10 +32,23 @@ with open("js/lexeme_stims.csv", 'w') as stim_input:
         stim_input.write(",She,")
         stim_input.write("likes,")
         stim_input.write(activity+".")
-        stim_input.write(",Does NAME like "+activity+"?")
-        stim_input.write(",Yes")
-        stim_input.write(",Is NAME from "+antistate+"?")
-        stim_input.write(",No,")
+        activity_chance = random.choice(coin)
+        if activity_chance == 0:
+            stim_input.write(",Does NAME like "+activity_2+"?")
+            if activity == activity_2:
+                stim_input.write(",Yes")
+            else:
+                stim_input.write(",No")
+        else:
+            stim_input.write(",Does NAME like "+activity+"?")
+            stim_input.write(",Yes")
+        chance = random.choice(coin)
+        if chance == 0:
+            stim_input.write(",Is NAME from "+antistate+"?")
+            stim_input.write(",No,")
+        else:
+            stim_input.write(",Is NAME from "+state+"?")
+            stim_input.write(",Yes,")
         stim_input.write("female,"+row['lexeme']+','+row["female"]+',')
         stim_input.write("neutral_female"+',')
         stim_input.write(row['lexeme'])

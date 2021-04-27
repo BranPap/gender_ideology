@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-df = pd.read_csv('js/lexeme_stims.csv')
+df = pd.read_csv('stimuli_creation/lexeme_stims.csv')
 
 stim_list = ['congressperson', 'congressperson', 'congressman', 'congresswoman', 'actor', 'actor', 'actor', 'actress', 'firefighter', 'firefighter', 'fireman', 'firewoman', 'hunter', 'hunter', 'hunter', 'huntress', 'meteorologist', 'meteorologist', 'weatherman', 'weatherwoman', 'businessperson', 'businessperson', 'businessman', 'businesswoman', 'salesperson', 'salesperson', 'salesman', 'saleswoman', 'gentleperson', 'gentleperson', 'gentleman', 'gentlewoman', 'host', 'host', 'host', 'hostess', 'mail carrier', 'mail carrier', 'mailman', 'mailwoman', 'villain', 'villain', 'villain', 'villainess', 'police officer', 'police officer', 'policeman', 'policewoman', 'heir', 'heir', 'heir', 'heiress', 'restaurant server', 'restaurant server', 'waiter', 'waitress', 'usher', 'usher', 'usher', 'usherette', 'anchor', 'anchor', 'anchorman', 'anchorwoman', 'assemblyperson', 'assemblyperson', 'assemblyman', 'assemblywoman', 'layperson', 'layperson', 'layman', 'laywoman', 'stunt double', 'stunt double', 'stuntman', 'stuntwoman', 'craftsperson', 'craftsperson', 'craftsman', 'craftswoman', 'camera operator', 'camera operator', 'cameraman', 'camerawoman', 'fisher', 'fisher', 'fisherman', 'fisherwoman', 'hero', 'hero', 'hero', 'heroine']
 
@@ -51,7 +51,7 @@ for index,row in df.iterrows():
 
 print(entries)
 
-with open('js/reading_stims.js', 'w') as stimlist:
+with open('stimuli_creation/reading_stims.js', 'w') as stimlist:
     s = json.dumps(entries, indent=4)
     stimlist.write("var all_stims = ")
     stimlist.write(s)

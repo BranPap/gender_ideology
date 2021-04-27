@@ -23,7 +23,7 @@ f
   <link href="css/local-style.css" rel="stylesheet" type="text/css">
 
     <!-- experiment file -->
-    <script src="js/reading_stims.js"></script>
+    <script src="stimuli_creation/reading_stims.js"></script>
     <script type="text/javascript">
       var CONDITION = 1;
     </script>
@@ -38,7 +38,7 @@ f
     <!-- <img src="../_shared/images/cocologo.png" alt="Stanford CoCoLab" id="cocologo"></img> -->
     <p id="cocolab">Stanford Linguistics</p>
     <p id="instruct-text">
-      In this experiment, you will read 18 sentences word-by-word and for each sentence, answer a short question. Please pay attention, thanks!</p>
+      In this experiment, you will read 20 sentence pairs word-by-word and for each sentence, answer a short question. Please pay attention, thanks!</p>
     <input id="start_button" type="button" class="button" value="Start Experiment">
   </div>
 
@@ -55,6 +55,34 @@ f
     <input type="button" class="button" value="Continue" onclick="exp.go();">
 
   </div>
+
+  <div class="slide" id="example">
+    <h3>Example</h3>
+    <p>Press the spacebar to reveal each word in the sentences. When you have finished reading the sentences, please answer the question.</p>
+    <p style="font-family:monospace; margin-top:145px;font-size:18px;" id="stimulus-sentence-example"></p>
+
+    <div id="comprehension-question-example">
+
+			<p id="comprehension-question-q-example" class="question"></p>
+      <input type="button" value="Yes" id="test-response-1-example" class="response-buttons button">
+      <input type="button" value="No" id="test-response-2-example" class="response-buttons button">
+		</div>
+    <br>
+    <div class="invisible_err" style="display: block;" id="example_err_1">Please select the correct answer to continue.</div>
+</div>
+
+<div class="slide" id="almost">
+
+  <h3>Instructions</h3>
+  <p>On the following pages, you will always see a phrase masked with dashes (-). To read the sentence, please press the space bar which will reveal the next word.
+    Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
+
+
+  <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 10mins.</p>
+
+  <input type="button" class="button" value="Continue" onclick="exp.go();">
+
+</div>
 
   <div class="slide" id="trial">
 

@@ -11,6 +11,7 @@ function make_slides(f) {
   slides.i0 = slide({
      name : "i0",
      start: function() {
+      console.log("check",exp.example_stim);
       exp.startT = Date.now();
      }
   });
@@ -22,6 +23,112 @@ function make_slides(f) {
     }
   });
 
+  slides.example = slide({
+    name: "example",
+    start: function() {
+      this.stim = exp.example_stim[0].condition[0].neutral_female[0];
+      this.position = 0;
+
+      console.log('this.stim.condition',this.stim);
+
+      exp.selection == "neutral_female";
+      this.name = "Brittany";
+
+      console.log('this.stim.condition',this.stim)
+
+      $("#comprehension-question-example").hide();
+
+      var html = "";
+
+      for (var i = 0; i < this.stim.words.length; i++) {
+        var word = this.stim.words[i]
+        var masked_word = word.form.replace(/./g, "-") + " ";
+        html += "<span data-form=\"" + word.form + " \" data-masked-form=\"" + masked_word + "\"  id=\"stimulus-word-example-" + i + "\">" +  masked_word + "</span>"
+        if (word.lbr_after) {
+          html += "<br>"
+        }
+      };
+
+
+      this.response_times = [];
+
+      $("#stimulus-sentence-example").html(html);
+
+
+      var t = this;
+
+      $("#comprehension-question-example").hide();
+
+      $(document).bind("keydown", function(evt) {
+        if (evt.keyCode == 32) {
+          evt.preventDefault();
+          t.response_times.push(Date.now());
+          if (t.position > 0) {
+            var prev_idx = t.position - 1;
+            $("#stimulus-word-example-" + prev_idx).text($("#stimulus-word-example-" + prev_idx).data("masked-form"));
+          }
+          if (t.position < t.stim.words.length) {
+            $("#stimulus-word-example-" + t.position ).text($("#stimulus-word-example-" + t.position ).data("form"));
+          } else {
+            $("#comprehension-question-example").show();
+            $(document).unbind("keydown");
+          }
+          t.position++;
+        }
+
+      });
+
+      var question_check = this.stim.question2;
+      this.stim.question_answer = this.stim.answer2;
+
+      // var name = this.name;
+      //
+      var individual_question = question_check;
+
+      $("#comprehension-question-q-example").text(individual_question);
+
+      console.log('question',individual_question)
+    },
+
+    button : function(response) {
+      this.response_correct = response == this.stim.question_answer;
+      if (this.response_correct == 1) {
+        this.log_responses();
+        exp.go();
+      }
+      else {
+        $('#example_err_1').addClass("visibleerr");
+      }
+    },
+
+    log_responses : function() {
+      for (var i = 0; i < this.stim.words.length; i++) {
+        var word = this.stim.words[i];
+        exp.data_trials.push({
+          "trial_id": "example",
+          "word_idx": i,
+          "form": word.form,
+          "region": word.region,
+          "lbr_before": word.lbr_before ? 1 : 0,
+          "lbr_after": word.lbr_after ? 1 : 0,
+          "rt": this.response_times[i+1] - this.response_times[i],
+          "condition": this.stim.condition,
+          "lexeme": this.stim.lexeme,
+          "response_correct": this.response_correct ? 1 : 0,
+          "trial_no": trial_counter,
+          "name": this.name
+        });
+      }
+      trial_counter++;
+    }
+  });
+
+  slides.almost = slide({
+    name : "almost",
+    button : function() {
+      exp.go(); //use exp.go() if and only if there is no "present" data.
+    }
+  })
 
   slides.trial = slide({
     name: "trial",
@@ -289,6 +396,8 @@ function init() {
   exp.catch_trials = [];
   var stimuli = all_stims;
   exp.stimuli = _.shuffle(stimuli);//can randomize between subject conditions here
+  var example_stim = example_stims;
+  exp.example_stim = example_stim;
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -298,7 +407,7 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-  exp.structure=["i0",  "instructions", "trial", 'gender_quiz', 'gender_quiz_two', 'subj_info', 'thanks'];
+  exp.structure=["i0",  "instructions", 'example', 'almost', "trial", 'gender_quiz', 'gender_quiz_two', 'subj_info', 'thanks'];
 
   exp.data_trials = [];
   //make corresponding slides:

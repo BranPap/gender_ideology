@@ -3,6 +3,7 @@ actor,actor,actress,actor,an
 anchor,anchor,anchorwoman,anchorman,an
 flight attendant,flight attendant,stewardess,steward,a
 businessperson,businessperson,businesswoman,businessman,a
+camera operator,camera operator,camerawoman,cameraman,a
 congressperson,congressperson,congresswoman,congressman,a
 craftsperson,craftsperson,craftswoman,craftsman,a
 crewmember,crewmember,crewman,crewwoman,a
@@ -17,3 +18,4 @@ police officer,police officer,policewoman,policeman,a
 salesperson,salesperson,saleswoman,salesman,a
 stunt double,stunt double,stuntwoman,stuntman,a
 villain,villain,villainess,villain,a
+meteorologist,meteorologist,weatherwoman,weatherman,a
