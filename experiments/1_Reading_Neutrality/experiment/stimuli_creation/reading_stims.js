@@ -10,8 +10,8 @@ var all_stims = [
                         "orthog": "actress",
                         "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from California?",
-                        "answer2": "No",
+                        "question2": "Is NAME from New Hampshire?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "actor",
                         "words": [
@@ -36,7 +36,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New Jersey.",
+                                "form": "New Hampshire.",
                                 "region": "none"
                             },
                             {
@@ -87,7 +87,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New Jersey.",
+                                "form": "New Hampshire.",
                                 "region": "none"
                             },
                             {
@@ -138,7 +138,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New Jersey.",
+                                "form": "New Hampshire.",
                                 "region": "none"
                             },
                             {
@@ -189,7 +189,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New Jersey.",
+                                "form": "New Hampshire.",
                                 "region": "none"
                             },
                             {
@@ -220,9 +220,9 @@ var all_stims = [
                         "gender": "female",
                         "orthog": "anchorwoman",
                         "question1": "Does NAME like swimming?",
-                        "answer1": "No",
-                        "question2": "Is NAME from Massachusetts?",
-                        "answer2": "Yes",
+                        "answer1": "Yes",
+                        "question2": "Is NAME from Rhode Island?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "anchor",
                         "words": [
@@ -247,7 +247,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Massachusetts.",
+                                "form": "Florida.",
                                 "region": "none"
                             },
                             {
@@ -259,7 +259,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "swimming.",
                                 "region": "none"
                             }
                         ]
@@ -270,9 +270,9 @@ var all_stims = [
                         "id": "anchor_congruent_female",
                         "gender": "female",
                         "orthog": "anchorwoman",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like swimming?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "anchor",
@@ -298,7 +298,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Massachusetts.",
+                                "form": "Florida.",
                                 "region": "none"
                             },
                             {
@@ -310,7 +310,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "swimming.",
                                 "region": "none"
                             }
                         ]
@@ -321,9 +321,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "anchorman",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like swimming?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "anchor",
@@ -349,7 +349,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Massachusetts.",
+                                "form": "Florida.",
                                 "region": "none"
                             },
                             {
@@ -361,7 +361,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "swimming.",
                                 "region": "none"
                             }
                         ]
@@ -372,9 +372,9 @@ var all_stims = [
                         "id": "anchor_congruent_male",
                         "gender": "male",
                         "orthog": "anchorman",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like swimming?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "anchor",
@@ -400,7 +400,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Massachusetts.",
+                                "form": "Florida.",
                                 "region": "none"
                             },
                             {
@@ -412,7 +412,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "swimming.",
                                 "region": "none"
                             }
                         ]
@@ -430,10 +430,10 @@ var all_stims = [
                         "id": "flight attendant_neutral_female",
                         "gender": "female",
                         "orthog": "stewardess",
-                        "question1": "Does NAME like painting?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "No",
-                        "question2": "Is NAME from Delaware?",
-                        "answer2": "No",
+                        "question2": "Is NAME from Tennessee?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "flight attendant",
                         "words": [
@@ -458,7 +458,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Connecticut.",
+                                "form": "Tennessee.",
                                 "region": "none"
                             },
                             {
@@ -470,7 +470,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -481,9 +481,9 @@ var all_stims = [
                         "id": "flight attendant_congruent_female",
                         "gender": "female",
                         "orthog": "stewardess",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Delaware?",
+                        "question2": "Is NAME from Missouri?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "flight attendant",
@@ -509,7 +509,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Connecticut.",
+                                "form": "Tennessee.",
                                 "region": "none"
                             },
                             {
@@ -521,7 +521,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -532,9 +532,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "steward",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Delaware?",
+                        "question2": "Is NAME from Missouri?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "flight attendant",
@@ -560,7 +560,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Connecticut.",
+                                "form": "Tennessee.",
                                 "region": "none"
                             },
                             {
@@ -572,7 +572,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -583,9 +583,9 @@ var all_stims = [
                         "id": "flight attendant_congruent_male",
                         "gender": "male",
                         "orthog": "steward",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Delaware?",
+                        "question2": "Is NAME from Missouri?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "flight attendant",
@@ -611,7 +611,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Connecticut.",
+                                "form": "Tennessee.",
                                 "region": "none"
                             },
                             {
@@ -623,7 +623,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cooking.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -641,9 +641,9 @@ var all_stims = [
                         "id": "businessperson_neutral_female",
                         "gender": "female",
                         "orthog": "businesswoman",
-                        "question1": "Does NAME like hiking?",
-                        "answer1": "No",
-                        "question2": "Is NAME from North Carolina?",
+                        "question1": "Does NAME like reading?",
+                        "answer1": "Yes",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "businessperson",
@@ -669,7 +669,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Indiana.",
+                                "form": "South Dakota.",
                                 "region": "none"
                             },
                             {
@@ -694,7 +694,7 @@ var all_stims = [
                         "orthog": "businesswoman",
                         "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "businessperson",
@@ -720,7 +720,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Indiana.",
+                                "form": "South Dakota.",
                                 "region": "none"
                             },
                             {
@@ -745,7 +745,7 @@ var all_stims = [
                         "orthog": "businessman",
                         "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "businessperson",
@@ -771,7 +771,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Indiana.",
+                                "form": "South Dakota.",
                                 "region": "none"
                             },
                             {
@@ -796,7 +796,7 @@ var all_stims = [
                         "orthog": "businessman",
                         "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "businessperson",
@@ -822,7 +822,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Indiana.",
+                                "form": "South Dakota.",
                                 "region": "none"
                             },
                             {
@@ -852,9 +852,9 @@ var all_stims = [
                         "id": "camera operator_neutral_female",
                         "gender": "female",
                         "orthog": "camerawoman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Washington?",
+                        "question2": "Is NAME from North Dakota?",
                         "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "camera operator",
@@ -880,7 +880,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Washington.",
+                                "form": "North Dakota.",
                                 "region": "none"
                             },
                             {
@@ -892,7 +892,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -903,9 +903,9 @@ var all_stims = [
                         "id": "camera operator_congruent_female",
                         "gender": "female",
                         "orthog": "camerawoman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "camera operator",
@@ -931,7 +931,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Washington.",
+                                "form": "North Dakota.",
                                 "region": "none"
                             },
                             {
@@ -943,7 +943,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -954,9 +954,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "cameraman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "camera operator",
@@ -982,7 +982,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Washington.",
+                                "form": "North Dakota.",
                                 "region": "none"
                             },
                             {
@@ -994,7 +994,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1005,9 +1005,9 @@ var all_stims = [
                         "id": "camera operator_congruent_male",
                         "gender": "male",
                         "orthog": "cameraman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "camera operator",
@@ -1033,7 +1033,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Washington.",
+                                "form": "North Dakota.",
                                 "region": "none"
                             },
                             {
@@ -1045,7 +1045,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1063,10 +1063,10 @@ var all_stims = [
                         "id": "congressperson_neutral_female",
                         "gender": "female",
                         "orthog": "congresswoman",
-                        "question1": "Does NAME like swimming?",
-                        "answer1": "Yes",
-                        "question2": "Is NAME from Illinois?",
-                        "answer2": "No",
+                        "question1": "Does NAME like cycling?",
+                        "answer1": "No",
+                        "question2": "Is NAME from Indiana?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "congressperson",
                         "words": [
@@ -1091,7 +1091,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New York.",
+                                "form": "Indiana.",
                                 "region": "none"
                             },
                             {
@@ -1103,7 +1103,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -1114,9 +1114,9 @@ var all_stims = [
                         "id": "congressperson_congruent_female",
                         "gender": "female",
                         "orthog": "congresswoman",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Illinois?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "congressperson",
@@ -1142,7 +1142,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New York.",
+                                "form": "Indiana.",
                                 "region": "none"
                             },
                             {
@@ -1154,7 +1154,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -1165,9 +1165,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "congressman",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Illinois?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "congressperson",
@@ -1193,7 +1193,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New York.",
+                                "form": "Indiana.",
                                 "region": "none"
                             },
                             {
@@ -1205,7 +1205,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -1216,9 +1216,9 @@ var all_stims = [
                         "id": "congressperson_congruent_male",
                         "gender": "male",
                         "orthog": "congressman",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Illinois?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "congressperson",
@@ -1244,7 +1244,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "New York.",
+                                "form": "Indiana.",
                                 "region": "none"
                             },
                             {
@@ -1256,7 +1256,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -1274,10 +1274,10 @@ var all_stims = [
                         "id": "craftsperson_neutral_female",
                         "gender": "female",
                         "orthog": "craftswoman",
-                        "question1": "Does NAME like painting?",
-                        "answer1": "Yes",
-                        "question2": "Is NAME from Kentucky?",
-                        "answer2": "Yes",
+                        "question1": "Does NAME like cycling?",
+                        "answer1": "No",
+                        "question2": "Is NAME from Georgia?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "craftsperson",
                         "words": [
@@ -1302,7 +1302,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Kentucky.",
+                                "form": "New Mexico.",
                                 "region": "none"
                             },
                             {
@@ -1314,7 +1314,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "painting.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -1325,9 +1325,9 @@ var all_stims = [
                         "id": "craftsperson_congruent_female",
                         "gender": "female",
                         "orthog": "craftswoman",
-                        "question1": "Does NAME like painting?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from Georgia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "craftsperson",
@@ -1353,7 +1353,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Kentucky.",
+                                "form": "New Mexico.",
                                 "region": "none"
                             },
                             {
@@ -1365,7 +1365,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "painting.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -1376,9 +1376,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "craftsman",
-                        "question1": "Does NAME like painting?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from Georgia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "craftsperson",
@@ -1404,7 +1404,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Kentucky.",
+                                "form": "New Mexico.",
                                 "region": "none"
                             },
                             {
@@ -1416,7 +1416,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "painting.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -1427,9 +1427,9 @@ var all_stims = [
                         "id": "craftsperson_congruent_male",
                         "gender": "male",
                         "orthog": "craftsman",
-                        "question1": "Does NAME like painting?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from Georgia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "craftsperson",
@@ -1455,7 +1455,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Kentucky.",
+                                "form": "New Mexico.",
                                 "region": "none"
                             },
                             {
@@ -1467,7 +1467,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "painting.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -1484,11 +1484,11 @@ var all_stims = [
                     {
                         "id": "crewmember_neutral_female",
                         "gender": "female",
-                        "orthog": "crewman",
-                        "question1": "Does NAME like drawing?",
+                        "orthog": "crewwoman",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "No",
-                        "question2": "Is NAME from California?",
-                        "answer2": "Yes",
+                        "question2": "Is NAME from Virginia?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "crewmember",
                         "words": [
@@ -1513,7 +1513,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "California.",
+                                "form": "Kentucky.",
                                 "region": "none"
                             },
                             {
@@ -1525,7 +1525,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cycling.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1535,10 +1535,10 @@ var all_stims = [
                     {
                         "id": "crewmember_congruent_female",
                         "gender": "female",
-                        "orthog": "crewman",
-                        "question1": "Does NAME like cycling?",
+                        "orthog": "crewwoman",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Dakota?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "crewmember",
@@ -1556,7 +1556,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "crewman",
+                                "form": "crewwoman",
                                 "region": "none"
                             },
                             {
@@ -1564,7 +1564,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "California.",
+                                "form": "Kentucky.",
                                 "region": "none"
                             },
                             {
@@ -1576,7 +1576,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cycling.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1586,10 +1586,10 @@ var all_stims = [
                     {
                         "id": "_neutral_male",
                         "gender": "male",
-                        "orthog": "crewwoman",
-                        "question1": "Does NAME like cycling?",
+                        "orthog": "crewman",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Dakota?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "crewmember",
@@ -1615,7 +1615,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "California.",
+                                "form": "Kentucky.",
                                 "region": "none"
                             },
                             {
@@ -1627,7 +1627,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cycling.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1637,10 +1637,10 @@ var all_stims = [
                     {
                         "id": "crewmember_congruent_male",
                         "gender": "male",
-                        "orthog": "crewwoman",
-                        "question1": "Does NAME like cycling?",
+                        "orthog": "crewman",
+                        "question1": "Does NAME like walking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Dakota?",
+                        "question2": "Is NAME from Virginia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "crewmember",
@@ -1658,7 +1658,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "crewwoman",
+                                "form": "crewman",
                                 "region": "none"
                             },
                             {
@@ -1666,7 +1666,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "California.",
+                                "form": "Kentucky.",
                                 "region": "none"
                             },
                             {
@@ -1678,7 +1678,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "cycling.",
+                                "form": "walking.",
                                 "region": "none"
                             }
                         ]
@@ -1696,9 +1696,9 @@ var all_stims = [
                         "id": "firefighter_neutral_female",
                         "gender": "female",
                         "orthog": "firewoman",
-                        "question1": "Does NAME like surfing?",
-                        "answer1": "Yes",
-                        "question2": "Is NAME from Nevada?",
+                        "question1": "Does NAME like hiking?",
+                        "answer1": "No",
+                        "question2": "Is NAME from North Carolina?",
                         "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "firefighter",
@@ -1724,7 +1724,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nevada.",
+                                "form": "North Carolina.",
                                 "region": "none"
                             },
                             {
@@ -1736,7 +1736,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -1747,9 +1747,9 @@ var all_stims = [
                         "id": "firefighter_congruent_female",
                         "gender": "female",
                         "orthog": "firewoman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Arizona?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "firefighter",
@@ -1775,7 +1775,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nevada.",
+                                "form": "North Carolina.",
                                 "region": "none"
                             },
                             {
@@ -1787,7 +1787,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -1798,9 +1798,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "fireman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Arizona?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "firefighter",
@@ -1826,7 +1826,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nevada.",
+                                "form": "North Carolina.",
                                 "region": "none"
                             },
                             {
@@ -1838,7 +1838,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -1849,9 +1849,9 @@ var all_stims = [
                         "id": "firefighter_congruent_male",
                         "gender": "male",
                         "orthog": "fireman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Arizona?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "firefighter",
@@ -1877,7 +1877,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nevada.",
+                                "form": "North Carolina.",
                                 "region": "none"
                             },
                             {
@@ -1889,7 +1889,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -1907,9 +1907,9 @@ var all_stims = [
                         "id": "foreperson_neutral_female",
                         "gender": "female",
                         "orthog": "forewoman",
-                        "question1": "Does NAME like walking?",
-                        "answer1": "Yes",
-                        "question2": "Is NAME from South Carolina?",
+                        "question1": "Does NAME like camping?",
+                        "answer1": "No",
+                        "question2": "Is NAME from New York?",
                         "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "foreperson",
@@ -1935,7 +1935,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "South Carolina.",
+                                "form": "New York.",
                                 "region": "none"
                             },
                             {
@@ -1947,7 +1947,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "walking.",
+                                "form": "cycling.",
                                 "region": "none"
                             }
                         ]
@@ -1958,7 +1958,7 @@ var all_stims = [
                         "id": "foreperson_congruent_female",
                         "gender": "female",
                         "orthog": "forewoman",
-                        "question1": "Does NAME like walking?",
+                        "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
                         "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
@@ -1986,7 +1986,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "South Carolina.",
+                                "form": "New York.",
                                 "region": "none"
                             },
                             {
@@ -1998,7 +1998,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "walking.",
+                                "form": "cycling.",
                                 "region": "none"
                             }
                         ]
@@ -2009,7 +2009,7 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "foreman",
-                        "question1": "Does NAME like walking?",
+                        "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
                         "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
@@ -2037,7 +2037,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "South Carolina.",
+                                "form": "New York.",
                                 "region": "none"
                             },
                             {
@@ -2049,7 +2049,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "walking.",
+                                "form": "cycling.",
                                 "region": "none"
                             }
                         ]
@@ -2060,7 +2060,7 @@ var all_stims = [
                         "id": "foreperson_congruent_male",
                         "gender": "male",
                         "orthog": "foreman",
-                        "question1": "Does NAME like walking?",
+                        "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
                         "question2": "Is NAME from Rhode Island?",
                         "answer2": "No",
@@ -2088,7 +2088,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "South Carolina.",
+                                "form": "New York.",
                                 "region": "none"
                             },
                             {
@@ -2100,7 +2100,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "walking.",
+                                "form": "cycling.",
                                 "region": "none"
                             }
                         ]
@@ -2118,9 +2118,9 @@ var all_stims = [
                         "id": "heir_neutral_female",
                         "gender": "female",
                         "orthog": "heiress",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like running?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "heir",
@@ -2146,7 +2146,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Maine.",
+                                "form": "Wisconsin.",
                                 "region": "none"
                             },
                             {
@@ -2158,7 +2158,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "running.",
                                 "region": "none"
                             }
                         ]
@@ -2169,9 +2169,9 @@ var all_stims = [
                         "id": "heir_congruent_female",
                         "gender": "female",
                         "orthog": "heiress",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like running?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "heir",
@@ -2197,7 +2197,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Maine.",
+                                "form": "Wisconsin.",
                                 "region": "none"
                             },
                             {
@@ -2209,7 +2209,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "running.",
                                 "region": "none"
                             }
                         ]
@@ -2220,9 +2220,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "heir",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like running?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "heir",
@@ -2248,7 +2248,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Maine.",
+                                "form": "Wisconsin.",
                                 "region": "none"
                             },
                             {
@@ -2260,7 +2260,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "running.",
                                 "region": "none"
                             }
                         ]
@@ -2271,9 +2271,9 @@ var all_stims = [
                         "id": "heir_congruent_male",
                         "gender": "male",
                         "orthog": "heir",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like running?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "heir",
@@ -2299,7 +2299,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Maine.",
+                                "form": "Wisconsin.",
                                 "region": "none"
                             },
                             {
@@ -2311,7 +2311,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "running.",
                                 "region": "none"
                             }
                         ]
@@ -2329,10 +2329,10 @@ var all_stims = [
                         "id": "hero_neutral_female",
                         "gender": "female",
                         "orthog": "heroine",
-                        "question1": "Does NAME like cooking?",
+                        "question1": "Does NAME like walking?",
                         "answer1": "No",
-                        "question2": "Is NAME from Alaska?",
-                        "answer2": "No",
+                        "question2": "Is NAME from Iowa?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "hero",
                         "words": [
@@ -2357,7 +2357,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Michigan.",
+                                "form": "Iowa.",
                                 "region": "none"
                             },
                             {
@@ -2369,7 +2369,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -2380,9 +2380,9 @@ var all_stims = [
                         "id": "hero_congruent_female",
                         "gender": "female",
                         "orthog": "heroine",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Alaska?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "hero",
@@ -2408,7 +2408,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Michigan.",
+                                "form": "Iowa.",
                                 "region": "none"
                             },
                             {
@@ -2420,7 +2420,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -2431,9 +2431,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "hero",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Alaska?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "hero",
@@ -2459,7 +2459,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Michigan.",
+                                "form": "Iowa.",
                                 "region": "none"
                             },
                             {
@@ -2471,7 +2471,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -2482,9 +2482,9 @@ var all_stims = [
                         "id": "hero_congruent_male",
                         "gender": "male",
                         "orthog": "hero",
-                        "question1": "Does NAME like swimming?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Alaska?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "hero",
@@ -2510,7 +2510,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Michigan.",
+                                "form": "Iowa.",
                                 "region": "none"
                             },
                             {
@@ -2522,7 +2522,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "swimming.",
+                                "form": "hiking.",
                                 "region": "none"
                             }
                         ]
@@ -2540,10 +2540,10 @@ var all_stims = [
                         "id": "host_neutral_female",
                         "gender": "female",
                         "orthog": "hostess",
-                        "question1": "Does NAME like drawing?",
+                        "question1": "Does NAME like hiking?",
                         "answer1": "No",
-                        "question2": "Is NAME from Wisconsin?",
-                        "answer2": "Yes",
+                        "question2": "Is NAME from Kansas?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "host",
                         "words": [
@@ -2568,7 +2568,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wisconsin.",
+                                "form": "Wyoming.",
                                 "region": "none"
                             },
                             {
@@ -2580,7 +2580,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -2591,9 +2591,9 @@ var all_stims = [
                         "id": "host_congruent_female",
                         "gender": "female",
                         "orthog": "hostess",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Kansas?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "host",
@@ -2619,7 +2619,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wisconsin.",
+                                "form": "Wyoming.",
                                 "region": "none"
                             },
                             {
@@ -2631,7 +2631,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -2642,9 +2642,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "host",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Kansas?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "host",
@@ -2670,7 +2670,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wisconsin.",
+                                "form": "Wyoming.",
                                 "region": "none"
                             },
                             {
@@ -2682,7 +2682,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -2693,9 +2693,9 @@ var all_stims = [
                         "id": "host_congruent_male",
                         "gender": "male",
                         "orthog": "host",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like reading?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Kansas?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "host",
@@ -2721,7 +2721,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wisconsin.",
+                                "form": "Wyoming.",
                                 "region": "none"
                             },
                             {
@@ -2733,7 +2733,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
@@ -2751,9 +2751,9 @@ var all_stims = [
                         "id": "hunter_neutral_female",
                         "gender": "female",
                         "orthog": "huntress",
-                        "question1": "Does NAME like running?",
-                        "answer1": "No",
-                        "question2": "Is NAME from North Carolina?",
+                        "question1": "Does NAME like dancing?",
+                        "answer1": "Yes",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "hunter",
@@ -2779,7 +2779,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wyoming.",
+                                "form": "Oklahoma.",
                                 "region": "none"
                             },
                             {
@@ -2791,7 +2791,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -2802,9 +2802,9 @@ var all_stims = [
                         "id": "hunter_congruent_female",
                         "gender": "female",
                         "orthog": "huntress",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "hunter",
@@ -2830,7 +2830,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wyoming.",
+                                "form": "Oklahoma.",
                                 "region": "none"
                             },
                             {
@@ -2842,7 +2842,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -2853,9 +2853,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "hunter",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "hunter",
@@ -2881,7 +2881,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wyoming.",
+                                "form": "Oklahoma.",
                                 "region": "none"
                             },
                             {
@@ -2893,7 +2893,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -2904,9 +2904,9 @@ var all_stims = [
                         "id": "hunter_congruent_male",
                         "gender": "male",
                         "orthog": "hunter",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from North Carolina?",
+                        "question2": "Is NAME from California?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "hunter",
@@ -2932,7 +2932,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Wyoming.",
+                                "form": "Oklahoma.",
                                 "region": "none"
                             },
                             {
@@ -2944,7 +2944,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -2962,9 +2962,9 @@ var all_stims = [
                         "id": "layperson_neutral_female",
                         "gender": "female",
                         "orthog": "laywoman",
-                        "question1": "Does NAME like hiking?",
+                        "question1": "Does NAME like surfing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Tennessee?",
+                        "question2": "Is NAME from Alabama?",
                         "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "layperson",
@@ -2990,7 +2990,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Tennessee.",
+                                "form": "Alabama.",
                                 "region": "none"
                             },
                             {
@@ -3002,7 +3002,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "hiking.",
+                                "form": "surfing.",
                                 "region": "none"
                             }
                         ]
@@ -3013,9 +3013,9 @@ var all_stims = [
                         "id": "layperson_congruent_female",
                         "gender": "female",
                         "orthog": "laywoman",
-                        "question1": "Does NAME like hiking?",
+                        "question1": "Does NAME like surfing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Illinois?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "layperson",
@@ -3041,7 +3041,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Tennessee.",
+                                "form": "Alabama.",
                                 "region": "none"
                             },
                             {
@@ -3053,7 +3053,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "hiking.",
+                                "form": "surfing.",
                                 "region": "none"
                             }
                         ]
@@ -3064,9 +3064,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "layman",
-                        "question1": "Does NAME like hiking?",
+                        "question1": "Does NAME like surfing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Illinois?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "layperson",
@@ -3092,7 +3092,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Tennessee.",
+                                "form": "Alabama.",
                                 "region": "none"
                             },
                             {
@@ -3104,7 +3104,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "hiking.",
+                                "form": "surfing.",
                                 "region": "none"
                             }
                         ]
@@ -3115,9 +3115,9 @@ var all_stims = [
                         "id": "layperson_congruent_male",
                         "gender": "male",
                         "orthog": "layman",
-                        "question1": "Does NAME like hiking?",
+                        "question1": "Does NAME like surfing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Kansas?",
+                        "question2": "Is NAME from Illinois?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "layperson",
@@ -3143,7 +3143,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Tennessee.",
+                                "form": "Alabama.",
                                 "region": "none"
                             },
                             {
@@ -3155,7 +3155,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "hiking.",
+                                "form": "surfing.",
                                 "region": "none"
                             }
                         ]
@@ -3173,10 +3173,10 @@ var all_stims = [
                         "id": "police officer_neutral_female",
                         "gender": "female",
                         "orthog": "policewoman",
-                        "question1": "Does NAME like studying?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Ohio?",
-                        "answer2": "No",
+                        "question2": "Is NAME from Nebraska?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "police officer",
                         "words": [
@@ -3201,7 +3201,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Hawaii.",
+                                "form": "Nebraska.",
                                 "region": "none"
                             },
                             {
@@ -3213,7 +3213,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "studying.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -3224,9 +3224,9 @@ var all_stims = [
                         "id": "police officer_congruent_female",
                         "gender": "female",
                         "orthog": "policewoman",
-                        "question1": "Does NAME like studying?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Ohio?",
+                        "question2": "Is NAME from Connecticut?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "police officer",
@@ -3252,7 +3252,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Hawaii.",
+                                "form": "Nebraska.",
                                 "region": "none"
                             },
                             {
@@ -3264,7 +3264,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "studying.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -3275,9 +3275,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "policeman",
-                        "question1": "Does NAME like studying?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Ohio?",
+                        "question2": "Is NAME from Connecticut?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "police officer",
@@ -3303,7 +3303,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Hawaii.",
+                                "form": "Nebraska.",
                                 "region": "none"
                             },
                             {
@@ -3315,7 +3315,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "studying.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -3326,9 +3326,9 @@ var all_stims = [
                         "id": "police officer_congruent_male",
                         "gender": "male",
                         "orthog": "policeman",
-                        "question1": "Does NAME like studying?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Ohio?",
+                        "question2": "Is NAME from Connecticut?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "police officer",
@@ -3354,7 +3354,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Hawaii.",
+                                "form": "Nebraska.",
                                 "region": "none"
                             },
                             {
@@ -3366,7 +3366,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "studying.",
+                                "form": "dancing.",
                                 "region": "none"
                             }
                         ]
@@ -3384,10 +3384,10 @@ var all_stims = [
                         "id": "salesperson_neutral_female",
                         "gender": "female",
                         "orthog": "saleswoman",
-                        "question1": "Does NAME like camping?",
+                        "question1": "Does NAME like dancing?",
                         "answer1": "No",
-                        "question2": "Is NAME from Nebraska?",
-                        "answer2": "Yes",
+                        "question2": "Is NAME from Idaho?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "salesperson",
                         "words": [
@@ -3412,7 +3412,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nebraska.",
+                                "form": "Delaware.",
                                 "region": "none"
                             },
                             {
@@ -3424,7 +3424,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -3435,9 +3435,9 @@ var all_stims = [
                         "id": "salesperson_congruent_female",
                         "gender": "female",
                         "orthog": "saleswoman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "salesperson",
@@ -3463,7 +3463,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nebraska.",
+                                "form": "Delaware.",
                                 "region": "none"
                             },
                             {
@@ -3475,7 +3475,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -3486,9 +3486,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "salesman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "salesperson",
@@ -3514,7 +3514,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nebraska.",
+                                "form": "Delaware.",
                                 "region": "none"
                             },
                             {
@@ -3526,7 +3526,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -3537,9 +3537,9 @@ var all_stims = [
                         "id": "salesperson_congruent_male",
                         "gender": "male",
                         "orthog": "salesman",
-                        "question1": "Does NAME like surfing?",
+                        "question1": "Does NAME like cooking?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Rhode Island?",
+                        "question2": "Is NAME from Idaho?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "salesperson",
@@ -3565,7 +3565,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Nebraska.",
+                                "form": "Delaware.",
                                 "region": "none"
                             },
                             {
@@ -3577,7 +3577,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "surfing.",
+                                "form": "cooking.",
                                 "region": "none"
                             }
                         ]
@@ -3595,10 +3595,10 @@ var all_stims = [
                         "id": "stunt double_neutral_female",
                         "gender": "female",
                         "orthog": "stuntwoman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
-                        "answer2": "No",
+                        "question2": "Is NAME from Illinois?",
+                        "answer2": "Yes",
                         "condition": "neutral_female",
                         "lexeme": "stunt double",
                         "words": [
@@ -3623,7 +3623,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Texas.",
+                                "form": "Illinois.",
                                 "region": "none"
                             },
                             {
@@ -3635,7 +3635,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3646,9 +3646,9 @@ var all_stims = [
                         "id": "stunt double_congruent_female",
                         "gender": "female",
                         "orthog": "stuntwoman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "stunt double",
@@ -3674,7 +3674,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Texas.",
+                                "form": "Illinois.",
                                 "region": "none"
                             },
                             {
@@ -3686,7 +3686,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3697,9 +3697,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "stuntman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "stunt double",
@@ -3725,7 +3725,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Texas.",
+                                "form": "Illinois.",
                                 "region": "none"
                             },
                             {
@@ -3737,7 +3737,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3748,9 +3748,9 @@ var all_stims = [
                         "id": "stunt double_congruent_male",
                         "gender": "male",
                         "orthog": "stuntman",
-                        "question1": "Does NAME like dancing?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arizona?",
+                        "question2": "Is NAME from Ohio?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "stunt double",
@@ -3776,7 +3776,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Texas.",
+                                "form": "Illinois.",
                                 "region": "none"
                             },
                             {
@@ -3788,7 +3788,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "dancing.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3806,10 +3806,10 @@ var all_stims = [
                         "id": "villain_neutral_female",
                         "gender": "female",
                         "orthog": "villainess",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Alaska?",
-                        "answer2": "Yes",
+                        "question2": "Is NAME from Michigan?",
+                        "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "villain",
                         "words": [
@@ -3834,7 +3834,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Alaska.",
+                                "form": "Utah.",
                                 "region": "none"
                             },
                             {
@@ -3846,7 +3846,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3857,9 +3857,9 @@ var all_stims = [
                         "id": "villain_congruent_female",
                         "gender": "female",
                         "orthog": "villainess",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arkansas?",
+                        "question2": "Is NAME from Michigan?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "villain",
@@ -3885,7 +3885,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Alaska.",
+                                "form": "Utah.",
                                 "region": "none"
                             },
                             {
@@ -3897,7 +3897,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3908,9 +3908,9 @@ var all_stims = [
                         "id": "_neutral_male",
                         "gender": "male",
                         "orthog": "villain",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arkansas?",
+                        "question2": "Is NAME from Michigan?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "villain",
@@ -3936,7 +3936,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Alaska.",
+                                "form": "Utah.",
                                 "region": "none"
                             },
                             {
@@ -3948,7 +3948,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -3959,9 +3959,9 @@ var all_stims = [
                         "id": "villain_congruent_male",
                         "gender": "male",
                         "orthog": "villain",
-                        "question1": "Does NAME like reading?",
+                        "question1": "Does NAME like writing?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Arkansas?",
+                        "question2": "Is NAME from Michigan?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "villain",
@@ -3987,7 +3987,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Alaska.",
+                                "form": "Utah.",
                                 "region": "none"
                             },
                             {
@@ -3999,7 +3999,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "reading.",
+                                "form": "writing.",
                                 "region": "none"
                             }
                         ]
@@ -4017,9 +4017,9 @@ var all_stims = [
                         "id": "meteorologist_neutral_female",
                         "gender": "female",
                         "orthog": "weatherwoman",
-                        "question1": "Does NAME like drawing?",
-                        "answer1": "No",
-                        "question2": "Is NAME from Montana?",
+                        "question1": "Does NAME like cycling?",
+                        "answer1": "Yes",
+                        "question2": "Is NAME from West Virginia?",
                         "answer2": "No",
                         "condition": "neutral_female",
                         "lexeme": "meteorologist",
@@ -4045,7 +4045,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Delaware.",
+                                "form": "Kansas.",
                                 "region": "none"
                             },
                             {
@@ -4070,7 +4070,7 @@ var all_stims = [
                         "orthog": "weatherwoman",
                         "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from West Virginia?",
                         "answer2": "No",
                         "condition": "congruent_female",
                         "lexeme": "meteorologist",
@@ -4096,7 +4096,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Delaware.",
+                                "form": "Kansas.",
                                 "region": "none"
                             },
                             {
@@ -4121,7 +4121,7 @@ var all_stims = [
                         "orthog": "weatherman",
                         "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from West Virginia?",
                         "answer2": "No",
                         "condition": "neutral_male",
                         "lexeme": "meteorologist",
@@ -4147,7 +4147,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Delaware.",
+                                "form": "Kansas.",
                                 "region": "none"
                             },
                             {
@@ -4172,7 +4172,7 @@ var all_stims = [
                         "orthog": "weatherman",
                         "question1": "Does NAME like cycling?",
                         "answer1": "Yes",
-                        "question2": "Is NAME from Montana?",
+                        "question2": "Is NAME from West Virginia?",
                         "answer2": "No",
                         "condition": "congruent_male",
                         "lexeme": "meteorologist",
@@ -4198,7 +4198,7 @@ var all_stims = [
                                 "region": "none"
                             },
                             {
-                                "form": "Delaware.",
+                                "form": "Kansas.",
                                 "region": "none"
                             },
                             {
@@ -4211,67 +4211,6 @@ var all_stims = [
                             },
                             {
                                 "form": "cycling.",
-                                "region": "none"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-];
-
-var example_stims = [
-    {
-        "lexeme": "performer",
-        "condition": [
-            {
-                "neutral_female": [
-                    {
-                        "id": "performer_neutral_female",
-                        "gender": "female",
-                        "orthog": "performer",
-                        "question1": "Does Brittany like reading?",
-                        "answer1": "Yes",
-                        "question2": "Is Brittany from Lithuania?",
-                        "answer2": "No",
-                        "condition": "neutral_female",
-                        "lexeme": "performer",
-                        "words": [
-                            {
-                                "form": "Brittany",
-                                "region": "none"
-                            },
-                            {
-                                "form": "is",
-                                "region": "none"
-                            },
-                            {
-                                "form": "a",
-                                "region": "none"
-                            },
-                            {
-                                "form": "performer",
-                                "region": "critical"
-                            },
-                            {
-                                "form": "from",
-                                "region": "none"
-                            },
-                            {
-                                "form": "South Korea.",
-                                "region": "none"
-                            },
-                            {
-                                "form": "She",
-                                "region": "none"
-                            },
-                            {
-                                "form": "likes",
-                                "region": "none"
-                            },
-                            {
-                                "form": "reading.",
                                 "region": "none"
                             }
                         ]
