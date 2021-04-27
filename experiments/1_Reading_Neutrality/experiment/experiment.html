@@ -31,7 +31,7 @@ f
 
 </head>
 
-<body onload="init();">
+<body onload="init()">
   <noscript>This task requires JavaScript.</noscript>
 
   <div class="slide" id="i0" >
@@ -79,100 +79,64 @@ f
 
       <br>
       <p class="info">
-        These questions are required for successful completion of the experiment. For each of the following statements, please indicate on a scale from 0 to 100 how much you agree with the presented statement.
+        These questions are required for successful completion of the experiment. For each of the following statements, please indicate on the scale how much you agree with the presented statement.
       </p>
 
-      <p>People can be both aggressive and nurturing, regardless of sex.</p>
+      <p class="questionnaire">People can be both aggressive and nurturing, regardless of sex.</p>
 
       <div class="slidecontainer">
-        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q1"> <i>Strongly Agree</i></p>
-        <p><span id="q1_val"></span></p>
+        <p><i>Strongly Disagree</i> <input onclick="_s.q1thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q1"> <i>Strongly Agree</i></p>
       </div>
 
-      <script>
-      var slider_one = document.getElementById("gender_q1");
-      var output_one = document.getElementById("q1_val");
-      output_one.innerHTML = slider_one.value; // Display the default slider value
+      <!-- <script>
+      // var slider_one = document.getElementById("gender_q1");
+      // var output_one = document.getElementById("q1_val");
+      // output_one.innerHTML = slider_one.value; // Display the default slider value
 
       // Update the current slider value (each time you drag the slider handle)
       slider_one.oninput = function() {
         output_one.innerHTML = this.value;
       }
-      </script>
+      </script> -->
 
-      <p>People should be treated the same, regardless of their sex.</p>
-
-      <div class="slidecontainer">
-        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q2"> <i>Strongly Agree</i></p>
-        <p><span id="q2_val"></span></p>
-      </div>
-
-      <script>
-      var slider_two = document.getElementById("gender_q2");
-      var output_two = document.getElementById("q2_val");
-      output_two.innerHTML = slider_two.value; // Display the default slider value
-
-      // Update the current slider value (each time you drag the slider handle)
-      slider_two.oninput = function() {
-        output_two.innerHTML = this.value;
-      }
-      </script>
-
-      <p>The freedom that children are given should be determined by their age and maturity level and not by their sex.</p>
+      <p class="questionnaire">People should be treated the same, regardless of their sex.</p>
 
       <div class="slidecontainer">
-        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q3"> <i>Strongly Agree</i></p>
-        <p><span id="q3_val"></span></p>
+        <p><i>Strongly Disagree</i> <input onclick="_s.q2thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q2"> <i>Strongly Agree</i></p>
       </div>
 
-      <script>
-      var slider_three = document.getElementById("gender_q3");
-      var output_three = document.getElementById("q3_val");
-      output_three.innerHTML = slider_three.value; // Display the default slider value
+      <br>
 
-      // Update the current slider value (each time you drag the slider handle)
-      slider_three.oninput = function() {
-        output_three.innerHTML = this.value;
-      }
-      </script>
-
-      <p>Tasks around the house should not be assigned by sex.</p>
+      <p class="questionnaire">The freedom that children are given should be determined by their age and maturity level and not by their sex.</p>
 
       <div class="slidecontainer">
-        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q4"> <i>Strongly Agree</i></p>
-        <p><span id="q4_val"></span></p>
+        <p><i>Strongly Disagree</i> <input onclick="_s.q3thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q3"> <i>Strongly Agree</i></p>
       </div>
 
-      <script>
-      var slider_four = document.getElementById("gender_q4");
-      var output_four = document.getElementById("q4_val");
-      output_four.innerHTML = slider_four.value; // Display the default slider value
+      <br>
 
-      // Update the current slider value (each time you drag the slider handle)
-      slider_four.oninput = function() {
-        output_four.innerHTML = this.value;
-      }
-      </script>
-
-      <p>We should stop thinking about whether people are male or female and focus on other characteristics.</p>
+      <p class="questionnaire">Tasks around the house should not be assigned by sex.</p>
 
       <div class="slidecontainer">
-        <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q5"> <i>Strongly Agree</i></p>
-        <p><span id="q5_val"></span></p>
+        <p><i>Strongly Disagree</i> <input onclick="_s.q4thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q4"> <i>Strongly Agree</i></p>
       </div>
 
-      <script>
-      var slider_five = document.getElementById("gender_q5");
-      var output_five = document.getElementById("q5_val");
-      output_five.innerHTML = slider_five.value; // Display the default slider value
+      <br>
 
-      // Update the current slider value (each time you drag the slider handle)
-      slider_five.oninput = function() {
-        output_five.innerHTML = this.value;
-      }
-      </script><br>
+      <p class="questionnaire">We should stop thinking about whether people are male or female and focus on other characteristics.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q5thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q5"> <i>Strongly Agree</i></p>
+      </div>
+
+      <br>
 
      <button onclick="_s.collect_gender()">Continue</button>
+
+     <br>
+     <br>
+
+     <div class="invisible_err" style="display: block;" id="quiz_err_1">Please adjust all sliders before continuing.</div>
   </div><br>
 </div>
 
@@ -184,154 +148,78 @@ f
 
     <br>
     <p class="info">
-      These questions are required for successful completion of the experiment. For each of the following statements, please indicate on a scale from 0 to 100 how much you agree with the presented statement.
+      These questions are required for successful completion of the experiment. For each of the following statements, please indicate on the scale how much you agree with the presented statement.
     </p>
 
-    <p>A father’s major responsibility is to provide financially for his children.</p>
+    <p class="questionnaire">A father’s major responsibility is to provide financially for his children.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q6"> <i>Strongly Agree</i></p>
-      <p><span id="q6_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q6thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q6"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_six = document.getElementById("gender_q6");
-    var output_six = document.getElementById("q6_val");
-    output_six.innerHTML = slider_six.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_six.oninput = function() {
-      output_six.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Men are more sexual than women.</p>
+    <p class="questionnaire">Men are more sexual than women.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q7"> <i>Strongly Agree</i></p>
-      <p><span id="q7_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q7thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q7"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_seven = document.getElementById("gender_q7");
-    var output_seven = document.getElementById("q7_val");
-    output_seven.innerHTML = slider_seven.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_seven.oninput = function() {
-      output_seven.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Some types of work are just not appropriate for women.</p>
+    <p class="questionnaire">Some types of work are just not appropriate for women.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q8"> <i>Strongly Agree</i></p>
-      <p><span id="q8_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q8thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q8"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_eight = document.getElementById("gender_q8");
-    var output_eight = document.getElementById("q8_val");
-    output_eight.innerHTML = slider_eight.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_eight.oninput = function() {
-      output_eight.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Mothers should make most decisions about how children are brought up.</p>
+    <p class="questionnaire">Mothers should make most decisions about how children are brought up.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q9"> <i>Strongly Agree</i></p>
-      <p><span id="q9_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q9thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q9"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_nine = document.getElementById("gender_q9");
-    var output_nine = document.getElementById("q9_val");
-    output_nine.innerHTML = slider_nine.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_nine.oninput = function() {
-      output_nine.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Mothers should work only if necessary.</p>
+    <p class="questionnaire">Mothers should work only if necessary.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q10"> <i>Strongly Agree</i></p>
-      <p><span id="q10_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q10thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q10"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_ten = document.getElementById("gender_q10");
-    var output_ten = document.getElementById("q10_val");
-    output_ten.innerHTML = slider_ten.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_ten.oninput = function() {
-      output_ten.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Girls should be protected and watched over more than boys.</p>
+    <p class="questionnaire">Girls should be protected and watched over more than boys.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q11"> <i>Strongly Agree</i></p>
-      <p><span id="q11_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q11thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q11"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_eleven = document.getElementById("gender_q11");
-    var output_eleven = document.getElementById("q11_val");
-    output_eleven.innerHTML = slider_eleven.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_eleven.oninput = function() {
-      output_eleven.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>Only some types of work are appropriate for both men and women.</p>
+    <p class="questionnaire">Only some types of work are appropriate for both men and women.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q12"> <i>Strongly Agree</i></p>
-      <p><span id="q12_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q12thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q12"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_twelve = document.getElementById("gender_q12");
-    var output_twelve = document.getElementById("q12_val");
-    output_twelve.innerHTML = slider_twelve.value; // Display the default slider value
+    <br>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider_twelve.oninput = function() {
-      output_twelve.innerHTML = this.value;
-    }
-    </script><br>
-
-    <p>For many important jobs, it is better to choose men instead of women.</p>
+    <p class="questionnaire">For many important jobs, it is better to choose men instead of women.</p>
 
     <div class="slidecontainer">
-      <p><i>Strongly Disagree</i> <input type="range" min="0" max="100" value="50" class="slider" id="gender_q13"> <i>Strongly Agree</i></p>
-      <p><span id="q13_val"></span></p>
+      <p><i>Strongly Disagree</i> <input onclick="_s.q13thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q13"> <i>Strongly Agree</i></p>
     </div>
 
-    <script>
-    var slider_thirteen = document.getElementById("gender_q13");
-    var output_thirteen = document.getElementById("q13_val");
-    output_thirteen.innerHTML = slider_thirteen.value; // Display the default slider value
-
-    // Update the current slider value (each time you drag the slider handle)
-    slider_thirteen.oninput = function() {
-      output_thirteen.innerHTML = this.value;
-    }
-    </script><br>
+    <br>
 
    <button onclick="_s.collect_gender_two()">Continue</button>
+
+   <br>
+
+   <div class="invisible_err" style="display: block;" id="quiz_err_1">Please adjust all sliders before continuing.</div>
   </div><br>
   </div>
 
