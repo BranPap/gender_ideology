@@ -367,8 +367,19 @@ function make_slides(f) {
         price : $("#fairprice").val(),
         asses: $('input[name="assess"]:checked').val(),
         comments: $("#comments").val(),
-        gender_linked: exp.gender_linked,
-        gender_transendence: exp.gender_transendence,
+        gender_q1 : $("#gender_q1").val(),
+        gender_q2 : $("#gender_q2").val(),
+        gender_q3 : $("#gender_q3").val(),
+        gender_q4 : $("#gender_q4").val(),
+        gender_q5 : $("#gender_q5").val(),
+        gender_q6 : $("#gender_q6").val(),
+        gender_q7 : $("#gender_q7").val(),
+        gender_q8 : $("#gender_q8").val(),
+        gender_q9 : $("#gender_q9").val(),
+        gender_q10 : $("#gender_q10").val(),
+        gender_q11 : $("#gender_q11").val(),
+        gender_q12 : $("#gender_q12").val(),
+        gender_q13 : $("#gender_q13").val(),
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
