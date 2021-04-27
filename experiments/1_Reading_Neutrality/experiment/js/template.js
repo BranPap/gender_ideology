@@ -338,18 +338,21 @@ function make_slides(f) {
       };
     },
     collect_gender_two : function() {
-      exp.gender_linked = [{
-        gender_q6 : $("#gender_q6").val(),
-        gender_q7 : $("#gender_q7").val(),
-        gender_q8 : $("#gender_q8").val(),
-        gender_q9 : $("#gender_q9").val(),
-        gender_q10 : $("#gender_q10").val(),
-        gender_q11 : $("#gender_q11").val(),
-        gender_q12 : $("#gender_q12").val(),
-        gender_q13 : $("#gender_q13").val(),
-      }];
-    exp.go();
-    }
+      let q6_status = document.getElementById('gender_q6');
+      let q7_status = document.getElementById('gender_q7');
+      let q8_status = document.getElementById('gender_q8');
+      let q9_status = document.getElementById('gender_q9');
+      let q10_status = document.getElementById('gender_q10');
+      let q11_status = document.getElementById('gender_q11');
+      let q12_status = document.getElementById('gender_q2');
+      let q13_status = document.getElementById('gender_q13');
+      if (q6_status.className != 'slider visibleslider' || q7_status.className != 'slider visibleslider' || q8_status.className != 'slider visibleslider' || q9_status.className != 'slider visibleslider' || q10_status.className != 'slider visibleslider' || q11_status.className != 'slider visibleslider' || q12_status.className != 'slider visibleslider' || q13_status.className != 'slider visibleslider') {
+        let efg = document.getElementById('quiz_err_2');
+        $('#quiz_err_2').addClass("visibleerr");
+      } else {
+            exp.go();
+          };
+      }
   });
 
   slides.subj_info =  slide({
