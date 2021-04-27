@@ -367,6 +367,8 @@ function make_slides(f) {
         price : $("#fairprice").val(),
         asses: $('input[name="assess"]:checked').val(),
         comments: $("#comments").val(),
+        gender_linked: exp.gender_linked,
+        gender_transendence: exp.gender_transendence,
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
@@ -377,8 +379,6 @@ function make_slides(f) {
     start : function() {
       exp.data= {
           "trials" : exp.data_trials,
-          "gender_transendence" : exp.gender_transendence,
-          "gender_linked" : exp.gender_linked,
           "system" : exp.system,
           "subject_information" : exp.subj_data,
           "time_in_minutes" : (Date.now() - exp.startT)/60000
