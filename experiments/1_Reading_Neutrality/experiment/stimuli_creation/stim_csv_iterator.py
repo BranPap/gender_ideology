@@ -62,10 +62,21 @@ with open("stimuli_creation/lexeme_stims.csv", 'w') as stim_input:
         stim_input.write(",She,")
         stim_input.write("likes,")
         stim_input.write(activity+".")
-        stim_input.write(",Does NAME like "+activity+"?")
-        stim_input.write(",Yes")
-        stim_input.write(",Is NAME from "+antistate+"?")
-        stim_input.write(",No,")
+        if activity_chance == 0:
+            stim_input.write(",Does NAME like "+activity_2+"?")
+            if activity == activity_2:
+                stim_input.write(",Yes")
+            else:
+                stim_input.write(",No")
+        else:
+            stim_input.write(",Does NAME like "+activity+"?")
+            stim_input.write(",Yes")
+        if chance == 0:
+            stim_input.write(",Is NAME from "+antistate+"?")
+            stim_input.write(",No,")
+        else:
+            stim_input.write(",Is NAME from "+state+"?")
+            stim_input.write(",Yes,")
         stim_input.write("female,"+row['lexeme']+','+row["female"]+',')
         stim_input.write("congruent_female"+',')
         stim_input.write(row['lexeme'])
@@ -79,13 +90,24 @@ with open("stimuli_creation/lexeme_stims.csv", 'w') as stim_input:
         stim_input.write(",He,")
         stim_input.write("likes,")
         stim_input.write(activity+".")
-        stim_input.write(",Does NAME like "+activity+"?")
-        stim_input.write(",Yes")
-        stim_input.write(",Is NAME from "+antistate+"?")
-        stim_input.write(",No,")
+        if activity_chance == 0:
+            stim_input.write(",Does NAME like "+activity_2+"?")
+            if activity == activity_2:
+                stim_input.write(",Yes")
+            else:
+                stim_input.write(",No")
+        else:
+            stim_input.write(",Does NAME like "+activity+"?")
+            stim_input.write(",Yes")
+        if chance == 0:
+            stim_input.write(",Is NAME from "+antistate+"?")
+            stim_input.write(",No,")
+        else:
+            stim_input.write(",Is NAME from "+state+"?")
+            stim_input.write(",Yes,")
         stim_input.write("male,"+row['lexeme']+','+row["male"]+',')
         stim_input.write("neutral_male"+',')
-        stim_input.write("_neutral_male")
+        stim_input.write(row["lexeme"]+"_neutral_male")
         stim_input.write('\n')
         stim_input.write("NAME,is,")
         stim_input.write(row["det"])
@@ -95,10 +117,21 @@ with open("stimuli_creation/lexeme_stims.csv", 'w') as stim_input:
         stim_input.write(",He,")
         stim_input.write("likes,")
         stim_input.write(activity+".")
-        stim_input.write(",Does NAME like "+activity+"?")
-        stim_input.write(",Yes")
-        stim_input.write(",Is NAME from "+antistate+"?")
-        stim_input.write(",No,")
+        if activity_chance == 0:
+            stim_input.write(",Does NAME like "+activity_2+"?")
+            if activity == activity_2:
+                stim_input.write(",Yes")
+            else:
+                stim_input.write(",No")
+        else:
+            stim_input.write(",Does NAME like "+activity+"?")
+            stim_input.write(",Yes")
+        if chance == 0:
+            stim_input.write(",Is NAME from "+antistate+"?")
+            stim_input.write(",No,")
+        else:
+            stim_input.write(",Is NAME from "+state+"?")
+            stim_input.write(",Yes,")
         stim_input.write("male,"+row['lexeme']+','+row["male"]+',')
         stim_input.write("congruent_male"+',')
         stim_input.write(row['lexeme'])

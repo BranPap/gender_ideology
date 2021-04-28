@@ -1,0 +1,46 @@
+---
+title: "Pilot Data Analysis"
+author: "Bran T. Papineau"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+```
+
+
+
+```{r}
+all_data <- read.csv("reading_neutrality_pilot-merged.csv")
+```
+
+```{r}
+summary(all_data)
+```
+
+
+```{r}
+all_data %>%
+  filter(trial_id != 'example') %>%
+  group_by(condition,form) %>%
+  filter(form == 'from') %>%
+  summarise('time' = mean(rt)) %>%
+  ggplot(aes(x=condition, y=time)) + 
+  geom_col()
+```
+
+```{r}
+filtered_data <- all_data %>%
+  filter(trial_id != 'example' & region == "critical")
+```
+
+
+```{r}
+linear_regression <- lm(rt~condition + , data=filtered_data)
+```
+
+```{r}
+summary(linear_regression)
+```
+
