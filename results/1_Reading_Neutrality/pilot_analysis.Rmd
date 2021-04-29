@@ -32,15 +32,37 @@ all_data %>%
 
 ```{r}
 filtered_data <- all_data %>%
-  filter(trial_id != 'example' & region == "critical")
+  filter(trial_id != 'example' & word_idx == '3') %>%
+  mutate(gender_transcendence = 100 - rowMeans(cbind(subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5))) %>% 
+  mutate(gender_linked= rowMeans(cbind(subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13)))
+```
+
+```{r}
+filtered_from <- all_data %>%
+  filter(trial_id != 'example' & form == 'from') %>%
+  mutate(gender_transcendence = 100 - rowMeans(cbind(subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5))) %>% 
+  mutate(gender_linked= rowMeans(cbind(subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13)))
 ```
 
 
 ```{r}
-linear_regression <- lm(rt~condition + , data=filtered_data)
+linear_from_regression <- lm(rt~condition * gender_transcendence + gender_linked, data=filtered_from)
+```
+
+```{r}
+summary(linear_from_regression)
+```
+
+
+```{r}
+linear_regression <- lm(rt~condition * gender_transcendence + gender_linked, data=filtered_data)
 ```
 
 ```{r}
 summary(linear_regression)
+```
+
+```{r}
+plot(linear_regression)
 ```
 

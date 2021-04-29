@@ -232,8 +232,6 @@ function make_slides(f) {
           "word_idx": i,
           "form": word.form,
           "region": word.region,
-          "lbr_before": word.lbr_before ? 1 : 0,
-          "lbr_after": word.lbr_after ? 1 : 0,
           "rt": this.response_times[i+1] - this.response_times[i],
           "condition": this.stim.condition,
           "lexeme": this.stim.lexeme,
@@ -430,7 +428,7 @@ function init() {
   exp.nQs = utils.get_exp_length(); //this does not work if there are stacks of stims (but does work for an experiment with this structure)
                     //relies on structure and slides being defined
 
-  exp.gender = _.shuffle(['congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female']);
+  exp.gender = _.shuffle(['congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female']);
 
   exp.male_names = _.shuffle(["Michael","Jacob","Matthew","Joshua","Christopher","Nicholas", "Andrew", "Austin","Joseph","David","William","John"])
 
