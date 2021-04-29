@@ -109,8 +109,6 @@ function make_slides(f) {
           "word_idx": i,
           "form": word.form,
           "region": word.region,
-          "lbr_before": word.lbr_before ? 1 : 0,
-          "lbr_after": word.lbr_after ? 1 : 0,
           "rt": this.response_times[i+1] - this.response_times[i],
           "condition": this.stim.condition,
           "lexeme": this.stim.lexeme,
