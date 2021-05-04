@@ -1,0 +1,240 @@
+---
+title: Gender Processing of Gendered and Gender-Neutral Professional and Personal
+  Titles
+author: "Bran Papineau"
+date: May 2021
+output:
+  html_notebook:
+    toc: true
+    toc_float: 
+      collapsed: false
+    number_sections: true
+    theme: journal
+---
+
+
+This document contains the totality of the analysis I am carrying out for my first Qualifying Paper towards the PhD in Linguistics at Stanford University. This project deals with the processing of gendered and gender-neutral personal and professional titles. 
+
+# Preliminaries
+
+## Import Necessary Libraries & Source Files
+<br>
+We require the following libraries, and I've included their functions in my analysis below:
+
+```{r echo=TRUE}
+library(ggplot2) 
+library(tidyverse) 
+library(lme4) 
+library(stringr) 
+
+source("helpers.R") 
+```
+
+<b>ggplot2</b>: data visualization <br>
+<b>tidyverse</b>: data management & manipulation <br>
+<b>lme4</b>: mixed-effects models <br>
+<b>stringr</b>: needed to compute string lengths <br>
+
+We also add <i>"helpers.R"</i> as a dependency, which includes custom code for implementing error bars in ggplot2 visualizations.
+
+## Set Gloabal ggplot2 Theme
+<br>
+This just makes it so that all ggplot2 plots will have the black & white theme: 
+
+```{r}
+theme_set(theme_bw())
+```
+
+
+# Data Importing & Management
+
+## Import Dataset 
+<br>
+This reads in our .csv file with all 37,800 data points logged during the experiment. 
+
+```{r}
+all_data <- read.csv('gender_processing_a_selfpaced_reading_time_study-merged.csv') 
+```
+
+
+
+
+## Data-Point Exclusions {.tabset}
+However, we definitely don't want all 37,800 data points! Many of these aren't critical trials, and this still includes the example trial where participants were learning how to take the experiment. In this section we filter out:
+
+- Example trials
+- Non-critical regions of the sentences
+- Participants who failed to reach the 85% accuracy threshold on the attention-check questions
+
+Once we do this, we are left with a total of 3,720 data points! <br>
+
+This part is a bit ugly, so I've collapsed each of these into a separate tab, but absolutely free to explore if you'd like! They are (hopefully) thoroughly annotated.
+
+### Removing Example Trials
+<br> 
+This simply filters out any data point which has the <b>trial_id</b> <i>'example'</i>, which is all 8 data points of the example trial, for each of the 200 participants. 
+<br>
+```{r}
+all_data <- all_data %>% 
+  filter(trial_id!= 'example')
+```
+
+### Filter out non-critical data points
+<br>
+Similar to the previous tab (Removing Example Trials), this code removes from our data frame any non-critical data points. In this case, we are interested on the reading times on the personal and professional titles, so these have been logged as the <i>'critical'</i> trials in the experiment. This code gets rid of everything else.
+<br>
+```{r}
+all_data <- all_data %>%
+  filter(region=='critical')
+```
+
+### Running Exclusion Criteria
+<br>
+This is the most complicated of the removal steps, so let's break it down.
+
+First, we need to create a data frame with the <b>workerids</b> of every participant who did not meet the 85% accuracy threshold on the attention checks. The attention checks (logged as <b>response_correct</b>) have binary values: a <i>1</i> means that they got the question correct, while a zero (<i>0</i>) indicates that they did not.<br>
+<br>
+So, we create a data frame with the participants who didn't meet the threshold by grouping all the data by participant, and then creating a small data frame with just the workers and their relative accuracies, which is recorded in the new <b>accuracy</b> column. This is valued by meaning each participant's <b>response_correct</b> scores:
+<br>
+```{r}
+exclusion <- all_data %>% group_by(workerid) %>%
+  summarise(accuracy = mean(response_correct)) 
+ # mutate(exclude = ifelse(accuracy < 0.85,'Yes','No')) %>%
+ # filter(exclude == 'Yes') %>%
+ # select(workerid)
+
+#all_data <- all_data[!(all_data$workerid %in% exclusion$workerid),]
+exclusion
+```
+<br>
+Now we can add to this another column, called <b>exclude</b>, which will assign them a value of <i>'Yes'</i> if their data needs to be excluded based on their accuracy. If they scored over 85% accuracy, then they do not need to be excluded, so their <b>exclude</b> value is <i>'No'</i>.
+
+```{r}
+exclusion <- exclusion %>%
+  mutate(exclude = ifelse(accuracy < 0.85,'Yes','No'))
+
+exclusion
+```
+
+
+
+## Adding in Gender Trascendence and Gender-Linked Subscales
+
+### Defining Subscore Groups
+
+```{r}
+gender_transcendence_cols <- c('subject_information.gender_q1','subject_information.gender_q2','subject_information.gender_q3','subject_information.gender_q4','subject_information.gender_q5')
+
+gender_linked_cols <- c('subject_information.gender_q6','subject_information.gender_q7','subject_information.gender_q8','subject_information.gender_q9','subject_information.gender_q10','subject_information.gender_q11','subject_information.gender_q12','subject_information.gender_q13')
+```
+
+### Adding the subscore columns
+
+```{r}
+all_data <- all_data %>%
+  mutate(gender_trans = 100 - (rowMeans(all_data[gender_transcendence_cols]))) %>%
+  mutate(gender_link = rowMeans(all_data[gender_linked_cols]))
+```
+
+## Adding Gender and Morph_Type Columns
+
+```{r}
+all_data <- all_data %>%
+  mutate(trial_gender = ifelse(condition=='neutral_female' | condition == 'congruent_female','female','male')) %>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+```
+
+## Adding Form Length
+
+```{r}
+all_data <- all_data %>%
+  mutate(form_length = str_length(form))
+```
+
+
+## Adding Congruency Column
+
+```{r}
+all_data <- all_data %>%
+  mutate(trial_congruency = ifelse(condition=='congruent_male' | condition == 'congruent_female','congruent','neutral'))
+```
+
+## Review summary with new columns 
+
+```{r}
+summary(all_data)
+```
+
+## 
+
+# Data Visualisation
+
+```{r}
+to_plot <- all_data %>%
+  group_by(condition) %>%
+  summarise(mean_rt = mean(rt), CI.LOW = ci.low(rt), CI.HIGH = ci.high(rt)) %>%
+  ungroup() %>%
+  mutate(YMin = mean_rt-CI.LOW, YMax = mean_rt+CI.HIGH)
+```
+
+
+```{r}
+ggplot(to_plot,aes(x=condition,y=mean_rt, fill=condition)) + 
+  geom_bar(stat='identity') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25)
+```
+
+
+```{r}
+all_data %>% filter(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero') %>%
+  group_by(trial_gender) %>%
+  summarise(mean_rt = mean(rt)) %>%
+  ggplot(aes(x= trial_gender, y=mean_rt)) + 
+  geom_col()
+```
+
+```{r}
+all_data %>%
+  filter(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero') %>%
+  group_by(trial_congruency) %>%
+  summarise(mean_rt = mean(rt)) %>%
+  ggplot(aes(x= trial_congruency, y=mean_rt)) + 
+  geom_col()
+```
+
+
+```{r}
+all_data %>%
+  group_by(morph_type) %>%
+  summarise(mean_rt = mean(rt)) %>%
+  ggplot(aes(x= morph_type, y=mean_rt)) + 
+  geom_col()
+```
+
+```{r}
+all_data %>%
+  group_by(form_length) %>%
+  summarise(mean_rt = mean(rt)) %>%
+  ggplot(aes(x= form_length, y=mean_rt)) + 
+  geom_col()
+```
+
+```{r}
+reg_analysis <- lmer(log(rt)~condition*morph_type + (1|workerid) + (1|lexeme) + (1|form_length), data = all_data)
+```
+
+```{r}
+summary(reg_analysis)
+```
+```{r}
+plot()
+```
+
+
+```{r}
+gender_verification <- lmer(gender_link~gender_trans + (1|workerid), data=all_data)
+```
+```{r}
+summary(gender_verification)
+```
+
