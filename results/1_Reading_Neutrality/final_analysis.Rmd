@@ -190,7 +190,7 @@ all_data <- all_data %>%
   mutate(gender_link = rowMeans(all_data[gender_linked_cols]))
 
 all_data %>%
-  select(workerid,rt,gender_trans) 
+  select(workerid,rt,gender_trans,gender_link) 
 ```
 
 ### Adding Gender
