@@ -249,7 +249,7 @@ all_data %>%
 ## Review summary with new columns 
 <br>
 Now we can use the head() method to check the current state of the data frame, which should include a grand total of 46 columns! 
-<br><br>
+<br>
 
 ```{r}
 head(all_data)
