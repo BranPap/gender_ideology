@@ -163,9 +163,9 @@ Now that we have only the rows we want, let's add some new columns, which will c
 - Critical Item Length
 - Trial Congruency 
 
-These features will be use in our data visualization and analysis.<br>
+Ideally, I would've added all of these but the first when I actually created the stimuli and logged responses, but I forgot to! Luckily, R allows us to do this post-hoc fairly straightforwardly... which is good, since these features will be critical in our data visualization and analysis.<br>
 <br>
-Again, this code is fairly ugly, so I've once again divvied it up into individual tabs, which you're free to peruse or not.
+Again, some of this code is fairly ugly and involved, or irrelevant, so I've once again divvied it up into individual tabs, which you're free to peruse or not.
 
 
 ### Defining Gender Subscores
