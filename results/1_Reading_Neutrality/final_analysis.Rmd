@@ -1,15 +1,17 @@
 ---
-title: Processing of Gendered and Gender-Neutral Professional and Personal
-  Titles
+title: "Processing of Gendered and Gender-Neutral Professional and Personal Titles"
 author: "Bran Papineau"
-date: May 2021
+date: "May 2021"
 output:
   html_notebook:
-    toc: true
-    toc_float: 
-      collapsed: false
-    number_sections: true
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
     theme: journal
+  html_document:
+    toc: yes
+    df_print: paged
 ---
 
 
@@ -25,7 +27,9 @@ We require the following libraries, and I've included their functions in my anal
 library(ggplot2) 
 library(tidyverse) 
 library(lme4) 
-library(stringr) 
+library(stringr)
+library(languageR)
+library(lmerTest)
 
 source("helpers.R") 
 ```
@@ -42,7 +46,7 @@ We also add <i>"helpers.R"</i> as a dependency, which includes custom code for i
 This just makes it so that all ggplot2 plots will have the black & white theme: 
 
 ```{r}
-theme_set(theme_bw())
+theme_set(theme_minimal())
 ```
 
 
@@ -154,6 +158,18 @@ If we're being really extra, we can also run this as an equivalency to get a boo
 200 - length(unique(all_data$workerid)) == length(unique(exclusion$workerid))
 ```
 
+We can also filter out any trials which fall without 2.5 standard deviations for that trial.
+
+```{r}
+all_data <- all_data %>%
+  group_by(trial_id) %>%
+  mutate(id_mean = mean(log(rt))) %>%
+  mutate(exclusion = (log(rt) < mean(log(rt)) - 2*sd(log(rt))|(log(rt) > mean(log(rt)) + 2*sd(log(rt))))) %>%
+  ungroup() %>%
+  filter(exclusion==FALSE)
+```
+
+
 ## Adding in Additional Important Trial Information {.tabset}
 Now that we have only the rows we want, let's add some new columns, which will contain important information for each data point. Here, we will be adding:
 
@@ -192,6 +208,23 @@ all_data <- all_data %>%
 all_data %>%
   select(workerid,rt,gender_trans,gender_link) 
 ```
+<br>
+Finally, we probably want something that includes the average across all the gender questions, regardless of subscores. This is easy enough, since we just have to mean the two subscores we already made. So, let's define a column list:
+<br>
+```{r}
+gender_all = c('gender_trans','gender_link')
+```
+<br>
+Now we mutate a new column! 
+<br>
+```{r}
+all_data <- all_data %>%
+  mutate(gender_total = rowMeans(all_data[gender_all]))
+
+all_data %>%
+  select(workerid,rt,gender_trans,gender_link,gender_total) 
+```
+
 
 ### Adding Gender
 <br>
@@ -260,4 +293,212 @@ And now, our data should be completely ready to visualize and analyze!
 # Data Visualization
 
 <b>[THIS PART UNDER CONSTRUCTION: COMING SOON]</b>
+
+Now that we have our data ready for visualization and analysis, let's do the former! 
+<br>
+
+## A Preliminary 
+
+```{r}
+inauguration_2021 = c("#5445b1", "#749dae", "#f3c483", "#5c1a33", "#cd3341","#f7dc6a")
+```
+
+```{r}
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+```
+
+
+## Plots 
+ 
+```{r}
+ggplot(all_data, aes(x=rt, fill=morph_type)) + 
+  geom_density(alpha=.6) + 
+  labs(x="Raw Reading Time", y="Density",fill="Critical Item Morphology Type") + 
+  scale_fill_manual(values = cbPalette)
+```
+
+```{r}
+ ggsave("plots/morph_type_density.jpg",height=5,width=8)
+```
+
+
+```{r}
+ggplot(all_data, aes(x=rt, fill=condition)) + 
+  geom_density(alpha=.4) + 
+  labs(x="Raw Reading Time", y="Density",fill="Critical Item Condition") + 
+  scale_fill_manual(values = cbPalette)
+```
+
+```{r}
+ggplot(all_data, aes(x=rt, fill=trial_gender)) + 
+  geom_density(alpha=.6) + 
+  labs(x="Raw Reading Time", y="Density",fill="Critical Item Gender") + 
+  scale_fill_manual(values = cbPalette)
+```
+
+```{r}
+ggplot(all_data, aes(x=rt, fill=trial_congruency)) + 
+  geom_density(alpha=.6) + 
+  labs(x="Raw Reading Time", y="Density",fill="Critical Item Congruency") + 
+  scale_fill_manual(values = cbPalette)
+```
+
+```{r}
+ggplot(all_data, aes(x=gender_total, y=rt)) + 
+  geom_point(alpha=.5) + 
+  geom_smooth(method = 'lm', size=1.2)
+```
+
+```{r}
+all_data %>%
+  group_by(subject_information.party_alignment,condition) %>%
+  summarize(MeanRT = mean(rt), CI.Low = ci.low(rt), CI.High = ci.high(rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=subject_information.party_alignment,y=MeanRT,fill=subject_information.party_alignment)) + 
+  geom_bar(stat='identity') + 
+  theme(legend.position = "none") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
+  facet_wrap(~ condition)
+```
+
+```{r}
+simple_model <- lm(log(rt)~form_length, data = all_data)
+```
+
+```{r}
+summary(simple_model)
+```
+```{r}
+all_data <- all_data %>%
+  mutate(resid_rt = resid(simple_model))
+```
+
+```{r}
+ggplot(data=temp, aes(x=log(rt),y=resid_rt)) + 
+  geom_point()
+```
+
+```{r}
+ggplot(all_data, aes(x=form_length,y=rt)) + 
+  geom_point()
+```
+
+
+
+```{r}
+agr <- all_data %>%
+  group_by(trial_gender,trial_congruency) %>%
+  summarize(MeanRT = mean(rt), CI.Low = ci.low(rt), CI.High = ci.high(rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High)
+
+dodge = position_dodge(.9)
+ggplot(data=agr, aes(x=trial_gender,y=MeanRT,fill=trial_congruency)) + 
+  geom_bar(stat='identity',position=dodge) + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25,position=dodge)
+```
+
+
+
+```{r}
+all_data %>%
+ggplot(aes(x=morph_type, y=rt)) + 
+  geom_boxplot()
+```
+
+```{r}
+agg_speaker_mean <- all_data %>%
+  group_by(morph_type,workerid) %>%
+  summarize(MeanRT=mean(resid_rt))
+```
+
+
+```{r}
+all_data %>%
+  group_by(morph_type) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=morph_type,y=MeanRT)) + 
+  geom_point(size=3) + 
+  geom_jitter(data = agg_speaker_mean, aes(y=MeanRT),alpha=.2,color='blue') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25)
+```
+
+
+```{r}
+agg_speaker_mean_length <- all_data %>%
+  group_by(form_length,workerid) %>%
+  summarize(MeanRT=mean(rt))
+```
+
+
+
+```{r}
+all_data %>%
+  group_by(form_length) %>%
+  summarize(MeanRT = mean(rt), CI.Low = ci.low(rt), CI.High = ci.high(rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=form_length,y=MeanRT)) + 
+  geom_col() + 
+  geom_jitter(data = agg_speaker_mean_length, aes(y=MeanRT),alpha=.2,color='blue') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  geom_smooth(method = 'lm', size=1.2) 
+```
+
+
+```{r}
+agg_speaker_mean_con <- all_data %>%
+  group_by(condition,workerid) %>%
+  summarize(MeanRT=mean(resid_rt))
+```
+
+```{r}
+all_data %>%
+  group_by(condition) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT)) + 
+  geom_point(size=3) + 
+  geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.2,color='blue') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) 
+```
+
+
+```{r}
+complex_model <- lmer(resid_rt~trial_congruency*trial_gender + (1 + trial_congruency + trial_gender | workerid) + (1|lexeme),all_data)
+```
+
+
+```{r}
+summary(complex_model)
+```
+
+
+```{r}
+all_data %>%
+  ggplot(aes(x=form_length, y=rt,color=morph_type)) + 
+  geom_jitter() + 
+  geom_smooth(method = 'lm', size=1.2) 
+```
+
+```{r}
+all_data %>%
+  ggplot(aes(x=log(gender_trans), y=log(rt),color=morph_type)) + 
+  geom_jitter() + 
+  geom_smooth(method = 'lm', size=1.2) 
+```
+
+# Model Analyses
+
+```{r}
+starting_model <- lmer(data = all_data, log(rt) ~ condition*morph_type + (1|workerid) + (1|lexeme) )
+```
+
+```{r}
+summary(starting_model)
+```
+
+```{r}
+plot(starting_model)
+```
+
 
