@@ -57,8 +57,7 @@ theme_set(theme_minimal())
 This reads in our .csv file with all 37,800 data points logged during the experiment. 
 
 ```{r}
-all_data <- read.csv('gender_processing_a_selfpaced_reading_time_study-merged.csv') %>%
-  select(-error)
+all_data <- read.csv('gender_processing_a_selfpaced_reading_time_study-merged.csv')
 
 all_data %>%
   head()
@@ -96,7 +95,7 @@ Similar to the previous tab (Removing Example Trials), this code removes from ou
 <br>
 ```{r}
 all_data <- all_data %>%
-  filter(region=='critical')
+  filter(region=='critical' | word_idx == 4)
 
 all_data %>% 
   select(workerid,rt,region)
@@ -476,61 +475,14 @@ agg_speaker_mean_con <- all_data %>%
 
 ```{r}
 all_data %>%
-  group_by(condition,trial_gender) %>%
+  group_by(condition) %>%
   summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
   mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
-  ggplot(aes(x=condition,y=MeanRT,color=trial_gender)) + 
+  ggplot(aes(x=condition,y=MeanRT)) + 
   geom_point(size=3) + 
-  geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.2,color='mediumslateblue') + 
-  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  scale_color_manual(values = cbPalette)
+  geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.4,color='mediumslateblue') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) 
 ```
-
-```{r}
-all_data %>%
-  group_by(condition,trial_gender,trial_congruency,lexeme) %>%
-  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
-  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
-  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
-  geom_point(size=3) +
-  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  facet_wrap(~ lexeme) +
-  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
-  scale_color_manual(values = cbPalette)
-  
-```
-
-```{r}
-all_data %>%
-  filter(!is.na(subject_information.party_alignment)) %>%
-  group_by(subject_information.party_alignment,condition,trial_gender,trial_congruency) %>%
-  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
-  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
-  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
-  geom_point(size=3) +
-  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  facet_wrap(~ subject_information.party_alignment, nrow = 1) +
-  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
-  scale_color_manual(values = cbPalette)
-  
-```
-
-```{r}
-aggr_speaker <- all_data %>%
-  group_by(gender_link,workerid,trial_gender,trial_congruency) %>%
-  summarise(meanrt = mean(resid_rt))
-  
-```
-
-
-```{r}
-aggr_speaker %>%
-  ggplot(aes(x=gender_link,y=meanrt,color=trial_gender,linetype=trial_congruency)) + 
-  geom_point() + 
-  geom_smooth(method='lm')
-```
-
-
 
 ```{r}
 agg_speaker_mean_gen <- all_data %>%
@@ -549,50 +501,27 @@ all_data %>%
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) 
 ```
 
-# Model Analyses {.tabset}
-
-## Reading Time
-
+# Model Analyses
 
 ```{r}
-all_data <- all_data %>%
-  mutate(ctrial_congruency = as.numeric(as.factor(trial_congruency))-mean(as.numeric(as.factor(trial_congruency)))) %>%
-  mutate(ctrial_gender = as.numeric(as.factor(trial_gender))-mean(as.numeric(as.factor(trial_gender)))) %>%
-  mutate(cgender_link = scale(gender_link))
-```
-
-
-
-```{r}
-complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1 + ctrial_congruency + ctrial_gender | workerid) + (1 + cgender_link |lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=20000)))
+complex_model <- lmer(resid_rt~trial_congruency*trial_gender + (1 + trial_congruency + trial_gender | workerid) + (1|lexeme) + (1|name),all_data)
 ```
 
 
 ```{r}
 summary(complex_model)
 ```
+
 ```{r}
-complex_model_bare <- lmer(resid_rt~trial_congruency*trial_gender + (1 + trial_congruency + trial_gender | workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=20000)))
+starting_model <- lmer(data = all_data, log(rt) ~ condition*morph_type + (1|workerid) + (1|lexeme) )
 ```
 
 ```{r}
-summary(complex_model_bare)
-```
-
-
-```{r}
-plot(complex_model)
-```
-## Confirming the Gender Scales
-
-```{r}
-no_genderless <- all_data[complete.cases(all_data), ]
-
-gender_check <- lm(gender_total~subject_information.gender, data=no_genderless)
+summary(starting_model)
 ```
 
 ```{r}
-summary(gender_check)
+plot(starting_model)
 ```
 
 
