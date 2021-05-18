@@ -196,7 +196,7 @@ function make_slides(f) {
           }
           t.position++;
         }
-
+        
       });
 
       var question_check = _.shuffle([this.stim.question1, this.stim.question2]).pop()

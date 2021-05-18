@@ -30,6 +30,7 @@ library(lme4)
 library(stringr)
 library(languageR)
 library(lmerTest)
+library(reshape2)
 
 source("helpers.R") 
 ```
@@ -301,6 +302,14 @@ ggplot(data=all_data, aes(x=log(rt),y=resid_rt)) +
   geom_point()
 ```
 
+### Adding Large Political Macrocategories
+
+```{r}
+all_data <- all_data %>%
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+```
+
+
 ## Review summary with new columns 
 <br>
 Now we can use the head() method to check the current state of the data frame, which should include a grand total of 46 columns! 
@@ -497,7 +506,74 @@ all_data %>%
   facet_wrap(~ lexeme) +
   theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
   scale_color_manual(values = cbPalette)
-  
+```
+
+```{r}
+temp <- all_data %>%
+  group_by(lexeme,trial_gender,trial_congruency) %>%
+  summarize(meanRT = mean(resid_rt)) %>%
+  spread(trial_congruency,meanRT) %>%
+  mutate(con_dif = neutral-congruent)
+
+ggplot(temp, aes(x=trial_gender,y=con_dif, fill=trial_gender)) +
+  geom_bar(stat='identity') + 
+  theme(legend.position = 'none') + 
+  geom_hline(yintercept =0) + 
+  facet_wrap(~lexeme) + 
+  labs(x = 'Trial Gender', y='Congruency Difference (Neutral-Congruent)')
+```
+
+```{r}
+all_data %>%
+  filter(lexeme=='firefighter') %>%
+  group_by(trial_gender) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=trial_gender,y=MeanRT,color=trial_gender)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25)
+```
+
+
+
+```{r}
+ggplot(all_data, aes(x=trial_gender,y=resid_rt)) + 
+  geom_bar(stat='identity') + 
+  facet_wrap(~lexeme)
+```
+
+
+```{r}
+ ggsave("plots/difference-plot.jpg",height=5,width=8)
+```
+
+```{r}
+all_data %>%
+  group_by(trial_gender,trial_congruency,lexeme) %>% 
+  summarize(MeanRT = mean(resid_rt)) %>%
+  group_by(lexeme) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=trial_congruency,y=MeanRT,color=trial_gender)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  facet_wrap(~ lexeme) +
+  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
+  scale_color_manual(values = cbPalette)
+```
+
+
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(poli_party,condition,trial_gender,trial_congruency) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  facet_wrap(~ poli_party, nrow = 1) +
+  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
+  scale_color_manual(values = cbPalette)
 ```
 
 ```{r}
@@ -512,7 +588,6 @@ all_data %>%
   facet_wrap(~ subject_information.party_alignment, nrow = 1) +
   theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
   scale_color_manual(values = cbPalette)
-  
 ```
 
 ```{r}
@@ -548,6 +623,41 @@ all_data %>%
   geom_jitter(data = agg_speaker_mean_gen, aes(y=MeanRT),alpha=.4,color='mediumslateblue') + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) 
 ```
+
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(trial_congruency,poli_party) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=trial_congruency,y=MeanRT)) + 
+  geom_point(size=3) + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(trial_gender,poli_party) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=trial_gender,y=MeanRT)) + 
+  geom_point(size=3) + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+poli_data <- all_data %>% 
+  group_by(workerid) %>%
+  summarise(party = paste(unique(poli_party)))
+```
+
+```{r}
+table(poli_data$party)
+```
+
 
 # Model Analyses {.tabset}
 
