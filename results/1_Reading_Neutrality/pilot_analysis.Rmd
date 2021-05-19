@@ -7,62 +7,65 @@ output: html_notebook
 ```{r}
 library(ggplot2)
 library(tidyverse)
+library(lme4)
 ```
 
 
 
 ```{r}
-all_data <- read.csv("reading_neutrality_pilot-merged.csv")
+all_data <- read.csv("gender_processing_data_final.csv") %>%
+  filter(trial_id!='example' & (region=='critical')) %>%
+  mutate(trial_gender = ifelse(condition =='neutral_female' | condition=='congruent_female',"female","male")) %>%
+  mutate(gender_transcendence = 100 - rowMeans(cbind(subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5))) %>%
+  mutate(morph_type = ifelse(lexeme == "actor" | lexeme =="villain" | lexeme == "heir"| lexeme == "host" | lexeme == "hunter" | lexeme == "hero","adoption","suppletion"))
 ```
 
 ```{r}
 summary(all_data)
 ```
 
-
 ```{r}
-all_data %>%
-  filter(trial_id != 'example') %>%
-  group_by(condition,form) %>%
-  filter(form == 'from') %>%
-  summarise('time' = mean(rt)) %>%
-  ggplot(aes(x=condition, y=time)) + 
+ggplot(all_data, aes(x=condition, y=log(rt))) +
   geom_col()
 ```
 
 ```{r}
-filtered_data <- all_data %>%
-  filter(trial_id != 'example' & word_idx == '3') %>%
-  mutate(gender_transcendence = 100 - rowMeans(cbind(subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5))) %>% 
-  mutate(gender_linked= rowMeans(cbind(subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13)))
-```
-
-```{r}
-filtered_from <- all_data %>%
-  filter(trial_id != 'example' & form == 'from') %>%
-  mutate(gender_transcendence = 100 - rowMeans(cbind(subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5))) %>% 
-  mutate(gender_linked= rowMeans(cbind(subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13)))
+summary(lm(gender_transcendence~subject_information.party_alignment, data = all_data))
 ```
 
 
 ```{r}
-linear_from_regression <- lm(rt~condition * gender_transcendence + gender_linked, data=filtered_from)
+basic_model <- lm(log(rt)~condition*log1p(gender_transcendence)*morph_type, data = all_data)
 ```
 
 ```{r}
-summary(linear_from_regression)
+summary(basic_model)
+```
+
+```{r}
+plot(basic_model)
 ```
 
 
 ```{r}
-linear_regression <- lm(rt~condition * gender_transcendence + gender_linked, data=filtered_data)
+all_data_model <- lmer(log(rt)~condition*morph_type*log1p(gender_transcendence) + (1|name) + (1|lexeme) + (1|trial_id) + (1|workerid), data=all_data)
 ```
 
 ```{r}
-summary(linear_regression)
+summary(all_data_model)
 ```
 
 ```{r}
-plot(linear_regression)
+ggplot(all_data, aes(log(rt))) + 
+  geom_histogram()
+```
+
+
+```{r}
+exp(-0.11159)
+```
+
+```{r}
+plot(all_data_model)
 ```
 
