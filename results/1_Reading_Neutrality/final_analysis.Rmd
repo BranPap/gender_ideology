@@ -33,6 +33,7 @@ library(lmerTest)
 library(reshape2)
 
 source("helpers.R") 
+source("merge_results.R")
 ```
 
 <b>ggplot2</b>: data visualization <br>
@@ -53,12 +54,15 @@ theme_set(theme_minimal())
 
 # Data Importing & Management
 
+Rscript merge_results.R gender_processing_a_selfpaced_reading_time_study_merged.csv mixed gender_processing_followup_demographics_merged.csv republican
+
+
 ## Import Dataset 
 <br>
 This reads in our .csv file with all 37,800 data points logged during the experiment. 
 
 ```{r}
-all_data <- read.csv('gender_processing_a_selfpaced_reading_time_study-merged.csv') %>%
+all_data <- read.csv('merged_all.csv') %>%
   select(-error)
 
 all_data %>%
@@ -112,7 +116,7 @@ First, we need to create a data frame with the <b>workerids</b> of every partici
 So, we create a data frame with the participants who didn't meet the threshold by grouping all the data by participant, and then creating a small data frame with just the workers and their relative accuracies, which is recorded in the new <b>accuracy</b> column. This is valued by meaning each participant's <b>response_correct</b> scores:
 <br>
 ```{r}
-exclusion <- all_data %>% group_by(workerid) %>%
+exclusion <- all_data %>% group_by(workerid,system.Browser) %>%
   summarise(accuracy = mean(response_correct)) 
 
 exclusion
@@ -132,7 +136,7 @@ Now we want to just get a list of all the participants who have been assigned a 
 ```{r}
 exclusion = exclusion %>% 
   filter(exclude == 'Yes') %>%
-  select(workerid)
+  select(workerid,system.Browser)
 
 exclusion
 ```
@@ -415,6 +419,18 @@ ggplot(data=agr, aes(x=trial_gender,y=MeanRT,fill=trial_congruency)) +
   geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25,position=dodge)
 ```
 
+```{r}
+temp <- all_data %>%
+  group_by(trial_gender) %>%
+  summarize(MeanRT = mean(rt), CI.Low = ci.low(rt), CI.High = ci.high(rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High)
+
+dodge = position_dodge(.9)
+ggplot(data=temp, aes(x=trial_gender,y=MeanRT,fill=trial_gender)) + 
+  geom_bar(stat='identity',position=dodge) + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25,position=dodge) +
+  theme(legend.position = 'none')
+```
 
 
 ```{r}
@@ -455,6 +471,16 @@ all_data %>%
   geom_jitter() + 
   geom_smooth(method = 'lm', size=1.2) 
 ```
+
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(workerid,subject_information.education) %>%
+  ggplot(aes(x=subject_information.education)) + 
+  geom_bar() + 
+  facet_wrap(~poli_party)
+```
+
 
 ### Residual Analyses
 
@@ -545,20 +571,6 @@ ggplot(all_data, aes(x=trial_gender,y=resid_rt)) +
 
 ```{r}
  ggsave("plots/difference-plot.jpg",height=5,width=8)
-```
-
-```{r}
-all_data %>%
-  group_by(trial_gender,trial_congruency,lexeme) %>% 
-  summarize(MeanRT = mean(resid_rt)) %>%
-  group_by(lexeme) %>%
-  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
-  ggplot(aes(x=trial_congruency,y=MeanRT,color=trial_gender)) + 
-  geom_point(size=3) +
-  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  facet_wrap(~ lexeme) +
-  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
-  scale_color_manual(values = cbPalette)
 ```
 
 
@@ -658,6 +670,15 @@ poli_data <- all_data %>%
 table(poli_data$party)
 ```
 
+```{r}
+poli_data_gran <- all_data %>% 
+  group_by(workerid) %>%
+  summarise(party = paste(unique(subject_information.party_alignment)))
+```
+
+```{r}
+table(poli_data_gran$party)
+```
 
 # Model Analyses {.tabset}
 
@@ -674,13 +695,14 @@ all_data <- all_data %>%
 
 
 ```{r}
-complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1 + ctrial_congruency + ctrial_gender | workerid) + (1 + cgender_link |lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=20000)))
+complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1 + ctrial_congruency + ctrial_gender | workerid) + (1 + cgender_link |lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=40000)))
 ```
 
 
 ```{r}
 summary(complex_model)
 ```
+
 ```{r}
 complex_model_bare <- lmer(resid_rt~trial_congruency*trial_gender + (1 + trial_congruency + trial_gender | workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=20000)))
 ```
@@ -693,16 +715,32 @@ summary(complex_model_bare)
 ```{r}
 plot(complex_model)
 ```
+
+
+# Extras
+
 ## Confirming the Gender Scales
 
 ```{r}
 no_genderless <- all_data[complete.cases(all_data), ]
 
-gender_check <- lm(gender_total~subject_information.gender, data=no_genderless)
+gender_check <- lm(gender_total~subject_information.gender*poli_party, data=no_genderless)
 ```
 
 ```{r}
 summary(gender_check)
+```
+
+## Comments 
+
+```{r}
+summary(all_data$subject_information.comments)
+```
+```{r}
+all_data %>%
+  group_by(workerid,poli_party) %>%
+  summarise(comments = paste(unique(subject_information.comments))) %>%
+  select(poli_party,comments)
 ```
 
 
