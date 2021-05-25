@@ -204,6 +204,7 @@ trial_counter++;
     name: "trial",
     present: exp.stimuli,
     present_handle: function(stim) {
+      $(document).unbind("keydown");
       this.stim = stim;
       exp.selection = exp.gender.pop();
       this.space_available = 0;
@@ -348,15 +349,9 @@ trial_counter++;
           } else {
             $('#new_err').show();
             t.space_available = 2;
+            t.allow_key_press = false;
         }
-      } else if (evt.keyCode == 32 && t.space_available == 2) {
-          console.log('pressed spacebar');
-          t.allow_key_press = false;
-          t.space_available = 1;
-          $(document).unbind("keydown");
-          exp.k = 0;
-          _stream.apply(this);
-        }
+      }
       });
 
       var question_check = this.stim.question2;
