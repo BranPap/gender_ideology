@@ -1,0 +1,80 @@
+female;2;Jane is an actor from Wisconsin. She likes studying.
+female;2;Jane is an actress from Wisconsin. She likes studying.
+male;2;John is an actor from Wisconsin. He likes studying.
+male;2;John is an actor from Wisconsin. She likes studying.
+female;3;Jane is an anchor from Nevada. She likes writing.
+female;3;Jane is an anchorwoman from Nevada. She likes writing.
+male;3;John is an anchor from Nevada. He likes writing.
+male;3;John is an anchorman from Nevada. She likes writing.
+female;4;Jane is a flight attendant from South Carolina. She likes surfing.
+female;4;Jane is a stewardess from South Carolina. She likes surfing.
+male;4;John is a flight attendant from South Carolina. He likes surfing.
+male;4;John is a steward from South Carolina. She likes surfing.
+female;5;Jane is a businessperson from Hawaii. She likes surfing.
+female;5;Jane is a businesswoman from Hawaii. She likes surfing.
+male;5;John is a businessperson from Hawaii. He likes surfing.
+male;5;John is a businessman from Hawaii. She likes surfing.
+female;6;Jane is a camera operator from New Mexico. She likes camping.
+female;6;Jane is a camerawoman from New Mexico. She likes camping.
+male;6;John is a camera operator from New Mexico. He likes camping.
+male;6;John is a cameraman from New Mexico. She likes camping.
+female;7;Jane is a congressperson from Vermont. She likes surfing.
+female;7;Jane is a congresswoman from Vermont. She likes surfing.
+male;7;John is a congressperson from Vermont. He likes surfing.
+male;7;John is a congressman from Vermont. She likes surfing.
+female;8;Jane is a craftsperson from Montana. She likes hiking.
+female;8;Jane is a craftswoman from Montana. She likes hiking.
+male;8;John is a craftsperson from Montana. He likes hiking.
+male;8;John is a craftsman from Montana. She likes hiking.
+female;9;Jane is a crewmember from Utah. She likes painting.
+female;9;Jane is a crewwoman from Utah. She likes painting.
+male;9;John is a crewmember from Utah. He likes painting.
+male;9;John is a crewman from Utah. She likes painting.
+female;10;Jane is a firefighter from Kentucky. She likes drawing.
+female;10;Jane is a firewoman from Kentucky. She likes drawing.
+male;10;John is a firefighter from Kentucky. He likes drawing.
+male;10;John is a fireman from Kentucky. She likes drawing.
+female;11;Jane is a foreperson from Kansas. She likes cycling.
+female;11;Jane is a forewoman from Kansas. She likes cycling.
+male;11;John is a foreperson from Kansas. He likes cycling.
+male;11;John is a foreman from Kansas. She likes cycling.
+female;12;Jane is an heir from Virginia. She likes studying.
+female;12;Jane is an heiress from Virginia. She likes studying.
+male;12;John is an heir from Virginia. He likes studying.
+male;12;John is an heir from Virginia. She likes studying.
+female;13;Jane is a hero from Arizona. She likes painting.
+female;13;Jane is a heroine from Arizona. She likes painting.
+male;13;John is a hero from Arizona. He likes painting.
+male;13;John is a hero from Arizona. She likes painting.
+female;14;Jane is a host from Oregon. She likes running.
+female;14;Jane is a hostess from Oregon. She likes running.
+male;14;John is a host from Oregon. He likes running.
+male;14;John is a host from Oregon. She likes running.
+female;15;Jane is a hunter from West Virginia. She likes surfing.
+female;15;Jane is a huntress from West Virginia. She likes surfing.
+male;15;John is a hunter from West Virginia. He likes surfing.
+male;15;John is a hunter from West Virginia. She likes surfing.
+female;16;Jane is a layperson from Oklahoma. She likes singing.
+female;16;Jane is a laywoman from Oklahoma. She likes singing.
+male;16;John is a layperson from Oklahoma. He likes singing.
+male;16;John is a layman from Oklahoma. She likes singing.
+female;17;Jane is a police officer from Minnesota. She likes cycling.
+female;17;Jane is a policewoman from Minnesota. She likes cycling.
+male;17;John is a police officer from Minnesota. He likes cycling.
+male;17;John is a policeman from Minnesota. She likes cycling.
+female;18;Jane is a salesperson from Maine. She likes hiking.
+female;18;Jane is a saleswoman from Maine. She likes hiking.
+male;18;John is a salesperson from Maine. He likes hiking.
+male;18;John is a salesman from Maine. She likes hiking.
+female;19;Jane is a stunt double from Illinois. She likes dancing.
+female;19;Jane is a stuntwoman from Illinois. She likes dancing.
+male;19;John is a stunt double from Illinois. He likes dancing.
+male;19;John is a stuntman from Illinois. She likes dancing.
+female;20;Jane is a villain from New York. She likes running.
+female;20;Jane is a villainess from New York. She likes running.
+male;20;John is a villain from New York. He likes running.
+male;20;John is a villain from New York. She likes running.
+female;21;Jane is a meteorologist from Arkansas. She likes singing.
+female;21;Jane is a weatherwoman from Arkansas. She likes singing.
+male;21;John is a meteorologist from Arkansas. He likes singing.
+male;21;John is a weatherman from Arkansas. She likes singing.

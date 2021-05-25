@@ -1,0 +1,81 @@
+name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id
+NAME,is,an,actor,from,Illinois.,She,likes,cooking.,Does NAME like surfing?,No,Is NAME from New Mexico?,No,female,actor,actress,neutral_female,actor_neutral_female
+NAME,is,an,actress,from,Illinois.,She,likes,cooking.,Does NAME like surfing?,No,Is NAME from New Mexico?,No,female,actor,actress,congruent_female,actor_congruent_female
+NAME,is,an,actor,from,Illinois.,He,likes,cooking.,Does NAME like surfing?,No,Is NAME from New Mexico?,No,male,actor,actor,neutral_male,actor_neutral_male
+NAME,is,an,actor,from,Illinois.,He,likes,cooking.,Does NAME like surfing?,No,Is NAME from New Mexico?,No,male,actor,actor,congruent_male,actor_congruent_male
+NAME,is,an,anchor,from,Alaska.,She,likes,hiking.,Does NAME like writing?,No,Is NAME from Indiana?,No,female,anchor,anchorwoman,neutral_female,anchor_neutral_female
+NAME,is,an,anchorwoman,from,Alaska.,She,likes,hiking.,Does NAME like writing?,No,Is NAME from Indiana?,No,female,anchor,anchorwoman,congruent_female,anchor_congruent_female
+NAME,is,an,anchor,from,Alaska.,He,likes,hiking.,Does NAME like writing?,No,Is NAME from Indiana?,No,male,anchor,anchorman,neutral_male,anchor_neutral_male
+NAME,is,an,anchorman,from,Alaska.,He,likes,hiking.,Does NAME like writing?,No,Is NAME from Indiana?,No,male,anchor,anchorman,congruent_male,anchor_congruent_male
+NAME,is,a,flight attendant,from,Oklahoma.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Connecticut?,No,female,flight attendant,stewardess,neutral_female,flight attendant_neutral_female
+NAME,is,a,stewardess,from,Oklahoma.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Connecticut?,No,female,flight attendant,stewardess,congruent_female,flight attendant_congruent_female
+NAME,is,a,flight attendant,from,Oklahoma.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Connecticut?,No,male,flight attendant,steward,neutral_male,flight attendant_neutral_male
+NAME,is,a,steward,from,Oklahoma.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Connecticut?,No,male,flight attendant,steward,congruent_male,flight attendant_congruent_male
+NAME,is,a,businessperson,from,Rhode Island.,She,likes,reading.,Does NAME like reading?,Yes,Is NAME from Connecticut?,No,female,businessperson,businesswoman,neutral_female,businessperson_neutral_female
+NAME,is,a,businesswoman,from,Rhode Island.,She,likes,reading.,Does NAME like reading?,Yes,Is NAME from Connecticut?,No,female,businessperson,businesswoman,congruent_female,businessperson_congruent_female
+NAME,is,a,businessperson,from,Rhode Island.,He,likes,reading.,Does NAME like reading?,Yes,Is NAME from Connecticut?,No,male,businessperson,businessman,neutral_male,businessperson_neutral_male
+NAME,is,a,businessman,from,Rhode Island.,He,likes,reading.,Does NAME like reading?,Yes,Is NAME from Connecticut?,No,male,businessperson,businessman,congruent_male,businessperson_congruent_male
+NAME,is,a,camera operator,from,Texas.,She,likes,camping.,Does NAME like camping?,Yes,Is NAME from New York?,No,female,camera operator,camerawoman,neutral_female,camera operator_neutral_female
+NAME,is,a,camerawoman,from,Texas.,She,likes,camping.,Does NAME like camping?,Yes,Is NAME from New York?,No,female,camera operator,camerawoman,congruent_female,camera operator_congruent_female
+NAME,is,a,camera operator,from,Texas.,He,likes,camping.,Does NAME like camping?,Yes,Is NAME from New York?,No,male,camera operator,cameraman,neutral_male,camera operator_neutral_male
+NAME,is,a,cameraman,from,Texas.,He,likes,camping.,Does NAME like camping?,Yes,Is NAME from New York?,No,male,camera operator,cameraman,congruent_male,camera operator_congruent_male
+NAME,is,a,congressperson,from,Minnesota.,She,likes,cycling.,Does NAME like cycling?,Yes,Is NAME from Minnesota?,Yes,female,congressperson,congresswoman,neutral_female,congressperson_neutral_female
+NAME,is,a,congresswoman,from,Minnesota.,She,likes,cycling.,Does NAME like cycling?,Yes,Is NAME from Minnesota?,Yes,female,congressperson,congresswoman,congruent_female,congressperson_congruent_female
+NAME,is,a,congressperson,from,Minnesota.,He,likes,cycling.,Does NAME like cycling?,Yes,Is NAME from Minnesota?,Yes,male,congressperson,congressman,neutral_male,congressperson_neutral_male
+NAME,is,a,congressman,from,Minnesota.,He,likes,cycling.,Does NAME like cycling?,Yes,Is NAME from Minnesota?,Yes,male,congressperson,congressman,congruent_male,congressperson_congruent_male
+NAME,is,a,craftsperson,from,Massachusetts.,She,likes,dancing.,Does NAME like swimming?,No,Is NAME from Massachusetts?,Yes,female,craftsperson,craftswoman,neutral_female,craftsperson_neutral_female
+NAME,is,a,craftswoman,from,Massachusetts.,She,likes,dancing.,Does NAME like swimming?,No,Is NAME from Massachusetts?,Yes,female,craftsperson,craftswoman,congruent_female,craftsperson_congruent_female
+NAME,is,a,craftsperson,from,Massachusetts.,He,likes,dancing.,Does NAME like swimming?,No,Is NAME from Massachusetts?,Yes,male,craftsperson,craftsman,neutral_male,craftsperson_neutral_male
+NAME,is,a,craftsman,from,Massachusetts.,He,likes,dancing.,Does NAME like swimming?,No,Is NAME from Massachusetts?,Yes,male,craftsperson,craftsman,congruent_male,craftsperson_congruent_male
+NAME,is,a,crewmember,from,Wisconsin.,She,likes,drawing.,Does NAME like swimming?,No,Is NAME from Georgia?,No,female,crewmember,crewwoman,neutral_female,crewmember_neutral_female
+NAME,is,a,crewwoman,from,Wisconsin.,She,likes,drawing.,Does NAME like swimming?,No,Is NAME from Georgia?,No,female,crewmember,crewwoman,congruent_female,crewmember_congruent_female
+NAME,is,a,crewmember,from,Wisconsin.,He,likes,drawing.,Does NAME like swimming?,No,Is NAME from Georgia?,No,male,crewmember,crewman,neutral_male,crewmember_neutral_male
+NAME,is,a,crewman,from,Wisconsin.,He,likes,drawing.,Does NAME like swimming?,No,Is NAME from Georgia?,No,male,crewmember,crewman,congruent_male,crewmember_congruent_male
+NAME,is,a,firefighter,from,Indiana.,She,likes,walking.,Does NAME like dancing?,No,Is NAME from New York?,No,female,firefighter,firewoman,neutral_female,firefighter_neutral_female
+NAME,is,a,firewoman,from,Indiana.,She,likes,walking.,Does NAME like dancing?,No,Is NAME from New York?,No,female,firefighter,firewoman,congruent_female,firefighter_congruent_female
+NAME,is,a,firefighter,from,Indiana.,He,likes,walking.,Does NAME like dancing?,No,Is NAME from New York?,No,male,firefighter,fireman,neutral_male,firefighter_neutral_male
+NAME,is,a,fireman,from,Indiana.,He,likes,walking.,Does NAME like dancing?,No,Is NAME from New York?,No,male,firefighter,fireman,congruent_male,firefighter_congruent_male
+NAME,is,a,foreperson,from,California.,She,likes,running.,Does NAME like camping?,No,Is NAME from Maryland?,No,female,foreperson,forewoman,neutral_female,foreperson_neutral_female
+NAME,is,a,forewoman,from,California.,She,likes,running.,Does NAME like camping?,No,Is NAME from Maryland?,No,female,foreperson,forewoman,congruent_female,foreperson_congruent_female
+NAME,is,a,foreperson,from,California.,He,likes,running.,Does NAME like camping?,No,Is NAME from Maryland?,No,male,foreperson,foreman,neutral_male,foreperson_neutral_male
+NAME,is,a,foreman,from,California.,He,likes,running.,Does NAME like camping?,No,Is NAME from Maryland?,No,male,foreperson,foreman,congruent_male,foreperson_congruent_male
+NAME,is,an,heir,from,South Dakota.,She,likes,studying.,Does NAME like studying?,Yes,Is NAME from South Dakota?,Yes,female,heir,heiress,neutral_female,heir_neutral_female
+NAME,is,an,heiress,from,South Dakota.,She,likes,studying.,Does NAME like studying?,Yes,Is NAME from South Dakota?,Yes,female,heir,heiress,congruent_female,heir_congruent_female
+NAME,is,an,heir,from,South Dakota.,He,likes,studying.,Does NAME like studying?,Yes,Is NAME from South Dakota?,Yes,male,heir,heir,neutral_male,heir_neutral_male
+NAME,is,an,heir,from,South Dakota.,He,likes,studying.,Does NAME like studying?,Yes,Is NAME from South Dakota?,Yes,male,heir,heir,congruent_male,heir_congruent_male
+NAME,is,a,hero,from,New Mexico.,She,likes,walking.,Does NAME like walking?,Yes,Is NAME from New Mexico?,Yes,female,hero,heroine,neutral_female,hero_neutral_female
+NAME,is,a,heroine,from,New Mexico.,She,likes,walking.,Does NAME like walking?,Yes,Is NAME from New Mexico?,Yes,female,hero,heroine,congruent_female,hero_congruent_female
+NAME,is,a,hero,from,New Mexico.,He,likes,walking.,Does NAME like walking?,Yes,Is NAME from New Mexico?,Yes,male,hero,hero,neutral_male,hero_neutral_male
+NAME,is,a,hero,from,New Mexico.,He,likes,walking.,Does NAME like walking?,Yes,Is NAME from New Mexico?,Yes,male,hero,hero,congruent_male,hero_congruent_male
+NAME,is,a,host,from,Iowa.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Louisiana?,No,female,host,hostess,neutral_female,host_neutral_female
+NAME,is,a,hostess,from,Iowa.,She,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Louisiana?,No,female,host,hostess,congruent_female,host_congruent_female
+NAME,is,a,host,from,Iowa.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Louisiana?,No,male,host,host,neutral_male,host_neutral_male
+NAME,is,a,host,from,Iowa.,He,likes,drawing.,Does NAME like drawing?,Yes,Is NAME from Louisiana?,No,male,host,host,congruent_male,host_congruent_male
+NAME,is,a,hunter,from,Washington.,She,likes,studying.,Does NAME like studying?,Yes,Is NAME from Washington?,Yes,female,hunter,huntress,neutral_female,hunter_neutral_female
+NAME,is,a,huntress,from,Washington.,She,likes,studying.,Does NAME like studying?,Yes,Is NAME from Washington?,Yes,female,hunter,huntress,congruent_female,hunter_congruent_female
+NAME,is,a,hunter,from,Washington.,He,likes,studying.,Does NAME like studying?,Yes,Is NAME from Washington?,Yes,male,hunter,hunter,neutral_male,hunter_neutral_male
+NAME,is,a,hunter,from,Washington.,He,likes,studying.,Does NAME like studying?,Yes,Is NAME from Washington?,Yes,male,hunter,hunter,congruent_male,hunter_congruent_male
+NAME,is,a,layperson,from,New York.,She,likes,surfing.,Does NAME like running?,No,Is NAME from New York?,Yes,female,layperson,laywoman,neutral_female,layperson_neutral_female
+NAME,is,a,laywoman,from,New York.,She,likes,surfing.,Does NAME like running?,No,Is NAME from New York?,Yes,female,layperson,laywoman,congruent_female,layperson_congruent_female
+NAME,is,a,layperson,from,New York.,He,likes,surfing.,Does NAME like running?,No,Is NAME from New York?,Yes,male,layperson,layman,neutral_male,layperson_neutral_male
+NAME,is,a,layman,from,New York.,He,likes,surfing.,Does NAME like running?,No,Is NAME from New York?,Yes,male,layperson,layman,congruent_male,layperson_congruent_male
+NAME,is,a,police officer,from,Michigan.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Louisiana?,No,female,police officer,policewoman,neutral_female,police officer_neutral_female
+NAME,is,a,policewoman,from,Michigan.,She,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Louisiana?,No,female,police officer,policewoman,congruent_female,police officer_congruent_female
+NAME,is,a,police officer,from,Michigan.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Louisiana?,No,male,police officer,policeman,neutral_male,police officer_neutral_male
+NAME,is,a,policeman,from,Michigan.,He,likes,dancing.,Does NAME like dancing?,Yes,Is NAME from Louisiana?,No,male,police officer,policeman,congruent_male,police officer_congruent_male
+NAME,is,a,salesperson,from,Vermont.,She,likes,camping.,Does NAME like swimming?,No,Is NAME from Georgia?,No,female,salesperson,saleswoman,neutral_female,salesperson_neutral_female
+NAME,is,a,saleswoman,from,Vermont.,She,likes,camping.,Does NAME like swimming?,No,Is NAME from Georgia?,No,female,salesperson,saleswoman,congruent_female,salesperson_congruent_female
+NAME,is,a,salesperson,from,Vermont.,He,likes,camping.,Does NAME like swimming?,No,Is NAME from Georgia?,No,male,salesperson,salesman,neutral_male,salesperson_neutral_male
+NAME,is,a,salesman,from,Vermont.,He,likes,camping.,Does NAME like swimming?,No,Is NAME from Georgia?,No,male,salesperson,salesman,congruent_male,salesperson_congruent_male
+NAME,is,a,stunt double,from,West Virginia.,She,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from West Virginia?,Yes,female,stunt double,stuntwoman,neutral_female,stunt double_neutral_female
+NAME,is,a,stuntwoman,from,West Virginia.,She,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from West Virginia?,Yes,female,stunt double,stuntwoman,congruent_female,stunt double_congruent_female
+NAME,is,a,stunt double,from,West Virginia.,He,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from West Virginia?,Yes,male,stunt double,stuntman,neutral_male,stunt double_neutral_male
+NAME,is,a,stuntman,from,West Virginia.,He,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from West Virginia?,Yes,male,stunt double,stuntman,congruent_male,stunt double_congruent_male
+NAME,is,a,villain,from,Wyoming.,She,likes,singing.,Does NAME like studying?,No,Is NAME from Utah?,No,female,villain,villainess,neutral_female,villain_neutral_female
+NAME,is,a,villainess,from,Wyoming.,She,likes,singing.,Does NAME like studying?,No,Is NAME from Utah?,No,female,villain,villainess,congruent_female,villain_congruent_female
+NAME,is,a,villain,from,Wyoming.,He,likes,singing.,Does NAME like studying?,No,Is NAME from Utah?,No,male,villain,villain,neutral_male,villain_neutral_male
+NAME,is,a,villain,from,Wyoming.,He,likes,singing.,Does NAME like studying?,No,Is NAME from Utah?,No,male,villain,villain,congruent_male,villain_congruent_male
+NAME,is,a,meteorologist,from,Ohio.,She,likes,cooking.,Does NAME like swimming?,No,Is NAME from Ohio?,Yes,female,meteorologist,weatherwoman,neutral_female,meteorologist_neutral_female
+NAME,is,a,weatherwoman,from,Ohio.,She,likes,cooking.,Does NAME like swimming?,No,Is NAME from Ohio?,Yes,female,meteorologist,weatherwoman,congruent_female,meteorologist_congruent_female
+NAME,is,a,meteorologist,from,Ohio.,He,likes,cooking.,Does NAME like swimming?,No,Is NAME from Ohio?,Yes,male,meteorologist,weatherman,neutral_male,meteorologist_neutral_male
+NAME,is,a,weatherman,from,Ohio.,He,likes,cooking.,Does NAME like swimming?,No,Is NAME from Ohio?,Yes,male,meteorologist,weatherman,congruent_male,meteorologist_congruent_male

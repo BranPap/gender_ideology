@@ -1,0 +1,161 @@
+﻿name_m,is_m,det_m,lexeme_m,from_m,state_m,pro_m,likes_m,activity_m,name_m2,is_m2,det_m2,lexeme_m2,from_m2,state_m2,pro_m2,likes_m2,activity_m2,name,be,det,target,prep,state,pro,like,activity,question1,answer1,question2,answer2,gender,lexeme,orthog,condition,id
+Jane,is,an,actor,from,Wisconsin.,She,likes,studying.,x-x-x,sale,ago,decade,cent,Objective.,x-x-x,kinds,cylinder.,,,,,,,,,,,,,,,,,,
+Jane,is,an,actress,from,Wisconsin.,She,likes,studying.,x-x-x,sale,ago,decade,cent,Objective.,x-x-x,kinds,cylinder.,,,,,,,,,,,,,,,,,,
+John,is,an,actor,from,Wisconsin.He,likes,studying.,x-x-x,sale,ago,decade,cent,Objective.,x-x-x,kinds,cylinder.,,,,,,,,,,,,,,,,,,,
+John,is,an,actor,from,Wisconsin.,She,likes,studying.x-x-x,sale,ago,decade,cent,Objective.,x-x-x,kinds,cylinder.,,,,,,,,,,,,,,,,,,,
+Jane,is,an,anchor,from,Nevada.,She,likes,writing.x-x-x,hell,ago,pleaded,hear,Forbid.,x-x-x,smell,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,an,anchorwoman,from,Nevada.,She,likes,writing.x-x-x,hell,ago,pleaded,hear,Forbid.,x-x-x,smell,century.,,,,,,,,,,,,,,,,,,,
+John,is,an,anchor,from,Nevada.,He,likes,writing.x-x-x,hell,ago,pleaded,hear,Forbid.,x-x-x,smell,century.,,,,,,,,,,,,,,,,,,,
+John,is,an,anchorman,from,Nevada.,She,likes,writing.x-x-x,hell,ago,pleaded,hear,Forbid.,x-x-x,smell,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,flight attendant,from,South Carolina.,She,likes,surfing.x-x-x,sale,ago,grenades,versa,apply,Profit Worth.,x-x-x,defects,spoiler.,,,,,,,,,,,,,,,,,,
+Jane,is,a,stewardess,from,South Carolina.,She,likes,surfing.x-x-x,sale,ago,grenades,versa,Apply Profit.,x-x-x,funny,defects.,,,,,,,,,,,,,,,,,,,
+John,is,a,flight attendant,from,South Carolina.,He,likes,surfing.x-x-x,sale,ago,grenades,versa,apply,Profit Worth.,x-x-x,defects,spoiler.,,,,,,,,,,,,,,,,,,
+John,is,a,steward,from,South Carolina.,She,likes,surfing.x-x-x,sale,ago,grenades,versa,Apply Profit.,x-x-x,funny,defects.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,businessperson,from,Hawaii.,She,likes,surfing.x-x-x,vote,cent,materialise,lots,Yields.,x-x-x,worse,impacts.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,businesswoman,from,Hawaii.,She,likes,surfing.x-x-x,vote,cent,materialise,lots,Yields.,x-x-x,worse,impacts.,,,,,,,,,,,,,,,,,,,
+John,is,a,businessperson,from,Hawaii.,He,likes,surfing.x-x-x,vote,cent,materialise,lots,Yields.,x-x-x,worse,impacts.,,,,,,,,,,,,,,,,,,,
+John,is,a,businessman,from,Hawaii.,She,likes,surfing.x-x-x,vote,cent,materialise,lots,Yields.,x-x-x,worse,impacts.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,camera operator,from,New Mexico.,She,likes,camping.x-x-x,sale,bag,staves,finals,add,Forget Lack.,x-x-x,wounds,bracket.,,,,,,,,,,,,,,,,,,
+Jane,is,a,camerawoman,from,New Mexico.,She,likes,camping.x-x-x,sale,bag,staves,finals,Add Forget.,x-x-x,else,wounds.,,,,,,,,,,,,,,,,,,,
+John,is,a,camera operator,from,New Mexico.,He,likes,camping.x-x-x,sale,bag,staves,finals,add,Forget Lack.,x-x-x,wounds,bracket.,,,,,,,,,,,,,,,,,,
+John,is,a,cameraman,from,New Mexico.,She,likes,camping.x-x-x,sale,bag,staves,finals,Add Forget.,x-x-x,else,wounds.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,congressperson,from,Vermont.,She,likes,surfing.x-x-x,sale,ago,orthography,lose,Pathway.,x-x-x,smell,chaired.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,congresswoman,from,Vermont.,She,likes,surfing.x-x-x,sale,ago,orthography,lose,Pathway.,x-x-x,smell,chaired.,,,,,,,,,,,,,,,,,,,
+John,is,a,congressperson,from,Vermont.,He,likes,surfing.x-x-x,sale,ago,orthography,lose,Pathway.,x-x-x,smell,chaired.,,,,,,,,,,,,,,,,,,,
+John,is,a,congressman,from,Vermont.,She,likes,surfing.x-x-x,sale,ago,orthography,lose,Pathway.,x-x-x,smell,chaired.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,craftsperson,from,Montana.,She,likes,hiking.x-x-x,cash,etc,concourses,hear,Appoint.,x-x-x,worse,lodged.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,craftswoman,from,Montana.,She,likes,hiking.x-x-x,cash,etc,concourses,hear,Appoint.,x-x-x,worse,lodged.,,,,,,,,,,,,,,,,,,,
+John,is,a,craftsperson,from,Montana.,He,likes,hiking.x-x-x,cash,etc,concourses,hear,Appoint.,x-x-x,worse,lodged.,,,,,,,,,,,,,,,,,,,
+John,is,a,craftsman,from,Montana.,She,likes,hiking.x-x-x,cash,etc,concourses,hear,Appoint.,x-x-x,worse,lodged.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,crewmember,from,Utah.,She,likes,painting.x-x-x,okay,cent,steppes,lots,Void.,x-x-x,worse,contents.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,crewwoman,from,Utah.,She,likes,painting.x-x-x,okay,cent,steppes,lots,Void.,x-x-x,worse,contents.,,,,,,,,,,,,,,,,,,,
+John,is,a,crewmember,from,Utah.,He,likes,painting.x-x-x,okay,cent,steppes,lots,Void.,x-x-x,worse,contents.,,,,,,,,,,,,,,,,,,,
+John,is,a,crewman,from,Utah.,She,likes,painting.x-x-x,okay,cent,steppes,lots,Void.,x-x-x,worse,contents.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,firefighter,from,Kentucky.,She,likes,drawing.x-x-x,sale,cent,exiting,lots,Comeback.,x-x-x,worse,billion.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,firewoman,from,Kentucky.,She,likes,drawing.x-x-x,sale,cent,exiting,lots,Comeback.,x-x-x,worse,billion.,,,,,,,,,,,,,,,,,,,
+John,is,a,firefighter,from,Kentucky.,He,likes,drawing.x-x-x,sale,cent,exiting,lots,Comeback.,x-x-x,worse,billion.,,,,,,,,,,,,,,,,,,,
+John,is,a,fireman,from,Kentucky.,She,likes,drawing.x-x-x,sale,cent,exiting,lots,Comeback.,x-x-x,worse,billion.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,foreperson,from,Kansas.,She,likes,cycling.x-x-x,okay,cent,clauses,lots,Senate.,x-x-x,smell,expired.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,forewoman,from,Kansas.,She,likes,cycling.x-x-x,okay,cent,clauses,lots,Senate.,x-x-x,smell,expired.,,,,,,,,,,,,,,,,,,,
+John,is,a,foreperson,from,Kansas.,He,likes,cycling.x-x-x,okay,cent,clauses,lots,Senate.,x-x-x,smell,expired.,,,,,,,,,,,,,,,,,,,
+John,is,a,foreman,from,Kansas.,She,likes,cycling.x-x-x,okay,cent,clauses,lots,Senate.,x-x-x,smell,expired.,,,,,,,,,,,,,,,,,,,
+Jane,is,an,heir,from,Virginia.,She,likes,studying.x-x-x,cash,etc,wept,jobs,Answered.,x-x-x,worse,democrat.,,,,,,,,,,,,,,,,,,,
+Jane,is,an,heiress,from,Virginia.,She,likes,studying.x-x-x,cash,etc,wept,jobs,Answered.,x-x-x,worse,democrat.,,,,,,,,,,,,,,,,,,,
+John,is,an,heir,from,Virginia.,He,likes,studying.x-x-x,cash,etc,wept,jobs,Answered.,x-x-x,worse,democrat.,,,,,,,,,,,,,,,,,,,
+John,is,an,heir,from,Virginia.,She,likes,studying.x-x-x,cash,etc,wept,jobs,Answered.,x-x-x,worse,democrat.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,hero,from,Arizona.,She,likes,painting.x-x-x,sale,cent,exclude,laws,Refused.,x-x-x,kinds,democrat.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,heroine,from,Arizona.,She,likes,painting.x-x-x,sale,cent,exclude,laws,Refused.,x-x-x,kinds,democrat.,,,,,,,,,,,,,,,,,,,
+John,is,a,hero,from,Arizona.,He,likes,painting.x-x-x,sale,cent,exclude,laws,Refused.,x-x-x,kinds,democrat.,,,,,,,,,,,,,,,,,,,
+John,is,a,hero,from,Arizona.,She,likes,painting.x-x-x,sale,cent,exclude,laws,Refused.,x-x-x,kinds,democrat.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,host,from,Oregon.,She,likes,running.x-x-x,okay,cent,oneself,rise,Waited.,x-x-x,worse,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,hostess,from,Oregon.,She,likes,running.x-x-x,okay,cent,oneself,rise,Waited.,x-x-x,worse,century.,,,,,,,,,,,,,,,,,,,
+John,is,a,host,from,Oregon.,He,likes,running.x-x-x,okay,cent,oneself,rise,Waited.,x-x-x,worse,century.,,,,,,,,,,,,,,,,,,,
+John,is,a,host,from,Oregon.,She,likes,running.x-x-x,okay,cent,oneself,rise,Waited.,x-x-x,worse,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,hunter,from,West Virginia.,She,likes,surfing.x-x-x,sale,cent,unload,hear,Send Promised.,x-x-x,worse,implant.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,huntress,from,West Virginia.,She,likes,surfing.x-x-x,sale,cent,unload,hear,Send Promised.,x-x-x,worse,implant.,,,,,,,,,,,,,,,,,,,
+John,is,a,hunter,from,West Virginia.,He,likes,surfing.x-x-x,sale,cent,unload,hear,Send Promised.,x-x-x,worse,implant.,,,,,,,,,,,,,,,,,,,
+John,is,a,hunter,from,West Virginia.,She,likes,surfing.x-x-x,sale,cent,unload,hear,Send Promised.,x-x-x,worse,implant.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,layperson,from,Oklahoma.,She,likes,singing.x-x-x,okay,ago,neared,lots,Answered.,x-x-x,worth,custody.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,laywoman,from,Oklahoma.,She,likes,singing.x-x-x,okay,ago,neared,lots,Answered.,x-x-x,worth,custody.,,,,,,,,,,,,,,,,,,,
+John,is,a,layperson,from,Oklahoma.,He,likes,singing.x-x-x,okay,ago,neared,lots,Answered.,x-x-x,worth,custody.,,,,,,,,,,,,,,,,,,,
+John,is,a,layman,from,Oklahoma.,She,likes,singing.x-x-x,okay,ago,neared,lots,Answered.,x-x-x,worth,custody.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,police officer,from,Minnesota.,She,likes,cycling.x-x-x,hell,cent,demolish,costs,senate,Surprised.,x-x-x,inches,bracket.,,,,,,,,,,,,,,,,,,
+Jane,is,a,policewoman,from,Minnesota.,She,likes,cycling.x-x-x,hell,cent,demolish,costs,Senate.,x-x-x,yours,inches.,,,,,,,,,,,,,,,,,,,
+John,is,a,police officer,from,Minnesota.,He,likes,cycling.x-x-x,hell,cent,demolish,costs,senate,Surprised.,x-x-x,inches,bracket.,,,,,,,,,,,,,,,,,,
+John,is,a,policeman,from,Minnesota.,She,likes,cycling.x-x-x,hell,cent,demolish,costs,Senate.,x-x-x,yours,inches.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,salesperson,from,Maine.,She,likes,hiking.x-x-x,sale,cent,shillings,none,React.,x-x-x,funny,coated.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,saleswoman,from,Maine.,She,likes,hiking.x-x-x,sale,cent,shillings,none,React.,x-x-x,funny,coated.,,,,,,,,,,,,,,,,,,,
+John,is,a,salesperson,from,Maine.,He,likes,hiking.x-x-x,sale,cent,shillings,none,React.,x-x-x,funny,coated.,,,,,,,,,,,,,,,,,,,
+John,is,a,salesman,from,Maine.,She,likes,hiking.x-x-x,sale,cent,shillings,none,React.,x-x-x,funny,coated.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,stunt double,from,Illinois.,She,likes,dancing.x-x-x,cash,cent,fronts,rates,forgot,Smell.,x-x-x,jersey,billion.,,,,,,,,,,,,,,,,,,
+Jane,is,a,stuntwoman,from,Illinois.,She,likes,dancing.x-x-x,cash,cent,fronts,rates,Forgot.,x-x-x,worse,jersey.,,,,,,,,,,,,,,,,,,,
+John,is,a,stunt double,from,Illinois.,He,likes,dancing.x-x-x,cash,cent,fronts,rates,forgot,Smell.,x-x-x,jersey,billion.,,,,,,,,,,,,,,,,,,
+John,is,a,stuntman,from,Illinois.,She,likes,dancing.x-x-x,cash,cent,fronts,rates,Forgot.,x-x-x,worse,jersey.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,villain,from,New York.,She,likes,running.x-x-x,cash,etc,revivals,lots,Push Wind.,x-x-x,sight,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,villainess,from,New York.,She,likes,running.x-x-x,cash,etc,revivals,lots,Push Wind.,x-x-x,sight,century.,,,,,,,,,,,,,,,,,,,
+John,is,a,villain,from,New York.,He,likes,running.x-x-x,cash,etc,revivals,lots,Push Wind.,x-x-x,sight,century.,,,,,,,,,,,,,,,,,,,
+John,is,a,villain,from,New York.,She,likes,running.x-x-x,cash,etc,revivals,lots,Push Wind.,x-x-x,sight,century.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,meteorologist,from,Arkansas.,She,likes,singing.x-x-x,hell,ago,adsorption,send,Withdraw.,x-x-x,worse,laughed.,,,,,,,,,,,,,,,,,,,
+Jane,is,a,weatherwoman,from,Arkansas.,She,likes,singing.x-x-x,hell,ago,adsorption,send,Withdraw.,x-x-x,worse,laughed.,,,,,,,,,,,,,,,,,,,
+John,is,a,meteorologist,from,Arkansas.,He,likes,singing.x-x-x,hell,ago,adsorption,send,Withdraw.,x-x-x,worse,laughed.,,,,,,,,,,,,,,,,,,,
+John,is,a,weatherman,from,Arkansas.,She,likes,singing.x-x-x,hell,ago,adsorption,send,Withdraw.,x-x-x,worse,laughed.,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,NAME,is,an,actor,from,Wisconsin.,She,likes,studying.,Does NAME like writing?,No,Is NAME from Wisconsin?,Yes,female,actor,actress,neutral_female,actor_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,actress,from,Wisconsin.,She,likes,studying.,Does NAME like writing?,No,Is NAME from Wisconsin?,Yes,female,actor,actress,congruent_female,actor_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,actor,from,Wisconsin.,He,likes,studying.,Does NAME like writing?,No,Is NAME from Wisconsin?,Yes,male,actor,actor,neutral_male,actor_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,an,actor,from,Wisconsin.,He,likes,studying.,Does NAME like writing?,No,Is NAME from Wisconsin?,Yes,male,actor,actor,congruent_male,actor_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,an,anchor,from,Nevada.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Nevada?,Yes,female,anchor,anchorwoman,neutral_female,anchor_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,anchorwoman,from,Nevada.,She,likes,writing.,Does NAME like writing?,Yes,Is NAME from Nevada?,Yes,female,anchor,anchorwoman,congruent_female,anchor_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,anchor,from,Nevada.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Nevada?,Yes,male,anchor,anchorman,neutral_male,anchor_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,an,anchorman,from,Nevada.,He,likes,writing.,Does NAME like writing?,Yes,Is NAME from Nevada?,Yes,male,anchor,anchorman,congruent_male,anchor_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,flight attendant,from,South Carolina.,She,likes,surfing.,Does NAME like studying?,No,Is NAME from South Carolina?,Yes,female,flight attendant,stewardess,neutral_female,flight attendant_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,stewardess,from,South Carolina.,She,likes,surfing.,Does NAME like studying?,No,Is NAME from South Carolina?,Yes,female,flight attendant,stewardess,congruent_female,flight attendant_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,flight attendant,from,South Carolina.,He,likes,surfing.,Does NAME like studying?,No,Is NAME from South Carolina?,Yes,male,flight attendant,steward,neutral_male,flight attendant_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,steward,from,South Carolina.,He,likes,surfing.,Does NAME like studying?,No,Is NAME from South Carolina?,Yes,male,flight attendant,steward,congruent_male,flight attendant_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,businessperson,from,Hawaii.,She,likes,surfing.,Does NAME like singing?,No,Is NAME from Pennsylvania?,No,female,businessperson,businesswoman,neutral_female,businessperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,businesswoman,from,Hawaii.,She,likes,surfing.,Does NAME like singing?,No,Is NAME from Pennsylvania?,No,female,businessperson,businesswoman,congruent_female,businessperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,businessperson,from,Hawaii.,He,likes,surfing.,Does NAME like singing?,No,Is NAME from Pennsylvania?,No,male,businessperson,businessman,neutral_male,businessperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,businessman,from,Hawaii.,He,likes,surfing.,Does NAME like singing?,No,Is NAME from Pennsylvania?,No,male,businessperson,businessman,congruent_male,businessperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,camera operator,from,New Mexico.,She,likes,camping.,Does NAME like walking?,No,Is NAME from New Mexico?,Yes,female,camera operator,camerawoman,neutral_female,camera operator_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,camerawoman,from,New Mexico.,She,likes,camping.,Does NAME like walking?,No,Is NAME from New Mexico?,Yes,female,camera operator,camerawoman,congruent_female,camera operator_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,camera operator,from,New Mexico.,He,likes,camping.,Does NAME like walking?,No,Is NAME from New Mexico?,Yes,male,camera operator,cameraman,neutral_male,camera operator_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,cameraman,from,New Mexico.,He,likes,camping.,Does NAME like walking?,No,Is NAME from New Mexico?,Yes,male,camera operator,cameraman,congruent_male,camera operator_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,congressperson,from,Vermont.,She,likes,surfing.,Does NAME like cycling?,No,Is NAME from Illinois?,No,female,congressperson,congresswoman,neutral_female,congressperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,congresswoman,from,Vermont.,She,likes,surfing.,Does NAME like cycling?,No,Is NAME from Illinois?,No,female,congressperson,congresswoman,congruent_female,congressperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,congressperson,from,Vermont.,He,likes,surfing.,Does NAME like cycling?,No,Is NAME from Illinois?,No,male,congressperson,congressman,neutral_male,congressperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,congressman,from,Vermont.,He,likes,surfing.,Does NAME like cycling?,No,Is NAME from Illinois?,No,male,congressperson,congressman,congruent_male,congressperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,craftsperson,from,Montana.,She,likes,hiking.,Does NAME like surfing?,No,Is NAME from North Carolina?,No,female,craftsperson,craftswoman,neutral_female,craftsperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,craftswoman,from,Montana.,She,likes,hiking.,Does NAME like surfing?,No,Is NAME from North Carolina?,No,female,craftsperson,craftswoman,congruent_female,craftsperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,craftsperson,from,Montana.,He,likes,hiking.,Does NAME like surfing?,No,Is NAME from North Carolina?,No,male,craftsperson,craftsman,neutral_male,craftsperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,craftsman,from,Montana.,He,likes,hiking.,Does NAME like surfing?,No,Is NAME from North Carolina?,No,male,craftsperson,craftsman,congruent_male,craftsperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,crewmember,from,Utah.,She,likes,painting.,Does NAME like hiking?,No,Is NAME from Utah?,Yes,female,crewmember,crewwoman,neutral_female,crewmember_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,crewwoman,from,Utah.,She,likes,painting.,Does NAME like hiking?,No,Is NAME from Utah?,Yes,female,crewmember,crewwoman,congruent_female,crewmember_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,crewmember,from,Utah.,He,likes,painting.,Does NAME like hiking?,No,Is NAME from Utah?,Yes,male,crewmember,crewman,neutral_male,crewmember_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,crewman,from,Utah.,He,likes,painting.,Does NAME like hiking?,No,Is NAME from Utah?,Yes,male,crewmember,crewman,congruent_male,crewmember_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,firefighter,from,Kentucky.,She,likes,drawing.,Does NAME like writing?,No,Is NAME from Kentucky?,Yes,female,firefighter,firewoman,neutral_female,firefighter_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,firewoman,from,Kentucky.,She,likes,drawing.,Does NAME like writing?,No,Is NAME from Kentucky?,Yes,female,firefighter,firewoman,congruent_female,firefighter_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,firefighter,from,Kentucky.,He,likes,drawing.,Does NAME like writing?,No,Is NAME from Kentucky?,Yes,male,firefighter,fireman,neutral_male,firefighter_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,fireman,from,Kentucky.,He,likes,drawing.,Does NAME like writing?,No,Is NAME from Kentucky?,Yes,male,firefighter,fireman,congruent_male,firefighter_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,foreperson,from,Kansas.,She,likes,cycling.,Does NAME like cooking?,No,Is NAME from Wyoming?,No,female,foreperson,forewoman,neutral_female,foreperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,forewoman,from,Kansas.,She,likes,cycling.,Does NAME like cooking?,No,Is NAME from Wyoming?,No,female,foreperson,forewoman,congruent_female,foreperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,foreperson,from,Kansas.,He,likes,cycling.,Does NAME like cooking?,No,Is NAME from Wyoming?,No,male,foreperson,foreman,neutral_male,foreperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,foreman,from,Kansas.,He,likes,cycling.,Does NAME like cooking?,No,Is NAME from Wyoming?,No,male,foreperson,foreman,congruent_male,foreperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,an,heir,from,Virginia.,She,likes,studying.,Does NAME like drawing?,No,Is NAME from Indiana?,No,female,heir,heiress,neutral_female,heir_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,heiress,from,Virginia.,She,likes,studying.,Does NAME like drawing?,No,Is NAME from Indiana?,No,female,heir,heiress,congruent_female,heir_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,an,heir,from,Virginia.,He,likes,studying.,Does NAME like drawing?,No,Is NAME from Indiana?,No,male,heir,heir,neutral_male,heir_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,an,heir,from,Virginia.,He,likes,studying.,Does NAME like drawing?,No,Is NAME from Indiana?,No,male,heir,heir,congruent_male,heir_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,hero,from,Arizona.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Rhode Island?,No,female,hero,heroine,neutral_female,hero_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,heroine,from,Arizona.,She,likes,painting.,Does NAME like painting?,Yes,Is NAME from Rhode Island?,No,female,hero,heroine,congruent_female,hero_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,hero,from,Arizona.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Rhode Island?,No,male,hero,hero,neutral_male,hero_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,hero,from,Arizona.,He,likes,painting.,Does NAME like painting?,Yes,Is NAME from Rhode Island?,No,male,hero,hero,congruent_male,hero_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,host,from,Oregon.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Oregon?,Yes,female,host,hostess,neutral_female,host_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,hostess,from,Oregon.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Oregon?,Yes,female,host,hostess,congruent_female,host_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,host,from,Oregon.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Oregon?,Yes,male,host,host,neutral_male,host_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,host,from,Oregon.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Oregon?,Yes,male,host,host,congruent_male,host_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,hunter,from,West Virginia.,She,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from Missouri?,No,female,hunter,huntress,neutral_female,hunter_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,huntress,from,West Virginia.,She,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from Missouri?,No,female,hunter,huntress,congruent_female,hunter_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,hunter,from,West Virginia.,He,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from Missouri?,No,male,hunter,hunter,neutral_male,hunter_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,hunter,from,West Virginia.,He,likes,surfing.,Does NAME like surfing?,Yes,Is NAME from Missouri?,No,male,hunter,hunter,congruent_male,hunter_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,layperson,from,Oklahoma.,She,likes,singing.,Does NAME like dancing?,No,Is NAME from Texas?,No,female,layperson,laywoman,neutral_female,layperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,laywoman,from,Oklahoma.,She,likes,singing.,Does NAME like dancing?,No,Is NAME from Texas?,No,female,layperson,laywoman,congruent_female,layperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,layperson,from,Oklahoma.,He,likes,singing.,Does NAME like dancing?,No,Is NAME from Texas?,No,male,layperson,layman,neutral_male,layperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,layman,from,Oklahoma.,He,likes,singing.,Does NAME like dancing?,No,Is NAME from Texas?,No,male,layperson,layman,congruent_male,layperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,police officer,from,Minnesota.,She,likes,cycling.,Does NAME like swimming?,No,Is NAME from Delaware?,No,female,police officer,policewoman,neutral_female,police officer_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,policewoman,from,Minnesota.,She,likes,cycling.,Does NAME like swimming?,No,Is NAME from Delaware?,No,female,police officer,policewoman,congruent_female,police officer_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,police officer,from,Minnesota.,He,likes,cycling.,Does NAME like swimming?,No,Is NAME from Delaware?,No,male,police officer,policeman,neutral_male,police officer_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,policeman,from,Minnesota.,He,likes,cycling.,Does NAME like swimming?,No,Is NAME from Delaware?,No,male,police officer,policeman,congruent_male,police officer_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,salesperson,from,Maine.,She,likes,hiking.,Does NAME like hiking?,Yes,Is NAME from Maine?,Yes,female,salesperson,saleswoman,neutral_female,salesperson_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,saleswoman,from,Maine.,She,likes,hiking.,Does NAME like hiking?,Yes,Is NAME from Maine?,Yes,female,salesperson,saleswoman,congruent_female,salesperson_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,salesperson,from,Maine.,He,likes,hiking.,Does NAME like hiking?,Yes,Is NAME from Maine?,Yes,male,salesperson,salesman,neutral_male,salesperson_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,salesman,from,Maine.,He,likes,hiking.,Does NAME like hiking?,Yes,Is NAME from Maine?,Yes,male,salesperson,salesman,congruent_male,salesperson_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,stunt double,from,Illinois.,She,likes,dancing.,Does NAME like hiking?,No,Is NAME from Illinois?,Yes,female,stunt double,stuntwoman,neutral_female,stunt double_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,stuntwoman,from,Illinois.,She,likes,dancing.,Does NAME like hiking?,No,Is NAME from Illinois?,Yes,female,stunt double,stuntwoman,congruent_female,stunt double_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,stunt double,from,Illinois.,He,likes,dancing.,Does NAME like hiking?,No,Is NAME from Illinois?,Yes,male,stunt double,stuntman,neutral_male,stunt double_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,stuntman,from,Illinois.,He,likes,dancing.,Does NAME like hiking?,No,Is NAME from Illinois?,Yes,male,stunt double,stuntman,congruent_male,stunt double_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,villain,from,New York.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Arkansas?,No,female,villain,villainess,neutral_female,villain_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,villainess,from,New York.,She,likes,running.,Does NAME like running?,Yes,Is NAME from Arkansas?,No,female,villain,villainess,congruent_female,villain_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,villain,from,New York.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Arkansas?,No,male,villain,villain,neutral_male,villain_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,villain,from,New York.,He,likes,running.,Does NAME like running?,Yes,Is NAME from Arkansas?,No,male,villain,villain,congruent_male,villain_congruent_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,meteorologist,from,Arkansas.,She,likes,singing.,Does NAME like cooking?,No,Is NAME from Nebraska?,No,female,meteorologist,weatherwoman,neutral_female,meteorologist_neutral_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,weatherwoman,from,Arkansas.,She,likes,singing.,Does NAME like cooking?,No,Is NAME from Nebraska?,No,female,meteorologist,weatherwoman,congruent_female,meteorologist_congruent_female
+,,,,,,,,,,,,,,,,,,NAME,is,a,meteorologist,from,Arkansas.,He,likes,singing.,Does NAME like cooking?,No,Is NAME from Nebraska?,No,male,meteorologist,weatherman,neutral_male,meteorologist_neutral_male
+,,,,,,,,,,,,,,,,,,NAME,is,a,weatherman,from,Arkansas.,He,likes,singing.,Does NAME like cooking?,No,Is NAME from Nebraska?,No,male,meteorologist,weatherman,congruent_male,meteorologist_congruent_male
