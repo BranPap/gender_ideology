@@ -64,13 +64,9 @@ function make_slides(f) {
       $(document).bind("keydown",function(evt) {
         if (evt.keyCode == 32 && space_available == 0) {
           t.response_times.push(Date.now());
-          $("#trial_instructions").hide();
-          $("#left_word").show();
-          $("#right_word").show();
-          $("#l").show();
-          $("#s").show();
-          space_available = 1;
           t.allow_key_press = true;
+          t.space_available = 1;
+          t.start_maze(t,k);
         } else if (evt.keyCode == 76 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
           space_available = 1;
@@ -80,30 +76,11 @@ function make_slides(f) {
           console.log('x: ',x);
           if (k+1 < sentence_length && x == t.stim.words[k].form) {
             t.response_times.push(Date.now());
-            $('.err').hide();
             k += 1;
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
-            } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
-              };
-            document.getElementById('left_word').textContent=left_word;
-            document.getElementById('right_word').textContent=right_word;
+            t.maze_turn(k,t);
           } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
+            t.exit_maze(t,k);
             t.response_times.push(Date.now());
-            $(document).unbind("keydown");
-            $('.err').hide();
-            $('#ex_question_correct').show();
-            $("#comprehension-question-example").show();
-            $("#left_word").hide();
-            $("#right_word").hide();
-            $("#l").hide();
-            $("#s").hide();
           } else {
             $('.err').show();
           }
@@ -115,38 +92,14 @@ function make_slides(f) {
           console.log('x: ',x);
           if (k+1 < sentence_length && x == t.stim.words[k].form) {
             t.response_times.push(Date.now());
-            $('.err').hide();
             k += 1;
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
-            } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
-              };
-            document.getElementById('left_word').textContent=left_word;
-            document.getElementById('right_word').textContent=right_word;
+            t.maze_turn(k,t);
           } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
-            $('.err').hide();
             t.response_times.push(Date.now());
-            $(document).unbind("keydown");
-            $('#ex_question_correct').show();
-            $("#comprehension-question-example").show();
-            $("#left_word").hide();
-            $("#right_word").hide();
-            $("#l").hide();
-            $("#s").hide();
+            t.exit_maze(k,t);
           } else {
             $('.err').show();
           }
-        } else if (evt.keyCode == 32 && space_available == 2) {
-          exp.go();
-          allow_key_press = false;
-          space_available = 1;
-          $(document).unbind("keydown");
         }
       });
 
@@ -159,6 +112,42 @@ function make_slides(f) {
 
       console.log('question',individual_question)
     },
+
+maze_turn : function(k,t) {
+  $('.err').hide();
+  possible_pair = _.shuffle(["real", "distractor"]);
+  var left_word_status = possible_pair.pop();
+  var right_word_status = possible_pair.pop();
+  if (left_word_status == "real") {
+    left_word = t.stim.words[k].form;
+    right_word = t.stim.words[k].distractor;
+  } else {
+    left_word = t.stim.words[k].distractor;
+    right_word = t.stim.words[k].form;
+    };
+  document.getElementById('left_word').textContent=left_word;
+  document.getElementById('right_word').textContent=right_word;
+},
+
+start_maze : function(k,t) {
+  $("#trial_instructions").hide();
+  $("#left_word").show();
+  $("#right_word").show();
+  $("#l").show();
+  $("#s").show();
+},
+
+exit_maze : function(k,t) {
+  $('.err').hide();
+  $('#ex_question_correct').show();
+  $("#comprehension-question-example").show();
+  $("#left_word").hide();
+  $("#right_word").hide();
+  $("#l").hide();
+  $("#s").hide();
+  console.log("successful foo!");
+  $(document).unbind("keydown");
+},
 
 log_responses : function() {
 for (var i = 0; i < this.stim.words.length; i++) {
