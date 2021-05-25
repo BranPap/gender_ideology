@@ -16,6 +16,7 @@ function make_slides(f) {
      }
   });
 
+  //instructions slide
   slides.instructions = slide({
     name : "instructions",
     button : function() {
@@ -23,52 +24,61 @@ function make_slides(f) {
     }
   });
 
+  //example 1 slide
   slides.example = slide({
     name: "example",
     start: function() {
+      //sets stim for this iteration
       this.stim = exp.example_stim[0].condition[0].neutral_female[0];
+
+      //sets our key press settings so that the participants can hit spacebar, but nothing else
       space_available = 0;
       allow_key_press = false;
 
+      //select which condition you want for this item
       exp.selection == "neutral_female";
+
+      //set the name for the item
       this.name = "Brittany";
 
-      console.log('this.stim.condition',this.stim)
-
-      $("#comprehension-question-example").hide();
-
+      //initialize a trial-specific list of reading times
       this.response_times = [];
 
+      //allows you to call this inside of functions
       var t = this;
 
+      //set the number of presses in the current trial to 0
       var k = 0
 
+      //get the length of the stimulus sentence, to be used later when determining when to stop
       var sentence_length = this.stim.words.length
 
+      //set the intial words on the left and right sides, and assign them to the html
       var left_word = this.stim.words[k].form;
       var right_word = this.stim.words[k].distractor;
+      $("#left_word").html(left_word);
+      $("#right_word").html(right_word);
 
+      //basically this hides everything on the page until such time as they are called by one of the lower maze functions
       $("#left_word").hide();
       $("#right_word").hide();
       $("#l").hide();
       $("#s").hide();
-
-      $("#left_word").html(left_word);
-      $("#right_word").html(right_word);
       $('.correct').hide();
       $('.err').hide();
       $('#ex_question_error').hide();
+      $("#comprehension-question-example").hide();
 
 
-
+      //This allows the webpage to use your keystrokes while .bind("keydown") is in effect, and allows us to execute different events depending on the particular key pressed
       $(document).bind("keydown",function(evt) {
+        //if the participant presses the spacebar, and it is the first button pressed on the page (only true when space_available == 0), then start the timer and allow other key presses
         if (evt.keyCode == 32 && space_available == 0) {
-          t.response_times.push(Date.now());
-          t.allow_key_press = true;
-          t.space_available = 1;
-          t.start_maze(t,k);
-        } else if (evt.keyCode == 76 && t.allow_key_press == true) {
-          // t.response_times.push(Date.now());
+          t.response_times.push(Date.now()); //start the timer
+          t.allow_key_press = true; //allow the target keys [s] and [l] to be pressed
+          t.space_available = 1; //disallow the pressing of the spacebar
+          t.start_maze(t,k); //call the start_maze function below, and pass this and k values to it
+        } else if (evt.keyCode == 76 && t.allow_key_press == true) { //
           space_available = 1;
           console.log("L pressed");
           console.log('trial_i',k);
@@ -129,12 +139,13 @@ maze_turn : function(k,t) {
   document.getElementById('right_word').textContent=right_word;
 },
 
+//initializes the first bit of the maze
 start_maze : function(k,t) {
-  $("#trial_instructions").hide();
-  $("#left_word").show();
-  $("#right_word").show();
-  $("#l").show();
-  $("#s").show();
+  $("#trial_instructions").hide(); //hide the spacebar instructions
+  $("#left_word").show(); //show the word on the left
+  $("#right_word").show(); //show the word on the right
+  $("#l").show(); //show the key used to select the word on the left
+  $("#s").show(); //show the key used to select the word on the right
 },
 
 exit_maze : function(k,t) {

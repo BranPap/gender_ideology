@@ -124,7 +124,7 @@ with open("experiment\stimuli_creation\maze_stims.csv", 'w') as stim_input:
         stim_input.write(",He,")
         stim_input.write("likes,")
         stim_input.write(activity+".")
-        entry.append(str(('male;'+str(status)+';John is '+row["det"]+" "+row["male"]+" from "+state+". She likes "+activity+".")))
+        entry.append(str(('male;'+str(status)+';John is '+row["det"]+" "+row["male"]+" from "+state+". He likes "+activity+".")))
         if activity_chance == 0:
             stim_input.write(",Does NAME like "+activity_2+"?")
             if activity == activity_2:
