@@ -28,7 +28,7 @@ function make_slides(f) {
     start: function() {
       this.stim = exp.example_stim[0].condition[0].neutral_female[0];
       space_available = 0;
-      allow_key_press = true;
+      allow_key_press = false;
 
       exp.selection == "neutral_female";
       this.name = "Brittany";
@@ -70,7 +70,8 @@ function make_slides(f) {
           $("#l").show();
           $("#s").show();
           space_available = 1;
-        } else if (evt.keyCode == 76 && allow_key_press == true) {
+          t.allow_key_press = true;
+        } else if (evt.keyCode == 76 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
           space_available = 1;
           console.log("L pressed");
@@ -95,6 +96,7 @@ function make_slides(f) {
             document.getElementById('right_word').textContent=right_word;
           } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
             t.response_times.push(Date.now());
+            $(document).unbind("keydown");
             $('.err').hide();
             $('#ex_question_correct').show();
             $("#comprehension-question-example").show();
@@ -105,7 +107,7 @@ function make_slides(f) {
           } else {
             $('.err').show();
           }
-        } else if (evt.keyCode == 83 && allow_key_press == true) {
+        } else if (evt.keyCode == 83 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
           console.log("S pressed");
           console.log('trial_i',k);
@@ -130,6 +132,7 @@ function make_slides(f) {
           } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
             $('.err').hide();
             t.response_times.push(Date.now());
+            $(document).unbind("keydown");
             $('#ex_question_correct').show();
             $("#comprehension-question-example").show();
             $("#left_word").hide();
@@ -179,6 +182,7 @@ trial_counter++;
     button : function(response) {
       this.response_correct = response == this.stim.question_answer;
       if (this.response_correct == 1) {
+        $(document).unbind("keydown");
         this.log_responses();
         exp.go();
       }
@@ -203,9 +207,11 @@ trial_counter++;
       this.stim = stim;
       exp.selection = exp.gender.pop();
       this.space_available = 0;
-      this.allow_key_press = true;
+      this.allow_key_press = false;
 
-      console.log('this.stim.condition',this.stim)
+      console.log('this.stim.condition',this.stim);
+
+      console.log('post-k:',exp.k);
 
       if (exp.selection == "neutral_male") {
         this.stim =stim.condition[0].neutral_male[0];
@@ -229,7 +235,7 @@ trial_counter++;
 
       var t = this;
 
-      var k = 0
+      exp.k = 0
 
       var sentence_length = this.stim.words.length
 
@@ -238,9 +244,9 @@ trial_counter++;
       var right_word_status = possible_pair.pop();
       if (left_word_status == "real") {
         left_word = t.name;
-        right_word = t.stim.words[k].distractor;
+        right_word = t.stim.words[exp.k].distractor;
       } else {
-        left_word = t.stim.words[k].distractor;
+        left_word = t.stim.words[exp.k].distractor;
         right_word = t.name;
         };
 
@@ -254,6 +260,8 @@ trial_counter++;
       $('#new_correct').hide();
       $('#new_err').hide();
 
+      $("#new_trial_instructions").show();
+
       $(document).bind("keydown",function(evt) {
         if (evt.keyCode == 32 && t.space_available == 0) {
           t.response_times.push(Date.now());
@@ -262,108 +270,99 @@ trial_counter++;
           $("#new_right_word").show();
           $("#new_l").show();
           $("#new_s").show();
-          space_available = 1;
+          t.space_available = 1;
+          t.allow_key_press = true;
         } else if (evt.keyCode == 76 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
+          t.space_available = 1;
           console.log("L pressed");
-          console.log('trial_i',k);
           x = document.getElementById('new_right_word').textContent;
           console.log('x: ',x);
-          if (k+1 < sentence_length && x == t.stim.words[k].form) {
+          if (exp.k+1 < sentence_length && x == t.stim.words[exp.k].form || exp.k+1 < sentence_length && x == t.name) {
             t.response_times.push(Date.now());
-            k += 1;
+            $('#new_err').hide();
+            exp.k += 1;
+            console.log('trial_i',exp.k);
             possible_pair = _.shuffle(["real", "distractor"]);
             var left_word_status = possible_pair.pop();
             var right_word_status = possible_pair.pop();
             if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
+              left_word = t.stim.words[exp.k].form;
+              right_word = t.stim.words[exp.k].distractor;
             } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
+              left_word = t.stim.words[exp.k].distractor;
+              right_word = t.stim.words[exp.k].form;
               };
             document.getElementById('new_left_word').textContent=left_word;
             document.getElementById('new_right_word').textContent=right_word;
-          } else if (k+1 < sentence_length && x == t.name) {
+          } else if (exp.k+1 == sentence_length && x == t.stim.words[exp.k].form) {
             t.response_times.push(Date.now());
-            k += 1;
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
-            } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
-              };
-            document.getElementById('new_left_word').textContent=left_word;
-            document.getElementById('new_right_word').textContent=right_word;
-          } else if (k+1 == sentence_length) {
-            t.response_times.push(Date.now());
+            $(document).unbind("keydown");
+            $('#new_err').hide();
             $('#new_correct').show();
             $("#comprehension-question-new").show();
             $("#response-1").show();
             $("#response-2").show();
-            space_available = 2;
-          };
+            $("#new_left_word").hide();
+            $("#new_right_word").hide();
+            $("#new_l").hide();
+            $("#new_s").hide();
+          } else {
+            $('#new_err').show();
+            t.space_available = 2;
+        }
         } else if (evt.keyCode == 83 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
           console.log("S pressed");
-          console.log('trial_i',k);
           x = document.getElementById('new_left_word').textContent;
           console.log('x: ',x);
-          if (k+1 < sentence_length && x == t.stim.words[k].form) {
+          if (exp.k+1 < sentence_length && x == t.stim.words[exp.k].form || exp.k+1 < sentence_length && x == t.name) {
             t.response_times.push(Date.now());
-            k += 1;
+            $('#new_err').hide();
+            exp.k += 1;
+            console.log('trial_i',exp.k);
             possible_pair = _.shuffle(["real", "distractor"]);
             var left_word_status = possible_pair.pop();
             var right_word_status = possible_pair.pop();
             if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
+              left_word = t.stim.words[exp.k].form;
+              right_word = t.stim.words[exp.k].distractor;
             } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
+              left_word = t.stim.words[exp.k].distractor;
+              right_word = t.stim.words[exp.k].form;
               };
             document.getElementById('new_left_word').textContent=left_word;
             document.getElementById('new_right_word').textContent=right_word;
-          } else if (k+1 < sentence_length && x == t.name) {
+          } else if (exp.k+1 == sentence_length && x == t.stim.words[exp.k].form) {
+            $('#new_err').hide();
             t.response_times.push(Date.now());
-            k += 1;
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[k].form;
-              right_word = t.stim.words[k].distractor;
-            } else {
-              left_word = t.stim.words[k].distractor;
-              right_word = t.stim.words[k].form;
-              };
-            document.getElementById('new_left_word').textContent=left_word;
-            document.getElementById('new_right_word').textContent=right_word;
-          } else if (k+1 == sentence_length) {
-            t.response_times.push(Date.now());
+            $(document).unbind("keydown");
             $('#new_correct').show();
             $("#comprehension-question-new").show();
             $("#response-1").show();
             $("#response-2").show();
-            space_available = 1;
+            $("#new_left_word").hide();
+            $("#new_right_word").hide();
+            $("#new_l").hide();
+            $("#new_s").hide();
           } else {
             $('#new_err').show();
-          }
-        } else if (evt.keyCode == 32 && t.space_available == 2) {
-          exp.go();
-          allow_key_press = false;
-          space_available = 0;
+            t.space_available = 2;
+        }
+      } else if (evt.keyCode == 32 && t.space_available == 2) {
+          console.log('pressed spacebar');
+          t.allow_key_press = false;
+          t.space_available = 1;
+          $(document).unbind("keydown");
+          exp.k = 0;
+          _stream.apply(this);
         }
       });
 
       var question_check = this.stim.question2;
       this.stim.question_answer = this.stim.answer2;
 
-      var individual_question = question_check;
+      var individual_question = question_check.replace("NAME",t.name);
 
       $("#comprehension-question-new").text(individual_question);
 
@@ -374,7 +373,7 @@ log_responses : function() {
 for (var i = 0; i < this.stim.words.length; i++) {
 var word = this.stim.words[i];
 exp.data_trials.push({
-  "trial_id": "example",
+  "trial_id": this.stim.id,
   "word_idx": i,
   "form": word.form,
   "region": word.region,
@@ -391,15 +390,20 @@ trial_counter++;
 
     button : function(response) {
       this.response_correct = response == this.stim.question_answer;
-      if (this.response_correct == 1) {
+      this.log_responses();
+      console.log('pre-k:',exp.k)
+      $(document).unbind("keydown");
+      _stream.apply(this);
+    },
+
+      button_two : function(foo) {
+        $(document).unbind("keydown");
         this.log_responses();
         _stream.apply(this);
-      }
-      else {
-        $('#example_err_1').addClass("visibleerr");
-      }
     },
-});
+
+    });
+
 
   slides.gender_quiz = slide({
     name : "gender_quiz",

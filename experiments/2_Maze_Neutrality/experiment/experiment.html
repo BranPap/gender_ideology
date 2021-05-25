@@ -92,43 +92,15 @@
 
   <p class = "instructions" id="trial_instructions"> Press spacebar to begin! </p>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <table class="center">
+  <table class="sidebyside">
     <tr>
-      <td>
-        &emsp;
+      <td class="structureleft">
+        <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="left_word"></span>
+        <p style="font-family:monospace;font-size:18px;" class = "center" id="s"> S </p>
       </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        <span class = "center" id="left_word"></span>
-        <p class = "center" id="s"> S </p>
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        &emsp;
-      </td>
-      <td>
-        <span class = "center" id="right_word"></span>
-        <p class = "center" id="l"> L </p>
+      <td class="structureright">
+        <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="right_word"></span>
+        <p style="font-family:monospace;font-size:18px;" class = "center" id="l"> L </p>
       </td>
     </tr>
   </table>
@@ -183,43 +155,15 @@
 
       <p class = "instructions" id="new_trial_instructions"> Press spacebar to begin! </p>
 
-      <br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <table class="center">
+      <table class="sidebyside">
         <tr>
-          <td>
-            &emsp;
+          <td class="structureleft">
+            <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="new_left_word"></span>
+            <p style="font-family:monospace;font-size:18px;" class = "center" id="new_s"> S </p>
           </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            <span class = "center" id="new_left_word"></span>
-            <p class = "center" id="new_s"> S </p>
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            &emsp;
-          </td>
-          <td>
-            <span class = "center" id="new_right_word"></span>
-            <p class = "center" id="new_l"> L </p>
+          <td class="structureright">
+            <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="new_right_word"></span>
+            <p style="font-family:monospace;font-size:18px;" class = "center" id="new_l"> L </p>
           </td>
         </tr>
       </table>
@@ -230,6 +174,7 @@
           <p>
            You've pressed the wrong word! We'll have to move on to the next sentence now.
           </p>
+          <input type="button" value="Click Here to Continue" id="error_button" class="response-buttons button">
         </div>
 
         <div id="comprehension-question">
