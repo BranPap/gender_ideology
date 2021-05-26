@@ -39,7 +39,7 @@
     <!-- <img src="../_shared/images/cocologo.png" alt="Stanford CoCoLab" id="cocologo"></img> -->
     <p id="cocolab">Stanford Linguistics</p>
     <p id="instruct-text">
-      In this experiment, you will read 20 sentence pairs word-by-word and for each sentence, answer a short question.
+      In this experiment, you will read 20 sentence pairs word-by-word. You will have to continue the sentence gramnatically by pressing on your keyboard. Finally, for each sentence, answer a short question.
       You will also be asked to complete a short personality test. Please pay attention, thanks!<br>
       <strong>Please note that this experiment cannot be completed in the FireFox browser.</strong>
     </p>
@@ -75,14 +75,14 @@
   <div class="slide" id="instructions">
 
 		<h3>Instructions</h3>
-    <p>On the following pages, you will always see a phrase masked with dashes (-). To read the sentence, please press the space bar which will reveal the next word.
-			Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
+    <p>On the following pages, you will be asked to press the spacebar to start a sentence. Once you do, you will see a word and an "x-x-x". Press the key which responds to the real word (either the [s] key or the [l] key). Then, for each following pair of words on the screen, please select the word that grammatically continues the sentence you are currently reading.</p>
+		<p>Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
+
+    <p>Place your left index finder on the S key. Place your right index finger on the L key. </p> <br><br> <img src="keyboard_example.png" alt="keyboard_example" width="500" height="300">
 
     <p>Let's start with an example!</p>
+    <p> <strong> Press the spacebar to continue! </strong> </p>
 
-
-
-    <input type="button" class="button" value="Continue" onclick="exp.go();">
 
   </div>
 
@@ -90,7 +90,7 @@
   <div class="slide" id="example">
 <div id = "stimuli">
 
-  <p class = "instructions" id="trial_instructions"> Press spacebar to begin! </p>
+  <p class = "instructions" id="trial_instructions"> Press the spacebar to begin! </p>
 
   <div class="correct">
     <br>
@@ -155,12 +155,14 @@
 
   <h3>Let's Get Started!</h3>
   <p>Great job! Now we can really get started.</p>
-  <p><strong>To reiterate:</strong> in the following pages, you will always see a phrase masked with dashes (-). To read the sentence, please press the space bar which will reveal the next word.
-    Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
+  <p><strong>To reiterate:</strong> On the following pages, you will be asked to press the spacebar to start a sentence. Once you do, you will see a word and an "x-x-x". Press the key which responds to the real word (either the [s] key or the [l] key). Then, for each following pair of words on the screen, please select the word that grammatically continues the sentence you are currently reading.</p>
+  <p>Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
+
+  <p>Place your left index finder on the S key. Place your right index finger on the L key. </p> <br><br> <img src="keyboard_example.png" alt="keyboard_example" width="500" height="300">
 
   <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 10mins.</p>
 
-  <input type="button" class="button" value="Continue" onclick="exp.go();">
+  <p> <strong> Press the spacebar to continue! </strong> </p>
 
 </div>
 
@@ -168,17 +170,46 @@
 
     <div id = "stimuli">
 
-      <p class = "instructions" id="new_trial_instructions"> Press spacebar to begin! </p>
+      <p class = "instructions" id="new_trial_instructions"> Press the spacebar to begin! </p>
+
+      <div class="new_correct">
+        <br>
+        <p id="new_correct">
+         Great job! Now please answer this question to continue.
+        </p>
+      </div>
+
+      <table style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class="likertscale" id="attention-question">
+        <tr>
+          <td>
+            <p class = "center" id="attention-question"> </p>
+          </td>
+        </tr>
+      </table>
 
       <table class="sidebyside">
-        <tr>
+        <tr id="comprehension-question-answers">
           <td class="structureleft">
-            <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="new_left_word"></span>
-            <p style="font-family:monospace;font-size:18px;" class = "center" id="new_s"> S </p>
+            <p style="font-family:monospace; margin-top:15px;font-size:36px;font-weight:bold" id="new_Yes" value="Yes">Yes</p>
           </td>
           <td class="structureright">
-            <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="new_right_word"></span>
-            <p style="font-family:monospace;font-size:18px;" class = "center" id="new_l"> L </p>
+            <p style="font-family:monospace; margin-top:15px;font-size:36px;font-weight:bold" id="new_No" value="No">No</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="structureleft">
+            <span style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class = "center" id="new_left_word"></span>
+          </td>
+          <td class="structureright">
+            <span style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class = "center" id="new_right_word"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class = "buttonstructure" id="new_s"> S </p>
+          </td>
+          <td>
+            <p class = "buttonstructure" id="new_l"> L </p>
           </td>
         </tr>
       </table>
@@ -187,25 +218,9 @@
         <div class="err" id="new_err">
           <br>
           <p>
-           You've pressed the wrong word! We'll have to move on to the next sentence now.
-          </p>
-          <input type="button" value="Click Here to Continue" id="error_button" class="response-buttons button">
-        </div>
-
-        <div id="comprehension-question">
-
-        <p id="comprehension-question-new" class="question"></p>
-        <input type="button" value="Yes" id="response-1" class="response-buttons button">
-        <input type="button" value="No" id="response-2" class="response-buttons button">
-      </div>
-
-        <div class="correct" id="new_correct">
-          <br>
-          <p>
-           Great job! Now please answer this question to continue.
+           You've pressed the wrong word! We'll have to move on to the next sentence now. <strong> Press the spacebar to continue. </strong>
           </p>
         </div>
-
      </div>
 
 

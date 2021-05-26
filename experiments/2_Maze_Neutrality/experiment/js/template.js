@@ -19,8 +19,13 @@ function make_slides(f) {
   //instructions slide
   slides.instructions = slide({
     name : "instructions",
-    button : function() {
-      exp.go(); //use exp.go() if and only if there is no "present" data.
+    start : function() {
+      $(document).bind("keydown",function(evt) {
+        if (evt.keyCode == 32) {
+          $(document).unbind("keydown");
+          exp.go();
+        }
+      }); //use exp.go() if and only if there is no "present" data.
     }
   });
 
@@ -109,7 +114,6 @@ function make_slides(f) {
             t.response_times.push(Date.now()); //record the time
             t.answer_keys = true;
             t.allow_key_press = false;
-            console.log("please",t.answer_keys);
             t.exit_maze(k,t);//call the exit_maze function below
           } else { //if the participant presses the [S] key and it is an illegal contiuation of the sentence...
             $('.err').show(); //show the error message. Nothing else.
@@ -207,8 +211,13 @@ trial_counter++;
 //////////////////////////////////////////////////Pre-main trial slide//////////
   slides.almost = slide({
     name : "almost",
-    button : function() {
-      exp.go(); //use exp.go() if and only if there is no "present" data.
+    start : function() {
+      $(document).bind("keydown",function(evt) {
+        if (evt.keyCode == 32) {
+          $(document).unbind("keydown");
+          exp.go();
+        }
+      }); //use exp.go() if and only if there is no "present" data.
     }
   })
 
@@ -222,6 +231,7 @@ trial_counter++;
       exp.selection = exp.gender.pop();
       this.space_available = 0;
       this.allow_key_press = false;
+      this.answer_keys = false;
 
       console.log('this.stim.condition',this.stim);
 
@@ -241,9 +251,15 @@ trial_counter++;
         this.name = exp.female_names.pop();
       }
 
-      $("#comprehension-question-new").hide();
-      $("#response-1").hide();
-      $("#response-2").hide();
+      //hide the various parts of the slide
+      $("#comprehension-question-answers").hide();
+      $('#attention-question').hide();
+      $("#new_left_word").hide();
+      $("#new_right_word").hide();
+      $("#new_l").hide();
+      $("#new_s").hide();
+      $('#new_correct').hide();
+      $('#new_err').hide();
 
       this.response_times = [];
 
@@ -264,117 +280,115 @@ trial_counter++;
         right_word = t.name;
         };
 
-      $("#new_left_word").hide();
-      $("#new_right_word").hide();
-      $("#new_l").hide();
-      $("#new_s").hide();
-
       $("#new_left_word").html(left_word);
       $("#new_right_word").html(right_word);
-      $('#new_correct').hide();
-      $('#new_err').hide();
+
 
       $("#new_trial_instructions").show();
 
       $(document).bind("keydown",function(evt) {
         if (evt.keyCode == 32 && t.space_available == 0) {
           t.response_times.push(Date.now());
-          $("#new_trial_instructions").hide();
-          $("#new_left_word").show();
-          $("#new_right_word").show();
-          $("#new_l").show();
-          $("#new_s").show();
           t.space_available = 1;
           t.allow_key_press = true;
+          t.start_maze(exp.k,t)
         } else if (evt.keyCode == 76 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
           t.space_available = 1;
-          console.log("L pressed");
           x = document.getElementById('new_right_word').textContent;
-          console.log('x: ',x);
           if (exp.k+1 < sentence_length && x == t.stim.words[exp.k].form || exp.k+1 < sentence_length && x == t.name) {
             t.response_times.push(Date.now());
-            $('#new_err').hide();
             exp.k += 1;
-            console.log('trial_i',exp.k);
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[exp.k].form;
-              right_word = t.stim.words[exp.k].distractor;
-            } else {
-              left_word = t.stim.words[exp.k].distractor;
-              right_word = t.stim.words[exp.k].form;
-              };
-            document.getElementById('new_left_word').textContent=left_word;
-            document.getElementById('new_right_word').textContent=right_word;
+            t.maze_turn(exp.k,t);
           } else if (exp.k+1 == sentence_length && x == t.stim.words[exp.k].form) {
             t.response_times.push(Date.now());
-            $(document).unbind("keydown");
-            $('#new_err').hide();
-            $('#new_correct').show();
-            $("#comprehension-question-new").show();
-            $("#response-1").show();
-            $("#response-2").show();
-            $("#new_left_word").hide();
-            $("#new_right_word").hide();
-            $("#new_l").hide();
-            $("#new_s").hide();
+            t.answer_keys = true;
+            t.allow_key_press = false;
+            t.exit_maze(exp.k,t)
           } else {
             $('#new_err').show();
             t.space_available = 2;
         }
         } else if (evt.keyCode == 83 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
-          console.log("S pressed");
           x = document.getElementById('new_left_word').textContent;
-          console.log('x: ',x);
           if (exp.k+1 < sentence_length && x == t.stim.words[exp.k].form || exp.k+1 < sentence_length && x == t.name) {
             t.response_times.push(Date.now());
-            $('#new_err').hide();
             exp.k += 1;
-            console.log('trial_i',exp.k);
-            possible_pair = _.shuffle(["real", "distractor"]);
-            var left_word_status = possible_pair.pop();
-            var right_word_status = possible_pair.pop();
-            if (left_word_status == "real") {
-              left_word = t.stim.words[exp.k].form;
-              right_word = t.stim.words[exp.k].distractor;
-            } else {
-              left_word = t.stim.words[exp.k].distractor;
-              right_word = t.stim.words[exp.k].form;
-              };
-            document.getElementById('new_left_word').textContent=left_word;
-            document.getElementById('new_right_word').textContent=right_word;
+            t.maze_turn(exp.k,t);
           } else if (exp.k+1 == sentence_length && x == t.stim.words[exp.k].form) {
-            $('#new_err').hide();
             t.response_times.push(Date.now());
-            $(document).unbind("keydown");
-            $('#new_correct').show();
-            $("#comprehension-question-new").show();
-            $("#response-1").show();
-            $("#response-2").show();
-            $("#new_left_word").hide();
-            $("#new_right_word").hide();
-            $("#new_l").hide();
-            $("#new_s").hide();
+            t.answer_keys = true;
+            t.allow_key_press = false;
+            t.exit_maze(exp.k,t)
           } else {
             $('#new_err').show();
             t.space_available = 2;
-            t.allow_key_press = false;
+          }
+        } else if (evt.keyCode == 76 && t.answer_keys == true) {// if the participant presses [l], and we are at the comprehension question check stage (t.answer_keys == true), then...
+          y = document.getElementById('new_No').textContent; //grab the value no and assign it to variable y
+          console.log('y_val',y);
+          t.move_along(y);
+        } else if (evt.keyCode == 83 && t.answer_keys == true) {// if the participant presses [s], and we are at the comprehension question check stage (t.answer_keys == true), then...
+          y = document.getElementById('new_Yes').textContent;//grab the value yes and assign it to variable y
+          console.log('y_val',y);
+          t.move_along(y);
+        } else if (evt.keyCode == 32 && t.space_available == 2) {
+          y = "none";
+          t.move_along(y);
         }
-      }
-      });
+    });
 
       var question_check = this.stim.question2;
       this.stim.question_answer = this.stim.answer2;
 
       var individual_question = question_check.replace("NAME",t.name);
 
-      $("#comprehension-question-new").text(individual_question);
+      $("#attention-question").text(individual_question);
 
       console.log('question',individual_question)
+    },
+
+    //progresses the maze from one set of words to the next
+    maze_turn : function(k,t) {
+      $('.err').hide(); //if there is an error currently being shown (only applicable in the example trial), hide it
+      possible_pair = _.shuffle(["real", "distractor"]); //shuffle a 2 item list of real and distractor, in order to decide if the item goes on the right and the distractor on the left, or vice versa
+      var left_word_status = possible_pair.pop(); //pop one of those two shuffled items
+      var right_word_status = possible_pair.pop(); //pop the other!
+      if (left_word_status == "real") { //if the left word has been designated as the real one...
+        left_word = t.stim.words[k].form; //make the left word underlyingly the next word in the sentence (k)
+        right_word = t.stim.words[k].distractor; //make the right word the corresponding distractor
+      } else { //if the right word has been designated as the real one...
+        left_word = t.stim.words[k].distractor; //make the left word the distractor
+        right_word = t.stim.words[k].form; //make the right word the grammatical continuation
+        };
+      document.getElementById('new_left_word').textContent=left_word; //push the updated left word to the html
+      document.getElementById('new_right_word').textContent=right_word; //push the updated right word to the html
+    },
+
+    //initializes the first bit of the maze
+    start_maze : function(k,t) {
+      $("#new_trial_instructions").hide(); //hide the spacebar instructions
+      $("#new_left_word").show(); //show the word on the left
+      $("#new_right_word").show(); //show the word on the right
+      $("#new_l").show(); //show the key used to select the word on the left
+      $("#new_s").show(); //show the key used to select the word on the right
+    },
+
+    //ends the current maze
+    exit_maze : function(k,t) {
+      $('#new_err').hide(); //if there are any error messages currently displaying, hide them
+      $('#new_correct').show(); //show good job message section
+      $("#attention-question").show();
+      $('#comprehension-question-answers').show();
+      $("#attention-question-table").show(); //show the comprehension question
+      $("#new_left_word").hide();//hide the left word
+      $("#new_right_word").hide();//hide the right word
+      // $("#l").hide();//hide the right button indicator
+      // $("#s").hide();//hide the left button indicator
+      console.log("successful foo!"); //test code
+      t.answer_keys = true;
+      // $(document).unbind("keydown"); //stop allowing keylogging
     },
 
 log_responses : function() {
@@ -396,18 +410,11 @@ exp.data_trials.push({
 trial_counter++;
 },
 
-    button : function(response) {
-      this.response_correct = response == this.stim.question_answer;
+    move_along : function(y) {
+      this.response_correct = y == this.stim.question_answer;
       this.log_responses();
-      console.log('pre-k:',exp.k)
       $(document).unbind("keydown");
       _stream.apply(this);
-    },
-
-      button_two : function(foo) {
-        $(document).unbind("keydown");
-        this.log_responses();
-        _stream.apply(this);
     },
 
     });
