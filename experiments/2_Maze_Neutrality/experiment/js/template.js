@@ -24,7 +24,7 @@ function make_slides(f) {
     }
   });
 
-  //example 1 slide
+  ////////////////////////////////////////////example 1 slide///////////////////
   slides.example = slide({
     name: "example",
     start: function() {
@@ -34,6 +34,7 @@ function make_slides(f) {
       //sets our key press settings so that the participants can hit spacebar, but nothing else
       space_available = 0;
       allow_key_press = false;
+      answer_keys = false;
 
       //select which condition you want for this item
       exp.selection == "neutral_female";
@@ -67,7 +68,12 @@ function make_slides(f) {
       $('.correct').hide();
       $('.err').hide();
       $('#ex_question_error').hide();
-      $("#comprehension-question-example").hide();
+      $("#attention-question-sample").hide();
+      $("#comprehension-question-answers-sample").hide();
+
+      //set the attention check question and its answer
+      var question_check = this.stim.question2; //set the attention check question
+      this.stim.question_answer = this.stim.answer2; //set the attention check answer
 
 
       //This allows the webpage to use your keystrokes while .bind("keydown") is in effect, and allows us to execute different events depending on the particular key pressed
@@ -78,65 +84,78 @@ function make_slides(f) {
           t.allow_key_press = true; //allow the target keys [s] and [l] to be pressed
           t.space_available = 1; //disallow the pressing of the spacebar
           t.start_maze(t,k); //call the start_maze function below, and pass this and k values to it
-        } else if (evt.keyCode == 76 && t.allow_key_press == true) { //
-          space_available = 1;
-          console.log("L pressed");
-          console.log('trial_i',k);
-          x = document.getElementById('right_word').textContent;
-          console.log('x: ',x);
-          if (k+1 < sentence_length && x == t.stim.words[k].form) {
-            t.response_times.push(Date.now());
-            k += 1;
-            t.maze_turn(k,t);
-          } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
-            t.exit_maze(t,k);
-            t.response_times.push(Date.now());
-          } else {
-            $('.err').show();
+        } else if (evt.keyCode == 76 && t.allow_key_press == true) { //if the participant presses the l key...
+          space_available = 1; //disallow the pressing of the spacebar
+          x = document.getElementById('right_word').textContent; //store the current vale of the right word as variable x, to be used for comparison
+          if (k+1 < sentence_length && x == t.stim.words[k].form) { //if the turn value plus one is less than the length of the stimulus sentence AND the current value of x is the same as the correct grammatical continuation (ie if the participant has pressed the right button)...
+            t.response_times.push(Date.now()); // record this timestamp
+            k += 1; //add 1 to the turn value counter
+            t.maze_turn(k,t); //call the maze_turn function, below, and pass k and t to it
+          } else if (k+1 == sentence_length && x == t.stim.words[k].form) { //otherwise, if k+1 (current turn value + 1) is equal to the length of the stimulus sentence, AND the current value of X is the correct continuation///
+            t.response_times.push(Date.now());//add the time to the timer list
+            t.answer_keys = true;
+            t.allow_key_press = false;
+            t.exit_maze(k,t); //call the exit_maze function below, passing it t and k
+          } else {//otherwise, if they pressed l and it was an illegal continuation of the sentence...
+            $('.err').show(); //display the error message
           }
-        } else if (evt.keyCode == 83 && t.allow_key_press == true) {
-          // t.response_times.push(Date.now());
-          console.log("S pressed");
-          console.log('trial_i',k);
-          x = document.getElementById('left_word').textContent;
-          console.log('x: ',x);
-          if (k+1 < sentence_length && x == t.stim.words[k].form) {
-            t.response_times.push(Date.now());
-            k += 1;
-            t.maze_turn(k,t);
-          } else if (k+1 == sentence_length && x == t.stim.words[k].form) {
-            t.response_times.push(Date.now());
-            t.exit_maze(k,t);
-          } else {
-            $('.err').show();
+        } else if (evt.keyCode == 83 && t.allow_key_press == true) {//if the participant presses the [S] key while such an action is permitted...
+          x = document.getElementById('left_word').textContent;//get the current value of the left word, storing it as variable x
+          if (k+1 < sentence_length && x == t.stim.words[k].form) { //if the value of the timer plus one is less than the stimulus sentence length (ie this word does not end the sentence) AND the participant has selected the correct continuation...
+            t.response_times.push(Date.now());//add the response time to the list
+            k += 1; //increase the turn counter value by one
+            t.maze_turn(k,t); //call the maze_turn function below
+          } else if (k+1 == sentence_length && x == t.stim.words[k].form) {//if the participant presses the final word in the sentence AND it is the correct word to continue the grammaticality, then...
+            t.response_times.push(Date.now()); //record the time
+            t.answer_keys = true;
+            t.allow_key_press = false;
+            console.log("please",t.answer_keys);
+            t.exit_maze(k,t);//call the exit_maze function below
+          } else { //if the participant presses the [S] key and it is an illegal contiuation of the sentence...
+            $('.err').show(); //show the error message. Nothing else.
           }
-        }
-      });
+        } else if (evt.keyCode == 76 && t.answer_keys == true) {// if the participant presses [l], and we are at the comprehension question check stage (t.answer_keys == true), then...
+            y = document.getElementById('No_Sample').textContent; //grab the value no and assign it to variable y
+            t.response_correct = y == t.stim.question_answer; //evaluate the truth value of y == correct answer, and assign that to t.response_correct
+            if (t.response_correct == 1) {//if the response is correct...
+              $(document).unbind("keydown");//disallow key pressing
+              t.log_responses();//log responses for this trial
+              exp.go();//move to the next part of the experiment
+            } else {//otherwise (if it's wrong)...
+              document.getElementById('ex_question_correct').textContent="You've pressed the wrong answer! Try again, and be careful!";//update the message at the top of the page to tell them to try again.
+            }
+          } else if (evt.keyCode == 83 && t.answer_keys == true) {// if the participant presses [s], and we are at the comprehension question check stage (t.answer_keys == true), then...
+            y = document.getElementById('Yes_Sample').textContent;//grab the value yes and assign it to variable y
+            t.response_correct = y == t.stim.question_answer; //evaluate the truth value of y == correct answer, and assign that to t.response_correct
+            if (t.response_correct == 1) {//if the response is correct...
+              $(document).unbind("keydown");//disallow key pressing
+              t.log_responses();//log responses for this trial
+              exp.go();//move to the next part of the experiment
+            } else {//otherwise (if it's wrong)...
+              document.getElementById('ex_question_correct').textContent="You've pressed the wrong answer! Try again, and be careful!";//update the message at the top of the page to tell them to try again.
+            }
+      }});
 
-      var question_check = this.stim.question2;
-      this.stim.question_answer = this.stim.answer2;
+      $("#attention-question-sample").text(question_check); //push the comprehension question to the html
 
-      var individual_question = question_check;
-
-      $("#comprehension-question-q-example").text(individual_question);
-
-      console.log('question',individual_question)
+      console.log('question',question_check)//log the question to be asked in this trial - debugging code
     },
 
+//progresses the maze from one set of words to the next
 maze_turn : function(k,t) {
-  $('.err').hide();
-  possible_pair = _.shuffle(["real", "distractor"]);
-  var left_word_status = possible_pair.pop();
-  var right_word_status = possible_pair.pop();
-  if (left_word_status == "real") {
-    left_word = t.stim.words[k].form;
-    right_word = t.stim.words[k].distractor;
-  } else {
-    left_word = t.stim.words[k].distractor;
-    right_word = t.stim.words[k].form;
+  $('.err').hide(); //if there is an error currently being shown (only applicable in the example trial), hide it
+  possible_pair = _.shuffle(["real", "distractor"]); //shuffle a 2 item list of real and distractor, in order to decide if the item goes on the right and the distractor on the left, or vice versa
+  var left_word_status = possible_pair.pop(); //pop one of those two shuffled items
+  var right_word_status = possible_pair.pop(); //pop the other!
+  if (left_word_status == "real") { //if the left word has been designated as the real one...
+    left_word = t.stim.words[k].form; //make the left word underlyingly the next word in the sentence (k)
+    right_word = t.stim.words[k].distractor; //make the right word the corresponding distractor
+  } else { //if the right word has been designated as the real one...
+    left_word = t.stim.words[k].distractor; //make the left word the distractor
+    right_word = t.stim.words[k].form; //make the right word the grammatical continuation
     };
-  document.getElementById('left_word').textContent=left_word;
-  document.getElementById('right_word').textContent=right_word;
+  document.getElementById('left_word').textContent=left_word; //push the updated left word to the html
+  document.getElementById('right_word').textContent=right_word; //push the updated right word to the html
 },
 
 //initializes the first bit of the maze
@@ -148,19 +167,23 @@ start_maze : function(k,t) {
   $("#s").show(); //show the key used to select the word on the right
 },
 
+//ends the current maze
 exit_maze : function(k,t) {
-  $('.err').hide();
-  $('#ex_question_correct').show();
-  $("#comprehension-question-example").show();
-  $("#left_word").hide();
-  $("#right_word").hide();
-  $("#l").hide();
-  $("#s").hide();
-  console.log("successful foo!");
-  $(document).unbind("keydown");
+  $('.err').hide(); //if there are any error messages currently displaying, hide them
+  $('.correct').show(); //show good job message section
+  $('#ex_question_correct').show(); //show the good job message
+  $("#comprehension-question-answers-sample").show();
+  $("#attention-question-sample").show(); //show the comprehension question
+  $("#left_word").hide();//hide the left word
+  $("#right_word").hide();//hide the right word
+  // $("#l").hide();//hide the right button indicator
+  // $("#s").hide();//hide the left button indicator
+  console.log("successful foo!"); //test code
+  t.answer_keys = true;
+  // $(document).unbind("keydown"); //stop allowing keylogging
 },
 
-log_responses : function() {
+log_responses : function() {//this logs everything, for each part of the sentence in question
 for (var i = 0; i < this.stim.words.length; i++) {
 var word = this.stim.words[i];
 exp.data_trials.push({
@@ -178,21 +201,10 @@ exp.data_trials.push({
 }
 trial_counter++;
 },
-
-    button : function(response) {
-      this.response_correct = response == this.stim.question_answer;
-      if (this.response_correct == 1) {
-        $(document).unbind("keydown");
-        this.log_responses();
-        exp.go();
-      }
-      else {
-        $('#ex_question_error').show();
-        $('#ex_question_correct').hide();
-      }
-    },
 });
 
+
+//////////////////////////////////////////////////Pre-main trial slide//////////
   slides.almost = slide({
     name : "almost",
     button : function() {
@@ -200,11 +212,12 @@ trial_counter++;
     }
   })
 
+/////////////////////////////////////////////////Main trial slide///////////////
   slides.trial = slide({
     name: "trial",
     present: exp.stimuli,
     present_handle: function(stim) {
-      $(document).unbind("keydown");
+      $(document).unbind("keydown"); //unbdind
       this.stim = stim;
       exp.selection = exp.gender.pop();
       this.space_available = 0;

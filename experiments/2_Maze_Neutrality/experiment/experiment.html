@@ -92,15 +92,44 @@
 
   <p class = "instructions" id="trial_instructions"> Press spacebar to begin! </p>
 
-  <table class="sidebyside">
+  <div class="correct">
+    <br>
+    <p id="ex_question_correct">
+     Great job! Now please answer this question to continue.
+    </p>
+  </div>
+
+  <table style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class="likertscale" id="attention-question-sample">
     <tr>
+      <td>
+        <p class = "center" id="attention-question-sample"> </p>
+      </td>
+    </tr>
+  </table>
+
+  <table class="sidebyside">
+    <tr id="comprehension-question-answers-sample">
       <td class="structureleft">
-        <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="left_word"></span>
-        <p style="font-family:monospace;font-size:18px;" class = "center" id="s"> S </p>
+        <p style="font-family:monospace; margin-top:15px;font-size:36px;font-weight:bold" id="Yes_Sample" value="Yes">Yes</p>
       </td>
       <td class="structureright">
-        <span style="font-family:monospace; margin-top:145px;font-size:18px;font-weight:bold" class = "center" id="right_word"></span>
-        <p style="font-family:monospace;font-size:18px;" class = "center" id="l"> L </p>
+        <p style="font-family:monospace; margin-top:15px;font-size:36px;font-weight:bold" id="No_Sample" value="No">No</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="structureleft">
+        <span style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class = "center" id="left_word"></span>
+      </td>
+      <td class="structureright">
+        <span style="font-family:monospace; margin-top:145px;font-size:36px;font-weight:bold" class = "center" id="right_word"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class = "buttonstructure" id="s"> S </p>
+      </td>
+      <td>
+        <p class = "buttonstructure" id="l"> L </p>
       </td>
     </tr>
   </table>
@@ -117,20 +146,6 @@
       <br>
       <p>
        You've pressed the wrong answer! Try again, and be careful!
-      </p>
-    </div>
-
-    <div id="comprehension-question-example">
-
-    <p id="comprehension-question-q-example" class="question"></p>
-    <input type="button" value="Yes" id="test-response-1-example" class="response-buttons button">
-    <input type="button" value="No" id="test-response-2-example" class="response-buttons button">
-  </div>
-
-    <div class="correct" id="ex_question_correct">
-      <br>
-      <p>
-       Great job! Now please answer this question to continue.
       </p>
     </div>
 

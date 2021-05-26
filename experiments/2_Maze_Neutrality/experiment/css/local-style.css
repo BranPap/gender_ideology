@@ -110,19 +110,30 @@ table.likertscale  {
 table.sidebyside{
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  width: 600px;
   margin-top:145px;
 }
 
 td.structureleft {
   font-size: 80%;
-  width: 200px;
+  width: 300px;
   text-align: center;
 }
 
 td.structureright {
   font-size: 80%;
-  width: 200px;
-  padding-left: 50px;
+  width: 300px;
+  /* padding-left: 50px; */
   text-align: center;
+}
+
+.buttonstructure {
+  margin-top:12px;
+  font-family:monospace;
+  font-size:22px;
+  border: 1px solid black;
+  width:60px;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;"
 }
