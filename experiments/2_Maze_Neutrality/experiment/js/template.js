@@ -103,13 +103,21 @@ function make_slides(f) {
             t.exit_maze(k,t); //call the exit_maze function below, passing it t and k
           } else {//otherwise, if they pressed l and it was an illegal continuation of the sentence...
             $('.err').show(); //display the error message
+            $('#trial_instructions').hide();
           }
         } else if (evt.keyCode == 83 && t.allow_key_press == true) {//if the participant presses the [S] key while such an action is permitted...
           x = document.getElementById('left_word').textContent;//get the current value of the left word, storing it as variable x
           if (k+1 < sentence_length && x == t.stim.words[k].form) { //if the value of the timer plus one is less than the stimulus sentence length (ie this word does not end the sentence) AND the participant has selected the correct continuation...
+            if (x == t.name) {
+              document.getElementById('trial_instructions').textContent="Great job! Now, press the button which corresponds to the word which grammatically continues the sentence beginning with \"Brittany\".";
+              t.response_times.push(Date.now());//add the response time to the list
+              k += 1; //increase the turn counter value by one
+              t.maze_turn(k,t); //call the maze_turn function below
+            } else {
             t.response_times.push(Date.now());//add the response time to the list
             k += 1; //increase the turn counter value by one
             t.maze_turn(k,t); //call the maze_turn function below
+            }
           } else if (k+1 == sentence_length && x == t.stim.words[k].form) {//if the participant presses the final word in the sentence AND it is the correct word to continue the grammaticality, then...
             t.response_times.push(Date.now()); //record the time
             t.answer_keys = true;
@@ -117,6 +125,7 @@ function make_slides(f) {
             t.exit_maze(k,t);//call the exit_maze function below
           } else { //if the participant presses the [S] key and it is an illegal contiuation of the sentence...
             $('.err').show(); //show the error message. Nothing else.
+            $('#trial_instructions').hide();
           }
         } else if (evt.keyCode == 76 && t.answer_keys == true) {// if the participant presses [l], and we are at the comprehension question check stage (t.answer_keys == true), then...
             y = document.getElementById('No_Sample').textContent; //grab the value no and assign it to variable y
@@ -148,6 +157,7 @@ function make_slides(f) {
 //progresses the maze from one set of words to the next
 maze_turn : function(k,t) {
   $('.err').hide(); //if there is an error currently being shown (only applicable in the example trial), hide it
+  $('#trial_instructions').show();
   possible_pair = _.shuffle(["real", "distractor"]); //shuffle a 2 item list of real and distractor, in order to decide if the item goes on the right and the distractor on the left, or vice versa
   var left_word_status = possible_pair.pop(); //pop one of those two shuffled items
   var right_word_status = possible_pair.pop(); //pop the other!
@@ -160,11 +170,14 @@ maze_turn : function(k,t) {
     };
   document.getElementById('left_word').textContent=left_word; //push the updated left word to the html
   document.getElementById('right_word').textContent=right_word; //push the updated right word to the html
+  if (k != 1) {
+    document.getElementById('trial_instructions').textContent="Great job! Keep going.";
+  };
 },
 
 //initializes the first bit of the maze
 start_maze : function(k,t) {
-  $("#trial_instructions").hide(); //hide the spacebar instructions
+  document.getElementById('trial_instructions').textContent="Now click the key on your keyboard which correpsonds to the name \"Brittany\"."; //hide the spacebar instructions
   $("#left_word").show(); //show the word on the left
   $("#right_word").show(); //show the word on the right
   $("#l").show(); //show the key used to select the word on the left
@@ -174,6 +187,7 @@ start_maze : function(k,t) {
 //ends the current maze
 exit_maze : function(k,t) {
   $('.err').hide(); //if there are any error messages currently displaying, hide them
+  $('#trial_instructions').hide();
   $('.correct').show(); //show good job message section
   $('#ex_question_correct').show(); //show the good job message
   $("#comprehension-question-answers-sample").show();
