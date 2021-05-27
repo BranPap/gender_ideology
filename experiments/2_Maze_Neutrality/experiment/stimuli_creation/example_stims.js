@@ -61,7 +61,67 @@ var example_stims = [{
                         }
                     ]
                 }
-            ]
-        }
+            ],
+         "neutral_male": [
+            {
+                "id": "example",
+                "gender": "male",
+                "orthog": "botanist",
+                "question1": "Does Manuel like parasailing?",
+                "answer1": "Yes",
+                "question2": "Is Manuel from Ethiopia?",
+                "answer2": "No",
+                "condition": "neutral_male",
+                "lexeme": "botanist",
+                "words": [
+                    {
+                        "form": "Manuel",
+                        "region": "none",
+                        "distractor": "x-x-x"
+                    },
+                    {
+                        "form": "is",
+                        "region": "none",
+                        "distractor": "it"
+                    },
+                    {
+                        "form": "a",
+                        "region": "none",
+                        "distractor": "ki"
+                    },
+                    {
+                        "form": "botanist",
+                        "region": "critical",
+                        "distractor": "bowling"
+                    },
+                    {
+                        "form": "from",
+                        "region": "none",
+                        "distractor": "boat"
+                    },
+                    {
+                        "form": "Chile.",
+                        "region": "none",
+                        "distractor": "brick"
+                    },
+                    {
+                        "form": "He",
+                        "region": "none",
+                        "distractor": "x-x-x"
+                    },
+                    {
+                        "form": "likes",
+                        "region": "none",
+                        "distractor": "proud"
+                    },
+                    {
+                        "form": "parasailing.",
+                        "region": "none",
+                        "distractor": "pheasant."
+                    }
+                ]
+            }
+        ]
+      }
     ]}
 ]
