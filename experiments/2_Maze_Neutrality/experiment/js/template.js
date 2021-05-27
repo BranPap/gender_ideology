@@ -105,12 +105,23 @@ function make_slides(f) {
             $('.err').show(); //display the error message
             $('#trial_instructions').hide();
             $('#left_word').addClass('highlighted');
+            var display_sentence = [];
+            for (var d = 0; d < k; d++) {
+              var word = t.stim.words[d].form;
+              display_sentence.push(word);
+            }
+            display_sentence.push(x);
+            var final_display = display_sentence.join(' ')
+            var current_key = "[L]";
+            document.getElementById('wrong_key_input').textContent=current_key; //push the updated left word to the html
+            document.getElementById('current_sentence').textContent="\""+final_display+"\"";
+            console.log("So far: ",final_display);
           }
         } else if (evt.keyCode == 83 && t.allow_key_press == true) {//if the participant presses the [S] key while such an action is permitted...
           x = document.getElementById('left_word').textContent;//get the current value of the left word, storing it as variable x
           if (k+1 < sentence_length && x == t.stim.words[k].form) { //if the value of the timer plus one is less than the stimulus sentence length (ie this word does not end the sentence) AND the participant has selected the correct continuation...
             if (x == t.name) {
-              document.getElementById('trial_instructions').textContent="Great job! Now, press the button which corresponds to the word which grammatically continues the sentence beginning with \"Brittany\".";
+              document.getElementById('trial_instructions').textContent="Great job! Now, press the button which corresponds to the word which continues the sentence beginning with \"Brittany\".";
               t.response_times.push(Date.now());//add the response time to the list
               k += 1; //increase the turn counter value by one
               t.maze_turn(k,t); //call the maze_turn function below
@@ -128,6 +139,17 @@ function make_slides(f) {
             $('.err').show(); //show the error message. Nothing else.
             $('#trial_instructions').hide();
             $('#right_word').addClass('highlighted');
+            var display_sentence = [];
+            for (var d = 0; d < k; d++) {
+              var word = t.stim.words[d].form;
+              display_sentence.push(word);
+            }
+            display_sentence.push(x);
+            var final_display = display_sentence.join(' ')
+            var current_key = "[S]";
+            document.getElementById('wrong_key_input').textContent=current_key; //push the updated left word to the html
+            document.getElementById('current_sentence').textContent="\""+final_display+"\"";
+            console.log("So far: ",final_display);
           }
         } else if (evt.keyCode == 76 && t.answer_keys == true) {// if the participant presses [l], and we are at the comprehension question check stage (t.answer_keys == true), then...
             y = document.getElementById('No_Sample').textContent; //grab the value no and assign it to variable y

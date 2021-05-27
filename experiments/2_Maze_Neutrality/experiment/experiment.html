@@ -75,7 +75,7 @@
   <div class="slide" id="instructions">
 
 		<h3>Instructions</h3>
-    <p>On the following pages, you will be asked to press SPACE to start a sentence. Once you do, you will see a pair of words, corresponding to the keys [s] and [l] on your keyboard. In these sentences, the first pair will always be a real word and an "x-x-x". Press the key which corresponds to the real word (either the [s] key or the [l] key)- that is, NOT the 'x-x-x'. Then, for each following pair of words on the screen, please select the word that grammatically continues the sentence you are currently reading.</p>
+    <p>On the following pages, you will be asked to press SPACE to start a sentence. Once you do, you will see a pair of words, corresponding to the keys [s] and [l] on your keyboard. In these sentences, one word will be the next word in the sentence, and the other will not. Select the word that continues the sentence by pressing the key which corresponds to the word that continues the sentence.</p>
 		<p>Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
 
     <p>Place your left index finder on the S key. Place your right index finger on the L key. </p> <br><br> <img src="keyboard_example.png" alt="keyboard_example" width="500" height="300">
@@ -138,7 +138,10 @@
     <div class="err">
       <br>
       <p>
-       You've pressed the wrong word! Be careful! In the real experiment, pressing the illegal continuation will cause you to go on to the next task. Try again; we've highlighted the correct word.
+        You pressed <span id="wrong_key_input"></span>, which means you've constructed the sentence <span id="current_sentence"></span>.
+      </p>
+      <p>
+       That's not quite right. Be careful! In the real experiment, pressing the wrong continuation will cause you to go on to the next task. Try again; we've highlighted the correct word.
       </p>
     </div>
 
@@ -203,7 +206,7 @@
    <div class="err">
      <br>
      <p>
-      You've pressed the wrong word! Be careful! In the real experiment, pressing the illegal continuation will cause you to go on to the next task. Try again.
+      You've pressed the wrong word! Be careful! In the real experiment, pressing the wrong continuation will cause you to go on to the next task. Try again.
      </p>
    </div>
 
@@ -220,12 +223,12 @@
 
   <h3>Let's Get Started!</h3>
   <p>Great job! Now we can really get started.</p>
-  <p><strong>To reiterate:</strong> On the following pages, you will be asked to press SPACE to start a sentence. Once you do, you will see a pair of words, corresponding to the keys [s] and [l] on your keyboard. In these sentences, the first pair will always be a real word and an "x-x-x". Press the key which corresponds to the real word (either the [s] key or the [l] key)- that is, NOT the 'x-x-x'. Then, for each following pair of words on the screen, please select the word that grammatically continues the sentence you are currently reading.</p>
+  <p><strong>To reiterate:</strong> On the following pages, you will be asked to press SPACE to start a sentence. Once you do, you will see a pair of words, corresponding to the keys [s] and [l] on your keyboard. In these sentences, one word will be the next word in the sentence, and the other will not. Select the word that continues the sentence by pressing the key which corresponds to the word that continues the sentence.</p>
   <p>Once you've read the sentence, please answer the yes/no question that will appear on the screen.</p>
 
   <p>Place your left index finder on the S key. Place your right index finger on the L key. </p> <br><br> <img src="keyboard_example.png" alt="keyboard_example" width="500" height="300">
 
-  <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 10mins. In this section, you will not get any hints, and if you continue a sentence ungrammatically, you will be taken to the start of the next sentence. Please pay attention!</p>
+  <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 10mins. In this section, you will not get any hints, and if you continue a sentence incorrectly, you will be taken to the start of the next sentence. Please pay attention!</p>
 
   <p> <strong> Press SPACE to continue! </strong> </p>
 
