@@ -110,19 +110,19 @@ table.likertscale  {
 table.sidebyside{
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 800px;
   margin-top:145px;
 }
 
 td.structureleft {
   font-size: 80%;
-  width: 300px;
+  width: 400px;
   text-align: center;
 }
 
 td.structureright {
   font-size: 80%;
-  width: 300px;
+  width: 400px;
   /* padding-left: 50px; */
   text-align: center;
 }

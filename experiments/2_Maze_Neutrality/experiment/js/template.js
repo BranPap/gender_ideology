@@ -322,6 +322,7 @@ trial_counter++;
           } else {
             $('#new_err').show();
             t.space_available = 2;
+            t.allow_key_press = false;
         }
         } else if (evt.keyCode == 83 && t.allow_key_press == true) {
           // t.response_times.push(Date.now());
@@ -338,6 +339,7 @@ trial_counter++;
           } else {
             $('#new_err').show();
             t.space_available = 2;
+            t.allow_key_press = false;
           }
         } else if (evt.keyCode == 76 && t.answer_keys == true) {// if the participant presses [l], and we are at the comprehension question check stage (t.answer_keys == true), then...
           y = document.getElementById('new_No').textContent; //grab the value no and assign it to variable y
