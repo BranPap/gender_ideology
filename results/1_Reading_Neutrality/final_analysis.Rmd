@@ -474,6 +474,13 @@ all_data %>%
 
 ```{r}
 all_data %>%
+  ggplot(aes(x=subject_information.age, y=resid_rt,color=morph_type)) + 
+  geom_jitter() + 
+  geom_smooth(method = 'lm', size=1.2) 
+```
+
+```{r}
+all_data %>%
   filter(!is.na(poli_party)) %>%
   group_by(workerid,subject_information.education) %>%
   ggplot(aes(x=subject_information.education)) + 
@@ -695,13 +702,18 @@ all_data <- all_data %>%
 
 
 ```{r}
-complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1 + ctrial_congruency + ctrial_gender | workerid) + (1 + cgender_link |lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=40000)))
+complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1|workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=40000)))
 ```
 
 
 ```{r}
 summary(complex_model)
 ```
+
+```{r}
+plot(complex_model)
+```
+
 
 ```{r}
 complex_model_bare <- lmer(resid_rt~trial_congruency*trial_gender + (1 + trial_congruency + trial_gender | workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=20000)))
@@ -714,6 +726,13 @@ summary(complex_model_bare)
 
 ```{r}
 plot(complex_model)
+```
+```{r}
+complex_model_antirandom <- lm(resid_rt~ctrial_congruency*ctrial_gender*cgender_link, data = all_data)
+```
+
+```{r}
+plot(complex_model_antirandom)
 ```
 
 
@@ -730,6 +749,9 @@ gender_check <- lm(gender_total~subject_information.gender*poli_party, data=no_g
 ```{r}
 summary(gender_check)
 ```
+```{r}
+plot(gender_check)
+```
 
 ## Comments 
 
@@ -743,4 +765,11 @@ all_data %>%
   select(poli_party,comments)
 ```
 
+```{r}
+age_model <- lm(resid_rt~subject_information.age, data = all_data)
+```
+
+```{r}
+summary(age_model)
+```
 
