@@ -153,7 +153,7 @@ all_data %>%
 If we want to check that the right number was subtracted, we can get the length of the first list we made (<b>exclusion</b>) and see if that matches the difference between the number of unique participants in our new <b>all_data</b> data frame and the original one (which had 200 to begin with). To do this we get the length of the list of unique worker ids in the <b>all_data</b> data frame, and subtract it from 200. Then we compare this to the length of the <b>exclusion</b> list.
 
 ```{r}
-200 - length(unique(all_data$workerid))
+298 - length(unique(all_data$workerid))
 
 length(unique(exclusion$workerid))
 ```
@@ -161,7 +161,7 @@ length(unique(exclusion$workerid))
 If we're being really extra, we can also run this as an equivalency to get a boolean True/False value:
 
 ```{r}
-200 - length(unique(all_data$workerid)) == length(unique(exclusion$workerid))
+298 - length(unique(all_data$workerid)) == length(unique(exclusion$workerid))
 ```
 
 We can also filter out any trials which fall without 2.5 standard deviations for that trial.
@@ -771,5 +771,15 @@ age_model <- lm(resid_rt~subject_information.age, data = all_data)
 
 ```{r}
 summary(age_model)
+```
+
+```{r}
+new_toy <- read.csv("merged_all.csv") 
+```
+
+```{r}
+new_toy %>%
+  filter(proliferate.condition=="all") %>%
+  summary()
 ```
 
