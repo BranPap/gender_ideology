@@ -259,7 +259,7 @@ slides.example2 = slide({
     space_available = 0;
     allow_key_press = false;
     answer_keys = false;
-
+    $(document).unbind("keydown");
     //select which condition you want for this item
     exp.selection == "neutral_male";
 
@@ -445,6 +445,7 @@ trial_counter++;
   slides.almost = slide({
     name : "almost",
     start : function() {
+      $(document).unbind("keydown");
       $(document).bind("keydown",function(evt) {
         if (evt.keyCode == 32) {
           $(document).unbind("keydown");
