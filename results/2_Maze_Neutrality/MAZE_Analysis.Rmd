@@ -15,11 +15,11 @@ output:
 ---
 
 # Introduction
-This document contains the results and analysis of my first experiment for my first Qualifying Paper towards the PhD in Linguistics at Stanford University^[Part of this experiment and analysis was also carried out as part of my class project in Stanford's LINGUIST 245B 'Methods in Psycholinguistics' class, taught by Judith Degen.]. 
+This document contains the results and analysis of my second experiment for my first Qualifying Paper towards the PhD in Linguistics at Stanford University^[Part of this experiment and analysis was also carried out as part of my class project in Stanford's LINGUIST 245B 'Methods in Psycholinguistics' class, taught by Judith Degen.]. 
 
 # Methods
 ## The Experiment
-The experiment analyzed herein was an online self-paced reading task study, wherein participants read a sentence such as "David is a congressperson from Virginia. He likes cycling." For each of the 20 critical items, participants were randomly assigned to one of four conditions, the critical regions of which are enumerated and exemplified here:
+The experiment analyzed herein was an online maze task study, wherein participants read a sentence such as "David is a congressperson from Virginia. He likes cycling." For each of the 20 critical items, participants were randomly assigned to one of four conditions, the critical regions of which are enumerated and exemplified here:
 
 <ol>
   <li>Male-congruent: <i>David is a congressman</i></li>
@@ -28,7 +28,7 @@ The experiment analyzed herein was an online self-paced reading task study, wher
   <li>Female-neutral: <i>Sally is a congressperson</i></li>
 </ol>
 
-Participants proceeded through the sentences by pressing the spacebar and reading one word or lexical item (such as "Stunt Double") at a time. They were then asked attention check questions at the end of each sentence; attention check questions never explicitly invoked gender. Rather, they asked about the character's hobbies or home states. For a hands-on look at the experiment, you can click <a href="https://branpap.github.io/gender_processing/experiments/1_Reading_Neutrality/experiment/experiment.html"> here</a> to go to the same webpage particpants were directed to for the task.
+Participants proceeded through the sentences by pressing a keyboard key which corresponded to the grammatical continuation of the sentence, and reading pair of grammatical and distractor items at a time. They were then asked attention check questions at the end of each sentence; attention check questions never explicitly invoked gender. Rather, they asked about the character's home states. For a hands-on look at the experiment, you can click <a href="https://branpap.github.io/gender_processing/experiments/2_Maze_Neutrality/experiment/experiment.html"> here</a> to go to the same webpage particpants were directed to for the task.
 
 ##Participants 
 We originally ran the experiment on 200 participants, recruited through the online participant recruitment platform <a href="https://www.prolific.co">Prolific</a>. The mean time of the experiment was 5.39 minutes, and participants were paid $1.75 for their participation^[This amounts to an hourly rate of \$20.73. We originally anticipated that participants would take an average of 7 minutes to complete the experiment, and set the base pay at \$15 an hour.]. The only restrictions placed on participants were that they:
@@ -230,7 +230,7 @@ ggplot(all_data, aes(x=gender_total, y=resid_rt, color=trial_congruency)) +
 
 ## Reading Time by Age
 ```{r}
-ggplot(all_data, aes(x=subject_information.age, y=resid_rt, color=trial_congruency)) + 
+ggplot(all_data, aes(x=subject_information.age, y=resid_rt, color=trial_congruency, linetype=morph_type)) + 
   geom_point(alpha=.5) + 
   geom_smooth(method = 'lm', size=1.2)
 ```
@@ -372,7 +372,8 @@ all_data %>%
   summarise(MeanRT = mean(rt)) %>%
   ggplot(aes(x=trial_no,y=MeanRT)) + 
   geom_point() + 
-  geom_smooth()
+  geom_smooth() + 
+  theme_minimal()
 ```
 
 
@@ -449,7 +450,7 @@ all_data <- all_data %>%
 ```
 
 ```{r}
-complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_total*cmorph_type + (1|workerid) + (1|lexeme) + (1|name),data = all_data)
+complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_total + (1|workerid) + (1|lexeme),data = all_data)
 ```
 
 ```{r}
@@ -459,7 +460,7 @@ summary(complex_model)
 ## Gender Total
 
 ```{r}
-ideology_model <- lmer(resid_rt~trial_congruency*ctrial_gender*cgender_link + (1|workerid) + (1|lexeme) + (1|name), data=all_data)
+ideology_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1|workerid) + (1|lexeme) + (1|name), data=all_data)
 ```
 
 ```{r}
@@ -506,5 +507,26 @@ new_toy %>%
   geom_point()
 ```
 
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(poli_party) %>%
+  summarize(MeanGenderTotal = mean(gender_total)) %>%
+  ggplot(aes(x=poli_party, y=MeanGenderTotal)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() + 
+  labs(y="Mean Gender Total", x="Political Party")
+```
+
+```{r}
+all_data %>%
+  filter(!is.na(subject_information.gender)) %>%
+  group_by(subject_information.gender) %>%
+  summarize(MeanGenderTotal = mean(gender_total)) %>%
+  ggplot(aes(x=subject_information.gender, y=MeanGenderTotal)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() + 
+  labs(y="Mean Gender Total", x="Participant Gender")
+```
 
 Rscript merge_results.R maze_task_1-merged.csv dems maze_task_2-merged.csv reps

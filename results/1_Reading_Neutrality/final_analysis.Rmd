@@ -71,7 +71,6 @@ all_data %>%
 
 
 
-
 ## Data-Point Exclusions {.tabset}
 However, we definitely don't want all 37,800 data points! Many of these aren't critical trials, and this still includes the example trial where participants were learning how to take the experiment. In this section we filter out:
 
@@ -696,13 +695,14 @@ table(poli_data_gran$party)
 all_data <- all_data %>%
   mutate(ctrial_congruency = as.numeric(as.factor(trial_congruency))-mean(as.numeric(as.factor(trial_congruency)))) %>%
   mutate(ctrial_gender = as.numeric(as.factor(trial_gender))-mean(as.numeric(as.factor(trial_gender)))) %>%
-  mutate(cgender_link = scale(gender_link))
+  mutate(cgender_link = scale(gender_link)) %>%
+  mutate(cgender_total = scale(gender_total))
 ```
 
 
 
 ```{r}
-complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (1|workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=40000)))
+complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_total + (1|workerid) + (1|lexeme) + (1|name),data = all_data,control=lmerControl(optCtrl=list(maxfun=40000)))
 ```
 
 

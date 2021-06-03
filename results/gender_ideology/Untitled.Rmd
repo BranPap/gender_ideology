@@ -1,0 +1,98 @@
+---
+title: "Gender Ideologies"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(ghibli)
+```
+
+
+```{r}
+all_data <- read.csv("merged_all.csv")
+```
+
+```{r}
+gender_transcendence_cols <- c('subject_information.gender_q1','subject_information.gender_q2','subject_information.gender_q3','subject_information.gender_q4','subject_information.gender_q5')
+
+gender_linked_cols <- c('subject_information.gender_q6','subject_information.gender_q7','subject_information.gender_q8','subject_information.gender_q9','subject_information.gender_q10','subject_information.gender_q11','subject_information.gender_q12','subject_information.gender_q13')
+```
+<br>
+Now we can use the mutate() method on <b>all_data</b> to add two new columns, one for each subscale. We tell R to take the means of the specified columns in [column_names] of <b>all_data</b> for each individual row: rowMeans(all_data[column_names]). We also have to subtract this mean from 100 in the case of the <i>'Gender Transcendent'</i> subscale, since it is inversely scored. Finally, we can create an average total score regardless of subscores, simply by meaning the two subscores we already have.
+
+```{r}
+all_data <- all_data %>%
+  mutate(gender_trans = 100 - (rowMeans(all_data[gender_transcendence_cols]))) %>%
+  mutate(gender_link = rowMeans(all_data[gender_linked_cols])) 
+
+gender_all = c('gender_trans','gender_link')
+
+all_data <- all_data %>%
+  mutate(gender_total = rowMeans(all_data[gender_all]))
+```
+
+```{r}
+all_data <- all_data %>%
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+```
+
+```{r}
+all_data %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(poli_party) %>%
+  summarize(MeanGenderTotal = mean(gender_total)) %>%
+  ggplot(aes(x=poli_party, y=MeanGenderTotal)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() + 
+  labs(y="Mean Gender Total", x="Political Party")
+```
+
+```{r}
+all_data %>%
+  filter(!is.na(subject_information.gender)) %>%
+  filter(subject_information.gender!="") %>%
+  group_by(subject_information.gender) %>%
+  summarize(MeanGenderTotal = mean(gender_total)) %>%
+  ggplot(aes(x=subject_information.gender, y=MeanGenderTotal)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() + 
+  labs(y="Mean Gender Total", x="Participant Gender")
+```
+
+
+```{r}
+all_data %>%
+  filter(!is.na(subject_information.age)) %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(workerid,subject_information.age,gender_total,poli_party) %>%
+  ggplot(aes(x=subject_information.age, y=gender_total, color=poli_party)) + 
+  geom_point(alpha=.1) + 
+  geom_smooth(method='lm',size=1.2) + 
+  theme_minimal() + 
+  scale_colour_ghibli_d("LaputaMedium", direction = -1) + 
+  labs(color="Political Party",y="Gender Ideology",x="Participant Age")
+```
+
+
+
+```{r}
+poli_scores <- all_data %>%
+  filter(!is.na(subject_information.age)) %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(workerid) %>%
+  summarize(gideology = paste(unique(gender_total)), party = paste(unique(poli_party)), age = paste(unique(subject_information.age)), gender = paste(unique(subject_information.gender)))
+```
+
+  
+```{r}
+table(poli_scores$party)
+```
+
+```{r}
+poli_scores %>%
+  ggplot(aes(x=as.numeric(age),y=as.numeric(gideology))) + 
+  geom_point()
+```
+
+  
