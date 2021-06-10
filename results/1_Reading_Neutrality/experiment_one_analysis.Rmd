@@ -1,0 +1,280 @@
+---
+title: "Processing of Gendered and Gender-Neutral Professional and Personal Titles"
+author: "Bran Papineau"
+date: "June 2021"
+output:
+  html_notebook:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+```{r echo=TRUE}
+library(ggplot2) 
+library(tidyverse) 
+library(lme4) 
+library(stringr)
+library(languageR)
+library(lmerTest)
+library(reshape2)
+
+source("helpers.R") 
+source("merge_results.R")
+```
+
+```{r}
+exp1 <- read.csv("gender_processing_data_final.csv") %>%
+  filter(region == 'critical') %>%
+  filter(lexeme != "performer")
+```
+
+```{r}
+summary(exp1)
+```
+
+```{r}
+exp1_demographics <- exp1 %>%
+  group_by(workerid) %>%
+  summarise(age = unique(subject_information.age), gender = unique(subject_information.gender)) 
+```
+
+
+```{r}
+table(exp1_demographics$gender)
+```
+
+```{r}
+summary(exp1_demographics$age)
+```
+
+```{r}
+table(exp1_demographics$age)
+```
+
+```{r}
+exclusion <- exp1 %>% group_by(workerid) %>%
+  summarise(accuracy = mean(response_correct), browser = paste(unique(system.Browser))) %>%
+  mutate(exclude = ifelse(accuracy < 0.85,'Yes','No')) %>% 
+  filter(exclude == 'Yes')
+
+exp1 <- exp1[!(exp1$workerid %in% exclusion$workerid),] %>%
+  filter(rt !='null')
+```
+
+```{r}
+exp1 <- exp1 %>%
+  group_by(trial_id) %>%
+  mutate(id_mean = mean(log(rt))) %>%
+  mutate(exclusion = (log(rt) < mean(log(rt)) - 2*sd(log(rt))|(log(rt) > mean(log(rt)) + 2*sd(log(rt))))) %>%
+  ungroup() %>%
+  filter(exclusion==FALSE)
+```
+
+
+## Adding in Additional Important Trial Information {.tabset}
+Now that we have only the rows we want, let's add some new columns, which will contain important information for each data point. Here, we will be adding:
+
+- Gender Ideology Subscores
+- Trial Genders
+- Trial Morphology Types
+- Critical Item Length & Length-Controlled Residuals
+- Trial Congruency 
+- Partipant Political Affiliation
+
+Ideally, I would've added all of these but the first when I actually created the stimuli and logged responses, but I forgot to! Luckily, R allows us to do this post-hoc fairly straightforwardly... which is good, since these features will be critical in our data visualization and analysis.<br>
+<br>
+
+### Defining Gender Subscores
+<br>
+The question under investigation here is whether or not individuals' conceptions of gender affect how they process  gendered and gender-neutral forms of English personal and professional titles. <br>
+<br>
+In order to examine this, we need to quanify participants' ideological views! Here we have adopted the 13-item Social Roles Questionnaire put forth in Baber & Tucker (2006). Questions 1-5 correlate to the <i>'Gender Transcendent'</i> subscale, and questions 6-13 correspond to the <i>'Gender Linked'</i> subscale. Each item is scored on a scale of 0-100. So, the first thing we want to do is make two lists of columns which correspond to these two subscales, since the questions are stored individually in the data:
+
+```{r}
+gender_transcendence_cols <- c('subject_information.gender_q1','subject_information.gender_q2','subject_information.gender_q3','subject_information.gender_q4','subject_information.gender_q5')
+
+gender_linked_cols <- c('subject_information.gender_q6','subject_information.gender_q7','subject_information.gender_q8','subject_information.gender_q9','subject_information.gender_q10','subject_information.gender_q11','subject_information.gender_q12','subject_information.gender_q13')
+```
+<br>
+Now we can use the mutate() method on <b>exp1</b> to add two new columns, one for each subscale. We tell R to take the means of the specified columns in [column_names] of <b>exp1</b> for each individual row: rowMeans(exp1[column_names]). We also have to subtract this mean from 100 in the case of the <i>'Gender Transcendent'</i> subscale, since it is inversely scored. Finally, we can create an average total score regardless of subscores, simply by meaning the two subscores we already have.
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(gender_trans = 100 - (rowMeans(exp1[gender_transcendence_cols]))) %>%
+  mutate(gender_link = rowMeans(exp1[gender_linked_cols])) 
+
+gender_all = c('gender_trans','gender_link')
+
+exp1 <- exp1 %>%
+  mutate(gender_total = rowMeans(exp1[gender_all]))
+```
+
+
+### Adding Gender
+<br>
+We also want to add whether the trial included a female or male referent (but also, like, destroy the binary!). In order to do this, we'll just add a <b>trial_gender</b> column that says <i>'female'</i> if the condition was either <i>'neutral_female'</i> or <i>'congruent_female'</i>. Otherwise, we want the <b>trial_gender</b> to say <i>'male'</i>.
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(trial_gender = ifelse(condition=='neutral_female' | condition == 'congruent_female','female','male'))
+
+exp1 %>%
+  select(workerid,rt,condition,trial_id,trial_gender)
+```
+
+### Adding Morphology Type
+<br>
+Now we want to add whether or not the lexeme's neutral form is developed by compounding (as in <i>'congress-person'</i>) or by the adoption of the male form (as in <i>'actor'</i> being used more for both men and women). In this study, we only have six lexemes of the latter type, so we'll just tell R to assign those a <b>morph_type</b> value of <i>'adoption'</i> (for 'male adoption'), and all else will be assigned a value of <i>'compound'</i>.
+
+```{r}
+exp1 <- exp1%>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+
+exp1 %>%
+  select(rt,lexeme,morph_type)
+```
+
+
+### Adding Form Length & Length-Controlled Residuals
+<br>
+Another important factor we want to explore is the length of the critical item! In order to add this, we simply create a new column <b>form_length</b> and tell R to input as that column's value the length of the string that appears in that row's <b>form</b> column, which corresponds to the orthograpic form of the critical item in that trial. <i>Note that this will include spaces in the count!</i>
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(form_length = str_length(form))
+
+simple_model <- lm(log(rt)~form_length, data = exp1)
+
+exp1 <- exp1 %>%
+  mutate(resid_rt = resid(simple_model))
+```
+
+```{r}
+summary(simple_model)
+```
+
+
+Now that we have these, we can run a simple linear regression which will show us the effect of orthographic length on reading time. Then we add a new column in the data which is the residual reading time, or the reading time in log space AFTER we control for the effects of orthographic length.
+
+### Adding Congruency Column
+<br>
+We also want to make sure we have a column which records whether or not the trial was gender-congruent (as in <i>'Shelby is a congresswoman'</i>) or gender neutral (as in <i>'Shelby is a congressperson'</i>). We add a <b>trial_congruency</b> column, which is valued as <i>'congruent'</i> if that row's condition is one of the two congruent conditions. Otherwise, it gets valued as <i>'neutral'</i>.
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(trial_congruency = ifelse(condition=='congruent_male' | condition == 'congruent_female','congruent','neutral'))
+```
+
+### Adding Large Political Macrocategories
+<br>
+Finally, we can classify participants by their particular political alignment; we can construe this broadly as "Republicans" vs. "Democrats", with those who declined to state a preference, or placed themselves in the middle, as "Non-Partisan".
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+```
+
+# Data Visualisation 
+
+```{r}
+theme_set(theme_minimal())
+
+inauguration_2021 = c("#5445b1", "#749dae", "#f3c483", "#5c1a33", "#cd3341","#f7dc6a")
+```
+
+```{r}
+agg_speaker_mean_con <- exp1 %>%
+  group_by(condition,workerid) %>%
+  summarize(MeanRT=mean(resid_rt))
+```
+
+```{r}
+exp1 %>%
+  group_by(condition,trial_gender) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT,color=trial_gender)) + 
+  geom_point(size=3) + 
+  geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.1,color='darkred') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  scale_color_manual(values = inauguration_2021,labels=c("female"="Female","male"="Male")) + 
+  labs(color= "Trial Gender", x="Trial Condition", y="Mean Residual Reading Time") + 
+  scale_x_discrete(labels=c("neutral_male" = "Neutral Male", "neutral_female"="Neutral Female", "congruent_female" = "Congruent Female", "congruent_male" = "Congruent Male")) + 
+  theme(legend.position = 'none')
+```
+
+```{r}
+ggsave("experiment1main.png",height=3,width=5)
+```
+
+```{r}
+exp1 %>%
+  group_by(trial_no) %>%
+  summarise(MeanRT = mean(rt)) %>%
+  ggplot(aes(x=trial_no,y=MeanRT)) + 
+  geom_point() + 
+  geom_smooth() + 
+  theme_minimal()
+```
+
+```{r}
+exp1 <- exp1 %>%
+  mutate(ctrial_congruency = as.numeric(as.factor(trial_congruency))-mean(as.numeric(as.factor(trial_congruency)))) %>%
+  mutate(ctrial_gender = as.numeric(as.factor(trial_gender))-mean(as.numeric(as.factor(trial_gender)))) %>%
+  mutate(cgender_link = scale(gender_link)) %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(cmorph_type = as.numeric(as.factor(morph_type))-mean(as.numeric(as.factor(morph_type))))
+```
+
+```{r}
+complex_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_total + (1|workerid) + (1|lexeme),data = exp1)
+```
+
+```{r}
+summary(complex_model)
+```
+
+```{r}
+ggplot(exp1, aes(x=gender_total, y=resid_rt, color=trial_congruency)) + 
+  geom_point(alpha=.5) + 
+  geom_smooth(method = 'lm', size=1.2) + 
+  theme_minimal() + 
+  labs(x="Total Gender Score", y="Mean Residual Reading Time",color="Trial Congruency")
+```
+
+```{r}
+ggsave("experiment1ideo.png",height=3,width=5)
+```
+
+```{r}
+exp1 %>%
+  group_by(condition,trial_gender,trial_congruency,lexeme) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  facet_wrap(~ lexeme) +
+  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
+  scale_color_manual(values = inauguration_2021) +
+  labs(x="Condition",y="Mean Residual Reading Time", color="Trial Gender", shape="Trial Congruency") + 
+  scale_x_discrete(labels=c("neutral_male" = "Neutral Male", "neutral_female"="Neutral Female", "congruent_female" = "Congruent Female", "congruent_male" = "Congruent Male"))
+```
+```{r}
+ggsave("experiment1items.png",height=5,width=7)
+```
+
+```{r}
+exp1 %>%
+  filter(lexeme=='host')
+```
+
+mean(exp1$gender_total)
+
+summary(exp1$gender_total)
+
