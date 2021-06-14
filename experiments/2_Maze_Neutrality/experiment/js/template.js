@@ -471,6 +471,7 @@ trial_counter++;
 
       console.log('post-k:',exp.k);
 
+      // This is going to randomize the condition that we get (gender and congruence), which are defined in an array way down at the bottom of the code
       if (exp.selection == "neutral_male") {
         this.stim =stim.condition[0].neutral_male[0];
         this.name = exp.male_names.pop();
@@ -575,14 +576,33 @@ trial_counter++;
         }
     });
 
-      var question_check = this.stim.question2;
-      this.stim.question_answer = this.stim.answer2;
+    // This should be randomized, not always this.stim.question2! This was the error in my code on the first pass.
+      // var question_check = this.stim.question2;
+      // this.stim.question_answer = this.stim.answer2;
+      //
+      // var individual_question = question_check.replace("NAME",t.name);
+      //
+      // $("#attention-question").text(individual_question);
+      //
+      // console.log('question',individual_question)
 
-      var individual_question = question_check.replace("NAME",t.name);
+    //Randomly selects one of the comprehension questions, and substitutes in the correct name
+
+      var question_check = _.shuffle([this.stim.question1, this.stim.question2]).pop()
+
+      if (question_check == this.stim.question1) {
+        this.stim.question_answer = this.stim.answer1;
+      } else {
+        this.stim.question_answer = this.stim.answer2;
+      }
+
+      var name = this.name;
+
+      var individual_question = question_check.replace("NAME",name);
 
       $("#attention-question").text(individual_question);
 
-      console.log('question',individual_question)
+      console.log('question',individual_question);
     },
 
     //progresses the maze from one set of words to the next
