@@ -90,8 +90,8 @@ function make_slides(f) {
       console.log('question',individual_question)
     },
 
-    button : function(response) {
-      this.response_correct = response == this.stim.question_answer;
+    button : function(stimulus) {
+      this.response_correct = stimulus == this.stim.question_answer;
       if (this.response_correct == 1) {
         this.log_responses();
         exp.go();

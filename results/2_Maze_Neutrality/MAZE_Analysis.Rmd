@@ -30,7 +30,7 @@ The experiment analyzed herein was an online maze task study, wherein participan
 
 Participants proceeded through the sentences by pressing a keyboard key which corresponded to the grammatical continuation of the sentence, and reading pair of grammatical and distractor items at a time. They were then asked attention check questions at the end of each sentence; attention check questions never explicitly invoked gender. Rather, they asked about the character's home states. For a hands-on look at the experiment, you can click <a href="https://branpap.github.io/gender_processing/experiments/2_Maze_Neutrality/experiment/experiment.html"> here</a> to go to the same webpage particpants were directed to for the task.
 
-##Participants 
+## Participants 
 We originally ran the experiment on 200 participants, recruited through the online participant recruitment platform <a href="https://www.prolific.co">Prolific</a>. The mean time of the experiment was 5.39 minutes, and participants were paid $1.75 for their participation^[This amounts to an hourly rate of \$20.73. We originally anticipated that participants would take an average of 7 minutes to complete the experiment, and set the base pay at \$15 an hour.]. The only restrictions placed on participants were that they:
 
 <ol>
@@ -219,7 +219,7 @@ inauguration_2021 = c("#5445b1", "#749dae", "#f3c483", "#5c1a33", "#cd3341","#f7
 ## Ideology by Age
 
 ```{r}
-ggplot(all_data, aes(x=subject_information.age, y=gender_total)) + 
+ggplot(all_data, aes(x=subject_information.age, y=gender_total, color=poli_party)) + 
   geom_point(alpha=.5) + 
   geom_smooth(method = 'lm', size=1.2)
 ```
@@ -348,7 +348,7 @@ all_data %>%
   theme(legend.position = 'none')
 ```
 
-## My Morphological Type and Gender
+## By Morphological Type and Gender
 
 ```{r}
 all_data %>%
@@ -451,7 +451,8 @@ all_data <- all_data %>%
   mutate(ctrial_gender = as.numeric(as.factor(trial_gender))-mean(as.numeric(as.factor(trial_gender)))) %>%
   mutate(cgender_link = scale(gender_link)) %>%
   mutate(cgender_total = scale(gender_total)) %>%
-  mutate(cmorph_type = as.numeric(as.factor(morph_type))-mean(as.numeric(as.factor(morph_type))))
+  mutate(cmorph_type = as.numeric(as.factor(morph_type))-mean(as.numeric(as.factor(morph_type)))) %>%
+  mutate(cgender = as.numeric(as.factor(subject_information.gender))-mean(as.numeric(as.factor(subject_information.gender))))
 ```
 
 ```{r}
@@ -470,6 +471,14 @@ ideology_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender_link + (
 
 ```{r}
 summary(ideology_model)
+```
+
+```{r}
+gender_model <- lmer(resid_rt~ctrial_congruency*ctrial_gender*cgender + (1|workerid) + (1|lexeme),data = all_data)
+```
+
+```{r}
+summary(gender_model)
 ```
 
 
@@ -549,5 +558,37 @@ all_data %>%
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
   scale_color_manual(values = inauguration_2021) + 
   theme_minimal()
+```
+
+## The Flight Attendant Question 
+
+```{r}
+all_data %>%
+  filter(lexeme == "flight attendant") %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(condition,trial_gender,trial_congruency,poli_party) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
+  scale_color_manual(values = inauguration_2021) + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+all_data %>%
+  filter(lexeme == "flight attendant") %>%
+  filter(!is.na(subject_information.gender)) %>%
+  group_by(condition,trial_gender,trial_congruency,subject_information.gender) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) + 
+  geom_point(size=3) +
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = .7, hjust=.7)) + 
+  scale_color_manual(values = inauguration_2021) + 
+  facet_wrap(~subject_information.gender)
 ```
 

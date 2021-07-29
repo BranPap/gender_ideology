@@ -30,7 +30,7 @@ The experiment analyzed herein was an online self-paced reading task study, wher
 
 Participants proceeded through the sentences by pressing the spacebar and reading one word or lexical item (such as "Stunt Double") at a time. They were then asked attention check questions at the end of each sentence; attention check questions never explicitly invoked gender. Rather, they asked about the character's hobbies or home states. For a hands-on look at the experiment, you can click <a href="https://branpap.github.io/gender_processing/experiments/1_Reading_Neutrality/experiment/experiment.html"> here</a> to go to the same webpage particpants were directed to for the task.
 
-##Participants 
+## Participants 
 We originally ran the experiment on 200 participants, recruited through the online participant recruitment platform <a href="https://www.prolific.co">Prolific</a>. The mean time of the experiment was 5.39 minutes, and participants were paid $1.75 for their participation^[This amounts to an hourly rate of \$20.73. We originally anticipated that participants would take an average of 7 minutes to complete the experiment, and set the base pay at \$15 an hour.]. The only restrictions placed on participants were that they:
 
 <ol>
@@ -218,7 +218,8 @@ all_data %>%
   geom_point(size=3) + 
   geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.1,color='darkred') + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  scale_color_manual(values = inauguration_2021, )
+  scale_color_manual(values = inauguration_2021, ) + 
+  theme_minimal()
 ```
 ## Reading Time by Congruency, Gender, and Lexical Item
 
@@ -231,7 +232,24 @@ all_data %>%
   geom_point(size=3) + 
   geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.2,color='mediumslateblue') + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  scale_color_manual(values = cbPalette)
+  scale_color_manual(values = cbPalette) + 
+  theme_minimal()
+```
+## Reading Time by Gender Ideology
+
+```{r}
+aggr_speaker <- all_data %>%
+  group_by(gender_link,workerid,trial_gender,trial_congruency) %>%
+  summarise(meanrt = mean(resid_rt))
+```
+
+
+```{r}
+aggr_speaker %>%
+  ggplot(aes(x=gender_link,y=meanrt,color=trial_gender,linetype=trial_congruency)) + 
+  geom_point() + 
+  geom_smooth(method='lm') +
+  theme_minimal()
 ```
 
 # Model Analyses

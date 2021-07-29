@@ -1,0 +1,570 @@
+<html>
+
+<head>
+    <title>Language Experiment</title>
+  </title><!--JS-->
+  <!-- external general utilities -->
+  <script src="shared/js/jquery-1.11.1.min.js"></script>
+  <script src="shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
+  <script src="shared/js/underscore-min.js"></script>
+
+  <!-- experiment logic -->
+  <script src="shared/js/exp-V2.js"></script>
+  <script src="shared/js/stream-V2.js"></script>
+
+  <!-- utilities to submit data to proliferate -->
+  <script src="https://proliferate.alps.science/static/js/proliferate.js"></script>
+
+  <!-- general utilities -->
+  <script src="shared/js/browserCheck.js"></script>
+  <script src="shared/js/utils.js"></script>
+  <link href="shared/full-projects/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="shared/css/cocolab-style.css" rel="stylesheet" type="text/css">
+  <link href="css/local-style.css" rel="stylesheet" type="text/css">
+
+    <!-- experiment file -->
+    <script src="stimuli_creation/reading_stims.js"></script>
+    <script src="stimuli_creation/example_stims.js"></script>
+    <script type="text/javascript">
+      var CONDITION = 1;
+    </script>
+    <script src="js/template.js"></script>
+
+</head>
+
+<body onload="init()">
+  <noscript>This task requires JavaScript.</noscript>
+
+  <div class="slide" id="i0" >
+    <!-- <img src="../_shared/images/cocologo.png" alt="Stanford CoCoLab" id="cocologo"></img> -->
+    <p id="cocolab">Stanford Linguistics</p>
+    <p id="instruct-text">
+      In this experiment, you will read 20 sentence pairs word-by-word and for each sentence, answer a short question.
+      You will also be asked to complete a short personality test. Please pay attention, thanks!<br>
+      <strong>Please note that this experiment cannot be completed in the FireFox browser.</strong>
+    </p>
+    <input id="start_button" type="button" class="button" value="Start Experiment">
+
+    <p class="left">
+      <strong><br>
+      LEGAL INFORMATION</strong>:<br>
+      <br>
+      We invite you to participate in a research study on language production and comprehension. Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game. You may also be asked to complete a short personality test.
+      <br>
+      <br>
+      There are no risks or benefits of any kind involved in this study.
+      <br>
+      <br>
+      You will be paid for your participation at the posted rate. If you have read this form and have decided to participate in this experiment, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written dataresulting from the study. You may print this form for your records.
+      <br>
+      <strong><br>
+      CONTACT INFORMATION</strong>:
+      <br>
+      <br>
+      If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should contact the Protocol Director Meghan Sumner at (650)-725-9336.
+      <br>
+      <br>
+      If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA.
+      <br>
+      <br>
+      If you agree to participate, please proceed to the study tasks.
+    </p>
+  </div>
+
+
+  <div class="slide" id="instructions">
+
+		<h3>Instructions</h3>
+    <p>On the following pages, you will always see a sentence which is missing a word, indicated by a blank line. Please select the word that you feel best completes the sentence.</p>
+
+    <p>Let's start with an example!</p>
+
+
+
+    <input type="button" class="button" value="Continue" onclick="exp.go();">
+
+  </div>
+
+  <div class="slide" id="example">
+    <h3>Example</h3>
+    <p>Select the word which most appropriately completes the sentence.</p>
+
+    <div id="comprehension-question-example">
+
+			<p id="comprehension-question-q-example" class="question"></p>
+      <input type="button" value="teacher" id="test-response-1-example" class="response-buttons button">
+      <input type="button" value="table" id="test-response-2-example" class="response-buttons button">
+      <input type="button" value="talking" id="test-response-3-example" class="response-buttons button">
+		</div>
+    <br>
+    <div class="invisible_err" style="display: block;" id="example_err_1">Please select the correct answer to continue.</div>
+</div>
+
+<div class="slide" id="almost">
+
+  <h3>Let's Get Started!</h3>
+  <p>Great job! Now we can really get going.</p>
+  <p><strong>To reiterate:</strong> on the following pages, you will always see a sentence which is missing a word, indicated by a blank line. Please select the word that you feel best completes the sentence.</p>
+
+  <p><strong>Important</strong>: Please try to complete the experiment in one session without any interruptions. It should take at most 15mins.</p>
+
+  <input type="button" class="button" value="Continue" onclick="exp.go();">
+
+</div>
+
+  <div class="slide" id="trial">
+
+		<p>Select the word which most appropriately completes the sentence.</p>
+
+    <div id="comprehension-question">
+
+			<p id="comprehension-question-q" class="question"></p>
+      <input type="button" value="Yes" id="test-response-1" class="response-buttons button">
+      <input type="button" value="No" id="test-response-2" class="response-buttons button">
+		</div>
+
+
+  </div>
+
+  <div class="slide" id="gender_quiz">
+    <div class="long_form">
+      <div class="subj_info_title">
+        Questionnaire
+      </div>
+
+      <br>
+      <p class="info">
+        These questions are required for successful completion of the experiment. For each of the following statements, please indicate on the scale how much you agree with the presented statement.
+      </p>
+
+      <p class="questionnaire">People can be both aggressive and nurturing, regardless of sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q1thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q1"> <i>Strongly Agree</i></p>
+      </div>
+
+      <!-- <script>
+      // var slider_one = document.getElementById("gender_q1");
+      // var output_one = document.getElementById("q1_val");
+      // output_one.innerHTML = slider_one.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider_one.oninput = function() {
+        output_one.innerHTML = this.value;
+      }
+      </script> -->
+
+      <p class="questionnaire">People should be treated the same, regardless of their sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q2thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q2"> <i>Strongly Agree</i></p>
+      </div>
+
+      <br>
+
+      <p class="questionnaire">The freedom that children are given should be determined by their age and maturity level and not by their sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q3thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q3"> <i>Strongly Agree</i></p>
+      </div>
+
+      <br>
+
+      <p class="questionnaire">Tasks around the house should not be assigned by sex.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q4thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q4"> <i>Strongly Agree</i></p>
+      </div>
+
+      <br>
+
+      <p class="questionnaire">We should stop thinking about whether people are male or female and focus on other characteristics.</p>
+
+      <div class="slidecontainer">
+        <p><i>Strongly Disagree</i> <input onclick="_s.q5thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q5"> <i>Strongly Agree</i></p>
+      </div>
+
+      <br>
+
+     <button onclick="_s.collect_gender()">Continue</button>
+
+     <br>
+     <br>
+
+     <div class="invisible_err" style="display: block;" id="quiz_err_1">Please adjust all sliders before continuing.</div>
+  </div><br>
+</div>
+
+<div class="slide" id="gender_quiz_two">
+  <div class="long_form">
+    <div class="subj_info_title">
+      Questionnaire
+    </div>
+
+    <br>
+    <p class="info">
+      These questions are required for successful completion of the experiment. For each of the following statements, please indicate on the scale how much you agree with the presented statement.
+    </p>
+
+    <p class="questionnaire">A father’s major responsibility is to provide financially for his children.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q6thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q6"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Men are more sexual than women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q7thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q7"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Some types of work are just not appropriate for women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q8thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q8"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Mothers should make most decisions about how children are brought up.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q9thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q9"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Mothers should work only if necessary.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q10thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q10"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Girls should be protected and watched over more than boys.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q11thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q11"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">Only some types of work are appropriate for both men and women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q12thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q12"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+    <p class="questionnaire">For many important jobs, it is better to choose men instead of women.</p>
+
+    <div class="slidecontainer">
+      <p><i>Strongly Disagree</i> <input onclick="_s.q13thumbVisible()" type="range" min="0" max="100" value="50" class="slider" id="gender_q13"> <i>Strongly Agree</i></p>
+    </div>
+
+    <br>
+
+   <button onclick="_s.collect_gender_two()">Continue</button>
+
+   <br>
+
+   <div class="invisible_err" style="display: block;" id="quiz_err_2">Please adjust all sliders before continuing.</div>
+  </div><br>
+  </div>
+
+  <!-- subject information slide -->
+  <div class="slide" id="subj_info">
+    <div class="long_form">
+      <div class="subj_info_title">
+        Additional information
+      </div>
+
+      <p class="info">
+        Answering these questions is optional, but will help us understand your answers.
+      </p>
+
+      <p>
+        Did you read the instructions and do you think you did the study correctly?
+      </p>
+
+      <label><input type="radio" name="assess" value="No">No</label>
+      <label><input type="radio" name="assess" value="Yes">Yes</label>
+      <label><input type="radio" name="assess" value="Confused">I was confused</label>
+
+      <p>
+        Gender: <select id="gender">
+          <option value="">
+          </option>
+          <option value="Male">
+            male
+          </option>
+          <option value="Female">
+            female
+          </option>
+          <option value="Other">
+            other
+          </option>
+        </select>
+      </p>
+
+      <p>
+        Age: <input type="text" id="age">
+      </p>
+
+      <p>
+        Level of education: <select id="education">
+          <option value="-1">
+          </option>
+          <option value="0">
+            Some high school
+          </option>
+          <option value="1">
+            Graduated high school
+          </option>
+          <option value="2">
+            Some college
+          </option>
+          <option value="3">
+            Graduated college
+          </option>
+          <option value="4">
+            Hold a higher degree
+          </option>
+        </select>
+      </p>
+
+      <p>
+        Native language: <input type="text" id="language">
+      </p><label>(the language(s) spoken at home when you were a child)</label><br>
+
+      <p>How would you describe your political ideology?</p>
+
+      <table class="likertscale">
+      <tr>
+        <td>
+          <p>
+          Strong Republican
+          </p>
+        </td>
+        <td>
+          <input type="radio" name="number" value="1">
+        </td>
+        <td>
+          <input type="radio" name="number" value="2">
+        </td>
+        <td>
+          <input type="radio" name="number" value="3">
+        </td>
+        <td>
+          <input type="radio" name="number" value="4">
+        </td>
+        <td>
+          <input type="radio" name="number" value="5">
+        </td>
+        <td>
+          <p>
+          Strong Democrat
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          1
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          4
+        </td>
+        <td>
+          5
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class='likertlabel'>
+          Moderate
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table><br>
+
+      <p>
+        Do you think the payment was fair?
+      </p><select id="fairprice">
+        <option value="-1">
+        </option>
+        <option value="0">
+          The payment was too low
+        </option>
+        <option value="1">
+          The payment was fair
+        </option>
+      </select>
+
+      <p>
+        Did you enjoy the experiment?
+      </p><select id="enjoyment">
+        <option value="-1">
+        </option>
+        <option value="0">
+          Worse than the average experiment
+        </option>
+        <option value="1">
+          An average experiment
+        </option>
+        <option value="2">
+          Better than average experiment
+        </option>
+      </select>
+
+      <p>
+        We would be interested in any comments you have about this experiment. Please type them here:
+      </p>
+      <textarea id="comments" rows="3" cols="50"></textarea><br>
+      <button onclick="_s.submit()">Submit</button>
+    </div>
+  </div>
+
+  <!-- <div class="slide" id="subj_info">
+    <div class="long_form">
+      <div class="subj_info_title">Additional information</div>
+
+      <p>How old are you?</p>
+      <input type="text" id="age" />
+
+      <p>Please select your gender</p>
+      <select id="gender" name="gender">
+        <label><option value="f">female</option></label>
+        <label><option value="m" >male</option></label>
+        <label><option value="o">non-binary</option></label>
+      </select>
+
+      <p>Native Language: <input type="text" id="language"/></p>
+      <label>(the language(s) spoken at home when you were a child)</label>
+
+      <p>Which US political party, if any, do you identify with?</p>
+      <select id="poliparty" name ="poliparty">
+        <label><option value = "Republican">Republican Party</option></label>
+        <label><option value = "Democrat">Democratic Party</option></label>
+        <label><option value = "Other">Other</option></label>
+        <label><option value = "None">I do not identify with any major political party</option></label>
+      </select><br /><br>
+
+        <p>How would you describe your political ideology?</p>
+      <table class="likertscale">
+        <tr>
+          <td>
+            <p id="scale_end_one">
+            Very Progressive
+            </p>
+          </td>
+          <td>
+            <input type="radio" name="number" value="1">
+          </td>
+          <td>
+            <input type="radio" name="number" value="2">
+          </td>
+          <td>
+            <input type="radio" name="number" value="3">
+          </td>
+          <td>
+            <input type="radio" name="number" value="4">
+          </td>
+          <td>
+            <input type="radio" name="number" value="5">
+          </td>
+          <td>
+            <input type="radio" name="number" value="6">
+          </td>
+          <td>
+            <input type="radio" name="number" value="7">
+          </td>
+          <td>
+            <p id="scale_end_two">
+            Very Conservative
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            1
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            3
+          </td>
+          <td>
+            4
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            7
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class='likertlabel'>
+            Moderate
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table><br>
+
+      <p>How tired are you right now?</p>
+      <select id="tirednesslvl" name="tirednesslvl">
+        <label><option value="1">well rested</option></label>
+        <label><option value="2" >a little tired</option></label>
+        <label><option value="3" >I almost fell asleep during the experiment</option></label>
+      </select><br />
+
+      <br/>      <br/>
+
+      <button onclick="_s.submit()">Submit</button>
+    </div>
+  </div> -->
+
+  <div id="thanks" class="slide js" >
+    <p  class="big" id="thanks-text">Thanks for your time!</p>
+  </div>
+
+  <div class="progress">
+    <span>Progress:</span>
+    <div class="bar-wrapper">
+      <div class="bar" width="0%">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

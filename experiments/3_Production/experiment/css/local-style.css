@@ -1,0 +1,108 @@
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  border-radius: 5px;
+  width: 50%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.visibleslider::-webkit-slider-thumb {
+    visibility: visible;
+}
+
+.invisible_err {
+  visibility: hidden;
+}
+
+.visibleerr {
+  visibility: visible;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+  opacity: 1;
+}
+
+input.button {
+  padding: 10px 40px 10px 40px;
+  margin: 5px;
+  border: 1px solid black;
+  font-size: 14pt;
+  font-weight: bold;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+
+#player {
+  margin: 15px 0 60px 0;
+}
+
+p.train-instructions {
+  margin: 50px 0 0 0;
+}
+
+.slide {
+  height: 700px;
+}
+
+.test-stimulus {
+  font-size: 2em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.question {
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#comprehension-question {
+  margin-top: 65px;
+}
+
+table.likertscale  {
+  /*border: 1px solid black;*/
+  text-align: center;
+  width: 90%;
+  align-self: left;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.likertlabel {
+	width: 15px;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+.questionnaire {
+  font-size: 1.1em;
+  font-weight: bold;
+}

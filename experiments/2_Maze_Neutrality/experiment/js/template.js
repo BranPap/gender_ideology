@@ -676,6 +676,7 @@ trial_counter++;
     });
 
 
+// slide for collecting gender ideology
   slides.gender_quiz = slide({
     name : "gender_quiz",
     q1thumbVisible : function() {
