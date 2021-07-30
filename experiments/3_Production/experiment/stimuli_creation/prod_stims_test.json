@@ -1,0 +1,252 @@
+var all_stims = [
+    {
+        "lexeme": "actor",
+        "type": "critical",
+        "sentence": "NAME is an _____ from STATE.",
+        "options": [
+            "SKIP",
+            "actress",
+            "actor"
+        ]
+    },
+    {
+        "lexeme": "anchor",
+        "type": "critical",
+        "sentence": "NAME is an _____ from STATE.",
+        "options": [
+            "anchor",
+            "anchorwoman",
+            "anchorman"
+        ]
+    },
+    {
+        "lexeme": "flight attendant",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "flight attendant",
+            "stewardess",
+            "steward"
+        ]
+    },
+    {
+        "lexeme": "businessperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "businessperson",
+            "businesswoman",
+            "businessman"
+        ]
+    },
+    {
+        "lexeme": "camera operator",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "camera operator",
+            "camerawoman",
+            "cameraman"
+        ]
+    },
+    {
+        "lexeme": "congressperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "congressperson",
+            "congresswoman",
+            "congressman"
+        ]
+    },
+    {
+        "lexeme": "craftsperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "craftsperson",
+            "craftswoman",
+            "craftsman"
+        ]
+    },
+    {
+        "lexeme": "crewmember",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "crewmember",
+            "crewwoman",
+            "crewman"
+        ]
+    },
+    {
+        "lexeme": "firefighter",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "firefighter",
+            "firewoman",
+            "fireman"
+        ]
+    },
+    {
+        "lexeme": "foreperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "foreperson",
+            "forewoman",
+            "foreman"
+        ]
+    },
+    {
+        "lexeme": "heir",
+        "type": "critical",
+        "sentence": "NAME is an _____ from STATE.",
+        "options": [
+            "SKIP",
+            "heiress",
+            "heir"
+        ]
+    },
+    {
+        "lexeme": "hero",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "SKIP",
+            "heroine",
+            "hero"
+        ]
+    },
+    {
+        "lexeme": "host",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "SKIP",
+            "hostess",
+            "host"
+        ]
+    },
+    {
+        "lexeme": "hunter",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "SKIP",
+            "huntress",
+            "hunter"
+        ]
+    },
+    {
+        "lexeme": "layperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "layperson",
+            "laywoman",
+            "layman"
+        ]
+    },
+    {
+        "lexeme": "police officer",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "police officer",
+            "policewoman",
+            "policeman"
+        ]
+    },
+    {
+        "lexeme": "salesperson",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "salesperson",
+            "saleswoman",
+            "salesman"
+        ]
+    },
+    {
+        "lexeme": "stunt double",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "stunt double",
+            "stuntwoman",
+            "stuntman"
+        ]
+    },
+    {
+        "lexeme": "villain",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "SKIP",
+            "villainess",
+            "villain"
+        ]
+    },
+    {
+        "lexeme": "meteorologist",
+        "type": "critical",
+        "sentence": "NAME is a _____ from STATE.",
+        "options": [
+            "meteorologist",
+            "weatherwoman",
+            "weatherman"
+        ]
+    },
+    {
+        "lexeme": "dalmatian",
+        "type": "filler_semantic",
+        "sentence": "Fifi is a _____ who likes steak.",
+        "options": [
+            "dalmatian",
+            "dog",
+            "canine"
+        ]
+    },
+    {
+        "lexeme": "cat",
+        "type": "filler_semantic",
+        "sentence": "Killian is a _____ who enjoys tuna.",
+        "options": [
+            "calico",
+            "cat",
+            "feline"
+        ]
+    },
+    {
+        "lexeme": "store",
+        "type": "filler_grammatical",
+        "sentence": "Chantal is _____ to the store.",
+        "options": [
+            "walking",
+            "walked",
+            "walker"
+        ]
+    },
+    {
+        "lexeme": "school",
+        "type": "filler_grammatical",
+        "sentence": "Joyce _____ studying in the classroom.",
+        "options": [
+            "is",
+            "are",
+            "were"
+        ]
+    },
+    {
+        "lexeme": "proud",
+        "type": "filler_grammatical",
+        "sentence": "Michelle is very _____ of her report.",
+        "options": [
+            "proud",
+            "anxious",
+            "angry"
+        ]
+    }
+]

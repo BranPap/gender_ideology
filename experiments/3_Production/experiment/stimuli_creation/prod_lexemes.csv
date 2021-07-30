@@ -1,0 +1,31 @@
+type,lexeme,opt1,opt2,opt3,sentence
+critical,actor,SKIP,actress,actor,NAME is an _____ from STATE.
+critical,anchor,anchor,anchorwoman,anchorman,NAME is an _____ from STATE.
+critical,flight attendant,flight attendant,stewardess,steward,NAME is a _____ from STATE.
+critical,businessperson,businessperson,businesswoman,businessman,NAME is a _____ from STATE.
+critical,camera operator,camera operator,camerawoman,cameraman,NAME is a _____ from STATE.
+critical,congressperson,congressperson,congresswoman,congressman,NAME is a _____ from STATE.
+critical,craftsperson,craftsperson,craftswoman,craftsman,NAME is a _____ from STATE.
+critical,crewmember,crewmember,crewwoman,crewman,NAME is a _____ from STATE.
+critical,firefighter,firefighter,firewoman,fireman,NAME is a _____ from STATE.
+critical,foreperson,foreperson,forewoman,foreman,NAME is a _____ from STATE.
+critical,heir,SKIP,heiress,heir,NAME is an _____ from STATE.
+critical,hero,SKIP,heroine,hero,NAME is a _____ from STATE.
+critical,host,SKIP,hostess,host,NAME is a _____ from STATE.
+critical,hunter,SKIP,huntress,hunter,NAME is a _____ from STATE.
+critical,layperson,layperson,laywoman,layman,NAME is a _____ from STATE.
+critical,police officer,police officer,policewoman,policeman,NAME is a _____ from STATE.
+critical,salesperson,salesperson,saleswoman,salesman,NAME is a _____ from STATE.
+critical,stunt double,stunt double,stuntwoman,stuntman,NAME is a _____ from STATE.
+critical,villain,SKIP,villainess,villain,NAME is a _____ from STATE.
+critical,meteorologist,meteorologist,weatherwoman,weatherman,NAME is a _____ from STATE.
+filler_semantic,dalmatian,dalmatian,dog,canine,Fifi is a _____ who likes steak.
+filler_semantic,cat,calico,cat,feline,Killian is a _____ who enjoys tuna.
+filler_grammatical,store,walking,walked,walker,Chantal is _____ to the store.
+filler_grammatical,school,is,are,were,Joyce _____ studying in the classroom.
+filler_grammatical,proud,proud,anxious,angry,Michelle is very _____ of her report.
+filler_semantic,horse,horse,equine,Lusitano,That's the cutest _____ I have ever seen!
+filler_semantic,tomorrow,tomorrow,yesterday,today,The day after today is _____.
+filler_semantic,bird,birds,peacocks,penguins,Everyone knows that _____ can't swim!
+filler_semantic,fish,fish,goldfish,shark,I swear he has the memory of a _____.
+filler_semantic,pets,pets,hamsters,chairs,There's hair everywhere from all the _____ they keep in the house.

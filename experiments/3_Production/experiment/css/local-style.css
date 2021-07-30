@@ -76,7 +76,7 @@ p.train-instructions {
 }
 
 .question {
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: bold;
   font-style: italic;
 }
@@ -105,4 +105,8 @@ table.likertscale  {
 .questionnaire {
   font-size: 1.1em;
   font-weight: bold;
+}
+
+.button:hover {
+  background-color: #bebebe;
 }

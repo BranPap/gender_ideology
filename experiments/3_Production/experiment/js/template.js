@@ -84,113 +84,65 @@ function make_slides(f) {
     present: exp.stimuli,
     present_handle: function(stim) {
       this.stim = stim;
-      this.position = 0;
-      exp.selection = exp.gender.pop();
+      console.log('this.stim.condition',this.stim)
+
+      if (this.stim.type == "critical") {
+        exp.selection = exp.gender.pop();
+        this.gender = exp.selection;
+        this.state = exp.states.pop();
+        if (exp.selection == "male") {
+          this.name = exp.male_names.pop();
+        } else if (exp.selection == "female") {
+          this.name = exp.female_names.pop();
+        }
+      } else {
+        this.name = "filler";
+        this.gender = "filler";
+      };
 
       console.log('this.stim.condition',this.stim)
 
-      if (exp.selection == "neutral_male") {
-        this.stim =stim.condition[0].neutral_male[0];
-        this.name = exp.male_names.pop();
-      } else if (exp.selection == "congruent_female") {
-        this.stim = stim.condition[0].congruent_female[0];
-        this.name = exp.female_names.pop();
-      } else if (exp.selection == "congruent_male") {
-        this.stim = stim.condition[0].congruent_male[0];
-        this.name = exp.male_names.pop();
-      } else {
-        this.stim = stim.condition[0].neutral_female[0];
-        this.name = exp.female_names.pop();
-      }
-
-      console.log('this.stim.condition',this.stim)
-
-      $("#comprehension-question").hide();
-
-      var html = "";
-
-      for (var i = 0; i < this.stim.words.length; i++) {
-        var word = this.stim.words[i]
-        if (word.form == "NAME") {
-          word.form = this.name;
-        }
-        var masked_word = word.form.replace(/./g, "-") + " ";
-        html += "<span data-form=\"" + word.form + " \" data-masked-form=\"" + masked_word + "\"  id=\"stimulus-word-" + i + "\">" +  masked_word + "</span>"
-        if (word.lbr_after) {
-          html += "<br>"
-        }
-      }
-
-
-      this.response_times = [];
-
-      $("#stimulus-sentence").html(html);
-
-
-      var t = this;
-
-      $("#comprehension-question").hide();
-
-      $(document).bind("keydown", function(evt) {
-        if (evt.keyCode == 32) {
-          evt.preventDefault();
-          t.response_times.push(Date.now());
-          if (t.position > 0) {
-            var prev_idx = t.position - 1;
-            $("#stimulus-word-" + prev_idx).text($("#stimulus-word-" + prev_idx).data("masked-form"));
-          }
-          if (t.position < t.stim.words.length) {
-            $("#stimulus-word-" + t.position ).text($("#stimulus-word-" + t.position ).data("form"));
-          } else {
-            $("#comprehension-question").show();
-            $(document).unbind("keydown");
-          }
-          t.position++;
-        }
-
-      });
-
-      var question_check = _.shuffle([this.stim.question1, this.stim.question2]).pop()
-
-      if (question_check == this.stim.question1) {
-        this.stim.question_answer = this.stim.answer1;
-      } else {
-        this.stim.question_answer = this.stim.answer2;
-      }
+      var question_check = this.stim.sentence;
 
       var name = this.name;
+      var state = this.state;
 
-      var individual_question = question_check.replace("NAME",name);
+      var individual_question = question_check.replace("NAME",name).replace("STATE",state);
 
-      $("#comprehension-question-q").text(individual_question);
+      $("#comprehension-question-q").text(individual_question).show();
 
-      console.log('question',individual_question)
+      console.log('question',individual_question);
+
+      //randomize button orders
+      var buttons = _.shuffle(this.stim.options);
+      var button_1 = buttons.pop();
+      var button_2 = buttons.pop();
+      var button_3 = buttons.pop();
+
+      document.getElementById("choice-1").value = button_1;
+      document.getElementById("choice-2").value = button_2;
+      document.getElementById("choice-3").value = button_3;
+
     },
 
     button : function(response) {
-      this.response_correct = response == this.stim.question_answer;
+      this.response = response;
+      console.log("response: ",this.response);
       this.log_responses();
       _stream.apply(this);
     },
 
     log_responses : function() {
-      for (var i = 0; i < this.stim.words.length; i++) {
-        var word = this.stim.words[i];
         exp.data_trials.push({
-          "trial_id": this.stim.id,
-          "word_idx": i,
-          "form": word.form,
-          "region": word.region,
-          "rt": this.response_times[i+1] - this.response_times[i],
-          "condition": this.stim.condition,
+          "type": this.stim.type,
           "lexeme": this.stim.lexeme,
-          "response_correct": this.response_correct ? 1 : 0,
+          "response": this.response,
           "trial_no": trial_counter,
-          "name": this.name
+          "name": this.name,
+          "gender": this.gender,
         });
+        trial_counter++;
       }
-      trial_counter++;
-    }
   });
 
   slides.gender_quiz = slide({
@@ -377,11 +329,13 @@ function init() {
   exp.nQs = utils.get_exp_length(); //this does not work if there are stacks of stims (but does work for an experiment with this structure)
                     //relies on structure and slides being defined
 
-  exp.gender = _.shuffle(['congruent_male','congruent_male','congruent_male','congruent_male','congruent_male','neutral_male','neutral_male','neutral_male','neutral_male','neutral_male','congruent_female','congruent_female','congruent_female','congruent_female','congruent_female','neutral_female','neutral_female','neutral_female','neutral_female','neutral_female']);
+  exp.gender = _.shuffle(['male','male','male','male','male','male','male','male','male','male','female','female','female','female','female','female','female','female','female','female']);
 
   exp.male_names = _.shuffle(["Michael","Jacob","Matthew","Joshua","Christopher","Nicholas", "Andrew", "Austin","Joseph","David","William","John"])
 
   exp.female_names = _.shuffle(["Emily", "Hannah", "Samantha", "Sarah", "Jessica", "Madison", "Elizabeth", "Alyssa", "Kalya","Megan","Lauren","Rachel"])
+
+  exp.states = _.shuffle(["California","Alabama","Alaska","Arizona","Arkansas","Connecticut","Colorado","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"])
 
   $('.slide').hide(); //hide everything
 
