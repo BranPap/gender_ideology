@@ -6,7 +6,7 @@ states = ["California","Alabama","Alaska","Arizona","Arkansas","Connecticut","Co
 
 random.shuffle(states)
 
-df = pd.read_csv(r"C:\Users\Unarm\Desktop\gender_processing\experiments\3_Production\experiment\stimuli_creation\prod_lexemes.csv")
+df = pd.read_csv(r"/Users/branpap/Desktop/gender_processing/experiments/3_Production/experiment/stimuli_creation/prod_lexemes.csv")
 
 entries = []
 
@@ -26,7 +26,7 @@ for index,row in df.iterrows():
         entry_keys.append(row["lexeme"])
         entries.append(final_dict)
 
-with open(r'C:\Users\Unarm\Desktop\gender_processing\experiments\3_Production\experiment\stimuli_creation\prod_stims_test.js', 'w') as stimlist:
+with open(r'/Users/branpap/Desktop/gender_processing/experiments/3_Production/experiment/stimuli_creation/prod_stims_test.js', 'w') as stimlist:
     s = json.dumps(entries, indent=4)
     stimlist.write("var all_stims = ")
     stimlist.write(s)

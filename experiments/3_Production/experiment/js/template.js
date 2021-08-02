@@ -32,13 +32,13 @@ function make_slides(f) {
 
       // var name = this.name;
       //
-      var individual_question = "Lewis is a ____ from Italy";
+      var individual_question = "Lewis likes to _____.";
 
       $("#comprehension-question-q-example").text(individual_question).show();
 
       console.log('question',individual_question)
 
-      this.correct ="teacher";
+      this.correct ="shop";
     },
 
     button : function(response) {
@@ -86,6 +86,10 @@ function make_slides(f) {
       this.stim = stim;
       console.log('this.stim.condition',this.stim)
 
+      $("#choice-1").show();
+      $("#choice-2").show();
+      $("#choice-3").show();
+
       if (this.stim.type == "critical") {
         exp.selection = exp.gender.pop();
         this.gender = exp.selection;
@@ -122,6 +126,16 @@ function make_slides(f) {
       document.getElementById("choice-1").value = button_1;
       document.getElementById("choice-2").value = button_2;
       document.getElementById("choice-3").value = button_3;
+
+      if (document.getElementById("choice-1").value == "SKIP") {
+        $("#choice-1").hide()
+      } else if (document.getElementById("choice-2").value == "SKIP") {
+        $("#choice-2").hide()
+      } else if (document.getElementById("choice-3").value == "SKIP") {
+        $("#choice-3").hide()
+      }
+
+      console.log("choice-1: ",document.getElementById("choice-1").value)
 
     },
 

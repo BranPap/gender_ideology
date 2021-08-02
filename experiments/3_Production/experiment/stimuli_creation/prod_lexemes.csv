@@ -21,11 +21,61 @@ critical,villain,SKIP,villainess,villain,NAME is a _____ from STATE.
 critical,meteorologist,meteorologist,weatherwoman,weatherman,NAME is a _____ from STATE.
 filler_semantic,dalmatian,dalmatian,dog,canine,Fifi is a _____ who likes steak.
 filler_semantic,cat,calico,cat,feline,Killian is a _____ who enjoys tuna.
-filler_grammatical,store,walking,walked,walker,Chantal is _____ to the store.
-filler_grammatical,school,is,are,were,Joyce _____ studying in the classroom.
-filler_grammatical,proud,proud,anxious,angry,Michelle is very _____ of her report.
 filler_semantic,horse,horse,equine,Lusitano,That's the cutest _____ I have ever seen!
 filler_semantic,tomorrow,tomorrow,yesterday,today,The day after today is _____.
 filler_semantic,bird,birds,peacocks,penguins,Everyone knows that _____ can't swim!
 filler_semantic,fish,fish,goldfish,shark,I swear he has the memory of a _____.
 filler_semantic,pets,pets,hamsters,chairs,There's hair everywhere from all the _____ they keep in the house.
+filler_semantic,watching,movie,play,opera,We enjoyed watching the _____.
+filler_semantic,plants,want,need,have,I _____ to water my plants today.
+filler_semantic,ice,water,ice,coffee,Ice is frozen _____.
+filler_semantic,numbers,numbers,promotions,habits,Sheila has really good sales _____.
+filler_semantic,customer,customer,parent,child,The _____ is always right.
+filler_semantic,shipping,shipping,delivery,pick-up,This _____ fee is way too high!
+filler_semantic,page,page,book,shelf,Are we still on the same _____?
+filler_semantic,drink,coffee,tea,water,I need some more _____ for the breakfast.
+filler_semantic,glass,glass,iron,wood,The _____ bowl shattered all over the kitchen floor.
+filler_semantic,fountain,fountain,pool,puddle,The toddler is happily splashing in the _____.
+filler_semantic,computer,computer,phone,tablet,Can you use your _____ to look it up?
+filler_semantic,napkin,napkin,towel,cloth,Use a _____ to wipe up the spill.
+filler_semantic,teacher,teacher,professor,instructor,Please listen to the _____'s instructions.
+filler_semantic,doctor,doctor,nurse,practitioner,An apple a day keeps the _____ away.
+filler_semantic,singer,singer,performer,clown,Alex is a _____ from Korea.
+filler_semantic,cook,cook,chef,barista,Sam is a _____ from Lithuania.
+filler_semantic,dancer,dancer,choreographer,SKIP,Spencer is a ______ from Canada.
+filler_semantic,programmer,programmer,software engineer,SKIP,Sahba is a _____ from Iran.
+filler_semantic,writer,author,writer,journalist,Revati is a _____ from India.
+filler_semantic,bookkeeper,bookkeeper,librarian,SKIP,Ryan is a _____ from Azerbaijan.
+filler_semantic,director,director,supervisor,manager,Leif is a _____ from Japan.
+filler_semantic,scientist,scientist,researcher,SKIP,Taylor is a _____ from Sierra Leone.
+filler_semantic,lawyer,lawyer,barrister,solicitor,Blair is a _____ from Uruguay.
+filler_grammatical,store,walking,walked,walker,Chantal is _____ to the store.
+filler_grammatical,school,is,are,were,Joyce _____ studying in the classroom.
+filler_grammatical,proud,proud,anxious,angry,Michelle is very _____ of her report.
+filler_grammatical,eating,eat,eating,eaten,Kat likes to ______ salads with her dinner.
+filler_grammatical,running,running,run,ran,_____ is a good way to exercise.
+filler_grammatical,lake,lives,living,live,There is a monster that _____ in the lake!
+filler_grammatical,soup,at,with,between,They are eating their soup _____ a spoon.
+filler_grammatical,determiner,this,those,these,_____ pizza is very thin.
+filler_grammatical,song,song,sang,sing,Katherine ______ that song beautifully.
+filler_grammatical,definite,a,an,SKIP,I could eat _____ horse right now.
+filler_grammatical,over,over,between,in,I have to climb _____ the table.
+filler_grammatical,octopus,octopuses,octopi,octopodes,The plural of octopus is _____.
+filler_grammatical,cactus,cactus,cactuses,cacti,There are lots of _____ in the desert.
+filler_grammatical,videogames,videogame,videogames,videogamer,I like playing _____.
+filler_grammatical,olympics,United State,United States,America,I am rooting for the _____ in the Olympics this year.
+filler_grammatical,mask,is,are,am,The man _____ wearing a face mask.
+filler_grammatical,party,it,they,he,_____'s my party and I'll cry if I want to.
+filler_grammatical,tree,down,over,before,Please don't chop _____ that tree.
+filler_grammatical,there,is,are,SKIP,There _____ two pencils on the table.
+filler_grammatical,there2,is,are,SKIP,There _____ exactly one person who knows the answer.
+filler_grammatical,Kiwi,has,have,having,The kiwi bird _____ wings that are too small for flying.
+filler_grammatical,Belgrade,in,over,under,Belgrade is located _____ in Serbia.
+filler_grammatical,submarine,under,around,SKIP,Submarines go _____ the water.
+filler_grammatical,typing,the,those,these,She is typing on _____ computer.
+filler_grammatical,sipping,on,of,around,She is sipping _____ a mug of coffee.
+filler_grammatical,China,to,before,after,Have you ever been _____ China?
+filler_grammatical,Spain,from,before,at,I love eating the food _____ Spain.
+filler_grammatical,Uganda,of,on,at,The grey crowned crane appears _____ the flag of Uganda.
+filler_grammatical,modal,would,would've,SKIP,They _____ buy a new car if it were feasible.
+filler_grammatical,go,go,went,SKIP,It's time for us to _____.
