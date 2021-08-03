@@ -290,26 +290,6 @@ var all_stims = [
         ]
     },
     {
-        "lexeme": "ice",
-        "type": "filler_semantic",
-        "sentence": "Ice is frozen _____.",
-        "options": [
-            "water",
-            "ice",
-            "coffee"
-        ]
-    },
-    {
-        "lexeme": "numbers",
-        "type": "filler_semantic",
-        "sentence": "Sheila has really good sales _____.",
-        "options": [
-            "numbers",
-            "promotions",
-            "habits"
-        ]
-    },
-    {
         "lexeme": "customer",
         "type": "filler_semantic",
         "sentence": "The _____ is always right.",
@@ -390,16 +370,6 @@ var all_stims = [
         ]
     },
     {
-        "lexeme": "teacher",
-        "type": "filler_semantic",
-        "sentence": "Please listen to the _____'s instructions.",
-        "options": [
-            "teacher",
-            "professor",
-            "instructor"
-        ]
-    },
-    {
         "lexeme": "doctor",
         "type": "filler_semantic",
         "sentence": "An apple a day keeps the _____ away.",
@@ -420,36 +390,6 @@ var all_stims = [
         ]
     },
     {
-        "lexeme": "cook",
-        "type": "filler_semantic",
-        "sentence": "Sam is a _____ from Lithuania.",
-        "options": [
-            "cook",
-            "chef",
-            "barista"
-        ]
-    },
-    {
-        "lexeme": "dancer",
-        "type": "filler_semantic",
-        "sentence": "Spencer is a ______ from Canada.",
-        "options": [
-            "dancer",
-            "choreographer",
-            "SKIP"
-        ]
-    },
-    {
-        "lexeme": "programmer",
-        "type": "filler_semantic",
-        "sentence": "Sahba is a _____ from Iran.",
-        "options": [
-            "programmer",
-            "software engineer",
-            "SKIP"
-        ]
-    },
-    {
         "lexeme": "writer",
         "type": "filler_semantic",
         "sentence": "Revati is a _____ from India.",
@@ -457,16 +397,6 @@ var all_stims = [
             "author",
             "writer",
             "journalist"
-        ]
-    },
-    {
-        "lexeme": "bookkeeper",
-        "type": "filler_semantic",
-        "sentence": "Ryan is a _____ from Azerbaijan.",
-        "options": [
-            "bookkeeper",
-            "librarian",
-            "SKIP"
         ]
     },
     {
@@ -490,23 +420,83 @@ var all_stims = [
         ]
     },
     {
+        "lexeme": "bookkeeper",
+        "type": "filler_semantic",
+        "sentence": "Ryan is a _____ from Azerbaijan.",
+        "options": [
+            "bookkeeper",
+            "librarian",
+            "SKIP"
+        ]
+    },
+    {
         "lexeme": "lawyer",
         "type": "filler_semantic",
         "sentence": "Blair is a _____ from Uruguay.",
         "options": [
             "lawyer",
-            "barrister",
+            "SKIP",
             "solicitor"
         ]
     },
     {
-        "lexeme": "store",
-        "type": "filler_grammatical",
-        "sentence": "Chantal is _____ to the store.",
+        "lexeme": "dancer",
+        "type": "filler_semantic",
+        "sentence": "Spencer is a ______ from Canada.",
         "options": [
-            "walking",
-            "walked",
-            "walker"
+            "dancer",
+            "choreographer",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "programmer",
+        "type": "filler_semantic",
+        "sentence": "Sahba is a _____ from Iran.",
+        "options": [
+            "programmer",
+            "software engineer",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "teacher",
+        "type": "filler_semantic",
+        "sentence": "Please listen to the _____'s instructions.",
+        "options": [
+            "teacher",
+            "professor",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "ice",
+        "type": "filler_semantic",
+        "sentence": "Ice is frozen _____.",
+        "options": [
+            "water",
+            "ice",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "numbers",
+        "type": "filler_semantic",
+        "sentence": "Sheila has really good sales _____.",
+        "options": [
+            "numbers",
+            "SKIP",
+            "habits"
+        ]
+    },
+    {
+        "lexeme": "cook",
+        "type": "filler_semantic",
+        "sentence": "Sam is a _____ from Lithuania.",
+        "options": [
+            "cook",
+            "chef",
+            "SKIP"
         ]
     },
     {
@@ -590,16 +580,6 @@ var all_stims = [
         ]
     },
     {
-        "lexeme": "definite",
-        "type": "filler_grammatical",
-        "sentence": "I could eat _____ horse right now.",
-        "options": [
-            "a",
-            "an",
-            "SKIP"
-        ]
-    },
-    {
         "lexeme": "over",
         "type": "filler_grammatical",
         "sentence": "I have to climb _____ the table.",
@@ -617,26 +597,6 @@ var all_stims = [
             "octopuses",
             "octopi",
             "octopodes"
-        ]
-    },
-    {
-        "lexeme": "cactus",
-        "type": "filler_grammatical",
-        "sentence": "There are lots of _____ in the desert.",
-        "options": [
-            "cactus",
-            "cactuses",
-            "cacti"
-        ]
-    },
-    {
-        "lexeme": "videogames",
-        "type": "filler_grammatical",
-        "sentence": "I like playing _____.",
-        "options": [
-            "videogame",
-            "videogames",
-            "videogamer"
         ]
     },
     {
@@ -680,26 +640,6 @@ var all_stims = [
         ]
     },
     {
-        "lexeme": "there",
-        "type": "filler_grammatical",
-        "sentence": "There _____ two pencils on the table.",
-        "options": [
-            "is",
-            "are",
-            "SKIP"
-        ]
-    },
-    {
-        "lexeme": "there2",
-        "type": "filler_grammatical",
-        "sentence": "There _____ exactly one person who knows the answer.",
-        "options": [
-            "is",
-            "are",
-            "SKIP"
-        ]
-    },
-    {
         "lexeme": "Kiwi",
         "type": "filler_grammatical",
         "sentence": "The kiwi bird _____ wings that are too small for flying.",
@@ -717,16 +657,6 @@ var all_stims = [
             "in",
             "over",
             "under"
-        ]
-    },
-    {
-        "lexeme": "submarine",
-        "type": "filler_grammatical",
-        "sentence": "Submarines go _____ the water.",
-        "options": [
-            "under",
-            "around",
-            "SKIP"
         ]
     },
     {
@@ -796,6 +726,76 @@ var all_stims = [
         "options": [
             "go",
             "went",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "submarine",
+        "type": "filler_grammatical",
+        "sentence": "Submarines go _____ the water.",
+        "options": [
+            "under",
+            "around",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "there",
+        "type": "filler_grammatical",
+        "sentence": "There _____ two pencils on the table.",
+        "options": [
+            "is",
+            "are",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "there2",
+        "type": "filler_grammatical",
+        "sentence": "There _____ exactly one person who knows the answer.",
+        "options": [
+            "is",
+            "are",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "definite",
+        "type": "filler_grammatical",
+        "sentence": "I could eat _____ horse right now.",
+        "options": [
+            "a",
+            "an",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "cactus",
+        "type": "filler_grammatical",
+        "sentence": "There are lots of _____ in the desert.",
+        "options": [
+            "SKIP",
+            "cactuses",
+            "cacti"
+        ]
+    },
+    {
+        "lexeme": "store",
+        "type": "filler_grammatical",
+        "sentence": "Chantal is _____ to the store.",
+        "options": [
+            "walking",
+            "walked",
+            "SKIP"
+        ]
+    },
+    {
+        "lexeme": "videogames",
+        "type": "filler_grammatical",
+        "sentence": "I like playing _____.",
+        "options": [
+            "videogame",
+            "videogames",
             "SKIP"
         ]
     }
