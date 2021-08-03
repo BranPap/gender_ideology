@@ -99,9 +99,12 @@ function make_slides(f) {
         } else if (exp.selection == "female") {
           this.name = exp.female_names.pop();
         }
+      } else if (this.stim.type == "test_grammatical") {
+        this.name = "attention";
+        this.gender = "attention";
       } else {
         this.name = "filler";
-        this.gender = "filler";
+        this.gender = "filler"
       };
 
       console.log('this.stim.condition',this.stim)
@@ -135,13 +138,19 @@ function make_slides(f) {
         $("#choice-3").hide()
       }
 
-      console.log("choice-1: ",document.getElementById("choice-1").value)
+      console.log("choice-1: ",document.getElementById("choice-1").value);
 
     },
 
     button : function(response) {
       this.response = response;
+      if (this.response == this.stim.correct) {
+        this.correction = 1;
+      } else {
+        this.correction = 0;
+      };
       console.log("response: ",this.response);
+      console.log("correct: ",this.stim.correct);
       this.log_responses();
       _stream.apply(this);
     },
@@ -154,6 +163,7 @@ function make_slides(f) {
           "trial_no": trial_counter,
           "name": this.name,
           "gender": this.gender,
+          "correct": this.correction,
         });
         trial_counter++;
       }

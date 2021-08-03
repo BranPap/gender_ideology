@@ -18,6 +18,7 @@ for index,row in df.iterrows():
         final_dict["lexeme"] = row["lexeme"]
         final_dict["type"] = row["type"]
         final_dict["sentence"] = row["sentence"]
+        final_dict["correct"] = row["response"]
         options = []
         options.append(row["opt1"])
         options.append(row["opt2"])
