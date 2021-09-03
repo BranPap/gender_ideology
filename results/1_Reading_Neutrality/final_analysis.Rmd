@@ -783,3 +783,21 @@ new_toy %>%
   summary()
 ```
 
+```{r}
+table(crit_data$subject_information.gender)
+```
+
+```{r}
+table(unique(crit_data$subject_information.gender))
+```
+
+```{r}
+gender_data <- all_data %>%
+  group_by(workerid,poli_party,subject_information.gender) %>%
+  summarise(gender = paste(unique(subject_information.gender)))
+```
+
+```{r}
+prop.table(table(gender_data$gender,gender_data$poli_party))
+```
+

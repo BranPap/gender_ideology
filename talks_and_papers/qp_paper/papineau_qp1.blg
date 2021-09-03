@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'papineau_qp1.blg'
+[63] biber-darwin:340> INFO - === Fri Sep  3, 2021, 14:15:09
+[78] Biber.pm:415> INFO - Reading 'papineau_qp1.bcf'
+[172] Biber.pm:952> INFO - Found 6 citekeys in bib section 0
+[185] Biber.pm:4340> INFO - Processing section 0
+[194] Biber.pm:4531> INFO - Looking for bibtex format file 'qp1.bib' for section 0
+[195] bibtex.pm:1689> INFO - LaTeX decoding ...
+[211] bibtex.pm:1494> INFO - Found BibTeX data source 'qp1.bib'
+[261] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[261] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[261] Biber.pm:4168> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[261] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[266] bbl.pm:654> INFO - Writing 'papineau_qp1.bbl' with encoding 'UTF-8'
+[269] bbl.pm:757> INFO - Output to papineau_qp1.bbl

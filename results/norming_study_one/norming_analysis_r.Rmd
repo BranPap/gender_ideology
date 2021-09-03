@@ -69,6 +69,10 @@ usable_trials <- trials_final %>%
 
 # Analysis
 
+```{r}
+inauguration_2021 = c("#5445b1", "#749dae", "#f3c483", "#5c1a33", "#cd3341","#f7dc6a")
+```
+
 ### Means by Item
 
 ```{r}
@@ -82,7 +86,11 @@ ggplot(underlying, aes(x=id, y=indi_mean, color=gender)) +
   geom_point() + 
   theme_minimal() + 
   theme(axis.text.x = element_text(angle=45, hjust=1, size=8)) + 
-  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form", title="Mean Gender Rating by Ungendered Form and Gender Seen")
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form", title="Mean Gender Rating by Ungendered Form and Gender Seen") + 
+  scale_color_manual(values = inauguration_2021)
+```
+```{r}
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="norming_values.png")
 ```
 
 
@@ -126,7 +134,9 @@ morphological_means <- usable_trials %>%
 ggplot(morphological_means, aes(x=gendered_morph, y=morph_mean, color=gender, size=trial_sum)) + 
   geom_point() + 
   theme_minimal() + 
-  labs(x="Gender Marking Processes", y="Mean Rating")
+  labs(x="Gender Marking Processes", y="Mean Rating", size="Number of Observations", color="Gender") + 
+  scale_x_discrete(labels=c("Boy/Girl Compound","Other Gender Compound","Man/Woman Compound","Suffix")) + 
+  theme(axis.text.x = element_text(angle=15))
 ```
 
 ### Means by Gender Neutral Morphology
@@ -140,7 +150,14 @@ neutral_means <- usable_trials %>%
 ggplot(neutral_means, aes(x=neutral_morh, y=neutral_mean, color=gender, size=trial_sum)) + 
   geom_point() + 
   theme_minimal() + 
-  labs(x="Neutral Formation Process", y="Mean Rating")
+  labs(title="Mean Gender Evaluation by Neutral-Form Derivation Process", x="Neutral Formation Process", y="Mean Rating", size="Number of Observations", color="Gender") + 
+  scale_color_manual(values=inauguration_2021) + 
+  scale_x_discrete(labels=c("Clipping", "Male Adoption", "Neutral Compound", "Person Compound", "Suppletion")) + 
+  theme(axis.text.x = element_text(angle=15))
+```
+
+```{r}
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="norming_deriv.png")
 ```
 
 ## Calculating the Mean Number of Times an Item Was Seen

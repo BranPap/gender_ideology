@@ -80,13 +80,19 @@ all_data <- all_data %>%
 ```{r}
 crit_data <- all_data %>%
   filter(type == "critical") %>%
-  mutate(response_gender = ifelse(response == "actress" | response == "anchorwoman" | response == "stewardess" | response == "businesswoman" | response == 'camerawoman' | response == 'congresswoman' | response == 'craftswoman' | response == 'crewwoman' | response == 'firewoman' | response == 'forewoman'  | response == 'heiress' | response == 'heroine' | response == 'hostess' | response == 'huntress' | response == 'laywoman' | response == 'policewoman' | response == 'saleswoman' | response == 'stuntwoman' | response == 'villainess' | response == 'weatherwoman',"female",ifelse(response == "anchor" | response == "flight attendant" | response == "businessperson" | response == 'camera operator' | response == 'congressperson' | response == 'craftsperson' | response == 'crewmember' | response == 'firefighter' | response == 'foreperson' | response == 'layperson' | response == 'police officer' | response == 'salesperson' | response == 'stunt double' | response == 'meteorologist',"neutral",ifelse(response == "anchorman" | response == "steward" | response == "businessman" | response == 'cameraman' | response == 'congressman' | response == 'craftsman' | response == 'crewman' | response == 'fireman' | response == 'foreman' | response == 'layman' | response == 'policeman' | response == 'salesman' | response == 'stuntman' | response == 'anchorman',"male",'male/neutral'))))
+  mutate(response_gender = ifelse(response == "actress" | response == "anchorwoman" | response == "stewardess" | response == "businesswoman" | response == 'camerawoman' | response == 'congresswoman' | response == 'craftswoman' | response == 'crewwoman' | response == 'firewoman' | response == 'forewoman'  | response == 'heiress' | response == 'heroine' | response == 'hostess' | response == 'huntress' | response == 'laywoman' | response == 'policewoman' | response == 'saleswoman' | response == 'stuntwoman' | response == 'villainess' | response == 'weatherwoman',"female",ifelse(response == "anchor" | response == "flight attendant" | response == "businessperson" | response == 'camera operator' | response == 'congressperson' | response == 'craftsperson' | response == 'crewmember' | response == 'firefighter' | response == 'foreperson' | response == 'layperson' | response == 'police officer' | response == 'salesperson' | response == 'stunt double' | response == 'meteorologist',"neutral",ifelse(response == "anchorman" | response == "steward" | response == "businessman" | response == 'cameraman' | response == 'congressman' | response == 'craftsman' | response == 'crewman' | response == 'fireman' | response == 'foreman' | response == 'layman' | response == 'policeman' | response == 'salesman' | response == 'stuntman' | response == 'weatherman',"male",'male/neutral'))))
 ```
 
 ```{r}
 view_crit <- crit_data %>%
   select(response,response_gender,gender)
 ```
+
+```{r}
+crit_data <- crit_data%>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+```
+
 
 
 # Data Visualization
@@ -101,3 +107,31 @@ ggplot(view_crit, aes(x=response_gender,color=gender)) +
   geom_bar(stat="count")
 ```
 
+```{r}
+crit_data %>%
+  filter(gender=="female" & morph_type =="compound") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+```{r}
+crit_data %>%
+  filter(gender=="male" & morph_type == "compound") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+```{r}
+crit_data %>%
+  filter(gender=="male" & morph_type == "adoption") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+
+```{r}
+crit_data %>%
+  filter(morph_type =="adoption") %>%
+  ggplot(aes(x=response_gender, fill=gender)) + 
+  geom_bar(stat="count")
+```

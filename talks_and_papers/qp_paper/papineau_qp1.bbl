@@ -1,0 +1,248 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/global//global/global}
+    \entry{baber2006social}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f410a0690648b6b6f23f6d1a38771a74}{%
+           family={Baber},
+           familyi={B\bibinitperiod},
+           given={Kristine\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c8874dafa6c68ab38b9c973faab11b6}{%
+           family={Tucker},
+           familyi={T\bibinitperiod},
+           given={Corinna\bibnamedelima Jenkins},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8b70c9bf49e562282abdc5187306db91}
+      \strng{fullhash}{8b70c9bf49e562282abdc5187306db91}
+      \strng{bibnamehash}{8b70c9bf49e562282abdc5187306db91}
+      \strng{authorbibnamehash}{8b70c9bf49e562282abdc5187306db91}
+      \strng{authornamehash}{8b70c9bf49e562282abdc5187306db91}
+      \strng{authorfullhash}{8b70c9bf49e562282abdc5187306db91}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sex Roles}
+      \field{number}{7-8}
+      \field{title}{The social roles questionnaire: A new approach to measuring attitudes toward gender}
+      \field{volume}{54}
+      \field{year}{2006}
+      \field{pages}{459\bibrangedash 467}
+      \range{pages}{9}
+    \endentry
+    \entry{levy2008expectation}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2e20881923b91d44e8f1ba7e0f38f42c}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{fullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{bibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authorbibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authornamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authorfullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cognition}
+      \field{number}{3}
+      \field{title}{Expectation-based syntactic comprehension}
+      \field{volume}{106}
+      \field{year}{2008}
+      \field{pages}{1126\bibrangedash 1177}
+      \range{pages}{52}
+    \endentry
+    \entry{pozniak2021failures}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a56045cf37d85f0e5dd7de51252a0b4e}{%
+           family={Pozniak},
+           familyi={P\bibinitperiod},
+           given={Céline},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2eb2491026bdcd78bbad9bc51925afeb}{%
+           family={Burnett},
+           familyi={B\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Ubiquity Press}%
+      }
+      \strng{namehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{fullhash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{bibnamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authorbibnamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authornamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authorfullhash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Glossa: a journal of general linguistics}
+      \field{number}{1}
+      \field{title}{Failures of Gricean reasoning and the role of stereotypes in the production of gender marking in French}
+      \field{volume}{6}
+      \field{year}{2021}
+    \endentry
+    \entry{sarrasin2012sexism}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f67679870af629111e134868573ceb27}{%
+           family={Sarrasin},
+           familyi={S\bibinitperiod},
+           given={Oriane},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Ute},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1ec13d4af2959365f131f9f77db08b81}{%
+           family={Gygax},
+           familyi={G\bibinitperiod},
+           given={Pascal},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Verlag Hans Huber}%
+      }
+      \strng{namehash}{1ec9d83178aa84242f25fab5d6d57911}
+      \strng{fullhash}{1cbab0bc7a7885385d2b6757bc5ddc08}
+      \strng{bibnamehash}{1cbab0bc7a7885385d2b6757bc5ddc08}
+      \strng{authorbibnamehash}{1cbab0bc7a7885385d2b6757bc5ddc08}
+      \strng{authornamehash}{1ec9d83178aa84242f25fab5d6d57911}
+      \strng{authorfullhash}{1cbab0bc7a7885385d2b6757bc5ddc08}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Swiss Journal of Psychology}
+      \field{title}{Sexism and attitudes toward gender-neutral language}
+      \field{year}{2012}
+    \endentry
+    \entry{von2020implicit}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=da9726e094ac5dc5f77904819996f3ec}{%
+           family={Malsburg},
+           familyi={M\bibinitperiod},
+           given={Titus},
+           giveni={T\bibinitperiod},
+           givenun=0,
+           prefix={von\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=57f33fc1d46ef5f0a7b06cfea4c425b7}{%
+           family={Poppels},
+           familyi={P\bibinitperiod},
+           given={Till},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d0a5637ceb33385c24e00068ad600919}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Roger\bibnamedelima P},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{e77f06b9e5b4a85e53729c9f4568fceb}
+      \strng{fullhash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{bibnamehash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{authorbibnamehash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{authornamehash}{e77f06b9e5b4a85e53729c9f4568fceb}
+      \strng{authorfullhash}{95fe4eea1960ca9730776308e7dc6f77}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological science}
+      \field{number}{2}
+      \field{title}{Implicit gender bias in linguistic descriptions for expected events: The Cases of the 2016 United States and 2017 United Kingdom elections}
+      \field{volume}{31}
+      \field{year}{2020}
+      \field{pages}{115\bibrangedash 128}
+      \range{pages}{14}
+    \endentry
+    \entry{wagner2003gender}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=773014f425fdeca362faadda4b527934}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Susanne},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{773014f425fdeca362faadda4b527934}
+      \strng{fullhash}{773014f425fdeca362faadda4b527934}
+      \strng{bibnamehash}{773014f425fdeca362faadda4b527934}
+      \strng{authorbibnamehash}{773014f425fdeca362faadda4b527934}
+      \strng{authornamehash}{773014f425fdeca362faadda4b527934}
+      \strng{authorfullhash}{773014f425fdeca362faadda4b527934}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{University of Freiburg}
+      \field{title}{Gender in English pronouns: Myth and reality}
+      \field{year}{2003}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

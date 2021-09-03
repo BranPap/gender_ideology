@@ -591,4 +591,24 @@ all_data %>%
   scale_color_manual(values = inauguration_2021) + 
   facet_wrap(~subject_information.gender)
 ```
+```{r}
+no_excludes <- read.csv('merged_all.csv') %>%
+  filter(trial_id!= 'example') %>%
+  filter(region=='critical')
+```
 
+```{r}
+no_excludes <- no_excludes %>%
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+```
+
+
+```{r}
+gender_data <- no_excludes %>%
+  group_by(workerid,poli_party,subject_information.gender) %>%
+  summarise(gender = paste(unique(subject_information.gender)))
+```
+
+```{r}
+prop.table(table(gender_data$gender,gender_data$poli_party))
+```
