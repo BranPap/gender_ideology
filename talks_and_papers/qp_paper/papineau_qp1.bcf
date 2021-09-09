@@ -2819,8 +2819,20 @@
     <bcf:citekey order="6">pozniak2021failures</bcf:citekey>
     <bcf:citekey order="7">von2020implicit</bcf:citekey>
     <bcf:citekey order="8">von2020implicit</bcf:citekey>
-    <bcf:citekey order="9">sarrasin2012sexism</bcf:citekey>
-    <bcf:citekey order="10">sarrasin2012sexism</bcf:citekey>
+    <bcf:citekey order="9">hilton2022</bcf:citekey>
+    <bcf:citekey order="10">hilton2022</bcf:citekey>
+    <bcf:citekey order="11">sarrasin2012sexism</bcf:citekey>
+    <bcf:citekey order="12">sarrasin2012sexism</bcf:citekey>
+    <bcf:citekey order="13">gygax2008can</bcf:citekey>
+    <bcf:citekey order="14">gygax2008can</bcf:citekey>
+    <bcf:citekey order="15">misersky2014norms</bcf:citekey>
+    <bcf:citekey order="16">misersky2014norms</bcf:citekey>
+    <bcf:citekey order="17">prolific</bcf:citekey>
+    <bcf:citekey order="18">prolific</bcf:citekey>
+    <bcf:citekey order="19">misersky2014norms</bcf:citekey>
+    <bcf:citekey order="20">sarahndom</bcf:citekey>
+    <bcf:citekey order="21">prolific</bcf:citekey>
+    <bcf:citekey order="22" nocite="1">kelly2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

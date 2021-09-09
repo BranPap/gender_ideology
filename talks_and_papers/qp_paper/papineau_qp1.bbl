@@ -58,6 +58,108 @@
       \field{pages}{459\bibrangedash 467}
       \range{pages}{9}
     \endentry
+    \entry{gygax2008can}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=1ec13d4af2959365f131f9f77db08b81}{%
+           family={Gygax},
+           familyi={G\bibinitperiod},
+           given={Pascal},
+           giveni={P\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Ute},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Verlag Hans Huber}%
+      }
+      \strng{namehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \strng{fullhash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \strng{bibnamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \strng{authorbibnamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \strng{authornamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \strng{authorfullhash}{5c5aa7c0dae35d31f4d9104bb355bef2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Swiss Journal of Psychology}
+      \field{number}{3}
+      \field{title}{Can a group of musicians be composed of women? Generic interpretation of French masculine role names in the absence and presence of feminine forms}
+      \field{volume}{67}
+      \field{year}{2008}
+      \field{pages}{143\bibrangedash 151}
+      \range{pages}{9}
+    \endentry
+    \entry{hilton2022}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=31be21a7f01b412d0c7b83aba880caef}{%
+           family={Hilton},
+           familyi={H\bibinitperiod},
+           given={Katherine\bibnamedelima Marie},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{31be21a7f01b412d0c7b83aba880caef}
+      \strng{fullhash}{31be21a7f01b412d0c7b83aba880caef}
+      \strng{bibnamehash}{31be21a7f01b412d0c7b83aba880caef}
+      \strng{authorbibnamehash}{31be21a7f01b412d0c7b83aba880caef}
+      \strng{authornamehash}{31be21a7f01b412d0c7b83aba880caef}
+      \strng{authorfullhash}{31be21a7f01b412d0c7b83aba880caef}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linguistic Society of America 2022 Annual Meeting}
+      \field{title}{Gender Bias in Perceiving Interruptions}
+      \field{year}{2022}
+    \endentry
+    \entry{kelly2018}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7b6b8e637272a0a64e3c71644baa42f7}{%
+           family={Kelly},
+           familyi={K\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Ongig}%
+      }
+      \strng{namehash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{fullhash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{bibnamehash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{authorbibnamehash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{authornamehash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{authorfullhash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ongig Blog}
+      \field{month}{2}
+      \field{title}{Gender-neutral suggestions for the top 25 job titles that still use the word ``man"}
+      \field{year}{2018}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://blog.ongig.com/diversity-and-inclusion/gender-neutral-job-titles/
+      \endverb
+      \verb{url}
+      \verb https://blog.ongig.com/diversity-and-inclusion/gender-neutral-job-titles/
+      \endverb
+    \endentry
     \entry{levy2008expectation}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=2e20881923b91d44e8f1ba7e0f38f42c}{%
@@ -90,6 +192,95 @@
       \field{year}{2008}
       \field{pages}{1126\bibrangedash 1177}
       \range{pages}{52}
+    \endentry
+    \entry{misersky2014norms}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=e778e71477aca05d0d27171a7104165e}{%
+           family={Misersky},
+           familyi={M\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=660f50b5bc08a588733a6e2ad13577dc}{%
+           family={Gygax},
+           familyi={G\bibinitperiod},
+           given={Pascal\bibnamedelima M},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=75e95d40d42a3583e7a6c3583b995026}{%
+           family={Canal},
+           familyi={C\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Ute},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4c2751663a2de813c63e3f3c4652ce9}{%
+           family={Garnham},
+           familyi={G\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1ab6dcb18c178cb84d92811e19c54dd}{%
+           family={Braun},
+           familyi={B\bibinitperiod},
+           given={Friederike},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c4b118f8396121fd2bf86d4d9f604c6}{%
+           family={Chiarini},
+           familyi={C\bibinitperiod},
+           given={Tania},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dc049ec2494d497ecdf9cdf1e7e1076}{%
+           family={Englund},
+           familyi={E\bibinitperiod},
+           given={Kjellrun},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3f8bf449204d7c76857c9f504729dc3}{%
+           family={Hanulikova},
+           familyi={H\bibinitperiod},
+           given={Adriana},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7c5a070315fa5b2f24d5cc6236c6bf7}{%
+           family={Öttl},
+           familyi={Ö\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{599b0a8ee785ebc902cc220dced5b3bb}
+      \strng{fullhash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{bibnamehash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{authorbibnamehash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{authornamehash}{599b0a8ee785ebc902cc220dced5b3bb}
+      \strng{authorfullhash}{a0091ae002f954812ad984b7bb433c2a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Behavior research methods}
+      \field{number}{3}
+      \field{title}{Norms on the gender perception of role nouns in Czech, English, French, German, Italian, Norwegian, and Slovak}
+      \field{volume}{46}
+      \field{year}{2014}
+      \field{pages}{841\bibrangedash 871}
+      \range{pages}{31}
     \endentry
     \entry{pozniak2021failures}{article}{}
       \name{author}{2}{}{%
@@ -127,6 +318,54 @@
       \field{title}{Failures of Gricean reasoning and the role of stereotypes in the production of gender marking in French}
       \field{volume}{6}
       \field{year}{2021}
+    \endentry
+    \entry{prolific}{misc}{}
+      \list{publisher}{1}{%
+        {Prolific}%
+      }
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{title}{Prolific}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.prolific.co
+      \endverb
+      \verb{url}
+      \verb https://www.prolific.co
+      \endverb
+    \endentry
+    \entry{sarahndom}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7706f4899e0d8e56f497c7fe7a5a5bc3}{%
+           family={@sarahndom},
+           familyi={@\bibinitperiod}}}%
+      }
+      \strng{namehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \strng{fullhash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \strng{bibnamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \strng{authorbibnamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \strng{authornamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \strng{authorfullhash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
+      \field{sortinit}{s}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{title}{i’m excited for this series!!}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.tiktok.com/foryou?lang=en&is_copy_url=1&is_from_webapp=v1
+      \endverb
+      \verb{url}
+      \verb https://www.tiktok.com/foryou?lang=en&is_copy_url=1&is_from_webapp=v1
+      \endverb
+      \warn{\item Entry 'sarahndom' (qp1.bib): Invalid format '24' of date field 'date' - ignoring}
     \endentry
     \entry{sarrasin2012sexism}{article}{}
       \name{author}{3}{}{%

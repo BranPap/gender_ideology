@@ -612,3 +612,13 @@ gender_data <- no_excludes %>%
 ```{r}
 prop.table(table(gender_data$gender,gender_data$poli_party))
 ```
+
+```{r}
+all_data %>%
+  filter(subject_information.gender != "") %>%
+  ggplot(aes(x=subject_information.gender,y=gender_total)) + 
+  geom_boxplot() + 
+  theme_minimal() + 
+  labs()
+```
+
