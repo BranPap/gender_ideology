@@ -3,7 +3,7 @@ import re
 
 blackout = " @ @ @ @ @ @ @ @ @ @ "
 
-input_directory = r"C:\Users\Unarm\onedrive\Desktop\COCA\COCA_Text\text_spoken_kde"
+input_directory = r"C:\Users\Unarm\OneDrive\Desktop\COCA\COCA_Text\text_spoken_kde"
 
 i = 1
 
@@ -24,21 +24,25 @@ i = 1
 
 tf_placeholder = re.compile("[A-Z']+\s[A-Z']*\s*\(+[\sA-Z\-\']*\s\)*", re.MULTILINE);
 
-
-
 for entry in os.scandir(output_directory):
     with open(entry, "r+") as file:
         with open(r"C:\Users\Unarm\onedrive\Desktop\COCA\COCA_Text\final_redos\{}output_final.txt".format(str(i)),'w') as output:
             lines = file.readlines()
             for line in lines:
                  if line !=" @\n" and line != "\n" and blackout not in line:
+                    line = re.sub(r"^((\w+)[\-]?)+.*?[#:]","",line)
+                    line = re.sub(r"@(\s*\(*[\w\s;,-]+\)*)?","",line)
+                    line = re.sub(r"^.*?\)","",line)
+                    line = re.sub(r"^.*?\)","",line)
+                    line = re.sub(r"^.*?\#","",line)
+                    # line = re.sub(r"@(\d+)?","",line)
                     line = line.replace(" ,",",")
-                    line = re.sub("[A-Z']+-[A-Z']+#","",line)
-                    line = re.sub("[A-Z]+#","",line)
-                    line = re.sub("[A-Z']+\s[A-Z']+#","",line)
-                    line = re.sub(tf_placeholder,"",line)
-                    line = re.sub("@@[1-9]*","",line)
-                    line = re.sub("@\(.*\)","",line)
+                    # line = re.sub("[A-Z']+-[A-Z']+#","",line)
+                    # line = re.sub("[A-Z]+#","",line)
+                    # line = re.sub("[A-Z']+\s[A-Z']+#","",line)
+                    # line = re.sub(tf_placeholder,"",line)
+                    # line = re.sub("@@[1-9]*","",line)
+                    # line = re.sub("@\(.*\)","",line)
                     line = re.sub("\" ","",line)
                     line = re.sub(" \'s","\'s",line)
                     line = re.sub(" \'S","\'S",line)
@@ -52,9 +56,9 @@ for entry in os.scandir(output_directory):
                     line = re.sub(" \'d", "\'d",line)
                     line = re.sub("\' cause","\'cause",line)
                     line = re.sub("\' Cause","\'Cause",line)
-                    line = re.sub("[A-Z1-9\-\s\'\(\),]+[#:]+", "",line)
+                    # line = re.sub("[A-Z1-9\-\s\'\(\),]+[#:]+", "",line)
                     line = line.strip(" ")
-                    if line != "\n" and line != "@\n":
+                    if line != "\n" and line != "@\n" and "(" not in line and ")" not in line:
                         output.write(line)
         i+=1
 

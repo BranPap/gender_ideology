@@ -1,0 +1,34 @@
+---
+title: "Frequency Analysis"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+frequency <- read.csv("freq_vals.csv")
+```
+
+
+```{r}
+lib_cols <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS')
+```
+
+```{r}
+frequency <- frequency %>%
+  mutate(total_left = rowSums(frequency[lib_cols])) %>%
+  mutate(total_right = FOX) %>%
+  mutate(left_wpm = (total_left/109300000) * 1000000) %>%
+  mutate(right_wpm = (total_right/12200000) * 1000000)
+```
+
+```{r}
+ggplot(frequency,aes(x=left_wpm, y=right_wpm, color = gender)) + 
+  geom_point() +
+  theme_minimal() + 
+  labs(x = "Words Per Million in Left-Wing Media", y="Words Per Million in Right-Wing Media", color="Gender of Form")
+```
+

@@ -25,6 +25,7 @@ library(stringr)
 library(languageR)
 library(lmerTest)
 library(reshape2)
+library(grid)
 ```
 
 ```{r}
@@ -34,7 +35,7 @@ theme_set(theme_minimal())
 # Data Read-In
 
 ```{r}
-all_data <- read.csv('merged_all_prod.csv')
+all_data <- read.csv('merged_all.csv')
 ```
 
 
@@ -154,8 +155,47 @@ crit_data %>%
 ```
 
 ```{r}
-ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_comp_party.png")
+crit_data %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,gender_total,poli_party) %>%
+  summarise(proportion = mean(response_neutral)) %>%
+  ggplot(aes(x=gender_total, y=proportion, color=gender)) +
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~poli_party)
 ```
+
+```{r}
+crit_data %>%
+  filter(poli_party == "Democrat" | poli_party == "Republican") %>%
+  ggplot(aes(x=time_in_minutes, fill=poli_party)) +
+  geom_density(alpha=.5) + 
+  xlim(0,60)
+```
+
+
+
+```{r}
+crit_data %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,subject_information.age,poli_party) %>%
+  summarise(proportion = mean(response_neutral)) %>%
+  ggplot(aes(x=subject_information.age, y=proportion, color=gender)) +
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+ggplot(crit_data, aes(x=subject_information.age)) + 
+  geom_histogram()
+```
+
+
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_comp_party.png")
 
 
 ```{r}
@@ -169,9 +209,8 @@ crit_data %>%
   scale_x_reverse()
 ```
 
-```{r}
+
 ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_comp_ideo.png")
-```
 
 ```{r}
 crit_data %>%
@@ -252,16 +291,16 @@ crit_data %>%
   theme_minimal()
 ```
 
-```{r}
+
 ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_results_cumulative.png")
-```
 
 
 ```{r}
 compound_only <- crit_data %>%
   filter(morph_type == "compound") %>%
   mutate(cgender_total = scale(gender_total)) %>%
-  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0")))
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age))
 ```
 
 
@@ -296,8 +335,100 @@ crit_data %>%
   labs(x="Stimulus Gender", fill="Gendered Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
 ```
 
+## Models
+
+### Reading in Frequency Data
+
 ```{r}
-complex_model <- lmer(response_congruency~cgender_total*gender + subject_information.gender + (1|workerid) + (1|lexeme) + (1|name),data = compound_only)
+frequency <- read.csv("freq_vals.csv")
+```
+
+
+```{r}
+lib_cols <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS')
+```
+
+```{r}
+frequency <- frequency %>%
+  mutate(total_left = rowSums(frequency[lib_cols])) %>%
+  mutate(total_right = FOX) %>%
+  mutate(left_wpm = (total_left/109300000) * 1000000) %>%
+  mutate(right_wpm = (total_right/12200000) * 1000000) %>%
+  mutate(neutral_binary = ifelse(gender=="neutral",1,0)) %>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+```
+
+```{r}
+ggplot(frequency,aes(x=left_wpm, y=right_wpm, color = gender)) + 
+  geom_point() +
+  theme_minimal() + 
+  labs(x = "Words Per Million in Left-Wing Media", y="Words Per Million in Right-Wing Media", color="Gender of Form") + #geom_smooth(method=lm) + 
+  geom_abline(intercept=0,slope=1,color="grey",linetype="dashed") + 
+  geom_text(aes(label=word))
+```
+
+
+
+
+# Models
+
+## Frequency Data
+
+```{r}
+frequency_grouped <- frequency %>%
+  filter(morph_type=="compound") %>%
+  group_by(lexeme,neutral_binary) %>%
+  summarise(mean_freq_left = mean(left_wpm), mean_freq_right = mean(right_wpm)) 
+```
+
+```{r}
+write.csv(frequency_grouped, "freq_prep.csv")
+```
+
+## Data Reshape
+
+```{r}
+compound_only <- compound_only %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0))
+```
+
+```{r}
+lex_freqs <- read.csv("freq_preped.csv") %>%
+  mutate(left_surprisal = (-log(mean_left_neutral))/(-log(mean_left_gendered))) %>%
+  mutate(right_surprisal = (-log(mean_right_neutral))/(-log(mean_right_gendered)))
+```
+
+```{r}
+final_dat <- merge(crit_data,lex_freqs,by="lexeme") %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0)) %>%
+  filter(morph_type == "compound") %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age)) %>%
+  mutate(cmean_left_neutral = scale(mean_left_neutral)) %>%
+  mutate(mean_all = (mean_left_neutral + mean_right_neutral)/2) %>%
+  mutate(cmean_all = scale(mean_all))
+```
+
+
+
+## First Model
+
+```{r}
+model_one <- lmer(neutrality_binary~cgender_total + poli_party + gender + cmean_all + (1|workerid) + (1|lexeme) + (1|name),data=final_dat)
+```
+
+```{r}
+summary(model_one)
+```
+
+
+
+## LATER 
+
+
+```{r}
+complex_model <- lmer(response_congruency~cgender_total*cage + (1|workerid) + (1|lexeme) + (1|name),data = compound_only)
 ```
 
 ```{r}
@@ -355,5 +486,23 @@ crit_data %>%
 ```
 
 ```{r}
-ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_ideo_pure.png")
+democrats = all_data %>%
+  filter(poli_party == "Democrat") %>%
+  group_by(workerid,gender_total) %>%
+  summarise(subject = paste(unique(workerid)),gender_total = paste(unique(gender_total)))
 ```
+
+```{r}
+republicans = all_data %>%
+  filter(poli_party == "Republican") %>%
+  group_by(workerid,gender_total) %>%
+  summarise(subject = paste(unique(workerid)),gender_total = paste(unique(gender_total)))
+```
+
+```{r}
+t.test(as.numeric(democrats$gender_total), as.numeric(republicans$gender_total))
+```
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_ideo_pure.png")
+
+

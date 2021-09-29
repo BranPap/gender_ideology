@@ -1,0 +1,894 @@
+Query,Time,Value,Unit
+"text=""heir"" AND channel=""CNN""",2010-02-01,1,seconds
+"text=""heir"" AND channel=""CNN""",2010-03-01,1,seconds
+"text=""heir"" AND channel=""CNN""",2010-04-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2010-05-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2010-06-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2010-07-01,1,seconds
+"text=""heir"" AND channel=""CNN""",2010-08-01,31,seconds
+"text=""heir"" AND channel=""CNN""",2010-09-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2010-10-01,48,seconds
+"text=""heir"" AND channel=""CNN""",2010-11-01,19,seconds
+"text=""heir"" AND channel=""CNN""",2010-12-01,12,seconds
+"text=""heir"" AND channel=""CNN""",2011-01-01,12,seconds
+"text=""heir"" AND channel=""CNN""",2011-02-01,19,seconds
+"text=""heir"" AND channel=""CNN""",2011-03-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2011-04-01,37,seconds
+"text=""heir"" AND channel=""CNN""",2011-05-01,20,seconds
+"text=""heir"" AND channel=""CNN""",2011-06-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2011-07-01,21,seconds
+"text=""heir"" AND channel=""CNN""",2011-08-01,18,seconds
+"text=""heir"" AND channel=""CNN""",2011-09-01,14,seconds
+"text=""heir"" AND channel=""CNN""",2011-10-01,39.251000000000005,seconds
+"text=""heir"" AND channel=""CNN""",2011-11-01,15,seconds
+"text=""heir"" AND channel=""CNN""",2011-12-01,43,seconds
+"text=""heir"" AND channel=""CNN""",2012-01-01,27,seconds
+"text=""heir"" AND channel=""CNN""",2012-02-01,21,seconds
+"text=""heir"" AND channel=""CNN""",2012-03-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2012-04-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2012-05-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2012-06-01,25.594,seconds
+"text=""heir"" AND channel=""CNN""",2012-07-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2012-08-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2012-09-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2012-10-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2012-11-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2012-12-01,28,seconds
+"text=""heir"" AND channel=""CNN""",2013-01-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2013-02-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2013-03-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2013-04-01,13,seconds
+"text=""heir"" AND channel=""CNN""",2013-05-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2013-06-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2013-07-01,182.53599999999997,seconds
+"text=""heir"" AND channel=""CNN""",2013-08-01,21,seconds
+"text=""heir"" AND channel=""CNN""",2013-09-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2013-10-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2013-11-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2013-12-01,14,seconds
+"text=""heir"" AND channel=""CNN""",2014-01-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2014-02-01,17,seconds
+"text=""heir"" AND channel=""CNN""",2014-03-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2014-04-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2014-05-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2014-06-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2014-07-01,15,seconds
+"text=""heir"" AND channel=""CNN""",2014-08-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2014-09-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2014-10-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2014-11-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2014-12-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2015-01-01,14,seconds
+"text=""heir"" AND channel=""CNN""",2015-02-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2015-03-01,89,seconds
+"text=""heir"" AND channel=""CNN""",2015-04-01,18,seconds
+"text=""heir"" AND channel=""CNN""",2015-05-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2015-06-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2015-07-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2015-08-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2015-09-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2015-10-01,15,seconds
+"text=""heir"" AND channel=""CNN""",2015-11-01,1,seconds
+"text=""heir"" AND channel=""CNN""",2015-12-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2016-01-01,13,seconds
+"text=""heir"" AND channel=""CNN""",2016-02-01,16,seconds
+"text=""heir"" AND channel=""CNN""",2016-03-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2016-04-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2016-05-01,17.65,seconds
+"text=""heir"" AND channel=""CNN""",2016-06-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2016-07-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2016-08-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2016-09-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2016-10-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2016-12-01,12,seconds
+"text=""heir"" AND channel=""CNN""",2017-01-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2017-02-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2017-03-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2017-04-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2017-05-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2017-06-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2017-07-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2017-08-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2017-09-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2017-10-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2017-11-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2017-12-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2018-01-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2018-02-01,12,seconds
+"text=""heir"" AND channel=""CNN""",2018-03-01,37,seconds
+"text=""heir"" AND channel=""CNN""",2018-04-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2018-05-01,32,seconds
+"text=""heir"" AND channel=""CNN""",2018-06-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2018-07-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2018-08-01,14,seconds
+"text=""heir"" AND channel=""CNN""",2018-09-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2018-10-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2018-11-01,13,seconds
+"text=""heir"" AND channel=""CNN""",2018-12-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2019-01-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2019-02-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2019-03-01,13,seconds
+"text=""heir"" AND channel=""CNN""",2019-04-01,13.337,seconds
+"text=""heir"" AND channel=""CNN""",2019-05-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2019-06-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2019-07-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2019-08-01,10,seconds
+"text=""heir"" AND channel=""CNN""",2019-09-01,18,seconds
+"text=""heir"" AND channel=""CNN""",2019-10-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2019-11-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2019-12-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2020-01-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2020-02-01,20,seconds
+"text=""heir"" AND channel=""CNN""",2020-03-01,19,seconds
+"text=""heir"" AND channel=""CNN""",2020-04-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2020-05-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2020-06-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2020-07-01,4,seconds
+"text=""heir"" AND channel=""CNN""",2020-08-01,3,seconds
+"text=""heir"" AND channel=""CNN""",2020-09-01,13,seconds
+"text=""heir"" AND channel=""CNN""",2020-10-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2020-11-01,6,seconds
+"text=""heir"" AND channel=""CNN""",2020-12-01,11,seconds
+"text=""heir"" AND channel=""CNN""",2021-01-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2021-02-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2021-03-01,7,seconds
+"text=""heir"" AND channel=""CNN""",2021-04-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2021-05-01,9,seconds
+"text=""heir"" AND channel=""CNN""",2021-06-01,8,seconds
+"text=""heir"" AND channel=""CNN""",2021-07-01,14,seconds
+"text=""heir"" AND channel=""CNN""",2021-08-01,5,seconds
+"text=""heir"" AND channel=""CNN""",2021-09-01,2,seconds
+"text=""heir"" AND channel=""CNN""",2010-01-01,0,seconds
+"text=""heir"" AND channel=""CNN""",2016-11-01,0,seconds
+"text=""heir"" AND channel=""FOX""",2010-01-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2010-02-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2010-03-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2010-04-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2010-05-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2010-06-01,1,seconds
+"text=""heir"" AND channel=""FOX""",2010-07-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2010-08-01,6.558,seconds
+"text=""heir"" AND channel=""FOX""",2010-09-01,11.54,seconds
+"text=""heir"" AND channel=""FOX""",2010-10-01,18,seconds
+"text=""heir"" AND channel=""FOX""",2010-11-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2010-12-01,19,seconds
+"text=""heir"" AND channel=""FOX""",2011-01-01,19,seconds
+"text=""heir"" AND channel=""FOX""",2011-02-01,20,seconds
+"text=""heir"" AND channel=""FOX""",2011-03-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2011-04-01,32,seconds
+"text=""heir"" AND channel=""FOX""",2011-05-01,26,seconds
+"text=""heir"" AND channel=""FOX""",2011-06-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2011-07-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2011-08-01,16,seconds
+"text=""heir"" AND channel=""FOX""",2011-09-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2011-10-01,2,seconds
+"text=""heir"" AND channel=""FOX""",2011-11-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2011-12-01,37,seconds
+"text=""heir"" AND channel=""FOX""",2012-01-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2012-02-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2012-03-01,2,seconds
+"text=""heir"" AND channel=""FOX""",2012-04-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2012-05-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2012-06-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2012-07-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2012-08-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2012-09-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2012-10-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2012-11-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2012-12-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2013-01-01,11,seconds
+"text=""heir"" AND channel=""FOX""",2013-02-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2013-03-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2013-04-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2013-05-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2013-06-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2013-07-01,123.013,seconds
+"text=""heir"" AND channel=""FOX""",2013-08-01,4,seconds
+"text=""heir"" AND channel=""FOX""",2013-09-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2013-10-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2013-11-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2013-12-01,2,seconds
+"text=""heir"" AND channel=""FOX""",2014-01-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2014-02-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2014-03-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2014-04-01,26,seconds
+"text=""heir"" AND channel=""FOX""",2014-05-01,14,seconds
+"text=""heir"" AND channel=""FOX""",2014-06-01,20,seconds
+"text=""heir"" AND channel=""FOX""",2014-07-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2014-08-01,12,seconds
+"text=""heir"" AND channel=""FOX""",2014-09-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2014-10-01,12.172,seconds
+"text=""heir"" AND channel=""FOX""",2014-11-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2014-12-01,14,seconds
+"text=""heir"" AND channel=""FOX""",2015-01-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2015-02-01,26,seconds
+"text=""heir"" AND channel=""FOX""",2015-03-01,77,seconds
+"text=""heir"" AND channel=""FOX""",2015-04-01,25,seconds
+"text=""heir"" AND channel=""FOX""",2015-05-01,25,seconds
+"text=""heir"" AND channel=""FOX""",2015-06-01,12.164,seconds
+"text=""heir"" AND channel=""FOX""",2015-07-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2015-08-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2015-09-01,11,seconds
+"text=""heir"" AND channel=""FOX""",2015-10-01,17,seconds
+"text=""heir"" AND channel=""FOX""",2015-11-01,12,seconds
+"text=""heir"" AND channel=""FOX""",2015-12-01,15,seconds
+"text=""heir"" AND channel=""FOX""",2016-01-01,22,seconds
+"text=""heir"" AND channel=""FOX""",2016-02-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2016-03-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2016-04-01,15,seconds
+"text=""heir"" AND channel=""FOX""",2016-05-01,21,seconds
+"text=""heir"" AND channel=""FOX""",2016-06-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2016-07-01,21,seconds
+"text=""heir"" AND channel=""FOX""",2016-08-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2016-09-01,16,seconds
+"text=""heir"" AND channel=""FOX""",2016-10-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2016-11-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2016-12-01,12.589,seconds
+"text=""heir"" AND channel=""FOX""",2017-01-01,5.791,seconds
+"text=""heir"" AND channel=""FOX""",2017-02-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2017-03-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2017-04-01,15,seconds
+"text=""heir"" AND channel=""FOX""",2017-05-01,2,seconds
+"text=""heir"" AND channel=""FOX""",2017-06-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2017-07-01,14,seconds
+"text=""heir"" AND channel=""FOX""",2017-08-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2017-09-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2017-10-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2017-11-01,15,seconds
+"text=""heir"" AND channel=""FOX""",2017-12-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2018-01-01,5,seconds
+"text=""heir"" AND channel=""FOX""",2018-02-01,2,seconds
+"text=""heir"" AND channel=""FOX""",2018-03-01,12,seconds
+"text=""heir"" AND channel=""FOX""",2018-04-01,4,seconds
+"text=""heir"" AND channel=""FOX""",2018-05-01,6.636,seconds
+"text=""heir"" AND channel=""FOX""",2018-06-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2018-07-01,12,seconds
+"text=""heir"" AND channel=""FOX""",2018-08-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2018-09-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2018-10-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2018-11-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2018-12-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2019-01-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2019-02-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2019-03-01,4,seconds
+"text=""heir"" AND channel=""FOX""",2019-04-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2019-05-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2019-06-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2019-07-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2019-08-01,14,seconds
+"text=""heir"" AND channel=""FOX""",2019-09-01,5,seconds
+"text=""heir"" AND channel=""FOX""",2019-10-01,14,seconds
+"text=""heir"" AND channel=""FOX""",2019-11-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2019-12-01,6,seconds
+"text=""heir"" AND channel=""FOX""",2020-01-01,10,seconds
+"text=""heir"" AND channel=""FOX""",2020-02-01,5,seconds
+"text=""heir"" AND channel=""FOX""",2020-03-01,25,seconds
+"text=""heir"" AND channel=""FOX""",2020-04-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2020-05-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2020-06-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2020-07-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2020-08-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2020-09-01,3,seconds
+"text=""heir"" AND channel=""FOX""",2020-10-01,4,seconds
+"text=""heir"" AND channel=""FOX""",2020-11-01,5,seconds
+"text=""heir"" AND channel=""FOX""",2020-12-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2021-01-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2021-02-01,5,seconds
+"text=""heir"" AND channel=""FOX""",2021-03-01,7,seconds
+"text=""heir"" AND channel=""FOX""",2021-04-01,11,seconds
+"text=""heir"" AND channel=""FOX""",2021-05-01,9,seconds
+"text=""heir"" AND channel=""FOX""",2021-06-01,13,seconds
+"text=""heir"" AND channel=""FOX""",2021-07-01,8,seconds
+"text=""heir"" AND channel=""FOX""",2021-08-01,12,seconds
+"text=""heir"" AND channel=""FOX""",2021-09-01,5,seconds
+"text=""heiress"" AND channel=""CNN""",2010-01-01,14,seconds
+"text=""heiress"" AND channel=""CNN""",2010-06-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2010-07-01,7,seconds
+"text=""heiress"" AND channel=""CNN""",2011-01-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2011-05-01,4,seconds
+"text=""heiress"" AND channel=""CNN""",2011-06-01,8,seconds
+"text=""heiress"" AND channel=""CNN""",2011-07-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2011-10-01,11,seconds
+"text=""heiress"" AND channel=""CNN""",2011-11-01,7.08,seconds
+"text=""heiress"" AND channel=""CNN""",2011-12-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2012-01-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2012-03-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2012-04-01,8,seconds
+"text=""heiress"" AND channel=""CNN""",2012-05-01,20,seconds
+"text=""heiress"" AND channel=""CNN""",2012-07-01,11,seconds
+"text=""heiress"" AND channel=""CNN""",2012-11-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2013-03-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2013-05-01,5,seconds
+"text=""heiress"" AND channel=""CNN""",2013-06-01,13,seconds
+"text=""heiress"" AND channel=""CNN""",2013-07-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2013-09-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2013-11-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2014-01-01,4,seconds
+"text=""heiress"" AND channel=""CNN""",2014-02-01,7,seconds
+"text=""heiress"" AND channel=""CNN""",2014-08-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2014-10-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2014-11-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2015-01-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2015-03-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2015-07-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2015-08-01,10,seconds
+"text=""heiress"" AND channel=""CNN""",2015-09-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2015-10-01,5,seconds
+"text=""heiress"" AND channel=""CNN""",2015-11-01,5,seconds
+"text=""heiress"" AND channel=""CNN""",2015-12-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-01-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2016-02-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-03-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-04-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2016-05-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-06-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2016-07-01,4,seconds
+"text=""heiress"" AND channel=""CNN""",2016-08-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2016-09-01,6,seconds
+"text=""heiress"" AND channel=""CNN""",2016-10-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-11-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2016-12-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2017-01-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2017-02-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2017-05-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2017-07-01,6,seconds
+"text=""heiress"" AND channel=""CNN""",2017-12-01,6,seconds
+"text=""heiress"" AND channel=""CNN""",2018-02-01,41,seconds
+"text=""heiress"" AND channel=""CNN""",2018-06-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2018-07-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2018-11-01,6.965,seconds
+"text=""heiress"" AND channel=""CNN""",2018-12-01,4,seconds
+"text=""heiress"" AND channel=""CNN""",2019-01-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2019-02-01,6,seconds
+"text=""heiress"" AND channel=""CNN""",2019-06-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2019-07-01,5,seconds
+"text=""heiress"" AND channel=""CNN""",2019-08-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2019-10-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2019-12-01,2,seconds
+"text=""heiress"" AND channel=""CNN""",2020-01-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2020-07-01,1,seconds
+"text=""heiress"" AND channel=""CNN""",2021-01-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2021-02-01,4.523,seconds
+"text=""heiress"" AND channel=""CNN""",2021-06-01,3,seconds
+"text=""heiress"" AND channel=""CNN""",2010-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2010-05-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2010-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2010-12-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2011-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2011-04-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2011-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2011-09-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2012-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2012-06-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2012-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2012-10-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2012-12-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2013-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2013-04-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2013-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2013-10-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2013-12-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2014-03-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2014-07-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2014-09-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2014-12-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2015-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2015-04-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2015-06-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2017-03-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2017-04-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2017-06-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2017-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2017-11-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2018-01-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2018-03-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2018-05-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2018-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2018-10-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2019-03-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2019-05-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2019-09-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2019-11-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2020-02-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2020-06-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2020-08-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2020-12-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2021-03-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2021-05-01,0,seconds
+"text=""heiress"" AND channel=""CNN""",2021-07-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2010-01-01,29.331,seconds
+"text=""heiress"" AND channel=""FOX""",2010-03-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2010-07-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2010-08-01,4,seconds
+"text=""heiress"" AND channel=""FOX""",2010-09-01,4,seconds
+"text=""heiress"" AND channel=""FOX""",2011-05-01,6,seconds
+"text=""heiress"" AND channel=""FOX""",2011-06-01,5,seconds
+"text=""heiress"" AND channel=""FOX""",2011-12-01,4,seconds
+"text=""heiress"" AND channel=""FOX""",2012-01-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2012-02-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2012-04-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2012-05-01,23,seconds
+"text=""heiress"" AND channel=""FOX""",2012-06-01,4,seconds
+"text=""heiress"" AND channel=""FOX""",2012-11-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2013-02-01,4,seconds
+"text=""heiress"" AND channel=""FOX""",2013-03-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2013-07-01,6,seconds
+"text=""heiress"" AND channel=""FOX""",2013-08-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2013-09-01,5,seconds
+"text=""heiress"" AND channel=""FOX""",2013-12-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2014-01-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2014-02-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2014-10-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2014-11-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2015-02-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2015-03-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2015-07-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2015-09-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2016-06-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2016-11-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2017-09-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2018-11-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2019-01-01,2,seconds
+"text=""heiress"" AND channel=""FOX""",2019-03-01,8,seconds
+"text=""heiress"" AND channel=""FOX""",2019-04-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2019-05-01,5,seconds
+"text=""heiress"" AND channel=""FOX""",2020-02-01,3,seconds
+"text=""heiress"" AND channel=""FOX""",2020-07-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2021-05-01,1,seconds
+"text=""heiress"" AND channel=""FOX""",2010-02-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2010-04-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2010-06-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2010-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2011-04-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2011-07-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2011-11-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2012-03-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2012-07-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2012-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2012-12-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2013-01-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2013-04-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2013-06-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2013-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2013-11-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2014-03-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2014-09-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2014-12-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2015-01-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2015-04-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2015-06-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2015-08-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2015-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2016-05-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2016-07-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2016-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2016-12-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2017-08-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2017-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2018-10-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2018-12-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2019-02-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2019-06-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2020-01-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2020-03-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2020-06-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2020-08-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2021-04-01,0,seconds
+"text=""heiress"" AND channel=""FOX""",2021-06-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-01-01,16,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-02-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-03-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-04-01,13,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-05-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-07-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-08-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-09-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-10-01,36,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-11-01,24,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-12-01,11,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-01-01,13,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-02-01,39,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-03-01,37,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-04-01,23.613,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-05-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-06-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-07-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-08-01,33,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-09-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-10-01,10,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-11-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2011-12-01,20,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-01-01,2,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-02-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-03-01,25,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-04-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-05-01,11,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-06-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-07-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-08-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-09-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-10-01,33,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-11-01,21,seconds
+"text=""cameraman"" AND channel=""CNN""",2012-12-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-01-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-02-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-03-01,26,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-04-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-05-01,14,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-06-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-07-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-08-01,20.161,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-09-01,24,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-10-01,10,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-11-01,24,seconds
+"text=""cameraman"" AND channel=""CNN""",2013-12-01,11,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-01-01,21,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-02-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-03-01,19,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-04-01,13,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-05-01,10,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-06-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-07-01,17,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-08-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-09-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-10-01,204.216,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-11-01,26,seconds
+"text=""cameraman"" AND channel=""CNN""",2014-12-01,20,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-01-01,21,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-02-01,22,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-03-01,21,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-04-01,23,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-05-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-06-01,27,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-07-01,8,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-08-01,77,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-09-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-10-01,21.127,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-11-01,13,seconds
+"text=""cameraman"" AND channel=""CNN""",2015-12-01,10,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-01-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-02-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-03-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-04-01,1,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-05-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-06-01,11,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-07-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-08-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-09-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-10-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-11-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2016-12-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-02-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-03-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-04-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-05-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-06-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-07-01,12,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-08-01,21,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-09-01,22,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-10-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-11-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-12-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-02-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-03-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-04-01,13,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-05-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-06-01,2,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-07-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-08-01,13.891,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-09-01,10,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-10-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-11-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-12-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-01-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-02-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-03-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-04-01,1,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-05-01,4.4030000000000005,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-06-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-07-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-08-01,2.693,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-09-01,9,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-10-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-11-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2019-12-01,2.798,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-01-01,1,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-02-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-03-01,2,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-04-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-05-01,15,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-06-01,18,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-08-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-09-01,1,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-11-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-12-01,2,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-01-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-02-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-03-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-04-01,3,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-05-01,6,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-06-01,4,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-07-01,5,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-08-01,7,seconds
+"text=""cameraman"" AND channel=""CNN""",2010-06-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2017-01-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2018-01-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-07-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2020-10-01,0,seconds
+"text=""cameraman"" AND channel=""CNN""",2021-09-01,0,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-01-01,14,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-02-01,14,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-03-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-04-01,15,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-05-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-06-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-07-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-08-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-09-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-10-01,15,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-11-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2010-12-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-01-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-02-01,59,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-03-01,15,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-04-01,14,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-05-01,18,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-06-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-07-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-08-01,28,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-09-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-10-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-11-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2011-12-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-01-01,6.67,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-02-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-03-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-04-01,26,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-05-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-06-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-07-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-08-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-09-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-10-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-11-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-01-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-02-01,10,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-03-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-04-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-05-01,10,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-06-01,11,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-07-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-08-01,26,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-09-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-10-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-11-01,7.066,seconds
+"text=""cameraman"" AND channel=""FOX""",2013-12-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-01-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-02-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-03-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-04-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-05-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-06-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-07-01,15,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-08-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-09-01,5.872,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-10-01,98,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-11-01,19,seconds
+"text=""cameraman"" AND channel=""FOX""",2014-12-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-01-01,18,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-02-01,14,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-04-01,15,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-05-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-06-01,18,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-07-01,8,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-08-01,51,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-09-01,29,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-10-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-11-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-12-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-01-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-03-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-04-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-05-01,8,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-06-01,36.433,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-07-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-08-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-09-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-10-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-11-01,8,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-12-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-01-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-02-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-03-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-04-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-05-01,5,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-06-01,11,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-07-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-08-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-09-01,14,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-10-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-11-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2017-12-01,8,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-01-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-02-01,7,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-03-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-04-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-05-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-06-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-07-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-08-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-09-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-10-01,10,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-11-01,11,seconds
+"text=""cameraman"" AND channel=""FOX""",2018-12-01,10,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-01-01,11,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-02-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-03-01,4.777,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-04-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-06-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-07-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-08-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-09-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-10-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-11-01,9,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-12-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-01-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-02-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-04-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-05-01,13,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-06-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-07-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-08-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-09-01,1,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-10-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-11-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-12-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-01-01,3,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-02-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-03-01,6,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-04-01,8,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-05-01,11,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-06-01,4,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-07-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-08-01,12,seconds
+"text=""cameraman"" AND channel=""FOX""",2021-09-01,2,seconds
+"text=""cameraman"" AND channel=""FOX""",2012-12-01,0,seconds
+"text=""cameraman"" AND channel=""FOX""",2015-03-01,0,seconds
+"text=""cameraman"" AND channel=""FOX""",2016-02-01,0,seconds
+"text=""cameraman"" AND channel=""FOX""",2019-05-01,0,seconds
+"text=""cameraman"" AND channel=""FOX""",2020-03-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-01-01,6,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-07-01,1,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-09-01,1,seconds
+"text=""camerawoman"" AND channel=""CNN""",2012-08-01,1,seconds
+"text=""camerawoman"" AND channel=""CNN""",2012-09-01,1,seconds
+"text=""camerawoman"" AND channel=""CNN""",2016-04-01,2,seconds
+"text=""camerawoman"" AND channel=""CNN""",2017-10-01,2,seconds
+"text=""camerawoman"" AND channel=""CNN""",2017-11-01,3,seconds
+"text=""camerawoman"" AND channel=""CNN""",2017-12-01,1,seconds
+"text=""camerawoman"" AND channel=""CNN""",2019-03-01,2,seconds
+"text=""camerawoman"" AND channel=""CNN""",2010-12-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-02-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-06-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-08-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2011-10-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2012-07-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2012-10-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2016-03-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2016-05-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2017-09-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2018-01-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2019-02-01,0,seconds
+"text=""camerawoman"" AND channel=""CNN""",2019-04-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2011-02-01,1,seconds
+"text=""camerawoman"" AND channel=""FOX""",2012-03-01,4,seconds
+"text=""camerawoman"" AND channel=""FOX""",2015-02-01,1,seconds
+"text=""camerawoman"" AND channel=""FOX""",2011-01-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2011-03-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2012-02-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2012-04-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2015-01-01,0,seconds
+"text=""camerawoman"" AND channel=""FOX""",2015-03-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2010-10-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2011-06-01,2,seconds
+"text=""camera operator"" AND channel=""CNN""",2011-12-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-08-01,3,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-09-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-01-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-05-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-07-01,3,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-10-01,4,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-03-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-07-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-01-01,2,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-02-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-06-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-08-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-09-01,2,seconds
+"text=""camera operator"" AND channel=""CNN""",2016-10-01,4,seconds
+"text=""camera operator"" AND channel=""CNN""",2019-11-01,1,seconds
+"text=""camera operator"" AND channel=""CNN""",2021-06-01,3,seconds
+"text=""camera operator"" AND channel=""CNN""",2010-09-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2010-11-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2011-05-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2011-07-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2011-11-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-01-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-07-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-10-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2012-12-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-02-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-04-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-06-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-08-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-09-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2013-11-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-02-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-04-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-06-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-08-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2014-12-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-03-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-05-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-07-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2015-10-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2016-09-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2016-11-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2019-10-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2019-12-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2021-05-01,0,seconds
+"text=""camera operator"" AND channel=""CNN""",2021-07-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2010-08-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2011-03-01,3,seconds
+"text=""camera operator"" AND channel=""FOX""",2011-04-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-01-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-03-01,2,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-04-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-05-01,2,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-02-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-08-01,2,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-01-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-04-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-12-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2015-01-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2016-08-01,2,seconds
+"text=""camera operator"" AND channel=""FOX""",2017-11-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-07-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-11-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2019-12-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2020-11-01,3,seconds
+"text=""camera operator"" AND channel=""FOX""",2020-12-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-04-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-05-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-06-01,1,seconds
+"text=""camera operator"" AND channel=""FOX""",2010-07-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2010-09-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2011-02-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2011-05-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2011-12-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-02-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2012-06-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-01-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-03-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-07-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-09-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2013-12-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-02-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-03-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-05-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2014-11-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2015-02-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2016-07-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2016-09-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2017-10-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2017-12-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-06-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-08-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-10-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2018-12-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2019-11-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2020-01-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2020-10-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-01-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-03-01,0,seconds
+"text=""camera operator"" AND channel=""FOX""",2021-07-01,0,seconds
