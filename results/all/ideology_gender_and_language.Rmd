@@ -1,0 +1,132 @@
+---
+title: "Sally the Congressperson: A Psycho- and Sociolinguistic Investigation into the Relationship Between Ideology, Gender, and Language"
+author: "B. Papineau"
+date: "Autumn 2021"
+output:
+  html_notebook:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+# Introduction 
+The code and information contained herein constitutes the complete write-up of the experiments I carried out for my first Qualifying Paper towards the PhD in Linguistics at Stanford University. The goal is to make this document both a dumping ground for my ideas while it is in progress, as well as, eventually, a publicly-available version of my Qualifying Paper, in the spirit of Open Science.
+
+## Preliminaries 
+For this write-up and analysis, I require the following packages, loaded in here:
+
+```{r echo=TRUE}
+library(ggplot2) 
+library(tidyverse) 
+library(lme4) 
+library(stringr)
+library(languageR)
+library(lmerTest)
+library(reshape2)
+library(grid)
+```
+
+I also use a custom color palette, so I include the code for that here as well^[It is my hope and intention that this color palette be color-blind friendly. If you have accessibility concerns, please do not hesitate to reach out to me!].
+
+```{r}
+bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
+```
+
+# Experiments 
+
+## Norming Study
+
+### Methods
+
+
+**Participants**
+
+100 participants were recruited through the online recruitment platform [Prolific](prolific.co.uk). All participants were self-identified L1 English speakers and were born and resided in the United States at the time of participation. None of the participants had participated in the 4-person pilot of the norming study, and the pilot data is not reported here. 
+
+All participants, regardless of their data's final inclusion in the analysis, were compensated \$2.00 for their partaking in the study. The average completion time for the task was 4.353 minutes, which resulted in an average payout of \$31.85/hr. 
+
+**Experiment**
+
+A link to the experiment can be found [here](https://branpap.github.io/gender_processing/experiments/norming_study_one/experiment.html), and is available for the keen reader to click through; results are not stored in any way.
+
+### Analysis 
+
+**Reading in the Data**
+
+I read in the data here, as well as including some upfront filters and mutations. Their individual purposes are provided in accompanying comments.
+
+```{r ECHO=TRUE}
+norming_data <- read.csv("norming_data.csv") %>%
+  filter(id!="example1") %>% # Will filter out non-critical trials, i.e. the example trial from the beginning of the experiment
+  mutate(equalized_response = ifelse(scale=="FM",8-response,response)) %>% # This will render all data points on the same scale, as participants randomly received either "very likely a man" or "very likely a woman" as the left end of their response scale, with the other appearing at the right end
+  mutate(orthog = ifelse(orthog=="sroceress","sorceress",orthog)) %>% # Fixes a typo
+  mutate(id = ifelse(id=="Stunt_double","Stunt double",id)) %>% # This, as well as all lines below it, convert compounds formed by spaces from their underscore forms to their spaced forms (e.g. police_officer -> Police officer)
+  mutate(id = ifelse(id=="Restaurant_server","Restaurant server",id)) %>%
+  mutate(id = ifelse(id=="Police_officer","Police officer",id)) %>%
+  mutate(id = ifelse(id=="Door_attendant","Door attendant",id)) %>%
+  mutate(id = ifelse(id=="Flight_attendant","Flight attendant",id)) %>%
+  mutate(id = ifelse(id=="Garbage_Collector","Garbage collector",id)) %>%
+  mutate(id = ifelse(id=="Mail_Carrier","Mail carrier",id)) %>%
+  mutate(id = ifelse(id=="Maintenance_Person","Maintenance person",id)) %>%
+  mutate(id = ifelse(id=="Paper_carrier","Paper carrier",id)) 
+```
+
+**Generating an Exclusion List**
+
+Here I generate a list of participants to exclude, based on the criteria laid out in Section 2.1.1.
+
+```{r ECHO=TRUE}
+norming_exclusion <- norming_data %>% 
+  filter(gender=="female") %>% 
+  group_by(workerid) %>%
+  summarize(female_mean = mean(equalized_response)) %>%
+  unique() %>% 
+  mutate(exclusion = female_mean < mean(female_mean) - 2*sd(female_mean)) %>%
+  filter(exclusion==TRUE)
+```
+
+Now I can exclude these participants from the data under analysis.
+
+```{r ECHO=TRUE}
+norming_data <- norming_data[!(norming_data$workerid %in% norming_exclusion$workerid),]
+```
+
+**Means by Item**
+
+```{r}
+norming_means <- norming_data %>%
+  group_by(id,gender,orthog) %>%
+  summarise(indi_mean = mean(equalized_response), trial_count=n())
+```
+
+```{r}
+text_high <- textGrob("Female", gp=gpar(fontsize=10, fontface="bold"))
+text_low <- textGrob("Male", gp=gpar(fontsize=10, fontface="bold"))
+```
+
+```{r}
+ggplot(norming_means, aes(x=id, y=indi_mean, color=gender)) + 
+  geom_point() + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=8)) + 
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form", title="Mean Gender Rating by Ungendered Form and Gender Seen") + 
+  scale_color_manual(values = bran_palette) + 
+  theme(plot.margin = unit(c(1,1,2,1), "lines")) +
+  annotation_custom(text_high,xmin=-1.3,xmax=-1.3,ymin=7,ymax=7) + 
+  annotation_custom(text_low,xmin=-1,xmax=-1,ymin=1,ymax=1) + 
+  coord_cartesian(clip = "off")
+```
+
+
+## Self-Paced Reading Study
+
+## MAZE-Task Study
+
+## Production Task Study
+
+
