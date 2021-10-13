@@ -232,14 +232,14 @@ all_data %>%
   geom_point(size=3) + 
   geom_jitter(data = agg_speaker_mean_con, aes(y=MeanRT),alpha=.2,color='mediumslateblue') + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
-  scale_color_manual(values = cbPalette) + 
-  theme_minimal()
+  scale_color_manual(values = cbPalette) 
 ```
+
 ## Reading Time by Gender Ideology
 
 ```{r}
 aggr_speaker <- all_data %>%
-  group_by(gender_link,workerid,trial_gender,trial_congruency) %>%
+  group_by(gender_link,workerid,trial_gender,trial_congruency,poli_party) %>%
   summarise(meanrt = mean(resid_rt))
 ```
 
