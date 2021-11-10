@@ -466,6 +466,16 @@ prop.table(table(gender_data$gender,gender_data$poli_party))
 ```
 
 ```{r}
+gender_data_orig <- read.csv("merged_all_prod.csv") %>%
+  group_by(workerid,subject_information.gender) %>%
+  summarise(gender = paste(unique(subject_information.gender)))
+```
+
+```{r}
+prop.table(table(gender_data_orig$gender))
+3/```
+
+```{r}
 cons_text <- textGrob("Conservative", gp=gpar(fontsize=10, fontface="bold"))
 lib_text <- textGrob("Liberal", gp=gpar(fontsize=10, fontface="bold"))
 ```

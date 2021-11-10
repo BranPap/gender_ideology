@@ -1,19 +1,18 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'papineau_qp1.blg'
-[60] biber-darwin:340> INFO - === Tue Sep  7, 2021, 11:06:58
-[72] Biber.pm:415> INFO - Reading 'papineau_qp1.bcf'
-[169] Biber.pm:952> INFO - Found 12 citekeys in bib section 0
-[182] Biber.pm:4340> INFO - Processing section 0
-[191] Biber.pm:4531> INFO - Looking for bibtex format file 'qp1.bib' for section 0
-[192] bibtex.pm:1689> INFO - LaTeX decoding ...
-[213] bibtex.pm:1494> INFO - Found BibTeX data source 'qp1.bib'
-[265] Utils.pm:395> WARN - legacy month field 'July' in entry 'sarahndom' is not an integer - this will probably not sort properly.
-[265] Utils.pm:395> WARN - Entry 'sarahndom' (qp1.bib): Invalid format '24' of date field 'date' - ignoring
-[267] Utils.pm:395> WARN - legacy month field 'Feb' in entry 'kelly2018' is not an integer - this will probably not sort properly.
-[287] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[287] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[287] Biber.pm:4168> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[287] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[300] bbl.pm:654> INFO - Writing 'papineau_qp1.bbl' with encoding 'UTF-8'
-[307] bbl.pm:757> INFO - Output to papineau_qp1.bbl
-[307] Biber.pm:128> INFO - WARNINGS: 3
+[51] biber-darwin:340> INFO - === Sun Nov  7, 2021, 13:10:19
+[62] Biber.pm:415> INFO - Reading 'papineau_qp1.bcf'
+[142] Biber.pm:952> INFO - Found 14 citekeys in bib section 0
+[155] Biber.pm:4340> INFO - Processing section 0
+[162] Biber.pm:4531> INFO - Looking for bibtex format file 'qp1.bib' for section 0
+[164] bibtex.pm:1689> INFO - LaTeX decoding ...
+[193] bibtex.pm:1494> INFO - Found BibTeX data source 'qp1.bib'
+[195] Utils.pm:395> WARN - Duplicate entry key: 'misersky2014norms' in file 'qp1.bib', skipping ...
+[252] Utils.pm:395> WARN - legacy month field 'Aug' in entry 'charalambides2021' is not an integer - this will probably not sort properly.
+[279] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[279] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[279] Biber.pm:4168> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[279] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[294] bbl.pm:654> INFO - Writing 'papineau_qp1.bbl' with encoding 'UTF-8'
+[302] bbl.pm:757> INFO - Output to papineau_qp1.bbl
+[302] Biber.pm:128> INFO - WARNINGS: 2

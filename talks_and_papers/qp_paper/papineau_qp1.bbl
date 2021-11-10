@@ -19,6 +19,37 @@
 
 \refsection{0}
   \datalist[entry]{apa/global//global/global}
+    \entry{socialsecurity}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7309f46ec64c7efe3a95b6a2ea52805e}{%
+           family={Administration},
+           familyi={A\bibinitperiod},
+           given={Social\bibnamedelima Security},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \strng{fullhash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \strng{bibnamehash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \strng{authorbibnamehash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \strng{authornamehash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \strng{authorfullhash}{7309f46ec64c7efe3a95b6a2ea52805e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Popular Names in 1998}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.ssa.gov/cgi-bin/popularnames.cgi
+      \endverb
+      \verb{url}
+      \verb https://www.ssa.gov/cgi-bin/popularnames.cgi
+      \endverb
+    \endentry
     \entry{baber2006social}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=f410a0690648b6b6f23f6d1a38771a74}{%
@@ -58,60 +89,150 @@
       \field{pages}{459\bibrangedash 467}
       \range{pages}{9}
     \endentry
-    \entry{gygax2008can}{article}{}
-      \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=1ec13d4af2959365f131f9f77db08b81}{%
-           family={Gygax},
-           familyi={G\bibinitperiod},
-           given={Pascal},
-           giveni={P\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
-           family={Gabriel},
-           familyi={G\bibinitperiod},
-           given={Ute},
-           giveni={U\bibinitperiod},
+    \entry{charalambides2021}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=698d74e2bf83968a5e29aa48a29720fe}{%
+           family={Charalambides},
+           familyi={C\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Verlag Hans Huber}%
+        {Prolific}%
       }
-      \strng{namehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \strng{fullhash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \strng{bibnamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \strng{authorbibnamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \strng{authornamehash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \strng{authorfullhash}{5c5aa7c0dae35d31f4d9104bb355bef2}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \strng{namehash}{698d74e2bf83968a5e29aa48a29720fe}
+      \strng{fullhash}{698d74e2bf83968a5e29aa48a29720fe}
+      \strng{bibnamehash}{698d74e2bf83968a5e29aa48a29720fe}
+      \strng{authorbibnamehash}{698d74e2bf83968a5e29aa48a29720fe}
+      \strng{authornamehash}{698d74e2bf83968a5e29aa48a29720fe}
+      \strng{authorfullhash}{698d74e2bf83968a5e29aa48a29720fe}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Swiss Journal of Psychology}
-      \field{number}{3}
-      \field{title}{Can a group of musicians be composed of women? Generic interpretation of French masculine role names in the absence and presence of feminine forms}
-      \field{volume}{67}
-      \field{year}{2008}
-      \field{pages}{143\bibrangedash 151}
-      \range{pages}{9}
+      \field{journaltitle}{Prolific}
+      \field{month}{8}
+      \field{title}{We recently went viral ON TikTok - Here's what we learned}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://blog.prolific.co/we-recently-went- viral-on-tiktok-heres-what-we-learned/
+      \endverb
+      \verb{url}
+      \verb https://blog.prolific.co/we-recently-went-%20viral-on-tiktok-heres-what-we-learned/
+      \endverb
     \endentry
-    \entry{hilton2022}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=31be21a7f01b412d0c7b83aba880caef}{%
-           family={Hilton},
-           familyi={H\bibinitperiod},
-           given={Katherine\bibnamedelima Marie},
-           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+    \entry{duffy2004violating}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=af7ae192ecfb61d5e9d27f4587bc4fca}{%
+           family={Duffy},
+           familyi={D\bibinitperiod},
+           given={Susan\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02f98d50af53dc810e8663a52f3d679b}{%
+           family={Keir},
+           familyi={K\bibinitperiod},
+           given={Jessica\bibnamedelima A},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{31be21a7f01b412d0c7b83aba880caef}
-      \strng{fullhash}{31be21a7f01b412d0c7b83aba880caef}
-      \strng{bibnamehash}{31be21a7f01b412d0c7b83aba880caef}
-      \strng{authorbibnamehash}{31be21a7f01b412d0c7b83aba880caef}
-      \strng{authornamehash}{31be21a7f01b412d0c7b83aba880caef}
-      \strng{authorfullhash}{31be21a7f01b412d0c7b83aba880caef}
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{fullhash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{bibnamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authorbibnamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authornamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authorfullhash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Memory \& Cognition}
+      \field{number}{4}
+      \field{title}{Violating stereotypes: Eye movements and comprehension processes when text conflicts with world knowledge}
+      \field{volume}{32}
+      \field{year}{2004}
+      \field{pages}{551\bibrangedash 559}
+      \range{pages}{9}
+    \endentry
+    \entry{foertsch1997search}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f5b05ae7d6d170a2417eebb27a941ca9}{%
+           family={Foertsch},
+           familyi={F\bibinitperiod},
+           given={Julie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ad3f199a9ccc715cdcfcc01052d1381}{%
+           family={Gernsbacher},
+           familyi={G\bibinitperiod},
+           given={Morton\bibnamedelima Ann},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{fullhash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{bibnamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authorbibnamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authornamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authorfullhash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological science}
+      \field{number}{2}
+      \field{title}{In search of gender neutrality: Is singular they a cognitively efficient substitute for generic he?}
+      \field{volume}{8}
+      \field{year}{1997}
+      \field{pages}{106\bibrangedash 111}
+      \range{pages}{6}
+    \endentry
+    \entry{hall2010indexing}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=95de0897793a73cfd6bd90a5013789e8}{%
+           family={Hall-Lew},
+           familyi={H\bibinithyphendelim L\bibinitperiod},
+           given={Lauren},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf572c45c0cc3439cb96d2bc27fb622a}{%
+           family={Coppock},
+           familyi={C\bibinitperiod},
+           given={Elizabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac15b106048fc365f234541dfc49262f}{%
+           family={Starr},
+           familyi={S\bibinitperiod},
+           given={Rebecca\bibnamedelima L},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Duke University Press}%
+      }
+      \strng{namehash}{a7b00e5339379f61088b856d83d0772d}
+      \strng{fullhash}{96e492c9512bb5abfd60d617c1b471fd}
+      \strng{bibnamehash}{96e492c9512bb5abfd60d617c1b471fd}
+      \strng{authorbibnamehash}{96e492c9512bb5abfd60d617c1b471fd}
+      \strng{authornamehash}{a7b00e5339379f61088b856d83d0772d}
+      \strng{authorfullhash}{96e492c9512bb5abfd60d617c1b471fd}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -119,28 +240,98 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Linguistic Society of America 2022 Annual Meeting}
-      \field{title}{Gender Bias in Perceiving Interruptions}
-      \field{year}{2022}
+      \field{journaltitle}{American Speech}
+      \field{number}{1}
+      \field{title}{Indexing political persuasion: Variation in the Iraq vowels}
+      \field{volume}{85}
+      \field{year}{2010}
+      \field{pages}{91\bibrangedash 102}
+      \range{pages}{12}
     \endentry
-    \entry{kelly2018}{misc}{}
+    \entry{hall2020breksit}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=95de0897793a73cfd6bd90a5013789e8}{%
+           family={Hall-Lew},
+           familyi={H\bibinithyphendelim L\bibinitperiod},
+           given={Lauren},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d0ef47ad49c31332366027cc6ec870e9}{%
+           family={Trousdale},
+           familyi={T\bibinitperiod},
+           given={Graeme},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{41a595cfee3789911d38de05368989d7}
+      \strng{fullhash}{41a595cfee3789911d38de05368989d7}
+      \strng{bibnamehash}{41a595cfee3789911d38de05368989d7}
+      \strng{authorbibnamehash}{41a595cfee3789911d38de05368989d7}
+      \strng{authornamehash}{41a595cfee3789911d38de05368989d7}
+      \strng{authorfullhash}{41a595cfee3789911d38de05368989d7}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{University of Pennsylvania Working Papers in Linguistics}
+      \field{number}{2}
+      \field{title}{Breksit or Bregzit: When Political Ideology Drives Language Ideology}
+      \field{volume}{26}
+      \field{year}{2020}
+      \field{pages}{11}
+      \range{pages}{1}
+    \endentry
+    \entry{hellinger2001english}{chapter}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=7b6b8e637272a0a64e3c71644baa42f7}{%
-           family={Kelly},
-           familyi={K\bibinitperiod},
-           given={Rob},
-           giveni={R\bibinitperiod},
+        {{un=0,uniquepart=base,hash=2b3e08d1a23dcf602ef61b922ea226f6}{%
+           family={Hellinger},
+           familyi={H\bibinitperiod},
+           given={Marlis},
+           giveni={M\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Ongig}%
+        {John Benjamins Amsterdam}%
       }
-      \strng{namehash}{7b6b8e637272a0a64e3c71644baa42f7}
-      \strng{fullhash}{7b6b8e637272a0a64e3c71644baa42f7}
-      \strng{bibnamehash}{7b6b8e637272a0a64e3c71644baa42f7}
-      \strng{authorbibnamehash}{7b6b8e637272a0a64e3c71644baa42f7}
-      \strng{authornamehash}{7b6b8e637272a0a64e3c71644baa42f7}
-      \strng{authorfullhash}{7b6b8e637272a0a64e3c71644baa42f7}
+      \strng{namehash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \strng{fullhash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \strng{bibnamehash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \strng{authorbibnamehash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \strng{authornamehash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \strng{authorfullhash}{2b3e08d1a23dcf602ef61b922ea226f6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{English--Gender in a global language}
+      \field{year}{2001}
+      \field{pages}{105\bibrangedash 113}
+      \range{pages}{9}
+    \endentry
+    \entry{kastovsky2011inflectional}{inbook}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ff461516e5ebb4ea028d6b585dfa601e}{%
+           family={Kastovsky},
+           familyi={K\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {De Gruyter Mouton}%
+      }
+      \strng{namehash}{ff461516e5ebb4ea028d6b585dfa601e}
+      \strng{fullhash}{ff461516e5ebb4ea028d6b585dfa601e}
+      \strng{bibnamehash}{ff461516e5ebb4ea028d6b585dfa601e}
+      \strng{authorbibnamehash}{ff461516e5ebb4ea028d6b585dfa601e}
+      \strng{authornamehash}{ff461516e5ebb4ea028d6b585dfa601e}
+      \strng{authorfullhash}{ff461516e5ebb4ea028d6b585dfa601e}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -148,36 +339,30 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Ongig Blog}
-      \field{month}{2}
-      \field{title}{Gender-neutral suggestions for the top 25 job titles that still use the word ``man"}
-      \field{year}{2018}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://blog.ongig.com/diversity-and-inclusion/gender-neutral-job-titles/
-      \endverb
-      \verb{url}
-      \verb https://blog.ongig.com/diversity-and-inclusion/gender-neutral-job-titles/
-      \endverb
+      \field{booktitle}{Gender in grammar and cognition}
+      \field{title}{Inflectional classes, morphological restructuring, and the dissolution of Old English grammatical gender}
+      \field{year}{2011}
+      \field{pages}{709\bibrangedash 728}
+      \range{pages}{20}
     \endentry
-    \entry{levy2008expectation}{article}{}
+    \entry{labov1963social}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2e20881923b91d44e8f1ba7e0f38f42c}{%
-           family={Levy},
+        {{un=0,uniquepart=base,hash=5af22306b3a9a09d07b03f4b6c265c99}{%
+           family={Labov},
            familyi={L\bibinitperiod},
-           given={Roger},
-           giveni={R\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Elsevier}%
+        {Taylor \& Francis}%
       }
-      \strng{namehash}{2e20881923b91d44e8f1ba7e0f38f42c}
-      \strng{fullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
-      \strng{bibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
-      \strng{authorbibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
-      \strng{authornamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
-      \strng{authorfullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{namehash}{5af22306b3a9a09d07b03f4b6c265c99}
+      \strng{fullhash}{5af22306b3a9a09d07b03f4b6c265c99}
+      \strng{bibnamehash}{5af22306b3a9a09d07b03f4b6c265c99}
+      \strng{authorbibnamehash}{5af22306b3a9a09d07b03f4b6c265c99}
+      \strng{authornamehash}{5af22306b3a9a09d07b03f4b6c265c99}
+      \strng{authorfullhash}{5af22306b3a9a09d07b03f4b6c265c99}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -185,13 +370,14 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Cognition}
+      \field{journaltitle}{Word}
       \field{number}{3}
-      \field{title}{Expectation-based syntactic comprehension}
-      \field{volume}{106}
-      \field{year}{2008}
-      \field{pages}{1126\bibrangedash 1177}
-      \range{pages}{52}
+      \field{title}{The social motivation of a sound change}
+      \field{volume}{19}
+      \field{year}{1963}
+      \true{nocite}
+      \field{pages}{273\bibrangedash 309}
+      \range{pages}{37}
     \endentry
     \entry{misersky2014norms}{article}{}
       \true{moreauthor}
@@ -203,12 +389,12 @@
            given={Julia},
            giveni={J\bibinitperiod},
            givenun=0}}%
-        {{un=1,uniquepart=given,hash=660f50b5bc08a588733a6e2ad13577dc}{%
+        {{un=0,uniquepart=base,hash=660f50b5bc08a588733a6e2ad13577dc}{%
            family={Gygax},
            familyi={G\bibinitperiod},
            given={Pascal\bibnamedelima M},
            giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
         {{un=0,uniquepart=base,hash=75e95d40d42a3583e7a6c3583b995026}{%
            family={Canal},
            familyi={C\bibinitperiod},
@@ -282,6 +468,57 @@
       \field{pages}{841\bibrangedash 871}
       \range{pages}{31}
     \endentry
+    \entry{podesva2015country}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0f1b47a920774b4b8564e359f1229724}{%
+           family={Podesva},
+           familyi={P\bibinitperiod},
+           given={Robert\bibnamedelima J},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=10ad226f826efaa34ae05516748a5de3}{%
+           family={D'onofrio},
+           familyi={D\bibinitperiod},
+           given={Annette},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2cec7d856201956b10006b77906de21}{%
+           family={Van\bibnamedelima Hofwegen},
+           familyi={V\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Janneke},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5cb610821e55a1f3d8f2cf04f3174449}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Seung\bibnamedelima Kyung},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{8eded525fce6f4703b48d36174fdbde0}
+      \strng{fullhash}{6fd6b38527cd606fc94076ceae02ec93}
+      \strng{bibnamehash}{6fd6b38527cd606fc94076ceae02ec93}
+      \strng{authorbibnamehash}{6fd6b38527cd606fc94076ceae02ec93}
+      \strng{authornamehash}{8eded525fce6f4703b48d36174fdbde0}
+      \strng{authorfullhash}{6fd6b38527cd606fc94076ceae02ec93}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Language Variation and Change}
+      \field{number}{2}
+      \field{title}{Country ideology and the California vowel shift}
+      \field{volume}{27}
+      \field{year}{2015}
+      \field{pages}{157\bibrangedash 186}
+      \range{pages}{30}
+    \endentry
     \entry{pozniak2021failures}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=a56045cf37d85f0e5dd7de51252a0b4e}{%
@@ -318,95 +555,6 @@
       \field{title}{Failures of Gricean reasoning and the role of stereotypes in the production of gender marking in French}
       \field{volume}{6}
       \field{year}{2021}
-    \endentry
-    \entry{prolific}{misc}{}
-      \list{publisher}{1}{%
-        {Prolific}%
-      }
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labeltitlesource}{title}
-      \field{title}{Prolific}
-      \field{year}{2014}
-      \verb{urlraw}
-      \verb https://www.prolific.co
-      \endverb
-      \verb{url}
-      \verb https://www.prolific.co
-      \endverb
-    \endentry
-    \entry{sarahndom}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=7706f4899e0d8e56f497c7fe7a5a5bc3}{%
-           family={@sarahndom},
-           familyi={@\bibinitperiod}}}%
-      }
-      \strng{namehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \strng{fullhash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \strng{bibnamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \strng{authorbibnamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \strng{authornamehash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \strng{authorfullhash}{7706f4899e0d8e56f497c7fe7a5a5bc3}
-      \field{sortinit}{s}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{7}
-      \field{title}{i’m excited for this series!!}
-      \field{year}{2021}
-      \verb{urlraw}
-      \verb https://www.tiktok.com/foryou?lang=en&is_copy_url=1&is_from_webapp=v1
-      \endverb
-      \verb{url}
-      \verb https://www.tiktok.com/foryou?lang=en&is_copy_url=1&is_from_webapp=v1
-      \endverb
-      \warn{\item Entry 'sarahndom' (qp1.bib): Invalid format '24' of date field 'date' - ignoring}
-    \endentry
-    \entry{sarrasin2012sexism}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=f67679870af629111e134868573ceb27}{%
-           family={Sarrasin},
-           familyi={S\bibinitperiod},
-           given={Oriane},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
-           family={Gabriel},
-           familyi={G\bibinitperiod},
-           given={Ute},
-           giveni={U\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1ec13d4af2959365f131f9f77db08b81}{%
-           family={Gygax},
-           familyi={G\bibinitperiod},
-           given={Pascal},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Verlag Hans Huber}%
-      }
-      \strng{namehash}{1ec9d83178aa84242f25fab5d6d57911}
-      \strng{fullhash}{1cbab0bc7a7885385d2b6757bc5ddc08}
-      \strng{bibnamehash}{1cbab0bc7a7885385d2b6757bc5ddc08}
-      \strng{authorbibnamehash}{1cbab0bc7a7885385d2b6757bc5ddc08}
-      \strng{authornamehash}{1ec9d83178aa84242f25fab5d6d57911}
-      \strng{authorfullhash}{1cbab0bc7a7885385d2b6757bc5ddc08}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Swiss Journal of Psychology}
-      \field{title}{Sexism and attitudes toward gender-neutral language}
-      \field{year}{2012}
     \endentry
     \entry{von2020implicit}{article}{}
       \name{author}{3}{}{%
@@ -454,32 +602,6 @@
       \field{year}{2020}
       \field{pages}{115\bibrangedash 128}
       \range{pages}{14}
-    \endentry
-    \entry{wagner2003gender}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=773014f425fdeca362faadda4b527934}{%
-           family={Wagner},
-           familyi={W\bibinitperiod},
-           given={Susanne},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{773014f425fdeca362faadda4b527934}
-      \strng{fullhash}{773014f425fdeca362faadda4b527934}
-      \strng{bibnamehash}{773014f425fdeca362faadda4b527934}
-      \strng{authorbibnamehash}{773014f425fdeca362faadda4b527934}
-      \strng{authornamehash}{773014f425fdeca362faadda4b527934}
-      \strng{authorfullhash}{773014f425fdeca362faadda4b527934}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{University of Freiburg}
-      \field{title}{Gender in English pronouns: Myth and reality}
-      \field{year}{2003}
     \endentry
   \enddatalist
 \endrefsection
