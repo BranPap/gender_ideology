@@ -1,0 +1,518 @@
+---
+title: "Gender Ideologies and Language Production: A Fill-in-the-Blank Task"
+author: "B. Papineau"
+date: "2021"
+output:
+  html_notebook:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+## Packages
+For this analysis, we require the following packages:
+
+```{r echo=TRUE}
+library(ggplot2) 
+library(tidyverse) 
+library(lme4) 
+library(stringr)
+library(languageR)
+library(lmerTest)
+library(reshape2)
+library(grid)
+```
+
+```{r}
+theme_set(theme_minimal())
+```
+
+# Data Read-In
+
+```{r}
+all_data <- read.csv('merged_all.csv')
+```
+
+
+# Exclusion
+
+```{r}
+exclusion <- all_data %>% filter(name=='attention') %>%
+  group_by(workerid) %>%
+  summarise(accuracy = mean(correct)) %>%
+  mutate(exclude = ifelse(accuracy < 0.80,'Yes','No')) 
+```
+
+all_data <- all_data[!(all_data$workerid %in% exclusion$workerid),] %>%
+  filter(rt !='null')
+
+# Gender Subscores
+```{r}
+gender_transcendence_cols <- c('subject_information.gender_q1','subject_information.gender_q2','subject_information.gender_q3','subject_information.gender_q4','subject_information.gender_q5')
+
+gender_linked_cols <- c('subject_information.gender_q6','subject_information.gender_q7','subject_information.gender_q8','subject_information.gender_q9','subject_information.gender_q10','subject_information.gender_q11','subject_information.gender_q12','subject_information.gender_q13')
+```
+
+```{r}
+all_data <- all_data %>%
+  mutate(gender_trans = 100 - (rowMeans(all_data[gender_transcendence_cols]))) %>%
+  mutate(gender_link = rowMeans(all_data[gender_linked_cols])) 
+
+gender_all = c('gender_trans','gender_link')
+
+all_data <- all_data %>%
+  mutate(gender_total = rowMeans(all_data[gender_all]))
+```
+
+# Political Alignments
+
+```{r}
+all_data <- all_data %>%
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+```
+
+# Response Genders 
+
+```{r}
+crit_data <- all_data %>%
+  filter(type == "critical") %>%
+  mutate(response_gender = ifelse(response == "actress" | response == "anchorwoman" | response == "stewardess" | response == "businesswoman" | response == 'camerawoman' | response == 'congresswoman' | response == 'craftswoman' | response == 'crewwoman' | response == 'firewoman' | response == 'forewoman'  | response == 'heiress' | response == 'heroine' | response == 'hostess' | response == 'huntress' | response == 'laywoman' | response == 'policewoman' | response == 'saleswoman' | response == 'stuntwoman' | response == 'villainess' | response == 'weatherwoman',"female",ifelse(response == "anchor" | response == "flight attendant" | response == "businessperson" | response == 'camera operator' | response == 'congressperson' | response == 'craftsperson' | response == 'crewmember' | response == 'firefighter' | response == 'foreperson' | response == 'layperson' | response == 'police officer' | response == 'salesperson' | response == 'stunt double' | response == 'meteorologist',"neutral",ifelse(response == "anchorman" | response == "steward" | response == "businessman" | response == 'cameraman' | response == 'congressman' | response == 'craftsman' | response == 'crewman' | response == 'fireman' | response == 'foreman' | response == 'layman' | response == 'policeman' | response == 'salesman' | response == 'stuntman' | response == 'weatherman',"male",'male/neutral'))))
+```
+
+```{r}
+crit_data <- crit_data %>%
+  mutate(congruency = ifelse(gender == response_gender,"true","false")) %>%
+  mutate(neutrality = ifelse(response_gender == "neutral","true","false"))
+```
+
+
+```{r}
+view_crit <- crit_data %>%
+  select(response,response_gender,gender,congruency)
+```
+
+```{r}
+crit_data <- crit_data%>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+```
+
+
+
+# Data Visualization
+Now we can start analysing the data by means of data visualization. 
+
+```{r}
+inauguration_2021 = c("#5445b1", "#749dae", "#f3c483", "#5c1a33", "#cd3341","#f7dc6a")
+```
+
+```{r}
+ggplot(view_crit, aes(x=response_gender,color=gender)) + 
+  geom_bar(stat="count")
+```
+
+```{r}
+crit_data %>%
+  filter(gender=="female" & morph_type =="compound") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+```{r}
+crit_data %>%
+  filter(gender=="male" & morph_type == "compound") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+```{r}
+crit_data %>%
+  filter(gender=="male" & morph_type == "adoption") %>%
+  ggplot(aes(x=response_gender)) + 
+  geom_bar(stat="count")
+```
+
+
+```{r}
+crit_data %>%
+  filter(morph_type =="adoption") %>%
+  ggplot(aes(x=response_gender, fill=gender)) + 
+  geom_bar(stat="count")
+```
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=poli_party, fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name") + 
+  theme_minimal()
+```
+
+```{r}
+crit_data %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,gender_total,poli_party) %>%
+  summarise(proportion = mean(response_neutral)) %>%
+  ggplot(aes(x=gender_total, y=proportion, color=gender)) +
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+crit_data %>%
+  filter(poli_party == "Democrat" | poli_party == "Republican") %>%
+  ggplot(aes(x=time_in_minutes, fill=poli_party)) +
+  geom_density(alpha=.5) + 
+  xlim(0,60)
+```
+
+
+
+```{r}
+crit_data %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,subject_information.age,poli_party) %>%
+  summarise(proportion = mean(response_neutral)) %>%
+  ggplot(aes(x=subject_information.age, y=proportion, color=gender)) +
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+ggplot(crit_data, aes(x=subject_information.age)) + 
+  geom_histogram()
+```
+
+
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_comp_party.png")
+
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=subject_information.party_alignment, fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name") + theme_minimal() + 
+  scale_x_reverse()
+```
+
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_comp_ideo.png")
+
+```{r}
+crit_data %>%
+  filter(morph_type =="adoption") %>%
+  ggplot(aes(x=poli_party, fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="adoption" & gender == "male") %>%
+  ggplot(aes(x=proliferate.condition, fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~lexeme) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=poli_party, fill=congruency)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender-Congruent Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=subject_information.party_alignment, fill=congruency)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gender-Congruent Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=subject_information.party_alignment, fill=neutrality)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gendered Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=poli_party, fill=neutrality)) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~gender) + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Participant Political Party", fill="Gendered Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+```{r}
+ggplot(crit_data, aes(x=subject_information.age, y=gender_total, color=poli_party)) + 
+  geom_point(alpha=.5) + 
+  geom_smooth(method = 'lm', size=1.2) + 
+  theme_minimal() + 
+  labs(x="Age", y="Gender Ideology Conservatism",color="Participant Political Party")
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=gender, fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Stimulus Gender", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name") +
+  theme_minimal()
+```
+
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_results_cumulative.png")
+
+
+```{r}
+compound_only <- crit_data %>%
+  filter(morph_type == "compound") %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age))
+```
+
+
+```{r}
+prop.table(table(compound_only$response_gender,compound_only$gender))
+```
+
+```{r}
+fem_comps <- compound_only %>%
+  filter(gender=="female")
+```
+
+```{r}
+male_comps <- compound_only %>%
+  filter(gender=="male")
+```
+
+```{r}
+prop.table(table(fem_comps$response_gender,fem_comps$gender))
+```
+
+```{r}
+prop.table(table(male_comps$response_gender,male_comps$gender))
+```
+
+```{r}
+crit_data %>%
+  filter(morph_type =="compound") %>%
+  ggplot(aes(x=gender, fill=neutrality)) + 
+  geom_bar(position="fill") + 
+  scale_fill_manual(values = inauguration_2021) + 
+  labs(x="Stimulus Gender", fill="Gendered Response?", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
+```
+
+## Models
+
+### Reading in Frequency Data
+
+```{r}
+frequency <- read.csv("freq_vals.csv")
+```
+
+
+```{r}
+lib_cols <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS')
+```
+
+```{r}
+frequency <- frequency %>%
+  mutate(total_left = rowSums(frequency[lib_cols])) %>%
+  mutate(total_right = FOX) %>%
+  mutate(left_wpm = (total_left/109300000) * 1000000) %>%
+  mutate(right_wpm = (total_right/12200000) * 1000000) %>%
+  mutate(neutral_binary = ifelse(gender=="neutral",1,0)) %>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+```
+
+```{r}
+ggplot(frequency,aes(x=left_wpm, y=right_wpm, color = gender)) + 
+  geom_point() +
+  theme_minimal() + 
+  labs(x = "Words Per Million in Left-Wing Media", y="Words Per Million in Right-Wing Media", color="Gender of Form") + #geom_smooth(method=lm) + 
+  geom_abline(intercept=0,slope=1,color="grey",linetype="dashed") + 
+  geom_text(aes(label=word))
+```
+
+
+
+
+# Models
+
+## Frequency Data
+
+```{r}
+frequency_grouped <- frequency %>%
+  filter(morph_type=="compound") %>%
+  group_by(lexeme,neutral_binary) %>%
+  summarise(mean_freq_left = mean(left_wpm), mean_freq_right = mean(right_wpm)) 
+```
+
+```{r}
+write.csv(frequency_grouped, "freq_prep.csv")
+```
+
+## Data Reshape
+
+```{r}
+compound_only <- compound_only %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0))
+```
+
+```{r}
+lex_freqs <- read.csv("freq_preped.csv") %>%
+  mutate(left_surprisal = (-log(mean_left_neutral))/(-log(mean_left_gendered))) %>%
+  mutate(right_surprisal = (-log(mean_right_neutral))/(-log(mean_right_gendered)))
+```
+
+```{r}
+final_dat <- merge(crit_data,lex_freqs,by="lexeme") %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0)) %>%
+  filter(morph_type == "compound") %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age)) %>%
+  mutate(cmean_left_neutral = scale(mean_left_neutral)) %>%
+  mutate(mean_all = (mean_left_neutral + mean_right_neutral)/2) %>%
+  mutate(cmean_all = scale(mean_all))
+```
+
+
+
+## First Model
+
+```{r}
+model_one <- lmer(neutrality_binary~cgender_total + poli_party + gender + cmean_all + (1|workerid) + (1|lexeme) + (1|name),data=final_dat)
+```
+
+```{r}
+summary(model_one)
+```
+
+
+
+## LATER 
+
+
+```{r}
+complex_model <- lmer(response_congruency~cgender_total*cage + (1|workerid) + (1|lexeme) + (1|name),data = compound_only)
+```
+
+```{r}
+summary(complex_model)
+```
+
+```{r}
+simple_model <- lmer(response_congruency~poli_party*gender + subject_information.gender + (1|workerid) + (1|lexeme) + (1|name),data = compound_only)
+```
+
+```{r}
+summary(simple_model)
+```
+
+
+```{r}
+comments <- all_data %>%
+  group_by(workerid) %>%
+  summarise(comments = unique(paste(subject_information.comments))) %>%
+  filter(comments != "")
+```
+
+```{r}
+summary(crit_data)
+```
+
+```{r}
+gender_data <- crit_data %>%
+  group_by(workerid,poli_party,subject_information.gender) %>%
+  summarise(gender = paste(unique(subject_information.gender)))
+```
+
+```{r}
+prop.table(table(gender_data$gender,gender_data$poli_party))
+```
+
+```{r}
+gender_data_orig <- read.csv("merged_all_prod.csv") %>%
+  group_by(workerid,subject_information.gender) %>%
+  summarise(gender = paste(unique(subject_information.gender)))
+```
+
+```{r}
+prop.table(table(gender_data_orig$gender))
+3/```
+
+```{r}
+cons_text <- textGrob("Conservative", gp=gpar(fontsize=10, fontface="bold"))
+lib_text <- textGrob("Liberal", gp=gpar(fontsize=10, fontface="bold"))
+```
+
+```{r}
+labels = data.frame(Label=c("conservative","liberal"),Y=c(.1,70))
+crit_data %>%
+  filter(subject_information.gender != "") %>%
+  ggplot(aes(x=subject_information.gender, y=gender_total)) + 
+  geom_boxplot() + 
+  geom_text(data=labels,aes(label=Label,y=Y),x=0.3) +
+  theme_minimal() + 
+  labs(x="Participant Gender", y="Gender Ideology Score") + 
+  theme(plot.margin = unit(c(1,1,2,1), "lines")) +
+  # annotation_custom(cons_text,xmin=.5,xmax=.5,ymin=75,ymax=75) + 
+  # annotation_custom(lib_text,xmin=.5,xmax=.5,ymin=0,ymax=0) + 
+  coord_cartesian(clip = "off")
+```
+
+```{r}
+democrats = all_data %>%
+  filter(poli_party == "Democrat") %>%
+  group_by(workerid,gender_total) %>%
+  summarise(subject = paste(unique(workerid)),gender_total = paste(unique(gender_total)))
+```
+
+```{r}
+republicans = all_data %>%
+  filter(poli_party == "Republican") %>%
+  group_by(workerid,gender_total) %>%
+  summarise(subject = paste(unique(workerid)),gender_total = paste(unique(gender_total)))
+```
+
+```{r}
+t.test(as.numeric(democrats$gender_total), as.numeric(republicans$gender_total))
+```
+
+ggsave(height=4,width=7,path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper",filename="prod_ideo_pure.png")
+
+

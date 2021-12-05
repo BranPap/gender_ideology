@@ -1,0 +1,34 @@
+---
+title: "Processing of Gendered and Gender-Neutral Professional and Personal Titles"
+author: "Bran Papineau"
+date: "June 2021"
+output:
+  html_notebook:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+```{r echo=TRUE}
+library(ggplot2) 
+library(tidyverse) 
+library(lme4) 
+library(stringr)
+library(languageR)
+library(lmerTest)
+library(reshape2)
+
+source("helpers.R") 
+source("merge_results.R")
+```
+
+```{r}
+exp1 <- read.csv("gender_processing_data_final.csv")
+```
+
+
