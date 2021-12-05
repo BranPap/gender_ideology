@@ -11,7 +11,7 @@ businesswoman,businessperson,female,124,20,29,23,8,0,15,12,3
 businessman,businessperson,male,335,108,274,245,216,9,177,213,30
 cameraman,camera operator,male,101,63,89,144,34,1,20,52,29
 camerawoman,camera operator,female,1,0,0,1,1,0,0,1,1
-camera_operator,camera operator,neutral,2,3,1,9,0,0,0,3,3
+camera operator,camera operator,neutral,2,3,1,9,0,0,0,3,3
 craftsman,craftsperson,male,5,3,12,9,1,0,5,15,0
 craftswoman,craftsperson,female,0,0,0,0,0,0,0,0,0
 craftsperson,craftsperson,neutral,0,0,1,0,0,0,0,0,0
@@ -23,7 +23,7 @@ firewoman,firefighter,female,0,0,0,0,0,0,0,0,0
 firefighter,firefighter,neutral,122,155,106,121,21,5,16,79,20
 steward,flight attendant,male,14,5,15,18,11,0,23,30,0
 stewardess,flight attendant,female,3,4,7,19,2,0,0,12,4
-flight_attendant,flight attendant,neutral,60,39,53,63,22,4,11,30,6
+flight attendant,flight attendant,neutral,60,39,53,63,22,4,11,30,6
 foreman,foreperson,male,587,44,122,297,19,0,10,135,21
 forewoman,foreperson,female,7,23,0,5,0,0,9,8,2
 foreperson,foreperson,neutral,19,9,17,10,5,0,0,0,4
@@ -43,7 +43,7 @@ weatherwoman,meteorologist,female,0,0,0,0,0,0,0,0,0
 meteorologist,meteorologist,neutral,17,13,71,299,38,3,4,36,0
 policeman,police officer,male,194,113,145,152,38,5,79,166,29
 policewoman,police officer,female,6,2,7,5,1,0,9,6,0
-police_officer,police officer,neutral,614,479,550,641,241,22,169,346,140
+police officer,police officer,neutral,614,479,550,641,241,22,169,346,140
 salesman,salesperson,male,280,133,174,96,21,2,42,153,19
 saleswoman,salesperson,female,15,2,3,2,0,1,0,2,1
 salesperson,salesperson,neutral,70,26,11,19,2,0,0,15,1

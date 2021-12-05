@@ -1,11 +1,25 @@
 ---
-title: "Production Only"
-output: html_notebook
+title: "Papineau QP1 - Production Analysis"
+author: "B. Papineau"
+date: "Autumn 2021"
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+  html_notebook:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
 ---
+
+# Preliminaries
 
 ```{r}
 library(tidyverse)
 library(lme4)
+library(lmerTest)
 library(ggpubr)
 
 source("helpers.R")
@@ -24,24 +38,26 @@ lex_freqs <- read.csv("freq_preped.csv") %>%
 ```
 
 ```{r}
+lex_freqs[lex_freqs == 0.00000000] <- 0.00000001
+lex_freqs[lex_freqs == "-Inf"] <- -999999999
+lex_freqs[lex_freqs == "Inf"] <- 999999999
+```
+
+```{r}
 gender_transcendence_cols <- c('subject_information.gender_q1','subject_information.gender_q2','subject_information.gender_q3','subject_information.gender_q4','subject_information.gender_q5')
 
 gender_linked_cols <- c('subject_information.gender_q6','subject_information.gender_q7','subject_information.gender_q8','subject_information.gender_q9','subject_information.gender_q10','subject_information.gender_q11','subject_information.gender_q12','subject_information.gender_q13')
 ```
 
-## Production Task Study
+# Analysis
 
-### Methods
-
-### Analysis
-
-**Data Read-in**
+## Data Read-in
 
 ```{r}
 prod_data <- read.csv("production_data.csv")
 ```
 
-**Exclusions**
+## Exclusions
 
 ```{r}
 prod_exclusion <- prod_data %>% filter(name=='attention') %>%
@@ -55,7 +71,7 @@ prod_exclusion <- prod_data %>% filter(name=='attention') %>%
 prod_data <- prod_data[!(prod_data$workerid %in% prod_exclusion$workerid),]
 ```
 
-**Additional Information** 
+## Additional Information 
 
 ```{r}
 prod_data <- prod_data %>%
@@ -75,52 +91,77 @@ prod_data <- prod_data %>%
   mutate(congruency = ifelse(gender == response_gender,"true","false")) %>%
   mutate(neutrality = ifelse(response_gender == "neutral","true","false"))%>%
   mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) %>%
-  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan'))) %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0))
 ```
 
-**Responses by Political Ideology**
+```{r include=FALSE}
+norming_data <- read.csv("norming_data.csv") %>%
+  filter(id!="example1") %>% # Will filter out non-critical trials, i.e. the example trial from the beginning of the experiment
+  mutate(equalized_response = ifelse(scale=="FM",8-response,response)) %>% # This will render all data points on the same scale, as participants randomly received either "very likely a man" or "very likely a woman" as the left end of their response scale, with the other appearing at the right end
+  mutate(orthog = ifelse(orthog=="sroceress","sorceress",orthog)) %>% # Fixes a typo
+  mutate(id = ifelse(id=="Stunt_double","stunt double",id)) %>% # This, as well as all lines below it, convert compounds formed by spaces from their underscore forms to their spaced forms (e.g. police_officer -> Police officer)
+  mutate(id = ifelse(id=="Police_officer","police officer",id)) %>%
+  mutate(id = ifelse(id=="Flight_attendant","flight attendant",id)) %>%
+  mutate(id = ifelse(id=="Anchor","anchor",id)) %>%
+  mutate(id = ifelse(id=="Businessperson","businessperson",id)) %>%
+   mutate(id = ifelse(id=="Camera","camera operator",id)) %>%
+  mutate(id = ifelse(id=="Congressperson","congressperson",id)) %>%
+  mutate(id = ifelse(id=="Craftsperson","craftsperson",id)) %>%
+mutate(id = ifelse(id=="Crewmember","crewmember",id)) %>%
+  mutate(id = ifelse(id=="Firefighter","firefighter",id)) %>%
+  mutate(id = ifelse(id=="Foreperson","foreperson",id)) %>%
+  mutate(id = ifelse(id=="Layperson","layperson",id)) %>%
+  mutate(id = ifelse(id=="Meteorologist","meteorologist",id)) %>%
+  mutate(id = ifelse(id=="Salesperson","salesperson",id)) 
+```
+
+```{r include=FALSE}
+norming_exclusion <- norming_data %>% 
+  filter(gender=="female") %>% 
+  group_by(workerid) %>%
+  summarize(female_mean = mean(equalized_response)) %>%
+  unique() %>% 
+  mutate(exclusion = female_mean < mean(female_mean) - 2*sd(female_mean)) %>%
+  filter(exclusion==TRUE)
+
+norming_data <- norming_data[!(norming_data$workerid %in% norming_exclusion$workerid),]
+```
+
+```{r include=FALSE}
+norming_means <- norming_data %>%
+  group_by(id,gender,orthog) %>%
+  summarise(indi_mean = mean(equalized_response), trial_count=n()) %>%
+  rename(lexeme = id) %>%
+  filter(gender=="neutral")
+```
 
 ```{r}
-prod_data %>% 
+join_test <- merge(prod_data,norming_means,by="lexeme")
+join_test <- merge(join_test,lex_freqs,by="lexeme")
+```
+
+```{r}
+prod_data_means <- prod_data %>%
   filter(!is.na(poli_party)) %>%
-  filter(morph_type =="compound") %>%
-  ggplot(aes(x=poli_party, fill=response_gender)) + 
-  geom_bar(position="fill") + 
-  facet_wrap(~gender) + 
-  scale_fill_manual(values = bran_palette) + 
-  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name") + 
-  theme(text=element_text(size=15)) + 
-  theme(axis.text.x = element_text(angle=25))
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education,gender_total) %>%
+  summarise(proportion = mean(response_neutral)) 
 ```
 
-```{r}
-ggsave("prod_all_poli.png", width=7,height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-``` 
+## Visualizations 
 
-
-
-
-```{r}
-prod_data %>% 
-  filter(!is.na(subject_information.party_alignment)) %>%
-  filter(morph_type =="compound") %>%
-  ggplot(aes(x=subject_information.party_alignment, fill=response_gender)) + 
-  geom_bar(position="fill") + 
-  facet_wrap(~gender) + 
-  scale_fill_manual(values = bran_palette) + 
-  labs(x="Participant Political Party", fill="Gender of Response", y="Proportion of Responses", title="Gender of Response by Gender of Stimulus Name")
-```
-
-**Gender of Response by Political Alignment and Gender Ideology**
+### Gender of Response by Political Alignment and Gender Ideology
 
 ```{r}
 prod_data %>%
   filter(!is.na(poli_party)) %>%
   mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
   filter(gender!="filler" & gender!= "attention" & gender!="" & morph_type=="compound") %>%
-  group_by(gender,gender_total,poli_party) %>%
+  group_by(gender,gender_trans,poli_party) %>%
   summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=gender_total, y=proportion, color=gender)) +
+  ggplot(aes(x=gender_trans, y=proportion, color=gender)) +
     geom_point() + 
     geom_smooth() + 
     scale_color_manual(values = bran_palette) +
@@ -145,155 +186,8 @@ prod_data %>%
     geom_smooth() + 
     scale_color_manual(values = bran_palette) 
 ```
-```{r}
-my_comparisons <- list( c("Democrat","Republican"),c("Democrat","Non-Partisan"),c("Republican","Non-Partisan"))
-```
 
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  filter(subject_information.gender == "Male" | subject_information.gender == "Female") %>%
-  filter(poli_party != "Non-Partisan") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_grid(subject_information.gender~gender) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) + 
-  stat_compare_means(label = "p.signif")
-```
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_wrap(~gender) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) 
-#%+ #  stat_compare_means(comparisons = my_comparisons, label = "p.signif")
-```
-
-```{r}
-ggsave("prod_neutral_poli_box.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-``` 
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,poli_party) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_bar(stat="identity") + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_wrap(~gender) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) 
-```
-
-
-
-```{r}
-gender_comparisons <- list( c("male","female"))
-```
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(poli_party != "Non-Partisan") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=gender, y=proportion, fill=gender)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_wrap(~poli_party) + 
-  theme(legend.position = "none") + 
-  labs(x="Stimuli Gender", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) 
-```
-```{r}
-ggsave("prod_neutral_poli_box_gender.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-``` 
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(subject_information.gender,workerid,poli_party) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_wrap(~subject_information.gender) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) + 
-  stat_compare_means(comparisons = my_comparisons, label = "p.signif")
-```
-
-
-```{r}
-prod_data %>%
-  filter(poli_party == "Democrat" | poli_party =="Republican") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender=="male") %>%
-  group_by(workerid,poli_party) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) + 
-  stat_compare_means()
-```
-```{r}
-prod_data %>%
-  filter(poli_party == "Democrat" | poli_party =="Republican") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender=="female") %>%
-  group_by(workerid,poli_party) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=poli_party, y=proportion, fill=poli_party)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  theme(legend.position = "none") + 
-  labs(x="Participant Political Party", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) + 
-  stat_compare_means()
-```
-**Gender by Gender, no Ideology**
+### Gender by Gender, no Ideology
 
 ```{r}
 prod_data %>%
@@ -305,204 +199,31 @@ prod_data %>%
   theme_minimal()
 ```
 
-**Models**
-
-```{r}
-prod_data_compounds <- prod_data %>%
-  filter(morph_type == "compound") %>%
-  mutate(cgender_total = scale(gender_total)) %>%
-  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
-  mutate(cage = scale(subject_information.age)) %>%
-  mutate(neutrality_binary = ifelse(neutrality=="true",1,0))
-```
-
-```{r}
-final_dat <- merge(prod_data_compounds,lex_freqs,by="lexeme") %>%
-  mutate(neutrality_binary = ifelse(neutrality=="true",1,0)) %>%
-  filter(morph_type == "compound") %>%
-  mutate(cgender_total = scale(gender_total)) %>%
-  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
-  mutate(cage = scale(subject_information.age)) %>%
-  mutate(cmean_left_neutral = scale(mean_left_neutral)) %>%
-  mutate(mean_all = (mean_left_neutral + mean_right_neutral)/2) %>%
-  mutate(cmean_all = scale(mean_all))
-```
-
-```{r}
-production_model_one <- lmer(neutrality_binary~cgender_total*poli_party + gender + cmean_all + (1|workerid) + (1|lexeme) + (1|name) + (1|cage),data=final_dat)
-```
-
-```{r}
-summary(production_model_one)
-```
-
-
-# Some Prop Tables
-
-```{r}
-(table(prod_data$subject_information.gender))
-```
-
-
-
-```{r}
-prod_gender_table <- prod_data %>%
-  group_by(workerid,subject_information.gender,poli_party) %>%
-  summarise(subject_gender = paste(unique(subject_information.gender)))
-
-table(prod_gender_table$subject_gender,prod_gender_table$poli_party)
-```
-
-```{r}
-prod_data_all <- read.csv("production_data.csv") %>%
-  filter(type=="filler_semantic" | type=="filler_grammatical") %>%
-  group_by(lexeme,type) %>%
-  summarise(lexeme=paste(unique(lexeme)))
-```
-
-```{r}
-table(prod_data_all$type)
-```
-
-
-```{r}
-prod_data_means <- prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(poli_party != "Non-Partisan") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education,gender_total) %>%
-  summarise(proportion = mean(response_neutral)) 
-```
-
-```{r}
-table(prod_data_means$proportion,prod_data_means$poli_party,prod_data_means$gender)
-```
-
-
-```{r}
-production_model_two <- lmer(proportion~poli_party*gender + (1|workerid) + (1|subject_information.age) + (1|subject_information.gender), data=prod_data_means)
-```
-
-```{r}
-summary(production_model_two)
-```
-
-```{r}
-prod_data_means_male <- prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(poli_party != "Non-Partisan") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="" & gender!="female") %>%
-  group_by(workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education) %>%
-  summarise(proportion = mean(response_neutral)) 
-```
-
-```{r}
-production_model_three <- lmer(proportion~poli_party +(1|subject_information.age) + (1|subject_information.gender), data=prod_data_means_male)
-```
-
-```{r}
-summary(production_model_three)
-```
-
-```{r}
-prod_data_means_female <- prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(poli_party != "Non-Partisan") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="" & gender!="male") %>%
-  group_by(workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education) %>%
-  summarise(proportion = mean(response_neutral)) 
-```
-
-```{r}
-production_model_four <- lmer(proportion~poli_party +(1|subject_information.age) + (1|subject_information.gender), data=prod_data_means_female)
-```
-
-```{r}
-summary(production_model_four)
-```
-
-```{r}
-prod_data_means_all <- prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education,gender_total) %>%
-  summarise(proportion = mean(response_neutral)) 
-```
+### Proportion of Neutral Responses by Morphological Type
 
 ```{r}
 prod_data %>%
   filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral" | response_gender == "male/neutral",1,0)) %>%
   filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=proportion, fill=poli_party)) +
-  geom_histogram() + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_grid(poli_party~gender) + 
-  theme(legend.position = "none") + 
-  labs(x="Proportion of Responses", y="Number of Participants",title="Proportions of Neutral Responses by Stimuli Gender", fill="Political Party") + 
+  group_by(morph_type) %>%
+  summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
+  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
+  ggplot(aes(x=morph_type,y=mean_prop, fill=morph_type)) + 
+  geom_bar(stat='identity') + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
+  labs(x="Morphological Process", y="Mean Proportion of Neutral Responses") + 
   theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) +
-  theme_grey()
-#%+ #  stat_compare_means(comparisons = my_comparisons, label = "p.signif")
+  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
+  scale_fill_manual(values = bran_palette) +
+  theme(legend.position = "none")
 ```
 
 ```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(poli_party != "Non-Partisan") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  filter(lexeme=="flight attendant") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=gender, y=proportion, fill=gender)) +
-  geom_boxplot(varwidth = T) + 
-  geom_jitter(alpha=0.1) + 
-  scale_fill_manual(values=bran_palette) + 
-  facet_wrap(~poli_party) + 
-  theme(legend.position = "none") + 
-  labs(x="Stimuli Gender", y="Proportion",title="Mean Prop. of Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) 
+ggsave("prod_neutral_morph_bar.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
 ```
 
-
-
-
-```{r}
-prod_data_means_rep <- prod_data_means %>%
-  filter(poli_party == "Republican")
-```
-
-
-```{r}
-production_model_five <- lmer(proportion~gender_total + (1|subject_information.age), data=prod_data_means_rep)
-```
-
-```{r}
-summary(production_model_five)
-```
-
-
-```{r}
-prod_data_means_dem <- prod_data_means %>%
-  filter(poli_party == "Democrat")
-```
-
-```{r}
-production_model_five <- lmer(proportion~gender_total + (1|workerid), data=prod_data_means_dem)
-```
-
-```{r}
-summary(production_model_five)
-```
-
+### Proportion of Neutral Responses by Political Ideology and Gender
 
 ```{r}
 prod_data %>%
@@ -510,38 +231,54 @@ prod_data %>%
   filter(morph_type == "compound") %>%
   mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
   filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,lexeme,poli_party,subject_information.gender) %>%
-  summarise(proportion = mean(response_neutral)) %>%
-  ggplot(aes(x=gender, y=proportion)) +
-  geom_boxplot(varwidth=T) + 
-  scale_fill_manual(values=bran_palette) + 
-#  facet_wrap(~lexeme) + 
-  theme(legend.position = "none") + 
-  labs(x="Proportion of Responses", y="Number of Participants",title="Proportions of Neutral Responses by Stimuli Gender", fill="Political Party") + 
+  #filter(poli_party != "Non-Partisan") %>%
+  group_by(gender,poli_party) %>%
+  summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
+  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
+  ggplot(aes(x=gender,y=mean_prop,fill=gender)) + 
+  geom_bar(stat='identity') + 
+  geom_point(data=prod_data_means, aes(x=gender,y=proportion),alpha=0.15, position="jitter") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
+  facet_wrap(~ poli_party) + 
+  theme_bw() + 
+  labs(x="Stimulus Gender", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
   theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) +
-  theme_grey() + 
-  stat_compare_means()
+  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
+  scale_fill_manual(values = bran_palette) +
+  theme(legend.position = "none")
 ```
+
+```{r}
+ggsave("prod_neutral_gender_bar_nonmean.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
+```
+
 ```{r}
 prod_data %>%
   filter(!is.na(poli_party)) %>%
-  filter(lexeme == "flight attendant") %>%
+  filter(morph_type == "compound") %>%
   mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
   filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender) %>%
-  summarize(average_flight = mean(response_neutral)) %>%
-  ggplot(aes(x=gender, y=average_flight)) +
-  geom_bar(stat="identity") + 
-  scale_fill_manual(values=bran_palette) + 
-  theme(legend.position = "none") + 
-  labs(x="Proportion of Responses", y="Number of Participants",title="Proportions of Neutral Responses by Stimuli Gender", fill="Political Party") + 
+  #filter(poli_party != "Non-Partisan") %>%
+  group_by(gender,poli_party) %>%
+  summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
+  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
+  ggplot(aes(x=poli_party,y=mean_prop,fill=poli_party)) + 
+  geom_bar(stat='identity') + 
+  geom_point(data=prod_data_means, aes(x=poli_party,y=proportion),alpha=0.15, position="jitter") + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
+  facet_wrap(~ gender) + 
+  theme_bw() + 
+  labs(x="Participant Political Party", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
   theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=20)) +
-  theme_grey() + 
-  stat_compare_means()
+  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
+  scale_fill_manual(values = bran_palette) +
+  theme(legend.position = "none")
+```
+```{r}
+ggsave("prod_neutral_poli_bar_nonmean.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
 ```
 
+### Ideology by Political Party
 
 ```{r}
 prod_data %>%
@@ -566,145 +303,7 @@ prod_data %>%
 ggsave("prod_ideology_party.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
 ```
 
-```{r}
-prod_data %>%
-  group_by(workerid,poli_party,gender_total) %>%
-  ggplot(aes(x=poli_party, y=gender_total)) + 
-  geom_boxplot()
-```
-
-```{r}
-final_dat_flight <- final_dat %>%
-  filter(lexeme=="flight attendant")
-```
-
-
-```{r}
-production_model_flight <- lmer(neutrality_binary~gender + (1|name), data=final_dat_flight)
-```
-
-```{r}
-summary(production_model_flight)
-```
-
-
-```{r}
-prod_data_means_all %>%
-  filter(!is.na(poli_party)) %>%
-  #filter(poli_party != "Non-Partisan") %>%
-  group_by(gender,poli_party) %>%
-  summarize(mean_prop = mean(proportion), CI.Low = ci.low(proportion), CI.High = ci.high(proportion)) %>%
-  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
-  ggplot(aes(x=poli_party,y=mean_prop,fill=poli_party)) + 
-  geom_bar(stat='identity') + 
-  geom_point(data=prod_data_means_all, aes(x=poli_party,y=proportion),alpha=0.15, position="jitter") + 
-  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
-  facet_wrap(~ gender) + 
-  theme_bw() + 
-  labs(x="Participant Political Party", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
-  scale_fill_manual(values = bran_palette) +
-  theme(legend.position = "none")
-```
-```{r}
-ggsave("prod_neutral_poli_bar_gender.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-```
-
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(morph_type == "compound") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  #filter(poli_party != "Non-Partisan") %>%
-  group_by(gender,poli_party) %>%
-  summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
-  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
-  ggplot(aes(x=poli_party,y=mean_prop,fill=poli_party)) + 
-  geom_bar(stat='identity') + 
-  geom_point(data=prod_data_means_all, aes(x=poli_party,y=proportion),alpha=0.15, position="jitter") + 
-  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
-  facet_wrap(~ gender) + 
-  theme_bw() + 
-  labs(x="Participant Political Party", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
-  scale_fill_manual(values = bran_palette) +
-  theme(legend.position = "none")
-```
-```{r}
-ggsave("prod_neutral_poli_bar_nonmean.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-```
-
-```{r}
-prod_data_binary_party <- prod_data %>%
-  filter(poli_party == "Democrat" | poli_party == "Republican") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  filter(morph_type == "compound")
-```
-
-
-```{r}
-prod_neutral_poli_nomean_model <- lmer(response_neutral~poli_party + gender + (1|lexeme) + (1|name) + (1|workerid),data=prod_data_binary_party)
-```
-
-```{r}
-summary(prod_neutral_poli_nomean_model)
-```
-
-
-```{r}
-prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  filter(morph_type == "compound") %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  #filter(poli_party != "Non-Partisan") %>%
-  group_by(gender,poli_party) %>%
-  summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
-  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
-  ggplot(aes(x=gender,y=mean_prop,fill=gender)) + 
-  geom_bar(stat='identity') + 
-  geom_point(data=prod_data_means_all, aes(x=gender,y=proportion),alpha=0.15, position="jitter") + 
-  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
-  facet_wrap(~ poli_party) + 
-  theme_bw() + 
-  labs(x="Stimulus Gender", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
-  scale_fill_manual(values = bran_palette) +
-  theme(legend.position = "none")
-```
-
-```{r}
-ggsave("prod_neutral_gender_bar_nonmean.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-```
-
-```{r}
-prod_data_means_all %>%
-  filter(!is.na(poli_party)) %>%
-  #filter(poli_party != "Non-Partisan") %>%
-  group_by(gender,poli_party) %>%
-  summarize(mean_prop = mean(proportion), CI.Low = ci.low(proportion), CI.High = ci.high(proportion)) %>%
-  mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
-  ggplot(aes(x=gender,y=mean_prop,fill=gender)) + 
-  geom_bar(stat='identity') + 
-  geom_point(data=prod_data_means_all, aes(x=gender,y=proportion),alpha=0.15, position="jitter") + 
-  geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
-  facet_wrap(~ poli_party) + 
-  theme_bw() + 
-  labs(x="Gender Seen", y="Mean Proportion of Neutral Responses",title="Neutral Responses by Stimuli Gender") + 
-  theme(text=element_text(size=16)) + 
-  theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
-  scale_fill_manual(values = bran_palette) +
-  theme(legend.position = "none")
-```
-```{r}
-ggsave("prod_neutral_gender_bar.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-```
+### Individual Compounds 
 
 ```{r}
 prod_data %>%
@@ -728,33 +327,110 @@ prod_data %>%
   theme_grey() 
 ```
 
+## Models
+
+```{r}
+prod_data_compounds <- prod_data %>%
+  filter(morph_type == "compound") %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age)) %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0))
+```
+
+```{r}
+final_dat <- merge(prod_data_compounds,lex_freqs,by="lexeme") %>%
+  mutate(neutrality_binary = ifelse(neutrality=="true",1,0)) %>%
+  filter(morph_type == "compound") %>%
+  mutate(cgender_total = scale(gender_total)) %>%
+  mutate(response_congruency = as.numeric(ifelse(congruency=="true","1","0"))) %>%
+  mutate(cage = scale(subject_information.age)) %>%
+  mutate(cmean_left_neutral = scale(mean_left_neutral)) %>%
+  mutate(mean_all = (mean_left_neutral + mean_right_neutral)/2) %>%
+  mutate(cmean_all = scale(mean_all))
+```
+
+```{r}
+freq_model <- lmer(response_neutral~indi_mean + gender.x + poli_party + gender_trans + right_surprisal +  (1|workerid) + (1|name) + (1|lexeme) + (1|subject_information.age), data=join_test)
+```
+
+```{r}
+summary(freq_model)
+```
+
+## Prop Tables
+
+```{r}
+(table(prod_data$subject_information.gender))
+```
+
+
+
+```{r}
+prod_gender_table <- prod_data %>%
+  group_by(workerid,subject_information.gender,poli_party) %>%
+  summarise(subject_gender = paste(unique(subject_information.gender)))
+
+table(prod_gender_table$subject_gender,prod_gender_table$poli_party)
+```
+
+```{r}
+prod_data_means <- prod_data %>%
+  filter(!is.na(poli_party)) %>%
+  filter(poli_party != "Non-Partisan") %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
+  group_by(gender,workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education,gender_total) %>%
+  summarise(proportion = mean(response_neutral)) 
+```
+
+```{r}
+table(prod_data_means$proportion,prod_data_means$poli_party,prod_data_means$gender)
+```
+
+## Flight Attendant Case Study
+
+```{r}
+final_dat_flight <- final_dat %>%
+  filter(lexeme=="flight attendant")
+```
+
+```{r}
+production_model_flight <- lmer(neutrality_binary~gender + (1|name), data=final_dat_flight)
+```
+
+```{r}
+summary(production_model_flight)
+```
+
+```{r}
+flight_attendant <- prod_data %>%
+  filter(lexeme == "flight attendant") 
+```
+
+```{r}
+t.test(response_neutral ~ gender, flight_attendant)
+```
+
+
 ```{r}
 prod_data %>%
   filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral" | response_gender == "male/neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(morph_type) %>%
+  filter(lexeme == "flight attendant") %>%
+  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
+  group_by(gender) %>%
   summarize(mean_prop = mean(response_neutral), CI.Low = ci.low(response_neutral), CI.High = ci.high(response_neutral)) %>%
   mutate(YMin = mean_prop - CI.Low, YMax = mean_prop + CI.High) %>%
-  ggplot(aes(x=morph_type,y=mean_prop, fill=morph_type)) + 
+  ggplot(aes(x=gender,y=mean_prop,fill=gender)) + 
   geom_bar(stat='identity') + 
   geom_errorbar(aes(ymin=YMin,ymax=YMax),width=.25) + 
-  labs(x="Morphological Process", y="Mean Proportion of Neutral Responses") + 
+  theme_bw() + 
+  labs(x="Stimulus Gender", y="Mean Proportion of Neutral Responses",title="Flight Attendant Neutral Responses by Stimuli Gender") + 
   theme(text=element_text(size=16)) + 
   theme(axis.text.x = element_text(angle=5, vjust = .7)) + 
   scale_fill_manual(values = bran_palette) +
   theme(legend.position = "none")
 ```
 
-```{r}
-ggsave("prod_neutral_morph_bar.png", width=7, height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
-```
 
-```{r}
-prod_data_means_all <- prod_data %>%
-  filter(!is.na(poli_party)) %>%
-  mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>%
-  filter(gender!="filler" & gender!= "attention" & gender!="") %>%
-  group_by(gender,workerid,poli_party,subject_information.gender,subject_information.age,subject_information.education,gender_total) %>%
-  summarise(proportion = mean(response_neutral)) 
-```
+
