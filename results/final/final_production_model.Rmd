@@ -275,7 +275,7 @@ prod_exclusion <- prod_data %>% filter(name=='attention') %>%
   group_by(workerid) %>%
   summarise(accuracy = mean(correct)) %>%
   mutate(exclude = ifelse(accuracy < 0.80,'Yes','No')) %>%
-  filter(exclude == "Yes")
+  filter(exclude == "Yes") 
 ```
 
 ```{r}
@@ -312,7 +312,9 @@ prod_data <- prod_data %>%
   mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan'))) %>%
   mutate(response_neutral = ifelse(response_gender == "neutral",1,0)) %>% 
   mutate(young_old = ifelse(subject_information.age > 40,"old","young")) %>%
-  rename(form = response)
+  rename(form = response) %>% 
+  filter(!is.na(subject_information.age)) %>% 
+  filter(!is.na(poli_party))
 ```
 
 **Joining independent data**
@@ -366,7 +368,7 @@ final_prod$trial_gender = relevel(final_prod$trial_gender, ref="male")
 ```
 
 ```{r}
-prod_ultimate_model <- lmer(response_neutral~c_trial_gender*c_gender_total:subject_information.age + log_odds*poli_party*subject_information.age +log_odds:c_trial_gender + c_gender_total + (1 |workerid) + (1 + trial_gender|lexeme),data=final_prod)
+prod_ultimate_model <- lmer(response_neutral~c_trial_gender*c_gender_total:subject_information.age + log_odds*poli_party*subject_information.age +log_odds:c_trial_gender + c_gender_total + (1 + c_trial_gender |workerid) + (1 + trial_gender|lexeme),data=final_prod)
 ```
 
 ```{r}
@@ -374,6 +376,63 @@ summary(prod_ultimate_model)
 ```
 
 
+# Visualisations 
+
+```{r}
+final_prod %>%
+  group_by(log_odds,trial_gender,lexeme) %>%
+  unique() %>%
+  ggplot(aes(x=log_odds,fill=trial_gender))+
+  geom_histogram()
+```
+
+```{r}
+final_prod %>% 
+  group_by(trial_gender,subject_information.age) %>% 
+  summarise(mean_prod = mean(response_neutral)) %>% 
+  ggplot(aes(x=subject_information.age,y=mean_prod)) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
+
+```{r}
+final_prod %>% 
+  ggplot(aes(x=subject_information.age,y=gender_total,color=poli_party)) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
+
+```{r}
+final_prod %>% 
+  group_by(trial_gender,subject_information.party_alignment) %>% 
+  summarise(mean_prod = mean(response_neutral)) %>% 
+  ggplot(aes(x=subject_information.party_alignment,y=mean_prod,fill=as.factor(subject_information.party_alignment))) + 
+  geom_bar(stat="identity") + 
+  scale_fill_manual(values = bran_palette) +
+    theme(legend.position = "none")
+```
+
+```{r}
+final_prod %>% 
+  group_by(workerid,poli_party) %>% 
+  summarize(mean_prod = mean(response_neutral)) %>% 
+  ggplot(aes(x=poli_party,y=mean_prod,fill=poli_party)) + 
+  geom_dotplot(binaxis = "y",stackdir = "center",dotsize = 0.5) + 
+  stat_summary(fun.y=mean, geom="point", shape=18,
+                 size=5, color="red") + 
+  theme(legend.position = "none") + 
+  scale_fill_manual(values=bran_palette) + 
+  scale_x_discrete(limits=c("Democrat","Non-Partisan","Republican"))
+```
+
+```{r}
+final_prod %>% 
+  group_by(trial_gender,gender_total,young_old) %>% 
+  summarise(mean_prod = mean(response_neutral)) %>% 
+  ggplot(aes(x=gender_total,y=mean_prod,color=young_old)) + 
+  geom_point() + 
+  geom_smooth(method="lm")
+```
 
 # Incongruent Response Analysis (Auxiliary)
 

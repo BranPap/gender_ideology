@@ -496,7 +496,7 @@ final_spr <- final_spr %>%
 ```
 
 ```{r}
-ultimate_model <- lmer(resid_rt~c_gender_total:subject_information.age + c_log_all*poli_party*subject_information.age + c_gender_total + c_trial_gender + (1 |workerid) + (1|lexeme),data=final_spr)
+ultimate_model <- lmer(resid_rt~c_trial_gender*c_gender_total:subject_information.age + c_log_all*poli_party*subject_information.age + c_trial_gender:c_gender_total +  (1 + c_trial_gender |workerid) + (1|lexeme),data=final_spr)
 ```
 
 ```{r}
