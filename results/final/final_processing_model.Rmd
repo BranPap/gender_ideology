@@ -238,6 +238,29 @@ sprt_data <- read.csv('sprt_data.csv') %>%
   filter(region=='critical')
 ```
 
+```{r}
+demo_count <- read.csv('sprt_data.csv') %>%
+  filter(trial_id!= 'example') %>%
+  filter(region=='critical') 
+```
+
+```{r}
+demographic <- demo_count %>% 
+  mutate(poli_party = case_when(
+    subject_information.party_alignment == 1 | subject_information.party_alignment == 2 ~ "Republican",
+    subject_information.party_alignment == 3 ~ "Centrist",
+    subject_information.party_alignment == 4 | subject_information.party_alignment == 5 ~ "Democrat",
+  )) %>% 
+  select(workerid,poli_party,subject_information.gender) %>% 
+  group_by(workerid) %>% 
+  unique()
+```
+
+
+```{r}
+table(demographic$subject_information.gender,demographic$poli_party)
+```
+
 **Exclusions** 
 
 Now, we want to exclude any participants who failed to answer at least 85% of the attention check questions correctly. We do this by creating a list of all participants who scored less than 85% on these checks, and then cross-referencing this list with all data points, removing any data points whose participants were in the exclusion list. 

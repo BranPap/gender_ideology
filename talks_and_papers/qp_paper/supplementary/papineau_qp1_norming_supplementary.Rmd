@@ -39,9 +39,6 @@ theme_set(theme_minimal())
 
 ```
 
-
-# Norming Study 
-
 ## Methods
 
 ### Participants
@@ -132,7 +129,7 @@ norming_exclusion <- norming_data %>%
 norming_data <- norming_data[!(norming_data$workerid %in% norming_exclusion$workerid),]
 ```
 
-**Means by item, inclusive**
+### Means by item, inclusive
 
 Presented here are the mean evaluations of all 39 lexemes in each of their gendered permutations. A score of 7 means that the variant was evaluated as being extremely likely to be referring to a female, while a score of 1 indicates that the variant was taken to refer to a male. A midling score reflects an ambiguous (or potentially non-binary) referent. 
 
@@ -159,12 +156,13 @@ ggplot(norming_means, aes(x=id, y=indi_mean, color=gender)) +
   annotation_custom(text_low,xmin=-1,xmax=-1,ymin=1,ymax=1) + 
   coord_cartesian(clip = "off")
 ```
-```{r}
+
+```{r include=FALSE}
 ggsave("norming_means_all.png", width=7,height=4, path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures/")
 ```
 
 
-**Means by item, subsequent experiments only**
+### Means by item, subsequent experiments only
 
 This graph presents the same values, but includes only the lexical items which were used as critical items in the subsequent experiments. 
 
@@ -192,9 +190,8 @@ critical_means %>%
 ```
 
 
-```{r}
+```{r include=FALSE}
 ggsave("norming_means_subsequent.png", width=7,height=4, path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures/")
- b
 ```
 
 

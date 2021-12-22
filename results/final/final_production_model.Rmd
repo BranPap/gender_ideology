@@ -32,6 +32,7 @@ library(languageR)
 library(lmerTest)
 library(reshape2)
 library(grid)
+library(ggmosaic)
 
 source("helpers.R")
 ```
@@ -67,6 +68,25 @@ frequency <- frequency %>%
   mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) %>% 
   rename(form = word) 
 ```
+
+```{r}
+non_inds <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS','FOX')
+```
+
+
+```{r}
+test_freq <- read.csv("freq_vals.csv")
+
+test_freq <- test_freq %>% 
+  mutate(total = rowSums(test_freq[non_inds]))
+
+test_freq[test_freq == 0.00000000] <- 0.0001 
+
+test_freq <- test_freq %>% 
+  mutate(total_wpm = (total/121500000) * 1000000) %>% 
+  mutate(log_total = log(total_wpm))
+```
+
 
 ```{r}
 frequency %>%
@@ -125,6 +145,46 @@ freq_lex <- left_join(freq_log_all,freq_log_right,by="lexeme")
 
 ```{r}
 freq_lex <- left_join(freq_lex,freq_log_left,by="lexeme")
+```
+
+### Something
+
+```{r}
+freq_all <- frequency %>% 
+  select(lexeme,freq_gender,all_wpm) %>% 
+  pivot_wider(names_from = freq_gender,values_from = all_wpm,names_prefix="all_wpm_")
+```
+
+```{r}
+freq_right <- frequency %>% 
+  select(lexeme,freq_gender,right_wpm) %>% 
+  pivot_wider(names_from = freq_gender,values_from = right_wpm,names_prefix="right_wpm_")
+```
+
+```{r}
+freq_left <- frequency %>% 
+  select(lexeme,freq_gender,left_wpm) %>% 
+  pivot_wider(names_from = freq_gender,values_from = left_wpm,names_prefix="left_wpm_")
+```
+
+```{r}
+net_lex <- left_join(freq_all,freq_right,by="lexeme")
+```
+
+```{r}
+net_lex <- left_join(net_lex,freq_left,by="lexeme")
+```
+
+```{r}
+net_lex <- net_lex %>%
+  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) %>% 
+  mutate(
+    fem_odds = all_wpm_neutral / all_wpm_female,
+    male_odds = case_when(
+      morph_type == "adoption" ~ log(all_wpm_neutral / all_wpm_neutral),
+      morph_type == "compound" ~ log(all_wpm_neutral / all_wpm_male) 
+    )
+  )
 ```
 
 ### Heavy Data Analysis; DANGER ZONE
@@ -304,7 +364,7 @@ prod_data <- prod_data %>%
 ```{r}
 prod_data <- prod_data %>%
   filter(type == "critical") %>%
-  mutate(response_gender = ifelse(response == "actress" | response == "anchorwoman" | response == "stewardess" | response == "businesswoman" | response == 'camerawoman' | response == 'congresswoman' | response == 'craftswoman' | response == 'crewwoman' | response == 'firewoman' | response == 'forewoman'  | response == 'heiress' | response == 'heroine' | response == 'hostess' | response == 'huntress' | response == 'laywoman' | response == 'policewoman' | response == 'saleswoman' | response == 'stuntwoman' | response == 'villainess' | response == 'weatherwoman',"female",ifelse(response == "anchor" | response == "flight attendant" | response == "businessperson" | response == 'camera operator' | response == 'congressperson' | response == 'craftsperson' | response == 'crewmember' | response == 'firefighter' | response == 'foreperson' | response == 'layperson' | response == 'police officer' | response == 'salesperson' | response == 'stunt double' | response == 'meteorologist',"neutral",ifelse(response == "anchorman" | response == "steward" | response == "businessman" | response == 'cameraman' | response == 'congressman' | response == 'craftsman' | response == 'crewman' | response == 'fireman' | response == 'foreman' | response == 'layman' | response == 'policeman' | response == 'salesman' | response == 'stuntman' | response == 'weatherman',"male",'male/neutral')))) %>%
+  mutate(response_gender = ifelse(response == "actress" | response == "anchorwoman" | response == "stewardess" | response == "businesswoman" | response == 'camerawoman' | response == 'congresswoman' | response == 'craftswoman' | response == 'crewwoman' | response == 'firewoman' | response == 'forewoman'  | response == 'heiress' | response == 'heroine' | response == 'hostess' | response == 'huntress' | response == 'laywoman' | response == 'policewoman' | response == 'saleswoman' | response == 'stuntwoman' | response == 'villainess' | response == 'weatherwoman',"female",ifelse(response == "anchor" | response == "flight attendant" | response == "businessperson" | response == 'camera operator' | response == 'congressperson' | response == 'craftsperson' | response == 'crewmember' | response == 'firefighter' | response == 'foreperson' | response == 'layperson' | response == 'police officer' | response == 'salesperson' | response == 'stunt double' | response == 'meteorologist',"neutral",ifelse(response == "anchorman" | response == "steward" | response == "businessman" | response == 'cameraman' | response == 'congressman' | response == 'craftsman' | response == 'crewman' | response == 'fireman' | response == 'foreman' | response == 'layman' | response == 'policeman' | response == 'salesman' | response == 'stuntman' | response == 'weatherman',"male",'neutral')))) %>%
   mutate(congruency = ifelse(gender == response_gender,"true","false")) %>%
   mutate(incongruent = ifelse(gender == "male" & response_gender == "female","incongruent_mtf",ifelse(gender == "female" & response_gender == "male","incongruent_ftm","real"))) %>%
   mutate(neutrality = ifelse(response_gender == "neutral","true","false"))%>%
@@ -341,17 +401,36 @@ final_prod <- subset(final_prod, select = -c(form.y,trial_count.y,trial_count.x,
   rename(form_norm = indi_mean.x, lexeme_norm = indi_mean.y, form = form.x)
 ```
 
+```{r}
+net_lex <- net_lex %>% 
+  select(lexeme,fem_odds,male_odds)
+```
+
+```{r}
+final_prod <- left_join(final_prod,net_lex,by="lexeme")
+```
+
+
 ### Heavy data manipulation; DANGER ZONE
 
 ```{r}
 final_prod <- final_prod %>%
   mutate(log_odds = case_when(
-    gender == "male" ~ rel_male_odds,
-    gender == "female" ~ rel_fem_odds
+    gender == "male" ~ male_odds,
+    gender == "female" ~ fem_odds
   )) %>% 
   mutate(c_gender_total = scale(gender_total,scale=FALSE)) %>%
   mutate(c_gender_trans = scale(gender_trans,scale=FALSE)) %>%
   mutate(c_gender_link = scale(gender_link,scale=FALSE))
+```
+
+### Before we subset out the incongruents
+
+```{r}
+prod_all <- final_prod %>%
+  mutate(poli_party = factor(poli_party,ordered = FALSE)) %>%
+  mutate(trial_gender = factor(gender,ordered = FALSE)) %>% 
+  mutate(c_trial_gender = scale(as.numeric(trial_gender),scale=FALSE)) 
 ```
 
 
@@ -359,11 +438,12 @@ final_prod <- final_prod %>%
 final_prod <- final_prod %>%
   mutate(poli_party = factor(poli_party,ordered = FALSE)) %>%
   mutate(trial_gender = factor(gender,ordered = FALSE)) %>% 
-  mutate(c_trial_gender = scale(as.numeric(trial_gender),scale=FALSE))
+  mutate(c_trial_gender = scale(as.numeric(trial_gender),scale=FALSE)) %>% 
+  filter(incongruent == "real")
 ```
 
 ```{r}
-final_prod$poli_party = relevel(final_prod$poli_party, ref="Non-Partisan")
+final_prod$poli_party = relevel(final_prod$poli_party, ref="Democrat")
 final_prod$trial_gender = relevel(final_prod$trial_gender, ref="male")
 ```
 
@@ -375,6 +455,12 @@ prod_ultimate_model <- lmer(response_neutral~c_trial_gender*c_gender_total:subje
 summary(prod_ultimate_model)
 ```
 
+
+```{r}
+final_prod <- final_prod %>% 
+  mutate(c_age = scale(subject_information.age, scale=FALSE)) %>% 
+  mutate(c_log_odds = scale(log_odds, scale=FALSE))
+```
 
 # Visualisations 
 
@@ -434,15 +520,177 @@ final_prod %>%
   geom_smooth(method="lm")
 ```
 
-# Incongruent Response Analysis (Auxiliary)
+
+## Production Proportion Results
 
 ```{r}
-incongruent <- final_prod %>%
-  filter(incongruent == "incongruent_ftm" | incongruent == "incongruent_mtf")
+prod_all %>% 
+  mutate(response_gender = case_when(
+    response_gender == "male/neutral" ~ "neutral",
+    TRUE ~ response_gender
+  )) %>% 
+  ggplot() + 
+  geom_mosaic(aes(x=product(subject_information.party_alignment), fill=response_gender)) + 
+  scale_fill_manual(values=bran_palette) + 
+  labs(x="Political Alignment",y="Response Gender Proportions", fill="Response Gender", title="Proportion of Response Genders by Gender Seen (facet) and political alignment") + 
+  facet_wrap(~gender) 
 ```
 
 ```{r}
-table(incongruent$response_gender,incongruent$gender,incongruent$morph_type,incongruent$lexeme)
+test <- prod_all %>% 
+  mutate(response_gender = case_when(
+    response_gender == "male/neutral" ~ "neutral",
+    TRUE ~ response_gender
+  )) %>%
+  select(workerid,gender,response_gender,subject_information.party_alignment) %>% 
+  rename(trial_gender = gender) %>% 
+  mutate(trial_gender = as.factor(trial_gender),
+         response_gender = as.factor(response_gender))
+```
+
+```{r}
+test_d <- test %>% 
+  mutate(id = as.factor(row_number())) %>% 
+  expand_grid(c("male","female","neutral"),test$id) %>% 
+  rename(response_old = response_gender)
+```
+
+```{r}
+colnames(test_d)[6] <- "response_gender"
+```
+
+```{r}
+test_d <- test_d %>% 
+  group_by(id) %>% 
+  mutate(response = case_when(response_gender == response_old ~ 1,TRUE ~ 0)) %>% 
+  select(-response_old)
+```
+
+```{r}
+dodge = position_dodge(0.9)
+```
+
+```{r}
+blah <- test_d %>% 
+  group_by(response_gender,trial_gender,subject_information.party_alignment) %>% 
+  summarise(participants = n_distinct(workerid))
+```
+
+
+
+```{r}
+test_d %>% 
+  group_by(response_gender,trial_gender,subject_information.party_alignment) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response),
+            obs = n(),
+            participants = n_distinct(workerid)) %>%
+  rename(party_alignment = subject_information.party_alignment) %>% 
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=party_alignment, 
+             y=proportion, 
+             fill=response_gender,
+             alpha = participants)) + 
+  geom_bar(stat="identity",
+           position = dodge) + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) + 
+  facet_wrap(~trial_gender) + 
+  scale_fill_manual(values = bran_palette) + 
+  scale_alpha(range=c(0.4,1)) + 
+  labs(y="Proportion of Responses",x="<-- Republican           Participant Party Alignment           Democrat -->", fill="Response Form Gender", alpha="# of Participants")
+```
+
+
+<!-- #   summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>% -->
+<!-- #   mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>% -->
+<!-- #   ggplot(aes(x=condition,y=MeanRT,color=trial_gender,shape=trial_congruency)) +  -->
+<!-- #   geom_point(size=3) + -->
+<!-- #   geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) +  -->
+
+## Same but by ideology
+
+```{r}
+test_2 <- prod_all %>% 
+  mutate(response_gender = case_when(
+    response_gender == "male/neutral" ~ "neutral",
+    TRUE ~ response_gender
+  )) %>%
+  select(workerid,gender,response_gender,gender_total,poli_party) %>% 
+  mutate(ideology = cut_number(gender_total,n=3,labels=c("progressive","moderate","conservative"))) %>% 
+  rename(trial_gender = gender) %>% 
+  mutate(trial_gender = as.factor(trial_gender),
+         response_gender = as.factor(response_gender))
+```
+
+```{r}
+test_e <- test_2 %>% 
+  mutate(id = as.factor(row_number())) %>% 
+  expand_grid(c("male","female","neutral"),test$id) %>% 
+  rename(response_old = response_gender)
+```
+
+```{r}
+colnames(test_e)[8] <- "response_gender"
+```
+
+```{r}
+test_e <- test_e %>% 
+  group_by(id) %>% 
+  mutate(response = case_when(response_gender == response_old ~ 1,TRUE ~ 0)) %>% 
+  select(-response_old)
+```
+
+```{r}
+blah2<- test_e %>% 
+  group_by(response_gender,trial_gender,ideology,poli_party) %>% 
+  summarise(participants = n_distinct(workerid))
+```
+
+```{r}
+test_e %>% 
+  group_by(response_gender,trial_gender,ideology,poli_party) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response),
+            obs = n(),
+            participants = n_distinct(workerid)) %>%
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=ideology, 
+             y=proportion, 
+             fill=response_gender,
+             alpha=as.numeric(participants))) + 
+  geom_bar(stat="identity",
+           position = dodge) + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) + 
+  facet_grid(poli_party~trial_gender) + 
+  scale_fill_manual(values = bran_palette) + 
+  scale_alpha(range=c(0.4,1)) + 
+  labs(y="Proportion of Responses",x="Gender Ideology", fill="Response Form Gender",alpha = "# of Participants") + 
+  theme(text=element_text(size=14)) + 
+  theme(axis.text.x = element_text(angle=20, vjust=.8))
+# + 
+#  scale_x_discrete(sec.axis = sec_axis(~ . , name = "Gender Seen", breaks = NULL))
+```
+
+```{r}
+ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+
+# Incongruent Response Analysis (Auxiliary)
+
+```{r}
+incongruent <- prod_all %>%
+  filter(incongruent == "incongruent_ftm" | incongruent == "incongruent_mtf")
 ```
 
 ```{r}
@@ -453,4 +701,176 @@ incongruent%>%
   ggplot(aes(x=n,fill=incongruent)) + 
   geom_histogram()
 ```
+
+## New Tests
+
+```{r}
+simple_ideology <- lmer(response_neutral~c_trial_gender*c_gender_total + (1|workerid) + (1|lexeme),data=final_prod)
+```
+
+```{r}
+summary(simple_ideology)
+```
+
+```{r}
+simple_political <- lmer(response_neutral~c_trial_gender*poli_party + (1|workerid) + (1|lexeme),data=final_prod)
+```
+
+```{r}
+summary(simple_political)
+```
+
+```{r}
+simple_social <- lmer(response_neutral~c_trial_gender*poli_party + c_trial_gender:c_gender_total + c_gender_total + (1|workerid) + (1|lexeme),data=final_prod)
+```
+
+```{r}
+summary(simple_social)
+```
+
+
+```{r}
+simple_social_2 <- lmer(response_neutral~c_trial_gender + poli_party + c_gender_total + (1 + c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(simple_social_2)
+```
+
+```{r}
+mixed_social <- lmer(response_neutral~c_trial_gender + poli_party*c_gender_total + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(mixed_social)
+```
+
+```{r}
+interacting_social <- lmer(response_neutral~c_trial_gender*poli_party*c_gender_total + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(interacting_social)
+```
+
+```{r}
+reps_only <- final_prod %>% 
+  filter(poli_party == "Republican")
+
+dems_only <- final_prod %>% 
+  filter(poli_party == "Democrat")
+
+ind_only <- final_prod %>% 
+  filter(poli_party == "Non-Partisan")
+```
+
+
+```{r}
+rep_model <- lmer(response_neutral~c_trial_gender*c_gender_total + c_log_odds:c_age + c_log_odds + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=reps_only)
+```
+
+```{r}
+summary(rep_model)
+```
+
+
+```{r}
+ind_model <- lmer(response_neutral~c_trial_gender*c_gender_total + c_log_odds:c_age + c_log_odds + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=ind_only)
+```
+
+```{r}
+summary(ind_model)
+```
+
+```{r}
+dem_model <- lmer(response_neutral~c_trial_gender*c_gender_total + c_log_odds:c_age + c_log_odds + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=dems_only)
+```
+
+```{r}
+summary(dem_model)
+```
+
+
+```{r}
+log_odds_model <- lmer(response_neutral~c_trial_gender*poli_party*c_gender_total + log_odds + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(log_odds_model)
+```
+
+```{r}
+neutral_logel <- lmer(response_neutral~c_trial_gender*poli_party*c_gender_total + log_all_neutral + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(neutral_logel)
+```
+
+```{r}
+norm_model <- lmer(response_neutral~c_trial_gender*poli_party*c_gender_total + form_norm + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(norm_model)
+```
+
+
+```{r}
+age_model <- lmer(response_neutral~c_trial_gender*poli_party*c_gender_total + c_log_odds:c_age + c_log_odds + (1+ c_trial_gender|workerid) + (1 + c_trial_gender|lexeme),data=final_prod)
+```
+
+```{r}
+summary(age_model)
+```
+
+```{r}
+final_prod %>% 
+  filter(log_odds >-40) %>% 
+  filter(log_odds <35) %>% 
+  group_by(poli_party,young_old,lexeme,log_odds,trial_gender) %>% 
+  summarize(neutral_proportion = mean(response_neutral)) %>% 
+  ggplot(aes(x=log_odds,y=neutral_proportion, color=young_old,label=lexeme)) + 
+  geom_point() + 
+  geom_text() +
+  geom_smooth(method='lm') + 
+  facet_grid(trial_gender~poli_party)
+```
+
+
+```{r}
+final_prod %>% 
+  filter(log_odds >-40) %>% 
+  filter(log_odds <35) %>% 
+  group_by(poli_party,young_old,lexeme,log_all_neutral) %>% 
+  summarize(neutral_proportion = mean(response_neutral)) %>% 
+  ggplot(aes(x=log_all_neutral,y=neutral_proportion, color=young_old)) + 
+  geom_point() + 
+  geom_smooth(method='lm') + 
+  facet_wrap(~poli_party)
+```
+
+```{r}
+final_prod %>% 
+filter(lexeme == "hero") %>% 
+  select(gender,lexeme,form,response_neutral,log_odds)
+```
+
+```{r}
+hero <- final_prod %>% 
+  filter(lexeme=="hero")
+```
+
+```{r}
+table(hero$poli_party,hero$response_neutral,hero$trial_gender,hero$young_old)
+```
+
+```{r}
+final_prod %>% 
+  group_by(workerid,poli_party) %>% 
+  unique()
+```
+
+
+
 

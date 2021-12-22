@@ -2811,32 +2811,11 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">qp1.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">hellinger2001english</bcf:citekey>
-    <bcf:citekey order="2">von2020implicit</bcf:citekey>
-    <bcf:citekey order="2">pozniak2021failures</bcf:citekey>
-    <bcf:citekey order="3">podesva2015country</bcf:citekey>
-    <bcf:citekey order="4">podesva2015country</bcf:citekey>
-    <bcf:citekey order="5">hall2010indexing</bcf:citekey>
-    <bcf:citekey order="6">hall2010indexing</bcf:citekey>
-    <bcf:citekey order="7">hall2020breksit</bcf:citekey>
-    <bcf:citekey order="8">hall2020breksit</bcf:citekey>
-    <bcf:citekey order="9">foertsch1997search</bcf:citekey>
-    <bcf:citekey order="9">duffy2004violating</bcf:citekey>
-    <bcf:citekey order="10">von2020implicit</bcf:citekey>
-    <bcf:citekey order="11">von2020implicit</bcf:citekey>
-    <bcf:citekey order="12">pozniak2021failures</bcf:citekey>
-    <bcf:citekey order="13">pozniak2021failures</bcf:citekey>
-    <bcf:citekey order="14">misersky2014norms</bcf:citekey>
-    <bcf:citekey order="15">kastovsky2011inflectional</bcf:citekey>
-    <bcf:citekey order="15">hellinger2001english</bcf:citekey>
-    <bcf:citekey order="16">baber2006social</bcf:citekey>
-    <bcf:citekey order="17">baber2006social</bcf:citekey>
-    <bcf:citekey order="18">charalambides2021</bcf:citekey>
-    <bcf:citekey order="19">socialsecurity</bcf:citekey>
-    <bcf:citekey order="20">socialsecurity</bcf:citekey>
-    <bcf:citekey order="21">baber2006social</bcf:citekey>
-    <bcf:citekey order="22">baber2006social</bcf:citekey>
-    <bcf:citekey order="23" nocite="1">labov1963social</bcf:citekey>
+    <bcf:citekey order="1">baber2006social</bcf:citekey>
+    <bcf:citekey order="2">baber2006social</bcf:citekey>
+    <bcf:citekey order="3">charalambides2021</bcf:citekey>
+    <bcf:citekey order="4">socialsecurity</bcf:citekey>
+    <bcf:citekey order="5">socialsecurity</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
