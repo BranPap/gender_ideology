@@ -1,7 +1,7 @@
 ---
 title: "Sally the Congressperson: A Psycho- and Sociolinguistic Investigation into the Relationship Between Ideology, Gender, and Language: Final Processing Model"
 author: "B. Papineau"
-date: "Autumn 2021"
+date: "Last Updated: Sunday, December 26, 2021"
 output:
   html_notebook:
     toc: yes
@@ -15,7 +15,7 @@ output:
 ---
 
 # Introduction 
-The code and information contained herein constitutes the final model fit developed to analyse the results of my processing study, which was carried out as part of my first Qualifying Paper towards the PhD in Linguistics at Stanford University. I explain herein not only the final developed model, but also the parts which go into it and how we arrived at these, since the data is heavily adjusted from its raw input form (for reasons I hope will be clear throughout this document). Finally, I explain and visualise some of the final results towards the end of this document.
+The code and information contained herein constitutes the final model fit developed to analyse the results of my processing study, which was carried out as part of my first Qualifying Paper towards the PhD in Linguistics at Stanford University. I explain herein not only the final developed model, but also the parts which go into it and how we arrived at these, since the data is heavily adjusted from its raw input form (for reasons I hope will be clear throughout this document). Finally, I explain and visualize some of the final results towards the end of this document.
 
 # Preliminaries 
 
@@ -38,6 +38,14 @@ bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
 theme_set(theme_minimal())
 ```
 
+```{r}
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+ad_lexemes <- c("actor","host","hunter","villain","heir","hero")
+```
+
 ## Frequency Data
 
 In order to account for potential effects of the relative frequency of these items, we also want to include frequency values for each form and lexeme. Frequencies were collected from the "Spoken" part of the [Corpus of Contemporary American English](https://www.english-corpora.org/coca/). The "Spoken" part of COCA consists of transcripts from ABC, CNN, PBS, NBC, MSNBC, NPR, CBS, and FOX, as well as a small collcetion of independent news sources. We read in the frequency values of the twenty critical items here:
@@ -52,8 +60,6 @@ One of the working questions in this investigation is: what is the role of media
 lib_cols <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS')
 ```
 
-
-
 ```{r}
 frequency <- frequency %>%
   mutate(total_left = rowSums(frequency[lib_cols])) %>%
@@ -61,8 +67,14 @@ frequency <- frequency %>%
   mutate(all_wpm = ((total_left + total_right) / 121500000) * 1000000) %>%
   mutate(left_wpm = (total_left/109300000) * 1000000) %>%
   mutate(right_wpm = (total_right/12200000) * 1000000) %>%
-  mutate(neutral_binary = ifelse(gender=="neutral",1,0)) %>%
-  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) 
+  mutate(neutral_binary = case_when(
+    gender == 'neutral' ~ as.numeric(1),
+    TRUE ~ as.numeric(0)
+  )) %>%
+  mutate(morph_type = case_when(
+    lexeme %notin% ad_lexemes ~ "compound",
+    TRUE ~ "adoption"
+  ))
 ```
 
 ```{r}
@@ -100,30 +112,23 @@ And here is the norming data values:
 ```{r ECHO=TRUE}
 norming_data <- read.csv("norming_data.csv") %>%
   filter(id!="example1") %>% # Will filter out non-critical trials, i.e. the example trial from the beginning of the experiment
-  mutate(equalized_response = ifelse(scale=="FM",8-response,response)) %>% # This will render all data points on the same scale, as participants randomly received either "very likely a man" or "very likely a woman" as the left end of their response scale, with the other appearing at the right end
+  mutate(equalized_response = case_when(
+    scale == 'FM' ~ as.numeric(8)-as.numeric(response),
+    TRUE ~ as.numeric(response)
+  )) %>%  # This will render all data points on the same scale, as participants randomly received either "very likely a man" or "very likely a woman" as the left end of their response scale, with the other appearing at the right end
   mutate(orthog = ifelse(orthog=="sroceress","sorceress",orthog)) %>% # Fixes a typo
-  mutate(id = ifelse(id=="Stunt_double","stunt double",id)) %>% # This, as well as all lines below it, convert compounds formed by spaces from their underscore forms to their spaced forms (e.g. police_officer -> Police officer)
-  mutate(id = ifelse(id=="Police_officer","police officer",id)) %>%
-  mutate(id = ifelse(id=="Flight_attendant","flight attendant",id)) %>%
-  mutate(id = ifelse(id=="Anchor","anchor",id)) %>%
-  mutate(id = ifelse(id=="Businessperson","businessperson",id)) %>%
-   mutate(id = ifelse(id=="Camera","camera operator",id)) %>%
-  mutate(id = ifelse(id=="Congressperson","congressperson",id)) %>%
-  mutate(id = ifelse(id=="Craftsperson","craftsperson",id)) %>%
-  mutate(id = ifelse(id=="Crewmember","crewmember",id)) %>%
-  mutate(id = ifelse(id=="Firefighter","firefighter",id)) %>%
-  mutate(id = ifelse(id=="Foreperson","foreperson",id)) %>%
-  mutate(id = ifelse(id=="Layperson","layperson",id)) %>%
-  mutate(id = ifelse(id=="Meteorologist","meteorologist",id)) %>%
-  mutate(id = ifelse(id=="Salesperson","salesperson",id)) %>%
-  mutate(id = ifelse(id=="Actor","actor",id)) %>%
-  mutate(id = ifelse(id=="Heir","heir",id)) %>%
-  mutate(id = ifelse(id=="Hero","hero",id)) %>%
-  mutate(id = ifelse(id=="Host","host",id)) %>%
-  mutate(id = ifelse(id=="Hunter","hunter",id)) %>%
-  mutate(id = ifelse(id=="Villain","villain",id)) %>%
-  mutate(orthog = ifelse(orthog=="airline steward","steward",orthog)) %>%
-  mutate(orthog = ifelse(orthog=="airline stewardess","stewardess",orthog))
+  mutate(id = tolower(id)) %>% 
+  mutate(id = case_when(
+    id == "police_officer" ~ "police officer",
+    id == "stunt_double" ~ "stunt double",
+    id == 'flight_attendant' ~ 'flight attendant',
+    TRUE ~ id
+  )) %>% 
+  mutate(orthog = case_when(
+    orthog == 'airline steward' ~ 'steward',
+    orthog == 'airline stewardess' ~ 'stewardess',
+    TRUE ~ orthog
+  ))
 ```
 
 ```{r ECHO=TRUE}
@@ -251,7 +256,7 @@ demographic <- demo_count %>%
     subject_information.party_alignment == 3 ~ "Centrist",
     subject_information.party_alignment == 4 | subject_information.party_alignment == 5 ~ "Democrat",
   )) %>% 
-  select(workerid,poli_party,subject_information.gender) %>% 
+  select(workerid,poli_party,subject_information.gender,time_in_minutes) %>% 
   group_by(workerid) %>% 
   unique()
 ```
@@ -261,6 +266,12 @@ demographic <- demo_count %>%
 table(demographic$subject_information.gender,demographic$poli_party)
 ```
 
+```{r}
+summary(demographic)
+```
+
+
+
 **Exclusions** 
 
 Now, we want to exclude any participants who failed to answer at least 85% of the attention check questions correctly. We do this by creating a list of all participants who scored less than 85% on these checks, and then cross-referencing this list with all data points, removing any data points whose participants were in the exclusion list. 
@@ -268,7 +279,10 @@ Now, we want to exclude any participants who failed to answer at least 85% of th
 ```{r}
 sprt_exclusion <- sprt_data %>% group_by(workerid) %>%
   summarise(accuracy = mean(response_correct)) %>%
-  mutate(exclude = ifelse(accuracy < 0.85,'Yes','No')) %>% 
+  mutate(exclude = case_when(
+    accuracy < 0.85 ~ "Yes",
+    TRUE ~ "No"
+  )) %>% 
   filter(exclude == 'Yes')
 
 sprt_data <- sprt_data[!(sprt_data$workerid %in% sprt_exclusion$workerid),]
@@ -336,7 +350,10 @@ We also want to add whether the trial included a female or male referent (but al
 
 ```{r}
 sprt_data <- sprt_data %>%
-  mutate(trial_gender = ifelse(condition=='neutral_female' | condition == 'congruent_female','female','male')) 
+  mutate(trial_gender = case_when(
+    condition == "neutral_female" | condition == "congruent_female" ~ "female",
+    TRUE ~ "male"
+  ) )
 
 sprt_data %>%
   select(workerid,rt,condition,trial_id,trial_gender)
@@ -347,7 +364,10 @@ Now we want to add whether or not the lexeme's neutral form is developed by comp
 
 ```{r}
 sprt_data <- sprt_data%>%
-  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption'))
+  mutate(morph_type = case_when(
+    lexeme %notin% ad_lexemes ~ "compound",
+    TRUE ~ "adoption"
+  ))
 
 sprt_data %>%
   select(rt,lexeme,morph_type)
@@ -374,16 +394,29 @@ We also want to make sure we have a column which records whether or not the tria
 
 ```{r}
 sprt_data <- sprt_data %>%
-  mutate(trial_congruency = ifelse(condition=='congruent_male' | condition == 'congruent_female','congruent','neutral'))
+  mutate(trial_congruency = case_when(
+    condition == "congruent_male" | condition == "congruent_female" ~ "congruent",
+    TRUE ~ "neutral"
+  ))
 ```
 
 <br>
-Finally, we can classify participants by their particular political alignment; we can construe this broadly as "Republicans" vs. "Democrats", with those who declined to state a preference, or placed themselves in the middle, as "Non-Partisan".
+Finally, we can classify participants by their particular political alignment; we can construe this broadly as "Republicans" vs. "Democrats", with those who placed themselves in the middle as "Non-Partisan".
 
 ```{r}
 sprt_data <- sprt_data %>%
-  mutate(poli_party = ifelse(subject_information.party_alignment == 1 | subject_information.party_alignment == 2,'Republican',ifelse(subject_information.party_alignment == 4 | subject_information.party_alignment == 5,'Democrat','Non-Partisan')))
+  mutate(poli_party = case_when(
+    subject_information.party_alignment == 1 | subject_information.party_alignment == 2 ~ "Republican",
+    subject_information.party_alignment == 4 | subject_information.party_alignment == 5 ~ "Democrat",
+    TRUE ~ "Non-Partisan"
+  ))
 ```
+
+```{r}
+sprt_data %>% 
+  select(workerid,subject_information.party_alignment,poli_party,trial_gender,trial_congruency,condition)
+```
+
 
 **Joining independent data**
 Now that we have this information, we want to left join our frequency information so that we can use it in later analyses. We begin by adding the norming values' means, of all forms.
@@ -534,3 +567,29 @@ ultimate_model_unmutated <- lmer(resid_rt~gender_total:subject_information.age +
 summary(ultimate_model_unmutated)
 ```
 
+# CUT MATERIALS: REMOVE BEFORE PUBLISHING 
+
+
+  
+    # mutate(id = ifelse(id=="Stunt_double","stunt double",id)) %>% # This, as well as all lines below it, convert compounds formed by spaces from their underscore forms to their spaced forms (e.g. police_officer -> Police officer)
+  # mutate(id = ifelse(id=="Police_officer","police officer",id)) %>%
+  # mutate(id = ifelse(id=="Flight_attendant","flight attendant",id)) %>%
+  # mutate(id = ifelse(id=="Anchor","anchor",id)) %>%
+  # mutate(id = ifelse(id=="Businessperson","businessperson",id)) %>%
+  #  mutate(id = ifelse(id=="Camera","camera operator",id)) %>%
+  # mutate(id = ifelse(id=="Congressperson","congressperson",id)) %>%
+  # mutate(id = ifelse(id=="Craftsperson","craftsperson",id)) %>%
+  # mutate(id = ifelse(id=="Crewmember","crewmember",id)) %>%
+  # mutate(id = ifelse(id=="Firefighter","firefighter",id)) %>%
+  # mutate(id = ifelse(id=="Foreperson","foreperson",id)) %>%
+  # mutate(id = ifelse(id=="Layperson","layperson",id)) %>%
+  # mutate(id = ifelse(id=="Meteorologist","meteorologist",id)) %>%
+  # mutate(id = ifelse(id=="Salesperson","salesperson",id)) %>%
+  # mutate(id = ifelse(id=="Actor","actor",id)) %>%
+  # mutate(id = ifelse(id=="Heir","heir",id)) %>%
+  # mutate(id = ifelse(id=="Hero","hero",id)) %>%
+  # mutate(id = ifelse(id=="Host","host",id)) %>%
+  # mutate(id = ifelse(id=="Hunter","hunter",id)) %>%
+  # mutate(id = ifelse(id=="Villain","villain",id)) %>%
+  # mutate(orthog = ifelse(orthog=="airline steward","steward",orthog)) %>%
+  # mutate(orthog = ifelse(orthog=="airline stewardess","stewardess",orthog))

@@ -5,6 +5,10 @@ date: "Last Revised: Wednesday, December 22, 2021"
 output:
   html_document:
     toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: journal
     df_print: paged
   html_notebook:
     toc: yes

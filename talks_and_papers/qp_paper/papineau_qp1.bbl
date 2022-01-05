@@ -125,6 +125,24 @@
       \verb https://blog.prolific.co/we-recently-went-%20viral-on-tiktok-heres-what-we-learned/
       \endverb
     \endentry
+    \entry{prolific}{misc}{}
+      \list{publisher}{1}{%
+        {Prolific}%
+      }
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{title}{Prolific}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.prolific.co
+      \endverb
+      \verb{url}
+      \verb https://www.prolific.co
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
