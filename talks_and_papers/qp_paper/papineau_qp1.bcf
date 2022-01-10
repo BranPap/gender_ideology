@@ -46,9 +46,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -269,10 +268,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -299,9 +294,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -498,10 +492,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -528,9 +518,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -723,10 +712,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -828,7 +813,6 @@
     <bcf:option datatype="boolean">usetranslator</bcf:option>
     <bcf:option datatype="boolean">useshortauthor</bcf:option>
     <bcf:option datatype="boolean">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean">usenarrator</bcf:option>
     <bcf:option datatype="boolean">useexecproducer</bcf:option>
     <bcf:option datatype="boolean">useexecdirector</bcf:option>
@@ -948,7 +932,6 @@
     <bcf:option datatype="boolean">usetranslator</bcf:option>
     <bcf:option datatype="boolean">useshortauthor</bcf:option>
     <bcf:option datatype="boolean">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean">usenarrator</bcf:option>
     <bcf:option datatype="boolean">useexecproducer</bcf:option>
     <bcf:option datatype="boolean">useexecdirector</bcf:option>
@@ -1041,7 +1024,6 @@
     <bcf:option datatype="boolean" backendout="1">usetranslator</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useshortauthor</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean" backendout="1">usenarrator</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useexecproducer</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useexecdirector</bcf:option>
@@ -1150,6 +1132,9 @@
         <bcf:map_step map_type_source="hardware" map_type_target="software"/>
       </bcf:map>
       <bcf:map>
+        <bcf:map_step map_field_source="groupauthor" map_field_target="author"/>
+      </bcf:map>
+      <bcf:map>
         <bcf:per_type>proceedings</bcf:per_type>
         <bcf:map_step map_field_source="booktitle" map_field_target="title"/>
         <bcf:map_step map_type_source="proceedings" map_type_target="book"/>
@@ -1172,7 +1157,7 @@
         <bcf:map_step map_field_set="pubstate" map_null="1"/>
       </bcf:map>
       <bcf:map>
-        <bcf:map_step map_field_source="groupauthor" map_match="([^{}]+)" map_final="1"/>
+        <bcf:map_step map_field_source="author" map_match="([^{}]+)" map_final="1"/>
         <bcf:map_step map_field_source="publisher" map_match="$1" map_final="1"/>
         <bcf:map_step map_field_set="publisher" map_null="1"/>
       </bcf:map>
@@ -1658,7 +1643,6 @@
       <bcf:field fieldtype="field" format="xsv" datatype="option" skip_output="true">relatedoptions</bcf:field>
       <bcf:field fieldtype="field" datatype="range">pages</bcf:field>
       <bcf:field fieldtype="field" datatype="code">execute</bcf:field>
-      <bcf:field fieldtype="list" datatype="name">groupauthor</bcf:field>
       <bcf:field fieldtype="list" datatype="name">narrator</bcf:field>
       <bcf:field fieldtype="list" datatype="name">execproducer</bcf:field>
       <bcf:field fieldtype="list" datatype="name">execdirector</bcf:field>
@@ -2434,7 +2418,6 @@
     </bcf:entryfields>
     <bcf:entryfields>
       <bcf:field>with</bcf:field>
-      <bcf:field>groupauthor</bcf:field>
       <bcf:field>narrator</bcf:field>
       <bcf:field>execproducer</bcf:field>
       <bcf:field>execdirector</bcf:field>
@@ -2797,10 +2780,7 @@
       <bcf:entrytype>article</bcf:entrytype>
       <bcf:entrytype>report</bcf:entrytype>
       <bcf:constraint type="mandatory">
-        <bcf:fieldor>
-          <bcf:field>author</bcf:field>
-          <bcf:field>groupauthor</bcf:field>
-        </bcf:fieldor>
+        <bcf:field>author</bcf:field>
         <bcf:field>title</bcf:field>
       </bcf:constraint>
     </bcf:constraints>
@@ -2830,10 +2810,9 @@
     <bcf:sort order="3">
       <bcf:sortitem order="1">sortname</bcf:sortitem>
       <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">groupauthor</bcf:sortitem>
-      <bcf:sortitem order="4">editor</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="5">title</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="4">
       <bcf:sortitem order="1">pubstate</bcf:sortitem>
@@ -2844,10 +2823,18 @@
       <bcf:sortitem literal="1" order="3">-2000000000</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="6">
+      <bcf:sortitem order="1">month</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="7">
+      <bcf:sortitem order="1">day</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="8">
       <bcf:sortitem order="1">sorttitle</bcf:sortitem>
       <bcf:sortitem order="2">title</bcf:sortitem>
     </bcf:sort>
-    <bcf:sort order="7">
+    <bcf:sort order="9">
       <bcf:sortitem order="1">volume</bcf:sortitem>
       <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
     </bcf:sort>

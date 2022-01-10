@@ -265,9 +265,9 @@ sprt_data <- sprt_data %>%
 ```
 
 ```{r}
-spr_data <- spr_data %>%
+spr_data <- sprt_data %>%
   filter(!is.na(subject_information.age)) %>%
-  filter(!is.na(subject_information.poli_party))
+  filter(!is.na(subject_information.party_alignment))
 ```
 
 
@@ -1025,7 +1025,7 @@ sprt_data %>%
 ```
 
 ```{r}
-ggsave("sprt_all.png", width=7,height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
+ggsave("sprt_all.png", width=7,height=5,path='/gender_processing/talks_and_papers/qp_paper/figures')
 ```
 
 ```{r}
@@ -1075,11 +1075,6 @@ sprt_data %>%
   geom_smooth(method='lm') + 
   scale_color_manual(values = bran_palette, ) + 
   facet_grid(condition~poli_party) 
-```
-
-```{r}
-final_spr %>% 
-  ggplot(aes(x))
 ```
 
 
