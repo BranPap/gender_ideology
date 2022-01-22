@@ -28,6 +28,9 @@ library(ggplot2)
 library(tidyverse) 
 library(lme4) 
 library(lmerTest)
+library(brms)
+
+source("helpers.R")
 ```
 
 I also use a custom color palette, so I include the code for that here as well^[It is my hope and intention that this color palette is color-blind friendly. If you have accessibility concerns, please do not hesitate to reach out to me!]. I also set the default ggplot theme to theme_minimal for personal aesthetic reasons.
@@ -77,12 +80,11 @@ frequency <- frequency %>%
   ))
 ```
 
-```{r}
+
 frequency <- frequency %>%
   group_by(word) %>%
   summarise(mean_freq_left = mean(left_wpm), mean_freq_right = mean(right_wpm), mean_freq_all = mean(all_wpm)) %>%
   rename(form = word)
-```
 
 Re-write frequency to avoid zero numbers!
 
@@ -93,17 +95,28 @@ frequency[frequency == 0.00000000] <- 0.0001
 Take log frequency of each media type.
 
 ```{r}
-frequency <- frequency %>%
-  mutate(log_right = log(mean_freq_right), log_left = log(mean_freq_left), log_all = log(mean_freq_all)) 
+frequency <- frequency %>% 
+  mutate(div = all_wpm/1000000) %>% 
+  mutate(nex = div*100) %>% 
+  mutate(prob = nex/100) %>% 
+  mutate(log_all = -log(prob)) %>% 
+  rename(form = word) %>% 
+  select(form,gender,log_all)
 ```
+
+
+
+frequency <- frequency %>%
+  mutate(log_right = log(mean_freq_right), log_left = log(mean_freq_left)) 
+
 
 Create media difference 
 
-```{r}
+
 frequency <- frequency %>% 
   mutate(media_diff = log_left - log_right) %>%
   mutate(nonexistent = ifelse(media_diff == 0 & log_left < -4,"true","false"))
-```
+
 
 ### Norming Data
 
@@ -411,9 +424,10 @@ final_spr <- left_join(final_spr,norming_means_neutral,by="lexeme")
 ```{r}
 final_spr <- subset(final_spr, select = -c(form.y,trial_count.y,trial_count.x,error,subject_information.comments,subject_information.asses,subject_information.enjoyment,subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5,subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13,lexeme_norm)) %>%
   rename(form_norm = indi_mean.x, lexeme_norm = indi_mean.y, form = form.x) %>%
-  mutate(young_old = ifelse(subject_information.age > 40,"old","young")) %>% 
-  mutate(media_source = ifelse(poli_party == "Republican",log_right,ifelse(poli_party == "Democrat",log_left,log_all))) 
+  mutate(young_old = ifelse(subject_information.age > 40,"old","young")) 
 ```
+
+mutate(media_source = ifelse(poli_party == "Republican",log_right,ifelse(poli_party == "Democrat",log_left,log_all))) 
 
 ```{r}
 final_spr <- final_spr %>%
@@ -482,12 +496,14 @@ final_spr %>%
   unique() %>%
   summarise_all(funs(sum(is.na(.))))
 ```
+
 ```{r}
 final_spr %>%
   select(workerid,poli_party,subject_information.age) %>%
   unique() %>%
   summarise_all(funs(sum(is.na(.))))
 ```
+
 ```{r}
 final_spr <- final_spr %>%
   filter(trial_congruency == "neutral")
@@ -523,19 +539,78 @@ final_spr <- final_spr %>%
 ```
 
 ```{r}
+final_spr$poli_party = relevel(final_spr$poli_party, ref = "Democrat")
+```
+
+```{r}
 ultimate_model <- lmer(resid_rt~c_trial_gender*c_gender_total:subject_information.age + c_log_all*poli_party*subject_information.age + c_trial_gender:c_gender_total +  (1 + c_trial_gender |workerid) + (1|lexeme),data=final_spr)
 ```
+
 
 ```{r}
 summary(ultimate_model)
 ```
 
+
 ```{r}
-ultimate_model_unmutated <- lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=final_spr)
+ultimate_model_unmutated <- lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total:poli_party + trial_gender + gender_total + (1 |workerid) + (1|lexeme),data=final_spr)
 ```
 
 ```{r}
 summary(ultimate_model_unmutated)
+```
+
+
+
+```{r}
+final_spr$poli_party = relevel(final_spr$poli_party, ref = "Democrat")
+```
+
+
+```{r}
+lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=final_spr) %>% 
+  anova()
+```
+
+
+```{r}
+final_spr$poli_party = as.factor(final_spr$poli_party)
+```
+
+
+```{r}
+final_spr$poli_party = relevel(final_spr$poli_party, ref="Democrat")
+```
+
+
+```{r}
+ultimate_model_dem <- lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=final_spr)
+```
+
+residrt as predicted by gender_total + trial_gender + log_all+subject_age+poli_party + log_all:poli_party + log_all:subject_age + poli_party:subject_age  + gender_total:age
+
+```{r}
+summary(ultimate_model_dem)
+```
+
+### REps
+
+```{r}
+final_spr$poli_party = relevel(final_spr$poli_party, ref="Republican")
+```
+
+```{r}
+reps_spr <- final_spr %>% 
+  filter(poli_party == "Republican")
+```
+
+
+```{r}
+ultimate_model_rep <- lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=final_spr)
+```
+
+```{r}
+summary(ultimate_model_rep)
 ```
 
 # Demographic Information
@@ -572,8 +647,254 @@ sprt_data %>%
   geom_point() + 
   geom_smooth(method='lm') + 
   scale_color_manual(values = bran_palette) + 
-  facet_grid(condition~poli_party) 
+  facet_grid(condition~poli_party) + 
+  labs(x="Gender Ideology", y="Mean Reading Time (residual)")
 ```
+```{r}
+ggsave("sprt-neutral-3x3.png", width=10,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+```{r}
+final_spr %>%
+  filter(!is.na(poli_party)) %>%
+  ggplot(aes(x=log_all,y=resid_rt)) + 
+  geom_point() + 
+  geom_smooth(method='lm') + 
+  scale_color_manual(values = bran_palette)
+  labs(x="Gender Ideology", y="Mean Reading Time (residual)")
+```
+
+```{r}
+final_spr %>%
+  filter(!is.na(poli_party)) %>%
+  group_by(gender_total,workerid,trial_gender) %>%
+  summarise(meanrt = mean(resid_rt)) %>%
+  ggplot(aes(x=gender_total,y=meanrt,color=trial_gender)) + 
+  geom_point() + 
+  geom_smooth(method='lm') + 
+  scale_color_manual(values = bran_palette, limits=c("male","female")) + 
+  labs(x="<---progressive                        Gender Ideology                   conservative--->", y="Mean Reading Time (Residual)", color="Referent Gender") + 
+  theme(legend.position = "top", text = element_text(size=14))
+  
+```
+
+```{r}
+ggsave("sprt-neutral-ideo.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+## All Region Data
+```{r}
+sprt_data_all <- read.csv('sprt_data.csv') %>%
+  filter(trial_id!= 'example') 
+```
+
+**Exclusions** 
+
+```{r}
+sprt_data_all <- sprt_data_all[!(sprt_data_all$workerid %in% sprt_exclusion$workerid),]
+```
+
+We all want to filter out all trials in which the reading time for the critical item was more than 2.5 standard deviations from the mean reading time on that lexical item across all participants. 
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  group_by(trial_id) %>%
+  mutate(id_mean = mean(log(rt))) %>%
+  mutate(exclusion = (log(rt) < mean(log(rt)) - 2*sd(log(rt))|(log(rt) > mean(log(rt)) + 2*sd(log(rt))))) %>%
+  ungroup() %>%
+  filter(exclusion==FALSE)
+```
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  filter(!is.na(subject_information.age)) %>%
+  filter(!is.na(subject_information.party_alignment))
+```
+
+**Additional Information**
+Now that we have only the rows we want, let's add some new columns, which will contain important information for each data point. Here, we will be adding:
+
+- Gender Ideology Subscores
+- Trial Genders
+- Trial Morphology Types
+- Critical Item Length & Length-Controlled Residuals
+- Trial Congruency 
+- Partipant Political Affiliation
+
+Ideally, I would've added all of these but the first when I actually created the stimuli and logged responses, but I forgot to! Luckily, R allows us to do this post-hoc fairly straightforwardly... which is good, since these features will be critical in our data visualization and analysis.<br>
+<br>
+
+<br>
+The question under investigation here is whether or not individuals' conceptions of gender affect how they process  gendered and gender-neutral forms of English personal and professional titles. <br>
+<br>
+In order to examine this, we need to quanify participants' ideological views! Here we have adopted the 13-item Social Roles Questionnaire put forth in Baber & Tucker (2006). Questions 1-5 correlate to the <i>'Gender Transcendent'</i> subscale, and questions 6-13 correspond to the <i>'Gender Linked'</i> subscale. Each item is scored on a scale of 0-100. So, the first thing we want to do is make two lists of columns which correspond to these two subscales, since the questions are stored individually in the data:
+
+<br>
+Now we can use the mutate() method on <b>sprt_data</b> to add two new columns, one for each subscale. We tell R to take the means of the specified columns in [column_names] of <b>sprt_data</b> for each individual row: rowMeans(sprt_data[column_names]). We also have to subtract this mean from 100 in the case of the <i>'Gender Transcendent'</i> subscale, since it is inversely scored. Finally, we can create an average total score regardless of subscores, simply by meaning the two subscores we already have.
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  mutate(gender_trans = 100 - (rowMeans(sprt_data_all[gender_transcendence_cols]))) %>%
+  mutate(gender_link = rowMeans(sprt_data_all[gender_linked_cols])) 
+
+gender_all = c('gender_trans','gender_link')
+
+sprt_data_all <- sprt_data_all %>%
+  mutate(gender_total = rowMeans(sprt_data_all[gender_all]))
+```
+
+<br>
+We also want to add whether the trial included a female or male referent (but also, like, destroy the binary!). In order to do this, we'll just add a <b>trial_gender</b> column that says <i>'female'</i> if the condition was either <i>'neutral_female'</i> or <i>'congruent_female'</i>. Otherwise, we want the <b>trial_gender</b> to say <i>'male'</i>.
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  mutate(trial_gender = case_when(
+    condition == "neutral_female" | condition == "congruent_female" ~ "female",
+    TRUE ~ "male"
+  ) )
+
+sprt_data_all %>%
+  select(workerid,rt,condition,trial_id,trial_gender)
+```
+
+<br>
+Now we want to add whether or not the lexeme's neutral form is developed by compounding (as in <i>'congress-person'</i>) or by the adoption of the male form (as in <i>'actor'</i> being used more for both men and women). In this study, we only have six lexemes of the latter type, so we'll just tell R to assign those a <b>morph_type</b> value of <i>'adoption'</i> (for 'male adoption'), and all else will be assigned a value of <i>'compound'</i>.
+
+```{r}
+sprt_data_all <- sprt_data_all%>%
+  mutate(morph_type = case_when(
+    lexeme %notin% ad_lexemes ~ "compound",
+    TRUE ~ "adoption"
+  ))
+
+sprt_data_all %>%
+  select(rt,lexeme,morph_type)
+```
+
+
+<br>
+Another important factor we want to explore is the length of the critical item! In order to add this, we simply create a new column <b>form_length</b> and tell R to input as that column's value the length of the string that appears in that row's <b>form</b> column, which corresponds to the orthograpic form of the critical item in that trial. <i>Note that this will include spaces in the count!</i>
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  mutate(form_length = str_length(form))
+
+sprt_residual_model <- lm(log(rt)~form_length, data = sprt_data_all)
+
+sprt_data_all <- sprt_data_all %>%
+  mutate(resid_rt = resid(sprt_residual_model))
+```
+
+Now that we have these, we can run a simple linear regression which will show us the effect of orthographic length on reading time. Then we add a new column in the data which is the residual reading time, or the reading time in log space AFTER we control for the effects of orthographic length.
+
+<br>
+We also want to make sure we have a column which records whether or not the trial was gender-congruent (as in <i>'Shelby is a congresswoman'</i>) or gender neutral (as in <i>'Shelby is a congressperson'</i>). We add a <b>trial_congruency</b> column, which is valued as <i>'congruent'</i> if that row's condition is one of the two congruent conditions. Otherwise, it gets valued as <i>'neutral'</i>.
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  mutate(trial_congruency = case_when(
+    condition == "congruent_male" | condition == "congruent_female" ~ "congruent",
+    TRUE ~ "neutral"
+  ))
+```
+
+<br>
+Finally, we can classify participants by their particular political alignment; we can construe this broadly as "Republicans" vs. "Democrats", with those who placed themselves in the middle as "Non-Partisan".
+
+```{r}
+sprt_data_all <- sprt_data_all %>%
+  mutate(poli_party = case_when(
+    subject_information.party_alignment == 1 | subject_information.party_alignment == 2 ~ "Republican",
+    subject_information.party_alignment == 4 | subject_information.party_alignment == 5 ~ "Democrat",
+    TRUE ~ "Non-Partisan"
+  ))
+```
+
+```{r}
+sprt_data_all %>% 
+  select(workerid,subject_information.party_alignment,poli_party,trial_gender,trial_congruency,condition,word_idx)
+```
+
+### Graph
+
+```{r}
+sprt_data_all %>% 
+  filter(trial_congruency == "neutral") %>% 
+  group_by(poli_party,word_idx) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=word_idx,y=MeanRT,color=poli_party)) +
+  geom_point() +
+  geom_line() + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  scale_color_manual(values=bran_palette, limits=c("Democrat","Republican","Non-Partisan")) + 
+  labs(x="Word on screen",y="Mean Reading Time (Residual)",color="Participant Party") + 
+  scale_x_continuous(labels=c("[NAME]","is","a(n)","[TITLE]","from","[STATE].","s/he","likes","[ACTIVITY]"), breaks=0:8) + 
+  theme(text = element_text(size=16)) + 
+  theme(legend.position = "top")
+```
+
+```{r}
+ggsave("sprt-neutral-all-regions-poli-party.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+```{r}
+sprt_data_all %>% 
+  filter(trial_congruency == "neutral") %>% 
+  group_by(word_idx) %>%
+  summarize(MeanRT = mean(resid_rt), CI.Low = ci.low(resid_rt), CI.High = ci.high(resid_rt)) %>%
+  mutate(YMin = MeanRT - CI.Low, YMax = MeanRT + CI.High) %>%
+  ggplot(aes(x=word_idx,y=MeanRT)) +
+  geom_point() +
+  geom_line() + 
+  geom_errorbar(aes(ymin=YMin,ymax=YMax), width=.25) + 
+  scale_color_manual(values=bran_palette) + 
+  labs(x="Word on screen",y="Mean Reading Time",color="Participant Political Party") + 
+  scale_x_continuous(labels=c("[NAME]","is","a(n)","[TITLE]","from","[STATE].","s/he","likes","[ACTIVITY]"), breaks=0:8)
+```
+
+```{r}
+ggsave("sprt_neutral_all_regions.png", width=7,height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
+```
+
+```{r}
+sprt_prefix <- sprt_data_all %>% 
+  filter(word_idx <= 2)
+```
+
+```{r}
+all_model <- lmer(resid_rt~gender_total:subject_information.age + poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=sprt_data_all)
+```
+
+```{r}
+summary(all_model)
+```
+
+
+```{r}
+final_spr %>%
+  filter(!is.na(poli_party)) %>%
+  filter(!is.na(young_old)) %>%
+  filter(poli_party != "Non-Partisan") %>%
+  group_by(form,poli_party,young_old) %>%
+  mutate(resid_rt_mean = mean(resid_rt)) %>%
+  filter(log_all > -5) %>%
+  ggplot(aes(x=log_all,y=resid_rt_mean)) +
+  geom_point() + 
+  geom_smooth(method="lm") +
+  facet_grid(young_old~poli_party) + 
+  labs(x="Unigram Surprisal",y="Mean Reading Time (Residual)") + 
+  theme(text=element_text(size=14))
+```
+
+```{r}
+ggsave("proc-freq-party.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+```{r}
+final_spr %>% 
+```
+
 
 # CUT MATERIALS: REMOVE BEFORE PUBLISHING 
 
@@ -601,3 +922,27 @@ sprt_data %>%
   # mutate(id = ifelse(id=="Villain","villain",id)) %>%
   # mutate(orthog = ifelse(orthog=="airline steward","steward",orthog)) %>%
   # mutate(orthog = ifelse(orthog=="airline stewardess","stewardess",orthog))
+  
+
+model <- brm(
+  formula = resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),
+  data = final_spr,
+  seed = 2540,
+  family = 'gaussian',
+  iter = 1000
+)
+
+
+
+
+model <- brm(
+  formula = resid_rt~gender_total + poli_party + log_all + trial_gender + (1 |workerid) + (1|lexeme),
+  data = final_spr,
+  seed = 2540,
+  family = 'gaussian',
+  iter = 4000
+)
+
+
+
+summary(model)

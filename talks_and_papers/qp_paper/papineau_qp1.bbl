@@ -19,6 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{apa/global//global/global}
+    \entry{ackerman}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9f352c758eae5754ea29da046dcee67d}{%
+           family={Ackerman},
+           familyi={A\bibinitperiod},
+           given={Lauren},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f352c758eae5754ea29da046dcee67d}
+      \strng{fullhash}{9f352c758eae5754ea29da046dcee67d}
+      \strng{bibnamehash}{9f352c758eae5754ea29da046dcee67d}
+      \strng{authorbibnamehash}{9f352c758eae5754ea29da046dcee67d}
+      \strng{authornamehash}{9f352c758eae5754ea29da046dcee67d}
+      \strng{authorfullhash}{9f352c758eae5754ea29da046dcee67d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Architectures and Mechanisms of Language Processing}
+      \field{title}{Processing singular \textit{they} with generic and specific antecedents}
+      \field{year}{2018}
+    \endentry
     \entry{socialsecurity}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=7309f46ec64c7efe3a95b6a2ea52805e}{%
@@ -89,6 +115,97 @@
       \field{pages}{459\bibrangedash 467}
       \range{pages}{9}
     \endentry
+    \entry{bender2021dangers}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=e579c650beb31c286389278140fadd63}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={Emily\bibnamedelima M},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f2b0ffb56c5d1e4220c16c0258e02eae}{%
+           family={Gebru},
+           familyi={G\bibinitperiod},
+           given={Timnit},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=698aa56654e49949b5a9ea038d23587e}{%
+           family={McMillan-Major},
+           familyi={M\bibinithyphendelim M\bibinitperiod},
+           given={Angelina},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3721cea1e5538fe0b83526d8333dbab}{%
+           family={Shmitchell},
+           familyi={S\bibinitperiod},
+           given={Shmargaret},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c73d9460425aeddbb561b189551a3a98}
+      \strng{fullhash}{c4b1a296df1a50ba514ab947970f1784}
+      \strng{bibnamehash}{c4b1a296df1a50ba514ab947970f1784}
+      \strng{authorbibnamehash}{c4b1a296df1a50ba514ab947970f1784}
+      \strng{authornamehash}{c73d9460425aeddbb561b189551a3a98}
+      \strng{authorfullhash}{c4b1a296df1a50ba514ab947970f1784}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency}
+      \field{title}{On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?}
+      \field{year}{2021}
+      \field{pages}{610\bibrangedash 623}
+      \range{pages}{14}
+    \endentry
+    \entry{caliskan2017semantics}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=8f9b5b558e799295d2965d869cfbe071}{%
+           family={Caliskan},
+           familyi={C\bibinitperiod},
+           given={Aylin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7521dd374d12145d6057517263c662d}{%
+           family={Bryson},
+           familyi={B\bibinitperiod},
+           given={Joanna\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95dc795a2be14c50fb6a924acc135ff8}{%
+           family={Narayanan},
+           familyi={N\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{10ac967a38e29cf5e5596de89ec5dfd5}
+      \strng{fullhash}{91425bb119f56f643109755ebcdafeaf}
+      \strng{bibnamehash}{91425bb119f56f643109755ebcdafeaf}
+      \strng{authorbibnamehash}{91425bb119f56f643109755ebcdafeaf}
+      \strng{authornamehash}{10ac967a38e29cf5e5596de89ec5dfd5}
+      \strng{authorfullhash}{91425bb119f56f643109755ebcdafeaf}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6334}
+      \field{title}{Semantics derived automatically from language corpora contain human-like biases}
+      \field{volume}{356}
+      \field{year}{2017}
+      \field{pages}{183\bibrangedash 186}
+      \range{pages}{4}
+    \endentry
     \entry{charalambides2021}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=698d74e2bf83968a5e29aa48a29720fe}{%
@@ -125,6 +242,460 @@
       \verb https://blog.prolific.co/we-recently-went-%20viral-on-tiktok-heres-what-we-learned/
       \endverb
     \endentry
+    \entry{coca}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48f427e0352f9d97eb37585a65f73622}{%
+           family={Davies},
+           familyi={D\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{48f427e0352f9d97eb37585a65f73622}
+      \strng{fullhash}{48f427e0352f9d97eb37585a65f73622}
+      \strng{bibnamehash}{48f427e0352f9d97eb37585a65f73622}
+      \strng{authorbibnamehash}{48f427e0352f9d97eb37585a65f73622}
+      \strng{authornamehash}{48f427e0352f9d97eb37585a65f73622}
+      \strng{authorfullhash}{48f427e0352f9d97eb37585a65f73622}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Corpus of Contemporary American English (COCA)}
+      \field{year}{2008-}
+      \verb{urlraw}
+      \verb https://www.english-corpora.org/coca/
+      \endverb
+      \verb{url}
+      \verb https://www.english-corpora.org/coca/
+      \endverb
+    \endentry
+    \entry{doherty2017gender}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dd2917899f33b38a7a4831153d7f9c06}{%
+           family={Doherty},
+           familyi={D\bibinitperiod},
+           given={Alice},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9903770e074600c1faa78fc0f05308f7}{%
+           family={Conklin},
+           familyi={C\bibinitperiod},
+           given={Kathy},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage UK: London, England}%
+      }
+      \strng{namehash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \strng{fullhash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \strng{bibnamehash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \strng{authorbibnamehash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \strng{authornamehash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \strng{authorfullhash}{179fc6841a40a4545c5e7fcd1dbf1175}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quarterly Journal of Experimental Psychology}
+      \field{number}{4}
+      \field{title}{How gender-expectancy affects the processing of “them”}
+      \field{volume}{70}
+      \field{year}{2017}
+      \field{pages}{718\bibrangedash 735}
+      \range{pages}{18}
+    \endentry
+    \entry{duffy2004violating}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=af7ae192ecfb61d5e9d27f4587bc4fca}{%
+           family={Duffy},
+           familyi={D\bibinitperiod},
+           given={Susan\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02f98d50af53dc810e8663a52f3d679b}{%
+           family={Keir},
+           familyi={K\bibinitperiod},
+           given={Jessica\bibnamedelima A},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{fullhash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{bibnamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authorbibnamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authornamehash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \strng{authorfullhash}{5a4e5730d5535d9afdeb92d7ff56d8b0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Memory \& Cognition}
+      \field{number}{4}
+      \field{title}{Violating stereotypes: Eye movements and comprehension processes when text conflicts with world knowledge}
+      \field{volume}{32}
+      \field{year}{2004}
+      \field{pages}{551\bibrangedash 559}
+      \range{pages}{9}
+    \endentry
+    \entry{eckert2008variation}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cb78fc3ea3df9a33015191a5628f0b1f}{%
+           family={Eckert},
+           familyi={E\bibinitperiod},
+           given={Penelope},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \strng{fullhash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \strng{bibnamehash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \strng{authorbibnamehash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \strng{authornamehash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \strng{authorfullhash}{cb78fc3ea3df9a33015191a5628f0b1f}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of sociolinguistics}
+      \field{number}{4}
+      \field{title}{Variation and the indexical field 1}
+      \field{volume}{12}
+      \field{year}{2008}
+      \field{pages}{453\bibrangedash 476}
+      \range{pages}{24}
+    \endentry
+    \entry{foertsch1997search}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f5b05ae7d6d170a2417eebb27a941ca9}{%
+           family={Foertsch},
+           familyi={F\bibinitperiod},
+           given={Julie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ad3f199a9ccc715cdcfcc01052d1381}{%
+           family={Gernsbacher},
+           familyi={G\bibinitperiod},
+           given={Morton\bibnamedelima Ann},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{fullhash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{bibnamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authorbibnamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authornamehash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \strng{authorfullhash}{c23f2dfbd3b3e2ed7ded6fa7c3ac42c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological science}
+      \field{number}{2}
+      \field{title}{In search of gender neutrality: Is singular they a cognitively efficient substitute for generic he?}
+      \field{volume}{8}
+      \field{year}{1997}
+      \field{pages}{106\bibrangedash 111}
+      \range{pages}{6}
+    \endentry
+    \entry{forster2009maze}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7bdb71fb8ac29d449434a05a1a6dd116}{%
+           family={Forster},
+           familyi={F\bibinitperiod},
+           given={Kenneth\bibnamedelima I},
+           giveni={K\bibinitperiod\bibinitdelim I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a53fd5a238676d3bd779de9c989340b7}{%
+           family={Guerrera},
+           familyi={G\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=312c6ac3488143a69e82a0866e98071e}{%
+           family={Elliot},
+           familyi={E\bibinitperiod},
+           given={Lisa},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f5582c949e366243557f1834f3f7faf9}
+      \strng{fullhash}{df6a03389ea935b1c9e9ef11f7a3be9d}
+      \strng{bibnamehash}{df6a03389ea935b1c9e9ef11f7a3be9d}
+      \strng{authorbibnamehash}{df6a03389ea935b1c9e9ef11f7a3be9d}
+      \strng{authornamehash}{f5582c949e366243557f1834f3f7faf9}
+      \strng{authorfullhash}{df6a03389ea935b1c9e9ef11f7a3be9d}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Behavior research methods}
+      \field{number}{1}
+      \field{title}{The maze task: Measuring forced incremental sentence processing time}
+      \field{volume}{41}
+      \field{year}{2009}
+      \field{pages}{163\bibrangedash 171}
+      \range{pages}{9}
+    \endentry
+    \entry{gal1995boundaries}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d1908f75cee4686bc8efefce5dad444b}{%
+           family={Gal},
+           familyi={G\bibinitperiod},
+           given={Susan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7380b6279fe51e8d4888355e4100caf8}{%
+           family={Irvine},
+           familyi={I\bibinitperiod},
+           given={Judith\bibnamedelima T},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{2640bb47ee23cb944118f1935282da03}
+      \strng{fullhash}{2640bb47ee23cb944118f1935282da03}
+      \strng{bibnamehash}{2640bb47ee23cb944118f1935282da03}
+      \strng{authorbibnamehash}{2640bb47ee23cb944118f1935282da03}
+      \strng{authornamehash}{2640bb47ee23cb944118f1935282da03}
+      \strng{authorfullhash}{2640bb47ee23cb944118f1935282da03}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social research}
+      \field{title}{The boundaries of languages and disciplines: How ideologies construct difference}
+      \field{year}{1995}
+      \true{nocite}
+      \field{pages}{967\bibrangedash 1001}
+      \range{pages}{35}
+    \endentry
+    \entry{Grenell}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5e46bf6af3502a0f8cb3d10d3472b6b0}{%
+           family={Grenell},
+           familyi={G\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \strng{fullhash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \strng{bibnamehash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \strng{authorbibnamehash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \strng{authornamehash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \strng{authorfullhash}{5e46bf6af3502a0f8cb3d10d3472b6b0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Stop voting for Democrats.}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://twitter.com/richardgrenell/status/1471502835682480128?s=21
+      \endverb
+      \verb{url}
+      \verb https://twitter.com/richardgrenell/status/1471502835682480128?s=21
+      \endverb
+    \endentry
+    \entry{levy2008expectation}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2e20881923b91d44e8f1ba7e0f38f42c}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{fullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{bibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authorbibnamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authornamehash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \strng{authorfullhash}{2e20881923b91d44e8f1ba7e0f38f42c}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cognition}
+      \field{number}{3}
+      \field{title}{Expectation-based syntactic comprehension}
+      \field{volume}{106}
+      \field{year}{2008}
+      \field{pages}{1126\bibrangedash 1177}
+      \range{pages}{52}
+    \endentry
+    \entry{misersky2014norms}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=e778e71477aca05d0d27171a7104165e}{%
+           family={Misersky},
+           familyi={M\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=660f50b5bc08a588733a6e2ad13577dc}{%
+           family={Gygax},
+           familyi={G\bibinitperiod},
+           given={Pascal\bibnamedelima M},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75e95d40d42a3583e7a6c3583b995026}{%
+           family={Canal},
+           familyi={C\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8210c9ed84621a63cf629c9c2b0ed8b5}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Ute},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4c2751663a2de813c63e3f3c4652ce9}{%
+           family={Garnham},
+           familyi={G\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1ab6dcb18c178cb84d92811e19c54dd}{%
+           family={Braun},
+           familyi={B\bibinitperiod},
+           given={Friederike},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c4b118f8396121fd2bf86d4d9f604c6}{%
+           family={Chiarini},
+           familyi={C\bibinitperiod},
+           given={Tania},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dc049ec2494d497ecdf9cdf1e7e1076}{%
+           family={Englund},
+           familyi={E\bibinitperiod},
+           given={Kjellrun},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3f8bf449204d7c76857c9f504729dc3}{%
+           family={Hanulikova},
+           familyi={H\bibinitperiod},
+           given={Adriana},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7c5a070315fa5b2f24d5cc6236c6bf7}{%
+           family={Öttl},
+           familyi={Ö\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{599b0a8ee785ebc902cc220dced5b3bb}
+      \strng{fullhash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{bibnamehash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{authorbibnamehash}{a0091ae002f954812ad984b7bb433c2a}
+      \strng{authornamehash}{599b0a8ee785ebc902cc220dced5b3bb}
+      \strng{authorfullhash}{a0091ae002f954812ad984b7bb433c2a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Behavior research methods}
+      \field{number}{3}
+      \field{title}{Norms on the gender perception of role nouns in Czech, English, French, German, Italian, Norwegian, and Slovak}
+      \field{volume}{46}
+      \field{year}{2014}
+      \field{pages}{841\bibrangedash 871}
+      \range{pages}{31}
+    \endentry
+    \entry{pozniak2021failures}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a56045cf37d85f0e5dd7de51252a0b4e}{%
+           family={Pozniak},
+           familyi={P\bibinitperiod},
+           given={Céline},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2eb2491026bdcd78bbad9bc51925afeb}{%
+           family={Burnett},
+           familyi={B\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Ubiquity Press}%
+      }
+      \strng{namehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{fullhash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{bibnamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authorbibnamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authornamehash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \strng{authorfullhash}{23bfd5cb93b1e847e0a63db24ea7c240}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Glossa: a journal of general linguistics}
+      \field{number}{1}
+      \field{title}{Failures of Gricean reasoning and the role of stereotypes in the production of gender marking in French}
+      \field{volume}{6}
+      \field{year}{2021}
+    \endentry
     \entry{prolific}{misc}{}
       \list{publisher}{1}{%
         {Prolific}%
@@ -142,6 +713,95 @@
       \verb{url}
       \verb https://www.prolific.co
       \endverb
+    \endentry
+    \entry{sutton2018biased}{misc}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f094e04e25b7d90d23916b4d93bfe042}{%
+           family={Sutton},
+           familyi={S\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=529058b899fa4e685de183851546d791}{%
+           family={Lansdall-Welfare},
+           familyi={L\bibinithyphendelim W\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b643588b4a53ed47702d3277b6de83a9}{%
+           family={Cristianini},
+           familyi={C\bibinitperiod},
+           given={Nello},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bfaa7e0f7e47ce1019fd9b74f1b718be}
+      \strng{fullhash}{60318103e804fec77a430fa5eac4fb82}
+      \strng{bibnamehash}{60318103e804fec77a430fa5eac4fb82}
+      \strng{authorbibnamehash}{60318103e804fec77a430fa5eac4fb82}
+      \strng{authornamehash}{bfaa7e0f7e47ce1019fd9b74f1b718be}
+      \strng{authorfullhash}{60318103e804fec77a430fa5eac4fb82}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{Biased Embeddings from Wild Data: Measuring, Understanding and Removing}
+      \field{year}{2018}
+      \verb{eprint}
+      \verb 1806.06301
+      \endverb
+    \endentry
+    \entry{von2020implicit}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=da9726e094ac5dc5f77904819996f3ec}{%
+           family={Malsburg},
+           familyi={M\bibinitperiod},
+           given={Titus},
+           giveni={T\bibinitperiod},
+           givenun=0,
+           prefix={von\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=57f33fc1d46ef5f0a7b06cfea4c425b7}{%
+           family={Poppels},
+           familyi={P\bibinitperiod},
+           given={Till},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d0a5637ceb33385c24e00068ad600919}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Roger\bibnamedelima P},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{e77f06b9e5b4a85e53729c9f4568fceb}
+      \strng{fullhash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{bibnamehash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{authorbibnamehash}{95fe4eea1960ca9730776308e7dc6f77}
+      \strng{authornamehash}{e77f06b9e5b4a85e53729c9f4568fceb}
+      \strng{authorfullhash}{95fe4eea1960ca9730776308e7dc6f77}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological science}
+      \field{number}{2}
+      \field{title}{Implicit gender bias in linguistic descriptions for expected events: The Cases of the 2016 United States and 2017 United Kingdom elections}
+      \field{volume}{31}
+      \field{year}{2020}
+      \field{pages}{115\bibrangedash 128}
+      \range{pages}{14}
     \endentry
   \enddatalist
 \endrefsection

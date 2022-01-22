@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'scratch.blg'
+[57] biber-darwin:340> INFO - === Thu Jan 13, 2022, 09:07:03
+[69] Biber.pm:415> INFO - Reading 'scratch.bcf'
+[149] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[154] Utils.pm:395> WARN - The file 'scratch.bcf' does not contain any citations!
+[162] bbl.pm:654> INFO - Writing 'scratch.bbl' with encoding 'UTF-8'
+[162] bbl.pm:757> INFO - Output to scratch.bbl
+[162] Biber.pm:128> INFO - WARNINGS: 1

@@ -264,11 +264,10 @@ sprt_data <- sprt_data %>%
   filter(exclusion==FALSE)
 ```
 
-```{r}
-spr_data <- spr_data %>%
+
+sprt_data <- sprt_data %>%
   filter(!is.na(subject_information.age)) %>%
   filter(!is.na(subject_information.poli_party))
-```
 
 
 This results in 238 trials being removed from the 5580 we got after the by-participant exclusions. We now have 5342 trials we can use for analysis.
@@ -1479,14 +1478,17 @@ final_spr %>%
   group_by(form,poli_party,young_old) %>%
   mutate(resid_rt_mean = mean(resid_rt)) %>%
   filter(log_all > -5) %>%
-  ggplot(aes(x=log_all,y=resid_rt_mean,label=form)) +
+  ggplot(aes(x=log_all,y=resid_rt_mean)) +
   geom_point() + 
-  geom_smooth(method="lm") + 
-  geom_text(size=4,nudge_y =.03) + 
-  facet_grid(young_old~poli_party)
+  geom_smooth(method="lm") +
+  facet_grid(young_old~poli_party) + 
+  labs(x="Log Frequency",y="Mean Reading Time (Residual)") + 
+  theme(text=element_text(size=14))
 ```
 
-
+```{r}
+ggsave("proc-freq-party.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
 
 ```{r}
 final_spr %>%

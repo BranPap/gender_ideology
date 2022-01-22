@@ -32,7 +32,6 @@ library(languageR)
 library(lmerTest)
 library(reshape2)
 library(grid)
-library(ggmosaic)
 
 source("helpers.R")
 ```
@@ -508,8 +507,13 @@ final_prod %>%
                  size=5, color="red") + 
   theme(legend.position = "none") + 
   scale_fill_manual(values=bran_palette) + 
-  scale_x_discrete(limits=c("Democrat","Non-Partisan","Republican"))
+  scale_x_discrete(limits=c("Democrat","Non-Partisan","Republican")) + 
+  labs(x="Participant Political Party",y="Proportion of Neutral Responses")
 ```
+```{r}
+ggsave("prod-dot-party.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
 
 ```{r}
 final_prod %>% 
@@ -523,7 +527,7 @@ final_prod %>%
 
 ## Production Proportion Results
 
-```{r}
+
 prod_all %>% 
   mutate(response_gender = case_when(
     response_gender == "male/neutral" ~ "neutral",
@@ -534,7 +538,7 @@ prod_all %>%
   scale_fill_manual(values=bran_palette) + 
   labs(x="Political Alignment",y="Response Gender Proportions", fill="Response Gender", title="Proportion of Response Genders by Gender Seen (facet) and political alignment") + 
   facet_wrap(~gender) 
-```
+
 
 ```{r}
 test <- prod_all %>% 
@@ -672,17 +676,18 @@ test_e %>%
                 position = dodge,
                 width=0.25) + 
   facet_grid(poli_party~trial_gender) + 
-  scale_fill_manual(values = bran_palette) + 
+  scale_fill_manual(values = bran_palette, limits=c("male","female","neutral")) + 
   scale_alpha(range=c(0.4,1)) + 
   labs(y="Proportion of Responses",x="Gender Ideology", fill="Response Form Gender",alpha = "# of Participants") + 
   theme(text=element_text(size=14)) + 
-  theme(axis.text.x = element_text(angle=20, vjust=.8))
+  theme(axis.text.x = element_text(angle=20, vjust=.8)) + 
+  theme(legend.position = "top", legend.text = element_text(size=10), legend.title = element_text(size=10))
 # + 
 #  scale_x_discrete(sec.axis = sec_axis(~ . , name = "Gender Seen", breaks = NULL))
 ```
 
 ```{r}
-ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures'2)
 ```
 
 
