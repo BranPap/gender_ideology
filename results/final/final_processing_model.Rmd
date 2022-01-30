@@ -601,12 +601,13 @@ final_spr$poli_party = relevel(final_spr$poli_party, ref="Republican")
 
 ```{r}
 reps_spr <- final_spr %>% 
-  filter(poli_party == "Republican")
+  filter(poli_party == "Republican") %>% 
+  filter(young_old == "old")
 ```
 
 
 ```{r}
-ultimate_model_rep <- lmer(resid_rt~gender_total:subject_information.age + log_all*poli_party*subject_information.age + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=final_spr)
+ultimate_model_rep <- lmer(resid_rt~gender_total + log_all + gender_total + trial_gender + (1 |workerid) + (1|lexeme),data=reps_spr)
 ```
 
 ```{r}
@@ -616,13 +617,13 @@ summary(ultimate_model_rep)
 # Demographic Information
 
 ```{r}
-demographic <- sprt_data %>% 
+demographic <- final_spr %>% 
   mutate(poli_party = case_when(
     subject_information.party_alignment == 1 | subject_information.party_alignment == 2 ~ "Republican",
     subject_information.party_alignment == 3 ~ "Non-Partisan",
     subject_information.party_alignment == 4 | subject_information.party_alignment == 5 ~ "Democrat",
   )) %>% 
-  select(workerid,poli_party,subject_information.gender,time_in_minutes) %>% 
+  select(workerid,poli_party,subject_information.gender,time_in_minutes,young_old) %>% 
   group_by(workerid) %>% 
   unique()
 ```
@@ -891,10 +892,6 @@ final_spr %>%
 ggsave("proc-freq-party.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
 ```
 
-```{r}
-final_spr %>% 
-```
-
 
 # CUT MATERIALS: REMOVE BEFORE PUBLISHING 
 
@@ -946,3 +943,23 @@ model <- brm(
 
 
 summary(model)
+
+
+
+```{r}
+table(final_spr$subject_information.age,final_spr$young_old)
+```
+
+```{r}
+table(demographic$poli_party,demographic$young_old)
+```
+
+```{r}
+age_n <- data.frame(poli_party = c("Democrat","Democrat","Republican","Republican"),
+                    young_old = c("young","old","young","old"), 
+                    n = c("n=94","n=19","n=28","n=74"))
+```
+
+df <- data.frame (first_column  = c("value_1", "value_2", ...),
+                  second_column = c("value_1", "value_2", ...)
+                  )

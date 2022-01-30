@@ -479,7 +479,7 @@ table(final_prod$c_log_odds,final_prod$lexeme)
 
 
 ```{r}
-summary(log_odds_model)
+summary(lom)
 ```
 
 

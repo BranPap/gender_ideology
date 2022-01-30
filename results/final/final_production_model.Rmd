@@ -40,6 +40,8 @@ I also use a custom color palette, so I include the code for that here as well^[
 
 ```{r}
 bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
+sec_palette = c("#3d405b","#e07a5f","#81b29a","f2cc8f")
+
 
 theme_set(theme_minimal())
 ```
@@ -676,7 +678,7 @@ test_e %>%
                 position = dodge,
                 width=0.25) + 
   facet_grid(poli_party~trial_gender) + 
-  scale_fill_manual(values = bran_palette, limits=c("male","female","neutral")) + 
+  scale_fill_manual(values = sec_palette, limits=c("male","female","neutral")) + 
   scale_alpha(range=c(0.4,1)) + 
   labs(y="Proportion of Responses",x="Gender Ideology", fill="Response Form Gender",alpha = "# of Participants") + 
   theme(text=element_text(size=14)) + 
@@ -687,7 +689,7 @@ test_e %>%
 ```
 
 ```{r}
-ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures'2)
+ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
 ```
 
 

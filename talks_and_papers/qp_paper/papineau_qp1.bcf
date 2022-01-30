@@ -2840,11 +2840,9 @@
     <bcf:citekey order="22">coca</bcf:citekey>
     <bcf:citekey order="23">von2020implicit</bcf:citekey>
     <bcf:citekey order="24">von2020implicit</bcf:citekey>
-    <bcf:citekey order="25">pozniak2021failures</bcf:citekey>
-    <bcf:citekey order="26">pozniak2021failures</bcf:citekey>
-    <bcf:citekey order="27">eckert2008variation</bcf:citekey>
-    <bcf:citekey order="28">Grenell</bcf:citekey>
-    <bcf:citekey order="29" nocite="1">gal1995boundaries</bcf:citekey>
+    <bcf:citekey order="25">eckert2008variation</bcf:citekey>
+    <bcf:citekey order="26">Grenell</bcf:citekey>
+    <bcf:citekey order="27" nocite="1">gal1995boundaries</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
