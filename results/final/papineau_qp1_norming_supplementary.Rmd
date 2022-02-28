@@ -38,8 +38,11 @@ library(grid)
 source("helpers.R")
 
 bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
+sec_palette = c("#3d405b","#e07a5f","#81b29a","f2cc8f")
 
 theme_set(theme_minimal())
+
+dodge = position_dodge(0.9)
 
 ```
 
@@ -55,7 +58,7 @@ All participants, regardless of their data's final inclusion in the analysis, we
 
 A link to the experiment can be found [here](https://branpap.github.io/gender_processing/experiments/norming_study_one/experiment.html), and is available for the keen reader to click through; results are not stored in any way.
 
-Participants were presented with 39 sentence frames of the structure "Someone is a [role title]", and were asked to indicate on a seven-point Likert scale how likely they thought it was that the 'someone' in question was male or female. The Likert scales were randomized between participants with regard to which end of the scale represented a male response. In each sentence, participants were presented with one of 39 role titles in one of its gendered permutations, such that no participant saw the same lexeme multiple times with different gender markings. All participants saw 13 items of each gender (male/female/neutral). 
+Participants were presented with 39 sentence frames of the structure "Someone is a [role title]", and were asked to indicate on a seven-point Likert scale how likely they thought it was that the 'someone' in question was male or female. The Likert scales were randomized between participants with regard to which end of the scale represented a (fe)male response. In each sentence, participants were presented with one of 39 role titles in one of its gendered permutations, such that no participant saw the same lexeme multiple times with different gender markings. All participants saw 13 items of each gender (male/female/neutral). 
 
 Role titles were selected from a variety of online guides on avoiding gendered language in English. Of the 39 role titles included, 11 made binary gender distinctions between male and female forms (e.g. *villain* vs. *villainess*), while the remaining 28 make ternary gender distinctions with an additional neutral manifestation (e.g. *congressman* vs. *congresswoman* vs. *congressperson*). The norming items are presented in the table below. 
 
@@ -140,7 +143,13 @@ Presented here are the mean evaluations of all 39 lexemes in each of their gende
 ```{r include=FALSE}
 norming_means <- norming_data %>%
   group_by(id,gender,orthog) %>%
-  summarise(indi_mean = mean(equalized_response), trial_count=n())
+  summarise(indi_mean = mean(equalized_response),
+            trial_count=n(),
+            CI.Low = ci.low(equalized_response),
+            CI.High = ci.high(equalized_response)
+            ) %>% 
+  mutate(YMin = indi_mean - CI.Low,
+         YMax = indi_mean + CI.High)
 ```
 
 ```{r include=FALSE}
@@ -151,18 +160,21 @@ text_low <- textGrob("Male", gp=gpar(fontsize=10, fontface="bold"))
 ```{r echo=FALSE}
 ggplot(norming_means, aes(x=id, y=indi_mean, color=gender)) + 
   geom_point() + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                width=0.25) + 
   theme_minimal() + 
   theme(axis.text.x = element_text(angle=45, hjust=1, size=8)) + 
-  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form Seen", title="Mean Gender Rating by Ungendered Form and Gender Seen") + 
-  scale_color_manual(values = bran_palette) + 
+  labs(x="Ungendered Lexical Item", y="Mean Rating", color = "Gender of Form Seen") + 
+  scale_color_manual(values = sec_palette, limits=c("male","female","neutral")) + 
   theme(plot.margin = unit(c(1,1,2,1), "lines")) +
   annotation_custom(text_high,xmin=-1.3,xmax=-1.3,ymin=6.8,ymax=6.8) + 
   annotation_custom(text_low,xmin=-1,xmax=-1,ymin=1,ymax=1) + 
-  coord_cartesian(clip = "off")
+  coord_cartesian(clip = "off") + 
+  theme(legend.position = "top")
 ```
 
 ```{r include=FALSE}
-ggsave("norming_means_all.png", width=7,height=4, path="/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures/")
+ggsave("norming-means-all.png", width=7,height=4, path="/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures/")
 ```
 
 

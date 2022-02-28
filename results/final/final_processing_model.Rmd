@@ -99,9 +99,17 @@ frequency <- frequency %>%
   mutate(div = all_wpm/1000000) %>% 
   mutate(nex = div*100) %>% 
   mutate(prob = nex/100) %>% 
-  mutate(log_all = -log(prob)) %>% 
+  mutate(log_all = -log(prob)) %>%
+  mutate(div = left_wpm/1000000) %>% 
+  mutate(nex = div*100) %>% 
+  mutate(prob = nex/100) %>% 
+  mutate(log_left = -log(prob)) %>% 
+  mutate(div =right_wpm/1000000) %>% 
+  mutate(nex = div*100) %>% 
+  mutate(prob = nex/100) %>% 
+  mutate(log_right = -log(prob)) %>% 
   rename(form = word) %>% 
-  select(form,gender,log_all)
+  select(form,gender,log_all,log_left,log_right)
 ```
 
 
@@ -422,7 +430,7 @@ final_spr <- left_join(final_spr,norming_means_neutral,by="lexeme")
 ```
 
 ```{r}
-final_spr <- subset(final_spr, select = -c(form.y,trial_count.y,trial_count.x,error,subject_information.comments,subject_information.asses,subject_information.enjoyment,subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5,subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13,lexeme_norm)) %>%
+final_spr <- subset(final_spr, select = -c(form.y,trial_count.y,trial_count.x,error,subject_information.asses,subject_information.enjoyment,subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5,subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13,lexeme_norm)) %>%
   rename(form_norm = indi_mean.x, lexeme_norm = indi_mean.y, form = form.x) %>%
   mutate(young_old = ifelse(subject_information.age > 40,"old","young")) 
 ```
@@ -854,6 +862,7 @@ sprt_data_all %>%
   scale_x_continuous(labels=c("[NAME]","is","a(n)","[TITLE]","from","[STATE].","s/he","likes","[ACTIVITY]"), breaks=0:8)
 ```
 
+
 ```{r}
 ggsave("sprt_neutral_all_regions.png", width=7,height=5,path='/Users/branpap/Desktop/gender_processing/talks_and_papers/qp_paper/figures')
 ```
@@ -876,7 +885,6 @@ summary(all_model)
 final_spr %>%
   filter(!is.na(poli_party)) %>%
   filter(!is.na(young_old)) %>%
-  filter(poli_party != "Non-Partisan") %>%
   group_by(form,poli_party,young_old) %>%
   mutate(resid_rt_mean = mean(resid_rt)) %>%
   filter(log_all > -5) %>%
@@ -963,3 +971,12 @@ age_n <- data.frame(poli_party = c("Democrat","Democrat","Republican","Republica
 df <- data.frame (first_column  = c("value_1", "value_2", ...),
                   second_column = c("value_1", "value_2", ...)
                   )
+
+
+```{r}
+unique(final_spr$subject_information.comments)
+```
+
+
+
+

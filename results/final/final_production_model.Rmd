@@ -23,7 +23,7 @@ The code and information contained herein constitutes the complete write-up of t
 
 For this write-up and analysis, I require the following packages, loaded in here:
 
-```{r echo=TRUE}
+```{r echo=TRUE, include=FALSE}
 library(ggplot2) 
 library(tidyverse) 
 library(lme4) 
@@ -48,15 +48,20 @@ theme_set(theme_minimal())
 
 ### Frequency Data
 
-We also need the frequency data!
+We also need the frequency data! These frequency values are taken from the Corpus of Contemporary American English^[https://www.english-corpora.org/coca/] (COCA), from only the spoken part of the corpus. 
 
 ```{r}
 frequency <- read.csv("freq_vals.csv")
 ```
 
+Here we set up objects which will specify both the liberal news sources (lib_cols) and the non-independent news sources (non_inds). These news sources' left vs. right wing skews were coded according to their positions on the Ad Fontes Media Bias Chart^[https://adfontesmedia.com].
+
 ```{r}
 lib_cols <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS')
+non_inds <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS','FOX')
 ```
+
+Here we take the raw frequency values obtained from COCA and turn them into words per million values, to account for the varying sizes of the media sources in the corpus. We also code the terms for whether or not the are gender neutral, and whether the neutral forms are compounds (e.g. congressperson) or adoptions of the male form (e.g. actor). Finally, we code them for their form gender.
 
 ```{r}
 frequency <- frequency %>%
@@ -67,88 +72,29 @@ frequency <- frequency %>%
   mutate(right_wpm = (total_right/12200000) * 1000000) %>%
   mutate(neutral_binary = ifelse(gender=="neutral",1,0)) %>%
   mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) %>% 
-  rename(form = word) 
+  rename(form = word) %>% 
+  mutate(freq_gender = ifelse(form == "actress" | form == "anchorwoman" | form == "stewardess" | form == "businesswoman" | form == 'camerawoman' | form == 'congresswoman' | form == 'craftswoman' | form == 'crewwoman' | form == 'firewoman' | form == 'forewoman'  | form == 'heiress' | form == 'heroine' | form == 'hostess' | form == 'huntress' | form == 'laywoman' | form == 'policewoman' | form == 'saleswoman' | form == 'stuntwoman' | form == 'villainess' | form == 'weatherwoman',"female",ifelse(form == "anchor" | form == "flight attendant" | form == "businessperson" | form == 'camera operator' | form == 'congressperson' | form == 'craftsperson' | form == 'crewmember' | form == 'firefighter' | form == 'foreperson' | form == 'layperson' | form == 'police officer' | form == 'salesperson' | form == 'stunt double' | form == 'meteorologist',"neutral",ifelse(form == "anchorman" | form == "steward" | form == "businessman" | form == 'cameraman' | form == 'congressman' | form == 'craftsman' | form == 'crewman' | form == 'fireman' | form == 'foreman' | form == 'layman' | form == 'policeman' | form == 'salesman' | form == 'stuntman' | form == 'weatherman',"male",'neutral'))))
 ```
 
-```{r}
-non_inds <- c('ABC','CNN','PBS','NBC','MSNBC','NPR','CBS','FOX')
-```
-
-
-```{r}
-test_freq <- read.csv("freq_vals.csv")
-
-test_freq <- test_freq %>% 
-  mutate(total = rowSums(test_freq[non_inds]))
-
-test_freq[test_freq == 0.00000000] <- 0.0001 
-
-test_freq <- test_freq %>% 
-  mutate(total_wpm = (total/121500000) * 1000000) %>% 
-  mutate(log_total = log(total_wpm))
-```
-
-
-```{r}
-frequency %>%
-  group_by(lexeme)
-```
-
-
-Re-write frequency to avoid zero numbers!
+Because we will be working in log space, we need to re-write frequency to avoid zero numbers. However, we still want them to be small to represent their non-presence in the corpus, so we give them a very small WPM value.
 
 ```{r}
 frequency[frequency == 0.00000000] <- 0.0001
 ```
 
-Take log frequency of each media type.
+We then take the log WPM of each media type, and subset out the individual media sources, which are no longer informative to the questions we are asking.
 
 ```{r}
 frequency <- frequency %>%
-  mutate(log_right = log(right_wpm), log_left = log(left_wpm), log_all = log(all_wpm)) 
+  mutate(log_right = log(right_wpm), log_left = log(left_wpm), log_all = log(all_wpm))
 ```
-
-Create media difference 
-
-```{r}
-frequency <- frequency %>% 
-  mutate(media_diff = log_left - log_right) %>%
-  mutate(nonexistent = ifelse(media_diff == 0 & log_left < -4,"true","false")) %>%
-  mutate(freq_gender = ifelse(form == "actress" | form == "anchorwoman" | form == "stewardess" | form == "businesswoman" | form == 'camerawoman' | form == 'congresswoman' | form == 'craftswoman' | form == 'crewwoman' | form == 'firewoman' | form == 'forewoman'  | form == 'heiress' | form == 'heroine' | form == 'hostess' | form == 'huntress' | form == 'laywoman' | form == 'policewoman' | form == 'saleswoman' | form == 'stuntwoman' | form == 'villainess' | form == 'weatherwoman',"female",ifelse(form == "anchor" | form == "flight attendant" | form == "businessperson" | form == 'camera operator' | form == 'congressperson' | form == 'craftsperson' | form == 'crewmember' | form == 'firefighter' | form == 'foreperson' | form == 'layperson' | form == 'police officer' | form == 'salesperson' | form == 'stunt double' | form == 'meteorologist',"neutral",ifelse(form == "anchorman" | form == "steward" | form == "businessman" | form == 'cameraman' | form == 'congressman' | form == 'craftsman' | form == 'crewman' | form == 'fireman' | form == 'foreman' | form == 'layman' | form == 'policeman' | form == 'salesman' | form == 'stuntman' | form == 'weatherman',"male",'neutral'))))
-```
-
 
 ```{r}
 frequency <- subset(frequency, select = -c(ABC,CNN,PBS,NBC,MSNBC,NPR,CBS,FOX))
 ```
 
-```{r}
-freq_log_all <- frequency %>% 
-  select(lexeme,freq_gender,log_all) %>% 
-  pivot_wider(names_from = freq_gender,values_from = log_all,names_prefix="log_all_")
-```
 
-```{r}
-freq_log_right <- frequency %>% 
-  select(lexeme,freq_gender,log_right) %>% 
-  pivot_wider(names_from = freq_gender,values_from = log_right,names_prefix="log_right_")
-```
-
-```{r}
-freq_log_left <- frequency %>% 
-  select(lexeme,freq_gender,log_left) %>% 
-  pivot_wider(names_from = freq_gender,values_from = log_left,names_prefix="log_left_")
-```
-
-```{r}
-freq_lex <- left_join(freq_log_all,freq_log_right,by="lexeme")
-```
-
-```{r}
-freq_lex <- left_join(freq_lex,freq_log_left,by="lexeme")
-```
-
-### Something
+Now we can create frequency values for the whole corpus, as well as the left vs. right wing media sources, named so that we can use them in later analyses. We do this by creating three gendered data frames, then joining them into net_lex, below. 
 
 ```{r}
 freq_all <- frequency %>% 
@@ -187,22 +133,6 @@ net_lex <- net_lex %>%
     )
   )
 ```
-
-### Heavy Data Analysis; DANGER ZONE
-
-```{r}
-freq_lex <- freq_lex %>%
-  mutate(morph_type = ifelse(lexeme!= 'actor' & lexeme!= 'host' & lexeme !='hunter' & lexeme!= 'villain' & lexeme!= 'heir' & lexeme!= 'hero','compound','adoption')) %>% 
-  mutate(
-    rel_fem_odds = log_all_neutral / log_all_female,
-    rel_male_odds = case_when(
-      morph_type == "adoption" ~ log_all_neutral / log_all_neutral,
-      morph_type == "compound" ~ log_all_neutral / log_all_male
-    )
-  )
-```
-
-
 
 ### Norming Data
 
@@ -398,7 +328,7 @@ final_prod <- left_join(final_prod,norming_means_neutral,by="lexeme")
 ```
 
 ```{r}
-final_prod <- subset(final_prod, select = -c(form.y,trial_count.y,trial_count.x,error,subject_information.comments,subject_information.asses,subject_information.enjoyment,subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5,subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13,lexeme_norm)) %>%
+final_prod <- subset(final_prod, select = -c(form.y,trial_count.y,trial_count.x,error,subject_information.comments,subject_information.asses,subject_information.enjoyment,subject_information.gender_q1,subject_information.gender_q2,subject_information.gender_q3,subject_information.gender_q4,subject_information.gender_q5,subject_information.gender_q6,subject_information.gender_q7,subject_information.gender_q8,subject_information.gender_q9,subject_information.gender_q10,subject_information.gender_q11,subject_information.gender_q12,subject_information.gender_q13,lexeme_norm,subject_information.comments)) %>%
   rename(form_norm = indi_mean.x, lexeme_norm = indi_mean.y, form = form.x)
 ```
 
@@ -878,6 +808,11 @@ final_prod %>%
   unique()
 ```
 
+### Comments
 
+```{r}
+final_prod %>% 
+  filter(!is.na(subject_information.comments))
+```
 
 
