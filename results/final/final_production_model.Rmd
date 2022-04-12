@@ -317,9 +317,9 @@ final_prod <- left_join(prod_data,norming_means,by="form")
 
 Now we can add the frequency data as well, by form. 
 
-```{r}
+
 final_prod <- left_join(final_prod,freq_lex,by="lexeme")
-```
+
 
 Now we can add additional lexeme-level norming information for the neutral forms, so that we can tackle the question of what role real-world expectations have on processing times. 
 
@@ -392,6 +392,9 @@ final_prod <- final_prod %>%
   mutate(c_age = scale(subject_information.age, scale=FALSE)) %>% 
   mutate(c_log_odds = scale(log_odds, scale=FALSE))
 ```
+
+
+
 
 # Visualisations 
 
@@ -620,6 +623,78 @@ test_e %>%
 
 ```{r}
 ggsave("prod-3x2x3.png", width=7,height=5,path='/Users/branpap/Desktop/gender_ideology/talks_and_papers/qp_paper/figures')
+```
+
+
+```{r}
+flight_attendant <- prod_all %>%
+  filter(lexeme == "flight attendant") %>% 
+  mutate(response_gender = case_when(
+    response_gender == "male/neutral" ~ "neutral",
+    TRUE ~ response_gender
+  )) %>%
+  select(workerid,gender,response_gender,gender_total,poli_party) %>% 
+  mutate(ideology = cut_number(gender_total,n=3,labels=c("progressive","moderate","conservative"))) %>% 
+  rename(trial_gender = gender) %>% 
+  mutate(trial_gender = as.factor(trial_gender),
+         response_gender = as.factor(response_gender))
+```
+
+```{r}
+flight_attendant <- flight_attendant %>% 
+  mutate(id = as.factor(row_number())) %>% 
+  expand_grid(c("male","female","neutral"),test$id) %>% 
+  rename(response_old = response_gender)
+```
+
+```{r}
+colnames(flight_attendant)[8] <- "response_gender"
+```
+
+```{r}
+flight_attendant <- flight_attendant %>% 
+  group_by(id) %>% 
+  mutate(response = case_when(response_gender == response_old ~ 1,TRUE ~ 0)) %>% 
+  select(-response_old)
+```
+
+```{r}
+flight_attendant %>% 
+  group_by(response_gender,trial_gender) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response),
+            obs = n(),
+            participants = n_distinct(workerid)) %>%
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=response_gender, 
+             y=proportion,
+             fill=trial_gender)) + 
+  geom_bar(stat="identity",
+           position = dodge) + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) + 
+  scale_fill_manual(values = sec_palette, limits=c("male","female")) + 
+  scale_alpha(range=c(0.4,1)) + 
+  labs(y="Proportion of Responses",x="Response Gender", fill="Trial Gender",alpha = "# of Participants") + 
+  theme(text=element_text(size=14)) + 
+  theme(axis.text.x = element_text(angle=20, vjust=.8)) + 
+  theme(legend.position = "top", legend.text = element_text(size=10), legend.title = element_text(size=10))
+# + 
+#  scale_x_discrete(sec.axis = sec_axis(~ . , name = "Gender Seen", breaks = NULL))
+```
+
+
+
+```{r}
+prod_all %>% 
+  ggplot(aes(x=trial_gender,fill=response_gender)) + 
+  geom_bar(position="fill") + 
+  scale_fill_manual(values = sec_palette, limits=c("male","female","neutral")) + 
+  labs(x="Trial Gender", y = "Proportion of Responses", legend="Response Gender")
 ```
 
 

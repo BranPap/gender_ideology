@@ -44,6 +44,9 @@ theme_set(theme_minimal())
 
 dodge = position_dodge(0.9)
 
+ad_lexemes <- c("actor","emperor","god","newsboy","sorcerer","usher","host","hunter","villain","heir","hero")
+
+`%notin%` <- Negate(`%in%`)
 ```
 
 ## Methods
@@ -142,7 +145,16 @@ Presented here are the mean evaluations of all 39 lexemes in each of their gende
 
 ```{r include=FALSE}
 norming_means <- norming_data %>%
-  group_by(id,gender,orthog) %>%
+  mutate(young_old = ifelse(subject_information.age > 40,"old","young")) %>% 
+  mutate(morphology = case_when(
+    neutral_morh != "male_adoption" ~ "compound", 
+    TRUE ~ "adoption"
+  )) %>% 
+  mutate(gender = case_when(
+    gender == "male" & morphology == "adoption" ~ "neutral",
+    TRUE ~ paste(gender)
+  )) %>% 
+  group_by(id,gender) %>%
   summarise(indi_mean = mean(equalized_response),
             trial_count=n(),
             CI.Low = ci.low(equalized_response),
@@ -151,6 +163,35 @@ norming_means <- norming_data %>%
   mutate(YMin = indi_mean - CI.Low,
          YMax = indi_mean + CI.High)
 ```
+
+norming_means <- norming_data %>% 
+  mutate(morphology = case_when(
+    neutral_morh != "male_adoption" ~ "compound", 
+    TRUE ~ "adoption"
+  )) %>% 
+  group_by(id,gender,morphology) %>% 
+  summarize(indi_mean = mean(equalized_response),
+            trial_count=n(),
+            CI.Low = ci.low(equalized_response),
+            CI.High = ci.high(equalized_response)
+            ) %>% 
+  spread(gender,indi_mean) %>% 
+  mutate(true_neutral = case_when(
+    morphology == "Adoption" ~ (male + neutral)/2,
+    TRUE ~ neutral
+  )) %>% 
+  gather(gender, value, female:true_neutral, factor_key = TRUE) %>% 
+  mutate(temp = case_when(
+    morphology == "adoption" & gender == "male" ~ "del",
+    TRUE ~ 'no',
+  )) %>% 
+  filter(gender != "neutral") %>% 
+  filter(temp == 'no') %>% 
+  mutate(gender = case_when(
+    gender == "true_neutral" ~ "neutral",
+    TRUE ~ paste(gender)
+  )) %>% 
+  select(-temp)
 
 ```{r include=FALSE}
 text_high <- textGrob("Female", gp=gpar(fontsize=10, fontface="bold"))
@@ -211,5 +252,51 @@ ggsave("norming_means_subsequent.png", width=7,height=4, path="/Users/branpap/De
 ```
 
 
+```{r include=FALSE}
+norming_means_av <- norming_data %>%
+  mutate(young_old = ifelse(subject_information.age > 40,"old","young")) %>% 
+  group_by(gender,young_old) %>%
+  summarise(indi_mean = mean(equalized_response),
+            trial_count=n(),
+            CI.Low = ci.low(equalized_response),
+            CI.High = ci.high(equalized_response)
+            ) %>% 
+  mutate(YMin = indi_mean - CI.Low,
+         YMax = indi_mean + CI.High)
+```
+
+```{r}
+norming_means_av %>% 
+  ggplot(aes(x=gender,y=indi_mean)) + 
+  geom_bar(stat='identity') + 
+  facet_wrap(~young_old)
+```
 
 
+```{r include=FALSE}
+norming_data %>%
+  mutate(young_old = ifelse(subject_information.age > 40,"old","young")) %>% 
+  mutate(morphology = case_when(
+    neutral_morh != "male_adoption" ~ "compound", 
+    TRUE ~ "adoption"
+  )) %>% 
+  mutate(gender = case_when(
+    gender == "male" & morphology == "adoption" ~ "neutral",
+    TRUE ~ paste(gender)
+  )) %>% 
+  group_by(gender) %>%
+  summarise(indi_mean = mean(equalized_response),
+            trial_count=n(),
+            CI.Low = ci.low(equalized_response),
+            CI.High = ci.high(equalized_response)
+            ) %>% 
+  mutate(YMin = indi_mean - CI.Low,
+         YMax = indi_mean + CI.High) %>% 
+  ggplot(aes(x=gender,y=indi_mean,fill=gender)) +
+  geom_bar(stat="identity") + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                width=0.25) + 
+  theme(legend.position = "none")  + 
+  labs(x="Item Gender", y="Mean Rating", color = "Gender of Form Seen") + 
+  scale_fill_manual(values = sec_palette, limits=c("male","female","neutral")) 
+```
