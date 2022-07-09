@@ -161,9 +161,7 @@ prod_exclusion <- prod_data %>%
   filter(exclude == "Yes") 
 ```
 
-```{r}
-prod_data <- prod_data[!(prod_data$workerid %in% prod_exclusion$workerid),]
-```
+?
 
 **Additional Information**
 

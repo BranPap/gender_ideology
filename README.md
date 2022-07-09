@@ -12,4 +12,12 @@ Using a self-paced reading task and a forced-choice task, we tested the role of 
 
 ### Experiments
 
-Under construction
+You can find in this folder a series of subfolders for each of the four experiments conducted in the course of this project:
+- norming_study_one: Norming study for 39 potential critical items (not included in CogSci paper)
+- 1_Reading_Neutrality: Self-paced reading study (Experiment 1 in CogSci paper)
+- 2_Maze_Neutrality: MAZE-task reading study (not included in CogSci paper)
+- 3_Production: Forced-choice production study (Experiment 2 in CogSci paper)
+
+Each experimental folder includes the experiments themselves (experiment.html), as well as support folders and a folder for automated stimuli creation[^1] (except in the norming study). 
+
+[^1] Thanks to Max Zvyagin for helping with this stimuli creation process. 

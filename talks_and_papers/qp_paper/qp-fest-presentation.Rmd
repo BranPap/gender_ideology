@@ -1,0 +1,72 @@
+---
+title: "'Sally the Congressperson': Interlocutor Agency Modulates the Role of Subjective Social Beliefs in Linguistic Processes"
+author: "Bran Papineau"
+date: "5/23/2022"
+output: ioslides_presentation
+---
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+- Background
+- Research Question
+- Study One: Processing
+  - Methods
+  - Results
+- Study Two: Production
+  - Methods
+  - Results
+-Discussion
+-Conclusion
+
+# Background
+
+## Background: 
+
+## Background: Surprisal
+
+# Research Question
+
+# Something
+
+# The Studies
+
+# Study One: Processing
+
+## Methods
+
+- n=279 English-speaking participants recruited through Prolific 
+  - Exclusions (failure on 85% of attention checks): n=19
+- Web-based self-paced reading task
+  - Reading time is proportional to processing difficulty
+- Post-experimental survey of gender ideology (Baber & Tucker 2008)
+  - 13 questions, 1-100 sliding scale
+  - 0 = most gender progressive | 100 = most gender conservative
+
+
+## Methods: Experimental Design
+
+## Results
+
+# Study Two: Production
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
