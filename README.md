@@ -35,7 +35,7 @@ Admittedly, this part of the repo is a bit messy at the moment, and will be clea
 
 ### Talks and Papers
 
-This folder contains my write-ups from this research project. This includes a write-up of my Qualifying Paper (Papineau-QP1.pdf), as well as our CogSci 2022 paper (cogsci_2022.pdf). It also includes all output images used in these presentations. 
+This folder contains my write-ups from this research project. This includes a write-up of my Qualifying Paper (Qualifying_Paper/Papineau-QP1.pdf), as well as our CogSci 2022 paper (CogSci_2022/papineau-et-al-2022.pdf). It also includes all output images used in these presentations. 
 
 Again, a bit messy at the moment. Will be cleaned up shortly.
 
