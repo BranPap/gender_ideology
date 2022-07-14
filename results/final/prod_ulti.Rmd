@@ -15,7 +15,9 @@ output:
 ---
 
 # Introduction 
-The code and information contained herein constitutes the complete write-up of the experiments I carried out for my first Qualifying Paper towards the PhD in Linguistics at Stanford University.The data is fully anonymized, and should be usable by other researchers. If you have any questions or concerns about the code or information contained herein, please feel free to reach out to me via email at branpap[at]stanford[dot]edu.
+The code and information contained herein constitutes the complete analysis script for the production experiment (forced-choice task) I conducted during my investigation into the relationship between individuals' gender ideology and the processing and production of gender-neutral language. 
+
+The data is fully anonymized, and should be usable by other researchers. If you have any questions or concerns about the code or information contained herein, please feel free to reach out to me via email at branpap[at]stanford[dot]edu.
 
 
 ## Preliminaries
@@ -35,7 +37,7 @@ library(grid)
 source("helpers.R")
 ```
 
-I also use two custom color palettes, so I include the code for those here as well^[It is my hope and intention that these color palettes be color-blind friendly. If you have accessibility concerns, please do not hesitate to reach out to me!]. Finally, all ggplots included herein use the minimal ggplot theme.
+I also use two custom color palettes, so I include the code for those here as well^[It is my hope and intention that these color palettes be color-blind friendly. If you have accessibility concerns, please do not hesitate to reach out to me!]. Finally, all ggplots included herein use the minimal ggplot theme, and we use a custom dodge position for side-by-side bar plots.
 
 ```{r}
 bran_palette = c("#7ae7e5", "#fe5f55", "#B2A6DE", "#14342b", "#69385c")
@@ -82,32 +84,29 @@ Because we will be working in log space, we need to re-write frequency to avoid 
 frequency[frequency == 0.00000000] <- 0.0001
 ```
 
-We then take the log WPM of each media type, and subset out the individual media sources, which are no longer informative to the questions we are asking.
+We then take the log WPM of each media type, and subset out the individual media sources (e.g. Fox, CNN), which are no longer informative to the questions we are asking; we want whole-wing WPM values.
 
 ```{r}
 frequency <- frequency %>%
   mutate(log_right = log(right_wpm), log_left = log(left_wpm), log_all = log(all_wpm))
-```
 
-```{r}
 frequency <- subset(frequency, select = -c(ABC,CNN,PBS,NBC,MSNBC,NPR,CBS,FOX))
 ```
 
 Now we can create frequency values for the whole corpus, as well as the left vs. right wing media sources, named so that we can use them in later analyses. We do this by creating three gendered data frames, then joining them into net_lex, below. 
 
 ```{r}
+# All Media Sources (left and right)
 freq_all <- frequency %>% 
   select(lexeme,freq_gender,all_wpm) %>% 
   pivot_wider(names_from = freq_gender,values_from = all_wpm,names_prefix="all_wpm_")
-```
 
-```{r}
+# Right-wing media only
 freq_right <- frequency %>% 
   select(lexeme,freq_gender,right_wpm) %>% 
   pivot_wider(names_from = freq_gender,values_from = right_wpm,names_prefix="right_wpm_")
-```
 
-```{r}
+# left wing media only
 freq_left <- frequency %>% 
   select(lexeme,freq_gender,left_wpm) %>% 
   pivot_wider(names_from = freq_gender,values_from = left_wpm,names_prefix="left_wpm_")
@@ -115,13 +114,11 @@ freq_left <- frequency %>%
 
 ```{r}
 net_lex <- left_join(freq_all,freq_right,by="lexeme")
-```
 
-```{r}
 net_lex <- left_join(net_lex,freq_left,by="lexeme")
 ```
 
-Now that we have the values for each of these forms, we can calculate the relative expectation of a form appearing as neutral when coreferential with a gendered name. This is because participants were presented with both gendered and gender-neutral options. 
+Now that we have the values for each of these forms, we can calculate the relative expectation of a form appearing as neutral when coreferential with a gendered name. This is because participants were presented with both gendered and gender-neutral options. Note that this DOES assume a 0 probability of choosing the gender-incongruent answer; this is a design choice and has consequences. 
 
 ```{r}
 net_lex <- net_lex %>%
@@ -134,6 +131,8 @@ net_lex <- net_lex %>%
     )
   )
 ```
+
+Finally, let's just take out the relevant part of this data frame; the relative odds of a female or male form being selected. 
 
 ```{r}
 net_lex <- net_lex %>% 
@@ -161,7 +160,6 @@ prod_exclusion <- prod_data %>%
   filter(exclude == "Yes") 
 ```
 
-?
 
 **Additional Information**
 
@@ -249,19 +247,21 @@ final_prod <- final_prod %>%
   filter(incongruent == "real")
 ```
 
-**Models**
+# Analysis
+
+Now that we have everything we actually need, we can start in on analysis.
+
+## Primary Models
 
 Now, in order to see what comes out as statistically significant for each of the political parties, we want to run some mixed effects logistic models (logistic because our output variable is binary). We run separate logistic models for each party for reasons of interpetability. 
 
-***Democrats***
+### Democrats
 
-We start with the democrats, so we set the reference level for trial gender as male and continue on by creating a data frame for the democrats and running their model.
+We start with the democrats, so we set the reference level for trial gender as male (for all the political parties) and continue on by creating a data frame for the democrats and running their model.
 
 ```{r}
 final_prod$trial_gender = relevel(final_prod$trial_gender, ref="male")
-```
 
-```{r}
 dems <- final_prod %>% 
   filter(poli_party == "Democrat")
 ```
@@ -274,7 +274,7 @@ dem_model <- glmer(as.factor(response_neutral)~c_trial_gender*c_gender_total + c
 summary(dem_model)
 ```
 
-***Republicans*** 
+### Republicans
 
 Now we do the same for the republicans. 
 
@@ -291,7 +291,7 @@ rep_model <- glmer(as.factor(response_neutral)~c_trial_gender*c_gender_total + c
 summary(rep_model)
 ```
 
-***Non-Partisans***
+### Non-Partisans
 
 Finally, the non-partisans.
 
@@ -308,7 +308,15 @@ ind_model <- glmer(response_neutral~c_trial_gender*c_gender_total + c_log_odds +
 summary(ind_model)
 ```
 
-### Visualizations
+## Visualization
+
+The primary visualization we want (and the one included in Papineau et al. 2022) is the 2x3x3 design results, where we have as independent variables:
+
+- both vignette genders (male and female)
+- all three political parties (Democrats, Republicans, and Non-Partisans)
+- all three within-party ideological bins (conservatives, moderates, and progressives)
+
+and our dependent variable is the proportion of responses by gender (male/female/neutral).
 
 ```{r}
 base <- prod_all %>% 
@@ -383,11 +391,11 @@ expanded_prod %>%
 ```
 
 
-### Some other stuff
+## Auxiliary Analyses
 
-We might have additional questions about the data, which are included here. 
+We also asked some additional questions of the data, which are included here. 
 
-**Character Gender** 
+### Neutral Responses by Character Gender
 
 Looking at the effect of character gender in the vignettes, we see above that female names elicit fewer neutral responses than do the male names. We can calculate the proportions here:
 
@@ -397,9 +405,9 @@ final_prod %>%
   summarise(mean_neutral = mean(response_neutral))
 ```
 
-**Political Party**
+### Neutral Responses by Political Party
 
-We can do the same by political party, irrespective of gender ideology.
+We can do the same by political party, irrespective of gender ideology, to confirm that Democrats are more likely to use neutral responses than Republicans. 
 
 ```{r}
 final_prod %>% 
@@ -407,22 +415,23 @@ final_prod %>%
   summarise(mean_neutral = mean(response_neutral))
 ```
 
-**Correlation Between Right & Left-wing News Sources**
+### Correlation Between Right & Left-wing News Sources
+
+Finally, in order to confirm that the language differences between left-wing and right-wing media are not significant enough to warrant using both separately as predictors in the model (which we did not do), we can test the correlation between the log frequencies of the two wings' medias.
 
 ```{r}
 cor(frequency$log_right,frequency$log_left)
 ```
 
-### Comments
+# Comments
+
+Stepping out of the analyses, if we are interested in the qualitative comments provided by participants, we can see those (making sure we only see each comment once per participant; not per response!).
 
 ```{r}
 prod_comments <- final_prod %>% 
   group_by(workerid) %>% 
   mutate(comments = paste(unique(subject_information.comments))) 
-```
 
-
-```{r}
 unique(final_prod$subject_information.comments)
 ```
 
