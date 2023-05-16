@@ -11,7 +11,7 @@ Using a self-paced reading task and a forced-choice task, we tested the role of 
 ## Output
 
 ### CogSci 2022
-A version of this work will be presented at the 2022 annual meeting of the Cognitive Science Society in Toronto, co-authored with Judith Degen and Robert J Podesva. You can read the manuscript <a href="https://alpslab.stanford.edu//papers/2022_PapineauEtAl.pdf">here</a>.
+A version of this work will be presented at the 2022 annual meeting of the Cognitive Science Society in Toronto, co-authored with Judith Degen and Robert J Podesva. You can read the manuscript <a href="https://escholarship.org/uc/item/8k59g29g">here</a>.
 
 ## This Repository
 

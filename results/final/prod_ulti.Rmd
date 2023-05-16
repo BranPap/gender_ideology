@@ -243,8 +243,14 @@ prod_all <- final_prod
 Okay, now we can filter out the incongruent responses. 
 
 ```{r}
-final_prod <- final_prod %>%
+final_prod_all <- final_prod %>%
   filter(incongruent == "real")
+```
+
+
+```{r}
+final_prod <- final_prod %>%
+  filter(incongruent == "real") 
 ```
 
 # Analysis
@@ -263,11 +269,11 @@ We start with the democrats, so we set the reference level for trial gender as m
 final_prod$trial_gender = relevel(final_prod$trial_gender, ref="male")
 
 dems <- final_prod %>% 
-  filter(poli_party == "Democrat")
+  filter(poli_party == "Democrat") 
 ```
 
 ```{r}
-dem_model <- glmer(as.factor(response_neutral)~c_trial_gender*c_gender_total + c_log_odds + (1|workerid) + (1|lexeme),data=dems,family="binomial")
+dem_model <- glmer(as.factor(response_neutral)~c_trial_gender*c_gender_total + c_log_odds + (1|workerid) + (1|lexeme),data=dems,family="binomial",control = glmerControl(optCtrl = list(maxfun=2e4)))
 ```
 
 ```{r}
@@ -308,6 +314,27 @@ ind_model <- glmer(response_neutral~c_trial_gender*c_gender_total + c_log_odds +
 summary(ind_model)
 ```
 
+
+### Political Analysis
+
+In order to confirm that there was a significant difference between political parties in their proportions of neutral responses, we run a simple model predicting gender neutral responses from just political party:
+
+```{r}
+final_prod_no <- final_prod %>% 
+  filter(lexeme != "firefighter") %>% 
+  filter(lexeme != "meteorologist")
+```
+
+
+```{r}
+all_poli <- glmer(response_neutral~poli_party + (1|lexeme) + (1|workerid), data=final_prod_no, family="binomial")
+```
+
+```{r}
+summary(all_poli)
+```
+
+
 ## Visualization
 
 The primary visualization we want (and the one included in Papineau et al. 2022) is the 2x3x3 design results, where we have as independent variables:
@@ -336,7 +363,7 @@ prod_to_expand <- prod_all %>%
     response_gender == "male/neutral" ~ "neutral",
     TRUE ~ response_gender
   )) %>%
-  select(workerid,gender,response_gender,gender_total,poli_party) %>% 
+  select(workerid,gender,response_gender,gender_total,poli_party,incongruent,trial_no) %>% 
   mutate(ideology = cut_number(gender_total,n=3,labels=c("progressive","moderate","conservative"))) %>% 
   rename(trial_gender = gender) %>% 
   mutate(trial_gender = as.factor(trial_gender),
@@ -351,7 +378,7 @@ expanded_prod <- prod_to_expand %>%
 ```
 
 ```{r}
-colnames(expanded_prod)[8] <- "response_gender"
+colnames(expanded_prod)[10] <- "response_gender"
 ```
 
 ```{r}
@@ -363,6 +390,7 @@ expanded_prod <- expanded_prod %>%
 
 ```{r}
 expanded_prod %>% 
+  filter(poli_party != "Non-Partisan") %>% 
   group_by(response_gender,trial_gender,ideology,poli_party) %>% 
   summarize(proportion = mean(response),
             CI.Low = ci.low(response),
@@ -374,8 +402,8 @@ expanded_prod %>%
          YMax = proportion + CI.High) %>% 
   ggplot(aes(x=ideology, 
              y=proportion, 
-             fill=response_gender,
-             alpha=as.numeric(participants))) + 
+             fill=response_gender)),
+ #            alpha=as.numeric(participants))) + 
   geom_bar(stat="identity",
            position = dodge) + 
   geom_errorbar(aes(ymin = YMin, ymax=YMax),
@@ -383,11 +411,115 @@ expanded_prod %>%
                 width=0.25) + 
   facet_grid(poli_party~trial_gender) + 
   scale_fill_manual(values = sec_palette, limits=c("male","female","neutral")) + 
-  scale_alpha(range=c(0.4,1)) + 
+  #scale_alpha(range=c(0.4,1)) + 
   labs(y="Proportion of Responses",x="Gender Ideology", fill="Response Form Gender",alpha = "# of Participants") + 
   theme(text=element_text(size=14)) + 
   theme(axis.text.x = element_text(angle=20, vjust=.8)) + 
   theme(legend.position = "top", legend.text = element_text(size=10), legend.title = element_text(size=10))
+```
+
+
+### Build-Up Visuals
+
+```{r}
+prod_viz <- prod_to_expand
+```
+
+```{r}
+prod_viz %>%
+  mutate(incongruent == "real") %>%
+  mutate(response = case_when(
+    response_gender == "neutral" ~ 1,
+    TRUE ~ 0
+  )) %>% 
+  filter(poli_party != "Non-Partisan") %>% 
+  group_by(trial_no,poli_party) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response)) %>%
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=trial_no, 
+             y=proportion)) + 
+  geom_point() + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) +
+ # scale_fill_manual(values = bran_palette, limits=c("Democrat","Republican")) + 
+  #scale_alpha_discrete(range = c(0.4, 1)) +
+  labs(x="Gender Ideology", y="Proportion of Gender-Neutral Responses") + 
+  theme_bw() + 
+  theme(legend.position = "none", text = element_text(size=13)) + 
+  ylim(0,1) + 
+  geom_smooth(method="lm") + 
+  facet_wrap(~poli_party)
+```
+
+
+```{r}
+prod_viz %>%
+  mutate(incongruent == "real") %>%
+  mutate(response = case_when(
+    response_gender == "neutral" ~ 1,
+    TRUE ~ 0
+  )) %>% 
+  filter(poli_party != "Non-Partisan") %>% 
+  group_by(poli_party,ideology) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response)) %>%
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=ideology, 
+             y=proportion,
+             fill=poli_party,
+             alpha=ideology)) + 
+  geom_bar(stat="identity",
+           position = dodge) + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) +
+  scale_fill_manual(values = bran_palette, limits=c("Democrat","Republican")) + 
+  scale_alpha_discrete(range = c(0.4, 1)) +
+  labs(x="Gender Ideology", y="Proportion of Gender-Neutral Responses") + 
+  theme_bw() + 
+  theme(legend.position = "none", text = element_text(size=13)) + 
+  ylim(0,1) + 
+  facet_wrap(~poli_party)
+```
+
+
+```{r}
+prod_viz %>%
+  mutate(incongruent == "real") %>%
+  mutate(response = case_when(
+    response_gender == "neutral" ~ 1,
+    TRUE ~ 0
+  )) %>% 
+  filter(poli_party != "Non-Partisan") %>% 
+  group_by(poli_party) %>% 
+  summarize(proportion = mean(response),
+            CI.Low = ci.low(response),
+            CI.High = ci.high(response)) %>%
+  ungroup() %>% 
+  mutate(YMin = proportion - CI.Low,
+         YMax = proportion + CI.High) %>% 
+  ggplot(aes(x=poli_party, 
+             y=proportion,
+             fill=poli_party)) + 
+  geom_bar(stat="identity",
+           position = dodge) + 
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),
+                position = dodge,
+                width=0.25) +
+  scale_fill_manual(values = bran_palette, limits=c("Democrat","Republican")) + 
+  labs(x="Political Party", y="Proportion of Gender-Neutral Responses") + 
+    theme_bw() + 
+  theme(legend.position = "none", text = element_text(size=13)) + 
+  ylim(0,1) 
+
 ```
 
 
@@ -434,4 +566,3 @@ prod_comments <- final_prod %>%
 
 unique(final_prod$subject_information.comments)
 ```
-
